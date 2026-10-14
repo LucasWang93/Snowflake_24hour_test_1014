@@ -1,0 +1,14 @@
+{
+  ".env.example": "5fbc0ad2746cc585a7312e88e608d4ea498182dccb24a20b8ba4605046d6bfe8",
+  "AGENTS.md": "a24e5bdc21bbbc032376498761eecf05d38aaa5ef51c21c5192cc9c42cb07aa2",
+  "requirements-dev.txt": "11729db2adfb7e6ee9da787073b40c412b7ab8e292766552cf599c62470a8c33",
+  "requirements-snowflake.txt": "388ab84730f530e2f7704579bc680cadd1589a280b78e97dbaa0e9c02b7cd08e",
+  "pyproject.toml": "32d22366641528ffa4ca5b04d594924a7244c67961f0c1ac9a7351ddd038dd21",
+  "scripts/snowflake_probe.py": "9f837ef6459f8ef58e6aa0cd7c4487316f031f06c1c13a541d4b1258d770ed6c",
+  "scripts/doctor.sh": "dce36edf1c8c7407e653e67f11f2499095d08ec663855f90016fb4ca0e246e89",
+  "scripts/verify.sh": "2441c5ba7db9efac97b93fa2e125f27c4fbb02ecc157b16b3a3a6f37cc4cdf83",
+  "scripts/preflight.sh": "3b07118d8380d542a39bd4a249bba4389d6fb680648f1321d948705dfb7d88c5",
+  "docs/snowflake_inventory.json": "19c25ca7ee8fb8dcd7febbe111840fffc18ab3494c5d2710c3716f6670d4dbec",
+  "docs/snowflake_evidence.json": "d7eb3e96d97f379949fed40ecc0a7223da4b26a5993332915031444040ac2f8d",
+  "docs/snowflake_metadata.json": "cff5f4e588af1abfee98a791c25b44318f3030837585448068c24afaed7d45e1"
+}

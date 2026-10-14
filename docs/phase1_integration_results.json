@@ -1,0 +1,333 @@
+{
+  "started_at_utc": "2026-10-14T16:32:35.795402+00:00",
+  "queries": [
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B01003e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bda9-0008-3d1a0002a02a",
+      "elapsed_seconds": 1.476,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B01003e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          674.0
+        ],
+        [
+          "010010201002",
+          1267.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B01002e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd57-0008-3d1a000176d2",
+      "elapsed_seconds": 0.398,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B01002e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          46.2
+        ],
+        [
+          "010010201002",
+          36.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B19001e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bda9-0008-3d1a0002a02e",
+      "elapsed_seconds": 1.919,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B19001e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          290.0
+        ],
+        [
+          "010010201002",
+          403.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B15003e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B15\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd12-0008-3d1a000166aa",
+      "elapsed_seconds": 0.747,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B15003e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          484.0
+        ],
+        [
+          "010010201002",
+          825.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B23025e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B23\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd10-0008-3d1a0002504e",
+      "elapsed_seconds": 0.74,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B23025e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          606.0
+        ],
+        [
+          "010010201002",
+          952.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT d.\"CENSUS_BLOCK_GROUP\", f.\"STATE\", f.\"STATE_FIPS\", f.\"COUNTY_FIPS\", f.\"COUNTY\", g.\"CENSUS_BLOCK_GROUP\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" d JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_METADATA_CBG_FIPS_CODES\" f ON SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 1, 2) = f.\"STATE_FIPS\" AND SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 3, 3) = f.\"COUNTY_FIPS\" JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_METADATA_CBG_GEOGRAPHIC_DATA\" g ON d.\"CENSUS_BLOCK_GROUP\" = g.\"CENSUS_BLOCK_GROUP\" WHERE d.\"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY d.\"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd10-0008-3d1a00025052",
+      "elapsed_seconds": 1.153,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "STATE",
+        "STATE_FIPS",
+        "COUNTY_FIPS",
+        "COUNTY",
+        "CENSUS_BLOCK_GROUP"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201001"
+        ],
+        [
+          "010010201002",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201002"
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT d.\"CENSUS_BLOCK_GROUP\", f.\"STATE\", f.\"STATE_FIPS\", f.\"COUNTY_FIPS\", f.\"COUNTY\", g.\"CENSUS_BLOCK_GROUP\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" d JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_METADATA_CBG_FIPS_CODES\" f ON SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 1, 2) = f.\"STATE_FIPS\" AND SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 3, 3) = f.\"COUNTY_FIPS\" JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_METADATA_CBG_GEOGRAPHIC_DATA\" g ON d.\"CENSUS_BLOCK_GROUP\" = g.\"CENSUS_BLOCK_GROUP\" WHERE d.\"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY d.\"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd57-0008-3d1a000176da",
+      "elapsed_seconds": 0.699,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "STATE",
+        "STATE_FIPS",
+        "COUNTY_FIPS",
+        "COUNTY",
+        "CENSUS_BLOCK_GROUP"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201001"
+        ],
+        [
+          "010010201002",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201002"
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT d.\"CENSUS_BLOCK_GROUP\", f.\"STATE\", f.\"STATE_FIPS\", f.\"COUNTY_FIPS\", f.\"COUNTY\", g.\"CENSUS_BLOCK_GROUP\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_REDISTRICTING_CBG_DATA\" d JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_METADATA_CBG_FIPS_CODES\" f ON SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 1, 2) = f.\"STATE_FIPS\" AND SUBSTR(d.\"CENSUS_BLOCK_GROUP\", 3, 3) = f.\"COUNTY_FIPS\" JOIN \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_REDISTRICTING_METADATA_CBG_GEOGRAPHIC_DATA\" g ON d.\"CENSUS_BLOCK_GROUP\" = g.\"CENSUS_BLOCK_GROUP\" WHERE d.\"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY d.\"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bda9-0008-3d1a0002a032",
+      "elapsed_seconds": 1.118,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "STATE",
+        "STATE_FIPS",
+        "COUNTY_FIPS",
+        "COUNTY",
+        "CENSUS_BLOCK_GROUP"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201001"
+        ],
+        [
+          "010010201002",
+          "AL",
+          "01",
+          "001",
+          "Autauga County",
+          "010010201002"
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B01001e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s) ORDER BY \"CENSUS_BLOCK_GROUP\" LIMIT 2",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bda9-0008-3d1a0002a036",
+      "elapsed_seconds": 0.172,
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B01001e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          674.0
+        ],
+        [
+          "010010201002",
+          1267.0
+        ]
+      ]
+    },
+    {
+      "sql": "SELECT SUM(\"B01001e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" IN (%s, %s)",
+      "parameters": [
+        "010010201001",
+        "010010201002"
+      ],
+      "query_id": "01c7ba60-3204-bd10-0008-3d1a00025056",
+      "elapsed_seconds": 0.344,
+      "columns": [
+        "SUM(\"B01001E1\")"
+      ],
+      "rows": [
+        [
+          1941.0
+        ]
+      ]
+    }
+  ],
+  "cleanup": {
+    "alter": {
+      "query_id": "01c7ba60-3204-bd57-0008-3d1a000176de",
+      "elapsed_seconds": 0.163,
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ]
+    },
+    "show_query_id": "01c7ba60-3204-bb79-0008-3d1a000158aa",
+    "warehouse": {
+      "name": "SNOWFLAKE_LEARNING_WH",
+      "state": "SUSPENDED",
+      "type": "STANDARD",
+      "size": "X-Small",
+      "min_cluster_count": 1,
+      "max_cluster_count": 1,
+      "started_clusters": 0,
+      "running": 0,
+      "queued": 0,
+      "is_default": "Y",
+      "is_current": "Y",
+      "auto_suspend": 60,
+      "auto_resume": "true",
+      "available": "",
+      "provisioning": "",
+      "quiescing": "",
+      "other": "",
+      "created_on": "2026-10-14 06:50:27.994000-07:00",
+      "resumed_on": "2026-10-14 09:32:44.781000-07:00",
+      "updated_on": "2026-10-14 09:32:44.781000-07:00",
+      "owner": "ACCOUNTADMIN",
+      "comment": "Created by Snowflake during account provisioning",
+      "enable_query_acceleration": "true",
+      "query_acceleration_max_scale_factor": 8,
+      "resource_monitor": "null",
+      "actives": 0,
+      "pendings": 0,
+      "failed": 0,
+      "suspended": 1,
+      "uuid": "138222088",
+      "scaling_policy": "STANDARD",
+      "owner_role_type": "ROLE",
+      "resource_constraint": "STANDARD_GEN_2",
+      "generation": "2",
+      "query_throughput_multiplier": null,
+      "max_query_performance_level": null,
+      "disabled_reasons": null,
+      "tables": null
+    },
+    "confirmed_suspended": true
+  },
+  "test_outcomes": {
+    "tests/test_phase1_live.py::test_retrieved_field_executes_exact_identifier[population]": "passed",
+    "tests/test_phase1_live.py::test_retrieved_field_executes_exact_identifier[median age]": "passed",
+    "tests/test_phase1_live.py::test_retrieved_field_executes_exact_identifier[household income]": "passed",
+    "tests/test_phase1_live.py::test_retrieved_field_executes_exact_identifier[education]": "passed",
+    "tests/test_phase1_live.py::test_retrieved_field_executes_exact_identifier[employment]": "passed",
+    "tests/test_phase1_live.py::test_geography_real_data_join_matches_offline_mapping[2019_CBG_B01]": "passed",
+    "tests/test_phase1_live.py::test_geography_real_data_join_matches_offline_mapping[2020_CBG_B01]": "passed",
+    "tests/test_phase1_live.py::test_geography_real_data_join_matches_offline_mapping[2020_REDISTRICTING_CBG_DATA]": "passed",
+    "tests/test_phase1_live.py::test_safe_count_sum_matches_bounded_real_sql": "passed"
+  },
+  "finished_at_utc": "2026-10-14T16:32:54.562367+00:00"
+}

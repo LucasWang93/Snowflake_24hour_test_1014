@@ -1,0 +1,5383 @@
+{
+  "metadata_tables": [
+    {
+      "name": "2020_METADATA_CBG_FIELD_DESCRIPTIONS",
+      "describe": {
+        "query_id": "01c7ba37-3204-bb79-0008-3d1a0001577e",
+        "elapsed_seconds": 0.216,
+        "columns": [
+          "name",
+          "type",
+          "kind",
+          "null?",
+          "default",
+          "primary key",
+          "unique key",
+          "check",
+          "expression",
+          "comment",
+          "policy name",
+          "privacy domain",
+          "write default"
+        ],
+        "rows": [
+          [
+            "TABLE_ID",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "TABLE_NUMBER",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "TABLE_TITLE",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "TABLE_TOPICS",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "TABLE_UNIVERSE",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_1",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_2",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_3",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_4",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_5",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_6",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_7",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_8",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVELl_9",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "FIELD_LEVEL_10",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      "sample": {
+        "query_id": "01c7ba37-3204-bb79-0008-3d1a00015782",
+        "elapsed_seconds": 0.777,
+        "columns": [
+          "TABLE_ID",
+          "TABLE_NUMBER",
+          "TABLE_TITLE",
+          "TABLE_TOPICS",
+          "TABLE_UNIVERSE",
+          "FIELD_LEVEL_1",
+          "FIELD_LEVEL_2",
+          "FIELD_LEVEL_3",
+          "FIELD_LEVEL_4",
+          "FIELD_LEVEL_5",
+          "FIELD_LEVEL_6",
+          "FIELD_LEVEL_7",
+          "FIELD_LEVEL_8",
+          "FIELD_LEVELl_9",
+          "FIELD_LEVEL_10"
+        ],
+        "rows": [
+          [
+            "B01001e1",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e10",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "22 to 24 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e11",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "25 to 29 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e12",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "30 to 34 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e13",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "35 to 39 years",
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      "field_dictionary": {
+        "query_id": "01c7ba37-3204-bd12-0008-3d1a000165d2",
+        "elapsed_seconds": 0.742,
+        "columns": [
+          "TABLE_ID",
+          "TABLE_NUMBER",
+          "TABLE_TITLE",
+          "TABLE_TOPICS",
+          "TABLE_UNIVERSE",
+          "FIELD_LEVEL_1",
+          "FIELD_LEVEL_2",
+          "FIELD_LEVEL_3",
+          "FIELD_LEVEL_4",
+          "FIELD_LEVEL_5",
+          "FIELD_LEVEL_6",
+          "FIELD_LEVEL_7",
+          "FIELD_LEVEL_8",
+          "FIELD_LEVELl_9",
+          "FIELD_LEVEL_10"
+        ],
+        "rows": [
+          [
+            "B01001e1",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e10",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "22 to 24 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e11",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "25 to 29 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e12",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "30 to 34 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e13",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "35 to 39 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e14",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "40 to 44 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e15",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "45 to 49 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e16",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "50 to 54 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e17",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "55 to 59 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e18",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "60 and 61 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e19",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "62 to 64 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e2",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e20",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "65 and 66 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e21",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "67 to 69 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e22",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "70 to 74 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e23",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "75 to 79 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e24",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "80 to 84 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e25",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "85 years and over",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e26",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e27",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "Under 5 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e28",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "5 to 9 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e29",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "10 to 14 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e3",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "Under 5 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e30",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "15 to 17 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e31",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "18 and 19 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e32",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "20 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e33",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "21 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e34",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "22 to 24 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e35",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "25 to 29 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e36",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "30 to 34 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e37",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "35 to 39 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e38",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "40 to 44 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e39",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "45 to 49 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e4",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "5 to 9 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e40",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "50 to 54 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e41",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "55 to 59 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e42",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "60 and 61 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e43",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "62 to 64 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e44",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "65 and 66 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e45",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "67 to 69 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e46",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "70 to 74 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e47",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "75 to 79 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e48",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "80 to 84 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e49",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "85 years and over",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e5",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "10 to 14 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e6",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "15 to 17 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e7",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "18 and 19 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e8",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "20 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001e9",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "21 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m1",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m10",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "22 to 24 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m11",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "25 to 29 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m12",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "30 to 34 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m13",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "35 to 39 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m14",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "40 to 44 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m15",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "45 to 49 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m16",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "50 to 54 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m17",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "55 to 59 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m18",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "60 and 61 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m19",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "62 to 64 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m2",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m20",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "65 and 66 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m21",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "67 to 69 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m22",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "70 to 74 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m23",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "75 to 79 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m24",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "80 to 84 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m25",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "85 years and over",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m26",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m27",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "Under 5 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m28",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "5 to 9 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m29",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "10 to 14 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m3",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "Under 5 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m30",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "15 to 17 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m31",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "18 and 19 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m32",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "20 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m33",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "21 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m34",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "22 to 24 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m35",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "25 to 29 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m36",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "30 to 34 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m37",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "35 to 39 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m38",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "40 to 44 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m39",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "45 to 49 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m4",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "5 to 9 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m40",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "50 to 54 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m41",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "55 to 59 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m42",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "60 and 61 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m43",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "62 to 64 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m44",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "65 and 66 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m45",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "67 to 69 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m46",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "70 to 74 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m47",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "75 to 79 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m48",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "80 to 84 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m49",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Female",
+            "85 years and over",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m5",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "10 to 14 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m6",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "15 to 17 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m7",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "18 and 19 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m8",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "20 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01001m9",
+            "B01001",
+            "Sex By Age",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "SEX BY AGE",
+            "Total population",
+            "Total",
+            "Male",
+            "21 years",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ae1",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ae2",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ae3",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Am1",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Am2",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Am3",
+            "B01002A",
+            "Median Age By Sex (White Alone)",
+            "Age and Sex, Race and Ethnicity, White",
+            "People who are White alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE)",
+            "People who are White alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Be1",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Be2",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Be3",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Bm1",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Bm2",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Bm3",
+            "B01002B",
+            "Median Age By Sex (Black Or African American Alone)",
+            "Age and Sex, Black or African American, Race and Ethnicity",
+            "Black or African American alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (BLACK OR AFRICAN AMERICAN ALONE)",
+            "Black or African American alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ce1",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ce2",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ce3",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Cm1",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Cm2",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Cm3",
+            "B01002C",
+            "Median Age By Sex (American Indian And Alaska Native Alone)",
+            "Age and Sex, American Indian and Alaska Native, Race and Ethnicity",
+            "People who are American Indian and Alaska Native alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (AMERICAN INDIAN AND ALASKA NATIVE ALONE)",
+            "People who are American Indian and Alaska Native alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002De1",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002De2",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002De3",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Dm1",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Dm2",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Dm3",
+            "B01002D",
+            "Median Age By Sex (Asian Alone)",
+            "Age and Sex, Asian, Race and Ethnicity",
+            "People who are Asian alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (ASIAN ALONE)",
+            "People who are Asian alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002e1",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002e2",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002e3",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "Estimate",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fe1",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fe2",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fe3",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "Estimate",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fm1",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fm2",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Fm3",
+            "B01002F",
+            "Median Age By Sex (Some Other Race Alone)",
+            "Age and Sex, Race and Ethnicity, Some Other Race",
+            "People who are Some Other Race alone",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (SOME OTHER RACE ALONE)",
+            "People who are Some Other Race alone",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ge1",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "Estimate",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ge2",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "Estimate",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ge3",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "Estimate",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Gm1",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Gm2",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Gm3",
+            "B01002G",
+            "Median Age By Sex (Two Or More Races)",
+            "Age and Sex, Race and Ethnicity, Two or More Races",
+            "People who are Two or More Races",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (TWO OR MORE RACES)",
+            "People who are Two or More Races",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002He1",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002He2",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002He3",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Hm1",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Hm2",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Hm3",
+            "B01002H",
+            "Median Age By Sex (White Alone, Not Hispanic Or Latino)",
+            "Age and Sex, Not Hispanic or Latino, Race and Ethnicity, White",
+            "White alone, not Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (WHITE ALONE, NOT HISPANIC OR LATINO)",
+            "White alone, not Hispanic or Latino population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ie1",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ie2",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Ie3",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "Estimate",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Im1",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Im2",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002Im3",
+            "B01002I",
+            "Median Age By Sex (Hispanic Or Latino)",
+            "Age and Sex, Hispanic or Latino, Race and Ethnicity",
+            "Hispanic or Latino population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX (HISPANIC OR LATINO)",
+            "Hispanic or Latino population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002m1",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002m2",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Male",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01002m3",
+            "B01002",
+            "Median Age By Sex",
+            "Age and Sex",
+            "Total population",
+            "MarginOfError",
+            "MEDIAN AGE BY SEX",
+            "Total population",
+            "Median age",
+            "Female",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01003e1",
+            "B01003",
+            "Total Population",
+            "Population Total",
+            "Total population",
+            "Estimate",
+            "TOTAL POPULATION",
+            "Total population",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "B01003m1",
+            "B01003",
+            "Total Population",
+            "Population Total",
+            "Total population",
+            "MarginOfError",
+            "TOTAL POPULATION",
+            "Total population",
+            "Total",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "observed_row_count": 8164,
+        "retained_row_count": 154,
+        "retention_note": "Query fetched all fields; artifact retains only columns of 2020_CBG_B01."
+      }
+    },
+    {
+      "name": "2020_REDISTRICTING_METADATA_CBG_FIELD_DESCRIPTIONS",
+      "describe": {
+        "query_id": "01c7ba37-3204-bd12-0008-3d1a000165ce",
+        "elapsed_seconds": 0.109,
+        "columns": [
+          "name",
+          "type",
+          "kind",
+          "null?",
+          "default",
+          "primary key",
+          "unique key",
+          "check",
+          "expression",
+          "comment",
+          "policy name",
+          "privacy domain",
+          "write default"
+        ],
+        "rows": [
+          [
+            "FIELD_NAME",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "COLUMN_ID",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "COLUMN_TOPIC",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "COLUMN_UNIVERSE",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      "sample": {
+        "query_id": "01c7ba37-3204-bb79-0008-3d1a00015786",
+        "elapsed_seconds": 0.34,
+        "columns": [
+          "FIELD_NAME",
+          "COLUMN_ID",
+          "COLUMN_TOPIC",
+          "COLUMN_UNIVERSE"
+        ],
+        "rows": [
+          [
+            "Total",
+            "P0010001",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of one race",
+            "P0010002",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White alone",
+            "P0010003",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American alone",
+            "P0010004",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native alone",
+            "P0010005",
+            "RACE",
+            "Total population"
+          ]
+        ]
+      },
+      "field_dictionary": {
+        "query_id": "01c7ba37-3204-bd57-0008-3d1a000175ce",
+        "elapsed_seconds": 0.197,
+        "columns": [
+          "FIELD_NAME",
+          "COLUMN_ID",
+          "COLUMN_TOPIC",
+          "COLUMN_UNIVERSE"
+        ],
+        "rows": [
+          [
+            "Total",
+            "P0010001",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of one race",
+            "P0010002",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White alone",
+            "P0010003",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American alone",
+            "P0010004",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native alone",
+            "P0010005",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Asian alone",
+            "P0010006",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander alone",
+            "P0010007",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Some Other Race alone",
+            "P0010008",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of two or more races",
+            "P0010009",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of two races",
+            "P0010010",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American",
+            "P0010011",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native",
+            "P0010012",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian",
+            "P0010013",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander",
+            "P0010014",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Some Other Race",
+            "P0010015",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native",
+            "P0010016",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian",
+            "P0010017",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0010018",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Some Other Race",
+            "P0010019",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian",
+            "P0010020",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0010021",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Some Other Race",
+            "P0010022",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010023",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Some Other Race",
+            "P0010024",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010025",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of three races",
+            "P0010026",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native",
+            "P0010027",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian",
+            "P0010028",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0010029",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Some Other Race",
+            "P0010030",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian",
+            "P0010031",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0010032",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Some Other Race",
+            "P0010033",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010034",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Some Other Race",
+            "P0010035",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010036",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian",
+            "P0010037",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0010038",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0010039",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010040",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Some Other Race",
+            "P0010041",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010042",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010043",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Some Other Race",
+            "P0010044",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010045",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010046",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of four races",
+            "P0010047",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian",
+            "P0010048",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0010049",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0010050",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010051",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Some Other Race",
+            "P0010052",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010053",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010054",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0010055",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010056",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010057",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010058",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0010059",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010060",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010061",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010062",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of five races",
+            "P0010063",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0010064",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0010065",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010066",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010067",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010068",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010069",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Population of six races",
+            "P0010070",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0010071",
+            "RACE",
+            "Total population"
+          ],
+          [
+            "Total",
+            "P0020001",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Hispanic or Latino",
+            "P0020002",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Not Hispanic or Latino",
+            "P0020003",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of one race",
+            "P0020004",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White alone",
+            "P0020005",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American alone",
+            "P0020006",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native alone",
+            "P0020007",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Asian alone",
+            "P0020008",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander alone",
+            "P0020009",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Some Other Race alone",
+            "P0020010",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of two or more races",
+            "P0020011",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of two races",
+            "P0020012",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American",
+            "P0020013",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native",
+            "P0020014",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian",
+            "P0020015",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander",
+            "P0020016",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Some Other Race",
+            "P0020017",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native",
+            "P0020018",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian",
+            "P0020019",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0020020",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Some Other Race",
+            "P0020021",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian",
+            "P0020022",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0020023",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Some Other Race",
+            "P0020024",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020025",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Some Other Race",
+            "P0020026",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020027",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of three races",
+            "P0020028",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native",
+            "P0020029",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian",
+            "P0020030",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0020031",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Some Other Race",
+            "P0020032",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian",
+            "P0020033",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0020034",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Some Other Race",
+            "P0020035",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020036",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Some Other Race",
+            "P0020037",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020038",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian",
+            "P0020039",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0020040",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0020041",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020042",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Some Other Race",
+            "P0020043",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020044",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020045",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Some Other Race",
+            "P0020046",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020047",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020048",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of four races",
+            "P0020049",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian",
+            "P0020050",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0020051",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0020052",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020053",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Some Other Race",
+            "P0020054",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020055",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020056",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0020057",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020058",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020059",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020060",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0020061",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020062",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020063",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020064",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of five races",
+            "P0020065",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0020066",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0020067",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020068",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020069",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020070",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020071",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Population of six races",
+            "P0020072",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0020073",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE",
+            "Total population"
+          ],
+          [
+            "Total",
+            "P0030001",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of one race",
+            "P0030002",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White alone",
+            "P0030003",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American alone",
+            "P0030004",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native alone",
+            "P0030005",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian alone",
+            "P0030006",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander alone",
+            "P0030007",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Some Other Race alone",
+            "P0030008",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of two or more races",
+            "P0030009",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of two races",
+            "P0030010",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American",
+            "P0030011",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native",
+            "P0030012",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian",
+            "P0030013",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander",
+            "P0030014",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Some Other Race",
+            "P0030015",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native",
+            "P0030016",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian",
+            "P0030017",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0030018",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Some Other Race",
+            "P0030019",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian",
+            "P0030020",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0030021",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Some Other Race",
+            "P0030022",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030023",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Some Other Race",
+            "P0030024",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030025",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of three races",
+            "P0030026",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native",
+            "P0030027",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian",
+            "P0030028",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0030029",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Some Other Race",
+            "P0030030",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian",
+            "P0030031",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0030032",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Some Other Race",
+            "P0030033",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030034",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Some Other Race",
+            "P0030035",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030036",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian",
+            "P0030037",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0030038",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0030039",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030040",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Some Other Race",
+            "P0030041",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030042",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030043",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Some Other Race",
+            "P0030044",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030045",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030046",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of four races",
+            "P0030047",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian",
+            "P0030048",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0030049",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0030050",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030051",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Some Other Race",
+            "P0030052",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030053",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030054",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0030055",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030056",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030057",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030058",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0030059",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030060",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030061",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030062",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of five races",
+            "P0030063",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0030064",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0030065",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030066",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030067",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030068",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030069",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of six races",
+            "P0030070",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0030071",
+            "RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Total",
+            "P0040001",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Hispanic or Latino",
+            "P0040002",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Not Hispanic or Latino",
+            "P0040003",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of one race",
+            "P0040004",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White alone",
+            "P0040005",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American alone",
+            "P0040006",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native alone",
+            "P0040007",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian alone",
+            "P0040008",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander alone",
+            "P0040009",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Some Other Race alone",
+            "P0040010",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of two or more races",
+            "P0040011",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of two races",
+            "P0040012",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American",
+            "P0040013",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native",
+            "P0040014",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian",
+            "P0040015",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander",
+            "P0040016",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Some Other Race",
+            "P0040017",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native",
+            "P0040018",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian",
+            "P0040019",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0040020",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Some Other Race",
+            "P0040021",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian",
+            "P0040022",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0040023",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Some Other Race",
+            "P0040024",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040025",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Some Other Race",
+            "P0040026",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040027",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of three races",
+            "P0040028",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native",
+            "P0040029",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian",
+            "P0040030",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander",
+            "P0040031",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Some Other Race",
+            "P0040032",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian",
+            "P0040033",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0040034",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Some Other Race",
+            "P0040035",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040036",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Some Other Race",
+            "P0040037",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040038",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian",
+            "P0040039",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0040040",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0040041",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040042",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Some Other Race",
+            "P0040043",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040044",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040045",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Some Other Race",
+            "P0040046",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040047",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040048",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of four races",
+            "P0040049",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian",
+            "P0040050",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander",
+            "P0040051",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Some Other Race",
+            "P0040052",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040053",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Some Other Race",
+            "P0040054",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040055",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040056",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0040057",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040058",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040059",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040060",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0040061",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040062",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040063",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040064",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of five races",
+            "P0040065",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander",
+            "P0040066",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Some Other Race",
+            "P0040067",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040068",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040069",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040070",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040071",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Population of six races",
+            "P0040072",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "White; Black or African American; American Indian and Alaska Native; Asian; Native Hawaiian and Other Pacific Islander; Some Other Race",
+            "P0040073",
+            "HISPANIC OR LATINO, AND NOT HISPANIC OR LATINO BY RACE FOR THE POPULATION 18 YEARS AND OVER",
+            "Total population 18 years and over"
+          ],
+          [
+            "Total",
+            "P0050001",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Institutionalized population",
+            "P0050002",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Correctional facilities for adults",
+            "P0050003",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Juvenile facilities",
+            "P0050004",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Nursing facilities/Skilled-nursing facilities",
+            "P0050005",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Other institutional facilities",
+            "P0050006",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Noninstitutionalized population",
+            "P0050007",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "College/University student housing",
+            "P0050008",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Military quarters",
+            "P0050009",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ],
+          [
+            "Other noninstitutional facilities",
+            "P0050010",
+            "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+            "Population in group quarters"
+          ]
+        ],
+        "observed_row_count": 298,
+        "retained_row_count": 298,
+        "retention_note": "Query fetched all fields; artifact retains only columns of 2020_REDISTRICTING_CBG_DATA."
+      }
+    },
+    {
+      "name": "2020_METADATA_CBG_FIPS_CODES",
+      "describe": {
+        "query_id": "01c7ba37-3204-bd57-0008-3d1a000175ca",
+        "elapsed_seconds": 0.129,
+        "columns": [
+          "name",
+          "type",
+          "kind",
+          "null?",
+          "default",
+          "primary key",
+          "unique key",
+          "check",
+          "expression",
+          "comment",
+          "policy name",
+          "privacy domain",
+          "write default"
+        ],
+        "rows": [
+          [
+            "STATE",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "STATE_FIPS",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "COUNTY_FIPS",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "COUNTY",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "CLASS_CODE",
+            "VARCHAR(16777216)",
+            "COLUMN",
+            "Y",
+            null,
+            "N",
+            "N",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      "sample": {
+        "query_id": "01c7ba37-3204-bb79-0008-3d1a0001578a",
+        "elapsed_seconds": 0.264,
+        "columns": [
+          "STATE",
+          "STATE_FIPS",
+          "COUNTY_FIPS",
+          "COUNTY",
+          "CLASS_CODE"
+        ],
+        "rows": [
+          [
+            "AL",
+            "01",
+            "001",
+            "Autauga County",
+            "H1"
+          ],
+          [
+            "AL",
+            "01",
+            "003",
+            "Baldwin County",
+            "H1"
+          ],
+          [
+            "AL",
+            "01",
+            "005",
+            "Barbour County",
+            "H1"
+          ],
+          [
+            "AL",
+            "01",
+            "007",
+            "Bibb County",
+            "H1"
+          ],
+          [
+            "AL",
+            "01",
+            "009",
+            "Blount County",
+            "H1"
+          ]
+        ]
+      }
+    }
+  ],
+  "cleanup": {
+    "alter": {
+      "query_id": "01c7ba37-3204-bb79-0008-3d1a0001578e",
+      "elapsed_seconds": 0.178,
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ]
+    },
+    "show_query_id": "01c7ba37-3204-bd57-0008-3d1a000175d2",
+    "warehouse": {
+      "name": "SNOWFLAKE_LEARNING_WH",
+      "state": "SUSPENDED",
+      "type": "STANDARD",
+      "size": "X-Small",
+      "min_cluster_count": 1,
+      "max_cluster_count": 1,
+      "started_clusters": 0,
+      "running": 0,
+      "queued": 0,
+      "is_default": "Y",
+      "is_current": "Y",
+      "auto_suspend": 60,
+      "auto_resume": "true",
+      "available": "",
+      "provisioning": "",
+      "quiescing": "",
+      "other": "",
+      "created_on": "2026-10-14 06:50:27.994000-07:00",
+      "resumed_on": "2026-10-14 08:51:33.668000-07:00",
+      "updated_on": "2026-10-14 08:51:33.668000-07:00",
+      "owner": "ACCOUNTADMIN",
+      "comment": "Created by Snowflake during account provisioning",
+      "enable_query_acceleration": "true",
+      "query_acceleration_max_scale_factor": 8,
+      "resource_monitor": "null",
+      "actives": 0,
+      "pendings": 0,
+      "failed": 0,
+      "suspended": 1,
+      "uuid": "138222088",
+      "scaling_policy": "STANDARD",
+      "owner_role_type": "ROLE",
+      "resource_constraint": "STANDARD_GEN_2",
+      "generation": "2",
+      "query_throughput_multiplier": null,
+      "max_query_performance_level": null,
+      "disabled_reasons": null,
+      "tables": null
+    },
+    "confirmed_suspended": true
+  },
+  "topic_summary": {
+    "B01": {
+      "distinct_table_titles": 11,
+      "example_titles": [
+        "Median Age By Sex",
+        "Median Age By Sex (American Indian And Alaska Native Alone)",
+        "Median Age By Sex (Asian Alone)",
+        "Median Age By Sex (Black Or African American Alone)",
+        "Median Age By Sex (Hispanic Or Latino)"
+      ]
+    },
+    "B02": {
+      "distinct_table_titles": 7,
+      "example_titles": [
+        "American Indian And Alaska Native Alone Or In Combination With One Or More Other Races",
+        "Asian Alone Or In Combination With One Or More Other Races",
+        "Black Or African American Alone Or In Combination With One Or More Other Races",
+        "Native Hawaiian And Other Pacific Islander Alone Or In Combination With One Or More Other Races",
+        "Race"
+      ]
+    },
+    "B03": {
+      "distinct_table_titles": 2,
+      "example_titles": [
+        "Hispanic Or Latino Origin",
+        "Hispanic Or Latino Origin By Race"
+      ]
+    },
+    "B07": {
+      "distinct_table_titles": 6,
+      "example_titles": [
+        "Geographical Mobility In The Past Year For Current Residence--Metropolitan Statistical Area Level In Puerto Rico",
+        "Geographical Mobility In The Past Year For Current Residence--Metropolitan Statistical Area Level In The United States",
+        "Geographical Mobility In The Past Year For Current Residence--Micropolitan Statistical Area Level In Puerto Rico",
+        "Geographical Mobility In The Past Year For Current Residence--Micropolitan Statistical Area Level In The United States",
+        "Geographical Mobility In The Past Year For Current Residence--Not Metropolitan Or Micropolitan Statistical Area Level In Puerto Rico"
+      ]
+    },
+    "B08": {
+      "distinct_table_titles": 12,
+      "example_titles": [
+        "Aggregate Travel Time To Work (In Minutes) Of Workers By Means Of Transportation To Work",
+        "Aggregate Travel Time To Work (In Minutes) Of Workers By Travel Time To Work",
+        "Means Of Transportation To Work",
+        "Means Of Transportation To Work By Travel Time To Work",
+        "Place Of Work For Workers 16 Years And Over--Metropolitan Statistical Area Level"
+      ]
+    },
+    "B09": {
+      "distinct_table_titles": 5,
+      "example_titles": [
+        "Household Type (Including Living Alone) By Relationship",
+        "Living Arrangements Of Adults 18 Years And Over By Age",
+        "Own Children Under 18 Years By Family Type And Age",
+        "Relationship By Household Type (Including Living Alone) For The Population 65 Years And Over",
+        "Relationship To Householder For Children Under 18 Years In Households"
+      ]
+    },
+    "B11": {
+      "distinct_table_titles": 27,
+      "example_titles": [
+        "Cohabiting Couple Households By Presence And Age Of Own Children Under 18 Years",
+        "Family Type By Presence And Age Of Own Children Under 18 Years",
+        "Family Type By Presence And Age Of Related Children Under 18 Years",
+        "Household Type (Including Living Alone)",
+        "Household Type (Including Living Alone) (American Indian And Alaska Native Alone)"
+      ]
+    },
+    "B12": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Sex By Marital Status For The Population 15 Years And Over"
+      ]
+    },
+    "B14": {
+      "distinct_table_titles": 11,
+      "example_titles": [
+        "School Enrollment By Detailed  Level Of School For The Population 3 Years And Over",
+        "School Enrollment By Detailed Level Of School For The Population 3 Years And Over (American Indian And Alaska Native Alone)",
+        "School Enrollment By Detailed Level Of School For The Population 3 Years And Over (Asian Alone)",
+        "School Enrollment By Detailed Level Of School For The Population 3 Years And Over (Black Or African American Alone)",
+        "School Enrollment By Detailed Level Of School For The Population 3 Years And Over (Hispanic Or Latino)"
+      ]
+    },
+    "B15": {
+      "distinct_table_titles": 4,
+      "example_titles": [
+        "Educational Attainment For The Population 25 Years And Over",
+        "Sex By Age By Field Of Bachelor's Degree For First Major For The Population 25 Years And Over",
+        "Sex By Educational Attainment For The Population 25 Years And Over",
+        "Total Fields Of Bachelor's Degrees Reported"
+      ]
+    },
+    "B16": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Age By Language Spoken At Home By Ability To Speak English For The Population 5 Years And Over"
+      ]
+    },
+    "B17": {
+      "distinct_table_titles": 4,
+      "example_titles": [
+        "Aggregate Income Deficit (Dollars) In The Past 12 Months For Families By Family Type",
+        "Poverty Status In The Past 12 Months By Household Type By Age Of Householder",
+        "Poverty Status In The Past 12 Months Of Families By Family Type By Presence Of Related Children Under 18 Years By Age Of Related Children",
+        "Poverty Status Of Individuals In The Past 12 Months By Living Arrangement"
+      ]
+    },
+    "B19": {
+      "distinct_table_titles": 58,
+      "example_titles": [
+        "Age Of Householder By Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+        "Aggregate Earnings In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) For Households",
+        "Aggregate Family Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+        "Aggregate Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+        "Aggregate Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) (American Indian And Alaska Native Alone Householder)"
+      ]
+    },
+    "B20": {
+      "distinct_table_titles": 4,
+      "example_titles": [
+        "Aggregate Earnings In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) By Sex By Work Experience For The Population 16 Years And Over With Earnings",
+        "Median Earnings In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) By Sex By Work Experience In The Past 12 Months For The Population 16 Years And Over With Earnings In The Past 12 Months",
+        "Median Earnings In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) By Sex For The Population 16 Years And Over With Earnings In The Past 12 Months",
+        "Sex By Earnings In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) For The Population 16 Years And Over With Earnings In The Past 12 Months"
+      ]
+    },
+    "B21": {
+      "distinct_table_titles": 2,
+      "example_titles": [
+        "Period Of Military Service For Civilian Veterans 18 Years And Over",
+        "Sex By Age By Veteran Status For The Civilian Population 18 Years And Over"
+      ]
+    },
+    "B22": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Receipt Of Food Stamps/Snap In The Past 12 Months By Disability Status For Households"
+      ]
+    },
+    "B23": {
+      "distinct_table_titles": 9,
+      "example_titles": [
+        "Age Of Own Children Under 18 Years In Families And Subfamilies By Living Arrangements By Employment Status Of Parents",
+        "Employment Status For The Population 16 Years And Over",
+        "Full-Time, Year-Round Work Status In The Past 12 Months By Age For The Population 16 Years And Over",
+        "Poverty Status In The Past 12 Months By Disability Status By Employment Status For The Population 20 To 64 Years",
+        "Presence Of Own Children Under 18 Years By Age Of Own Children Under 18 Years By Employment Status For Females 20 To 64 Years"
+      ]
+    },
+    "B24": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Sex By Class Of Worker For The Civilian Employed Population 16 Years And Over"
+      ]
+    },
+    "B25": {
+      "distinct_table_titles": 84,
+      "example_titles": [
+        "Age Of Householder By Gross Rent As A Percentage Of Household Income In The Past 12 Months",
+        "Age Of Householder By Meals Included In Rent",
+        "Age Of Householder By Selected Monthly Owner Costs As A Percentage Of Household Income In The Past 12 Months",
+        "Aggregate Contract Rent (Dollars)",
+        "Aggregate Gross Rent (Dollars)"
+      ]
+    },
+    "B27": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Types Of Health Insurance Coverage By Age"
+      ]
+    },
+    "B28": {
+      "distinct_table_titles": 18,
+      "example_titles": [
+        "Age And Enrollment Status By Computer Ownership And Internet Subscription Status",
+        "Age By Presence Of A Computer And Types Of Internet Subscription In Household",
+        "Computers In Household",
+        "Educational Attainment By Presence Of A Computer And Types Of Internet Subscription In Household",
+        "Household Income In The Last 12 Months (In 2020 Inflation-Adjusted Dollars) By Presence And Type Of Internet Subscription In Household"
+      ]
+    },
+    "B29": {
+      "distinct_table_titles": 4,
+      "example_titles": [
+        "Citizen, Voting-Age Population By Age",
+        "Citizen, Voting-Age Population By Educational Attainment",
+        "Citizen, Voting-Age Population By Poverty Status",
+        "Median Household Income For Households With A Citizen, Voting-Age Householder (In 2020 Inflation-Adjusted Dollars)"
+      ]
+    },
+    "B99": {
+      "distinct_table_titles": 67,
+      "example_titles": [
+        "Allocation Of Ability To Speak English For The Population 5 Years And Over",
+        "Allocation Of Age",
+        "Allocation Of Bedrooms",
+        "Allocation Of Citizenship Status",
+        "Allocation Of Class Of Worker For The Civilian Employed Population 16 Years And Over"
+      ]
+    },
+    "C02": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Detailed Race"
+      ]
+    },
+    "C15": {
+      "distinct_table_titles": 9,
+      "example_titles": [
+        "Field Of Bachelor's Degree For First Major For The Population 25 Years And Over",
+        "Field Of Bachelor's Degree For First Major The Population 25 Years And Over (American Indian And Alaska Native Alone)",
+        "Field Of Bachelor's Degree For First Major The Population 25 Years And Over (Asian Alone)",
+        "Field Of Bachelor's Degree For First Major The Population 25 Years And Over (Black Or African American Alone)",
+        "Field Of Bachelor's Degree For First Major The Population 25 Years And Over (Hispanic Or Latino)"
+      ]
+    },
+    "C16": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Household Language By Household Limited English Speaking Status"
+      ]
+    },
+    "C17": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Ratio Of Income To Poverty Level In The Past 12 Months"
+      ]
+    },
+    "C21": {
+      "distinct_table_titles": 1,
+      "example_titles": [
+        "Age By Veteran Status By Poverty Status In The Past 12 Months By Disability Status For The Civilian Population 18 Years And Over"
+      ]
+    },
+    "C24": {
+      "distinct_table_titles": 11,
+      "example_titles": [
+        "Sex By Industry For The Civilian Employed Population 16 Years And Over",
+        "Sex By Occupation For The Civilian Employed Population 16 Years And Over",
+        "Sex By Occupation For The Civilian Employed Population 16 Years And Over (American Indian And Alaska Native Alone)",
+        "Sex By Occupation For The Civilian Employed Population 16 Years And Over (Asian Alone)",
+        "Sex By Occupation For The Civilian Employed Population 16 Years And Over (Black Or African American Alone)"
+      ]
+    }
+  }
+}

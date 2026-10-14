@@ -1,0 +1,583 @@
+{
+  "load_and_index_seconds": 3.617,
+  "cases": {
+    "population": {
+      "elapsed_ms": 58.391,
+      "matched_expected_family": true,
+      "top_results": [
+        {
+          "id": "2020_CBG_B01.B01003e1",
+          "table": "2020_CBG_B01",
+          "column": "B01003e1",
+          "title": "Total Population",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Total population",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 8.564252
+        },
+        {
+          "id": "2020_REDISTRICTING_CBG_DATA.P0030001",
+          "table": "2020_REDISTRICTING_CBG_DATA",
+          "column": "P0030001",
+          "title": "RACE FOR THE POPULATION 18 YEARS AND OVER",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "decennial_redistricting_pl94_171",
+          "universe": "Total population 18 years and over",
+          "estimate_kind": "census_count",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 8.519231
+        },
+        {
+          "id": "2020_CBG_B11.B11002e1",
+          "table": "2020_CBG_B11",
+          "column": "B11002e1",
+          "title": "Household Type By Relatives And Nonrelatives For Population In Households",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population in households",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "households",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 8.508917
+        },
+        {
+          "id": "2020_CBG_B25.B25008e1",
+          "table": "2020_CBG_B25",
+          "column": "B25008e1",
+          "title": "Total Population In Occupied Housing Units By Tenure",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Total population in occupied housing units",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "housing_units",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 8.5028
+        },
+        {
+          "id": "2020_REDISTRICTING_CBG_DATA.P0050001",
+          "table": "2020_REDISTRICTING_CBG_DATA",
+          "column": "P0050001",
+          "title": "GROUP QUARTERS POPULATION BY MAJOR GROUP QUARTERS TYPE",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "decennial_redistricting_pl94_171",
+          "universe": "Population in group quarters",
+          "estimate_kind": "census_count",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 8.498751
+        }
+      ]
+    },
+    "median age": {
+      "elapsed_ms": 2.746,
+      "matched_expected_family": true,
+      "top_results": [
+        {
+          "id": "2020_CBG_B01.B01002e1",
+          "table": "2020_CBG_B01",
+          "column": "B01002e1",
+          "title": "Median Age By Sex",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Total population",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 20.366192
+        },
+        {
+          "id": "2020_CBG_B01.B01002Ae1",
+          "table": "2020_CBG_B01",
+          "column": "B01002Ae1",
+          "title": "Median Age By Sex (White Alone)",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "People who are White alone",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 20.121766
+        },
+        {
+          "id": "2020_CBG_B01.B01002De1",
+          "table": "2020_CBG_B01",
+          "column": "B01002De1",
+          "title": "Median Age By Sex (Asian Alone)",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "People who are Asian alone",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 20.121766
+        },
+        {
+          "id": "2020_CBG_B01.B01002Ie1",
+          "table": "2020_CBG_B01",
+          "column": "B01002Ie1",
+          "title": "Median Age By Sex (Hispanic Or Latino)",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Hispanic or Latino population",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 20.024477
+        },
+        {
+          "id": "2020_CBG_B01.B01002Fe1",
+          "table": "2020_CBG_B01",
+          "column": "B01002Fe1",
+          "title": "Median Age By Sex (Some Other Race Alone)",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "People who are Some Other Race alone",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 19.929063
+        }
+      ]
+    },
+    "household income": {
+      "elapsed_ms": 13.368,
+      "matched_expected_family": true,
+      "top_results": [
+        {
+          "id": "2020_CBG_B19.B19001e1",
+          "table": "2020_CBG_B19",
+          "column": "B19001e1",
+          "title": "Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Households",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "households",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 17.148649
+        },
+        {
+          "id": "2020_CBG_B19.B19013e1",
+          "table": "2020_CBG_B19",
+          "column": "B19013e1",
+          "title": "Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Households",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 17.128353
+        },
+        {
+          "id": "2020_CBG_B19.B19025e1",
+          "table": "2020_CBG_B19",
+          "column": "B19025e1",
+          "title": "Aggregate Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "field_path": [
+            "Aggregate household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Households",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "aggregate_amount_unverified",
+            "unit": "unknown",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 17.128353
+        },
+        {
+          "id": "2020_CBG_B29.B29004e1",
+          "table": "2020_CBG_B29",
+          "column": "B29004e1",
+          "title": "Median Household Income For Households With A Citizen, Voting-Age Householder (In 2020 Inflation-Adjusted Dollars)",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Households with a citizen, voting-age householder",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 17.104951
+        },
+        {
+          "id": "2020_CBG_B19.B19201e1",
+          "table": "2020_CBG_B19",
+          "column": "B19201e1",
+          "title": "Nonfamily Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Nonfamily households",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "households",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 17.083098
+        }
+      ]
+    },
+    "education": {
+      "elapsed_ms": 11.261,
+      "matched_expected_family": true,
+      "top_results": [
+        {
+          "id": "2020_CBG_B15.B15003e1",
+          "table": "2020_CBG_B15",
+          "column": "B15003e1",
+          "title": "Educational Attainment For The Population 25 Years And Over",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 25 years and over",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 12.570964
+        },
+        {
+          "id": "2020_CBG_B29.B29002e1",
+          "table": "2020_CBG_B29",
+          "column": "B29002e1",
+          "title": "Citizen, Voting-Age Population By Educational Attainment",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Citizens 18 years and over",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "unknown",
+            "unit": "unknown",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 12.516051
+        },
+        {
+          "id": "2020_CBG_B15.B15002e1",
+          "table": "2020_CBG_B15",
+          "column": "B15002e1",
+          "title": "Sex By Educational Attainment For The Population 25 Years And Over",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 25 years and over",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 12.497991
+        },
+        {
+          "id": "2020_CBG_B28.B28006e1",
+          "table": "2020_CBG_B28",
+          "column": "B28006e1",
+          "title": "Educational Attainment By Presence Of A Computer And Types Of Internet Subscription In Household",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Household population 25 years and over",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "households",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 12.418189
+        },
+        {
+          "id": "2020_CBG_B14.B14005e1",
+          "table": "2020_CBG_B14",
+          "column": "B14005e1",
+          "title": "Sex By School Enrollment By Educational Attainment By Employment Status For The Population 16 To 19 Years",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 16 to 19 years",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 10.924954
+        }
+      ]
+    },
+    "employment": {
+      "elapsed_ms": 18.505,
+      "matched_expected_family": true,
+      "top_results": [
+        {
+          "id": "2020_CBG_B23.B23025e1",
+          "table": "2020_CBG_B23",
+          "column": "B23025e1",
+          "title": "Employment Status For The Population 16 Years And Over",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 16 years and over",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 11.285347
+        },
+        {
+          "id": "2020_CBG_B14.B14005e1",
+          "table": "2020_CBG_B14",
+          "column": "B14005e1",
+          "title": "Sex By School Enrollment By Educational Attainment By Employment Status For The Population 16 To 19 Years",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 16 to 19 years",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 11.097476
+        },
+        {
+          "id": "2020_CBG_B23.B23007e1",
+          "table": "2020_CBG_B23",
+          "column": "B23007e1",
+          "title": "Presence Of Own Children Under 18 Years By Family Type By Employment Status",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Opposite-sex married-couple families and families maintained by women and men with no spouse present",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "families",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 11.072005
+        },
+        {
+          "id": "2020_CBG_B23.B23024e1",
+          "table": "2020_CBG_B23",
+          "column": "B23024e1",
+          "title": "Poverty Status In The Past 12 Months By Disability Status By Employment Status For The Population 20 To 64 Years",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Population 20 to 64 years for whom poverty status is determined",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 11.022025
+        },
+        {
+          "id": "2020_CBG_B23.B23008e1",
+          "table": "2020_CBG_B23",
+          "column": "B23008e1",
+          "title": "Age Of Own Children Under 18 Years In Families And Subfamilies By Living Arrangements By Employment Status Of Parents",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "universe": "Own children under 18 years in families and subfamilies",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "families",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "search_score": 10.96728
+        }
+      ]
+    }
+  },
+  "passed_cases": 5,
+  "total_cases": 5,
+  "scope": "Five predefined acceptance queries; not a general retrieval accuracy benchmark",
+  "geography_example": {
+    "cbg": "010010201001",
+    "state_fips": "01",
+    "county_fips": "001",
+    "county_geoid": "01001",
+    "tract": "020100",
+    "block_group": "1",
+    "year": 2020,
+    "state_name": "Alabama",
+    "state_abbreviation": "AL",
+    "provider_state_abbreviation": "AL",
+    "county_name": "Autauga County",
+    "fips_table": "2020_METADATA_CBG_FIPS_CODES",
+    "cbg_membership_verified": false
+  }
+}
