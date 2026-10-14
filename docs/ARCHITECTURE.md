@@ -1,8 +1,8 @@
 # Architecture
 
-Status: Phase 1 catalog and Phase 2 core conversational agent implemented.
-Official PDF reconciled; public UI/deployment remain planned outside Phase 2.
-Requirement IDs are defined in CHALLENGE_SPEC.md; actual evaluation is recorded in PHASE2_REPORT.md.
+Status: Phase 1/2 preserved; Phase 3 reliability service implemented and verified within Phase 3 scope.
+Official PDF reconciled; public UI/deployment remain planned outside Phase 3.
+Requirement IDs are defined in CHALLENGE_SPEC.md; historical/current evidence is in PHASE2_REPORT.md and PHASE3_REPORT.md.
 
 ## Overview
 The reusable offline catalog supplies search, geography and statistical policy.
@@ -42,7 +42,7 @@ Cortex never supplies executable SQL or statistical answer numbers.
 | CLI | `python -m census_catalog build/search/geography` reads captured artifacts; no remote inference | Implemented; P1-6 |
 | Real-data boundary tests | `tests/test_phase1_live.py --snowflake-live`; existing authenticated connector; bounded selects/joins/sum | Implemented tests, not an agent executor |
 | Core agent | `CensusAgent.ask` resolves typed intent, grounded catalog choice, canonical queries and deterministic answers; `Response` retains SQL/query IDs/provenance | Implemented; AS-1/AS-3/AS-4 |
-| Conversation state | `ConversationState`: resolved/pending intent and chosen field; follow-up merge, clarification, comparison, reset; caller owns state | Implemented in memory; AS-2 |
+| Conversation state | `ConversationState`: resolved/pending intent and chosen field; follow-up merge, clarification, comparison, reset; caller owns state | Core memory state plus authenticated service SQLite persistence; AS-2 |
 | Runtime SQL validation | `compile_query` / `validate_query` regenerate a typed plan and compare exact SQL, params and row bounds; backend rechecks before connecting | Implemented; AS-4 |
 | Agent CLI / transport | `python -m census_agent`; `SnowflakeBackend` wraps existing config loader, Cortex COMPLETE, permission audit and suspend | Implemented local interface; no web UI |
 | UI / public hosting | Framework/platform and deployment process not selected; no public endpoint | Planned; AS-5 |
@@ -130,9 +130,10 @@ loader. No credentials enter Cortex prompts. Local request guards plus Cortex
 intent/domain validation separate Census analytics from off-topic/inappropriate
 requests; statistical race/sex analysis remains allowed. Error diagnostics are
 sanitized, conversation state is explicit, and model trace history resets per turn.
-The synchronous backend is not designed for concurrent shared sessions: callers
-must use separate backends/states or serialize access. UI authentication, browser
-credential isolation, hosted session lifecycle and rate limits remain future work.
+The low-level backend now enforces process/thread ownership and core agent/state
+locks reject overlapping use. Public deployment must call AgentService: isolated
+request workers own fresh connections, authenticated state and shared budgets.
+Public UI/TLS integration and multi-host control remain future work.
 
 ## Design choices
 Use standard-library compact JSON and in-memory inverted-index/BM25 retrieval.
@@ -158,3 +159,80 @@ and nondeterminism). Recorded load/index cost is 3.617s; five single local searc
 were 2.746–58.391ms, not a service latency SLA. A future index change requires a
 measured need. Full decision rationale and accepted/proposed distinction are in
 DECISIONS.md. Evidence and planned tests are in EVALUATION_PLAN.md.
+
+## Phase 3 deployment boundary (implemented, no UI)
+
+```mermaid
+flowchart LR
+    A[Bearer token / session / question] --> B[Authenticator: digest verification]
+    B --> C[SQLite owner state / atomic admission / rate and call budget]
+    C --> W[Spawned disposable request worker]
+    W --> E[Existing catalog-grounded core agent]
+    E --> S[Fresh worker-owned Snowflake connection]
+    S --> X[Canonical bounded data SQL / Cortex]
+    X --> W
+    W --> D[Bounded result file after connection close]
+    D --> F[Parent deadline / cleanup validation]
+    F --> C
+    F --> P[Filtered public response]
+    F --> L[Whitelisted operational log]
+    F --> Q[Quarantine if timeout/crash/cleanup uncertain]
+```
+
+`AgentService.create_session/ask/reset` authenticate ownership internally. Session
+IDs are random and bound to a verified principal; callers cannot supply another
+user's state. Parent receives validated typed state only after worker completion.
+The SQLite store opens a short transaction/connection per operation; no database
+cursor/connection or conversation object is shared between simultaneous requests.
+Core overlap/reset locks and backend process/thread guards also protect direct use.
+
+SQLiteControl atomically permits one active warehouse request across all local
+service processes. This deliberately serializes the trial warehouse: a per-request
+ALTER SUSPEND must not interrupt another service worker. Overload is immediate,
+with no unbounded queue. All workers must share the same local owner-only control
+file and limits (mismatched configurations fail). Session TTL/capacity, per-principal
+and global sliding-window rates, and a shared 24h model-call reserve are implemented.
+Each admitted request reserves two call units conservatively without refund. This
+bounds application inference calls, not measured credits/dollars. There are no new
+dependencies/services. SQLite rollback journaling is used; deployment requires local
+storage with correct locking. Multi-host/pod stores are explicitly unsupported today.
+
+Default parent budget is 55s, including authentication, admission, worker startup,
+catalog load, connection/audit, inference, SQL, cleanup and result transfer. Worker
+soft deadline reserves eight seconds for cleanup. Parent joins only to its deadline,
+terminates/kills a nonresponsive worker and joins with bounded waits. Completed
+worker results are read from a bounded owner-only temporary file after exit, avoiding
+an indefinitely blocked partial pipe read. OS/filesystem behavior is not a real-time
+guarantee. A timeout suppresses results and committed state; server queries may
+outlive client termination, so admission quarantines rather than auto-resumes.
+
+Recovery is a trusted operator-only method, never an AgentService/public method.
+An operator must independently verify warehouse suspension AND no active server
+queries before `recover_after_operator_check`; it cannot clear a live lease. Losing
+an expired lease also fails closed. Normal completed requests preserve resolved or
+pending state, close connections and confirm suspension. CLI/reference probes
+bypass admission and must not run alongside a deployed service on the same warehouse.
+
+`Response.public_dict` omits raw SQL, intent, model output, errors, permission
+snapshots and configuration. Trusted diagnostics retain selected mappings/SQL/query
+IDs for evaluation. Logs contain only request UUID, status, elapsed seconds and worker
+health, never user question, token, session ID or connector exception text. Server
+adapters must return `ServiceResult.public`, not its operator diagnostics or
+`Response.as_dict`. Bearer tokens must be cryptographically random, supplied through
+server-held digests and transported over TLS; no real demo tokens were created or
+committed in this phase. Authentication/revocation/TLS hosting remain deployment work.
+
+Primary role and secondary mode are trusted constructor options for a future
+restricted identity. Working PUBLIC/ALL access is preserved. Fresh visible grants
+include up to four inherited roles and CURRENT_SESSION identity; lack of grant
+visibility is not proof of absence. Dedicated read-only identity/role migration and
+review of broad PUBLIC baseline need administrator action; see DEPLOYMENT_PERMISSIONS.md.
+No grants, warehouse provisioning or credential configuration changed here.
+
+Semantic hardening preserves canonical SQL. Literal household counts cannot become
+household income; missing product for a new 2020 population question cannot be chosen
+by the model; geography/year-only follow-ups preserve the established metric.
+Retrieval uses original wording plus planned phrases. Verified tenure universes and
+exact poverty cell labels are supported without guessing physical IDs or relaxing
+bachelor-only/category/numeric boundary checks. First independent failures and
+subsequent regression outcomes remain separately recorded.

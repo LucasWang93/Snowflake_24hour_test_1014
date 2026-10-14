@@ -1,0 +1,55 @@
+CASE H1: answered 14.0527s; failures=[]
+CASE H2: answered 14.2908s; failures=[]
+CASE H3: answered 13.1587s; failures=[]
+CASE H4: answered 16.6937s; failures=[]
+CASE H5: answered 14.4717s; failures=[]
+CASE H6: answered 13.204s; failures=[]
+CASE H7: answered 12.1474s; failures=[]
+CASE H8: answered 15.8139s; failures=[]
+CASE H9: answered 14.3063s; failures=[]
+CASE T1/a: answered 14.692s; failures=[]
+CASE T1/b: answered 11.4185s; failures=[]
+CASE T1/c: answered 12.7722s; failures=[]
+CASE T2/a: answered 12.2886s; failures=[]
+CASE T2/b: answered 12.9867s; failures=[]
+CASE N1: unsupported 13.5801s; failures=[]
+CASE N2: unsupported 13.78s; failures=[]
+CASE N3: clarification 11.8176s; failures=[]
+CASE N4: clarification 13.7408s; failures=[]
+CASE N5: clarification 11.6756s; failures=[]
+CASE N6: refused 0.698s; failures=[]
+CASE N7: refused 10.4672s; failures=[]
+CASE N8: refused 0.6959s; failures=[]
+CASE N9: refused 10.6371s; failures=[]
+CASE N10: unsupported 0.6816s; failures=[]
+CASE N11: clarification 11.1334s; failures=[]
+{"cases": 25, "passed": 25, "failed": 0}
+LIVE population: answered; 11.2684s; field=2020_CBG_B01.B01003e1
+.LIVE median_age: answered; 6.6197s; field=2020_CBG_B01.B01002e1
+.LIVE median_income: answered; 9.2303s; field=2020_CBG_B19.B19013e1
+.LIVE education: answered; 8.411s; field=2020_CBG_B15.B15003e22
+.LIVE employment: answered; 8.1551s; field=2020_CBG_B23.B23025e4
+.LIVE housing: answered; 8.5629s; field=2020_CBG_B25.B25001e1
+.LIVE conversation1/initial: answered; 5.9782s; field=2020_CBG_B01.B01003e1
+LIVE conversation1/year: answered; 6.9169s; field=2019_CBG_B01.B01003e1
+LIVE conversation1/compare: answered; 4.7939s; field=2019_CBG_B01.B01003e1
+.LIVE conversation2/initial: answered; 5.3415s; field=2020_CBG_B01.B01002e1
+LIVE conversation2/metric: answered; 5.954s; field=2020_CBG_B19.B19013e1
+LIVE conversation2/geography: answered; 4.3052s; field=2020_CBG_B19.B19013e1
+.LIVE conversation3/missing_geo: clarification; 3.3412s; field=None
+LIVE conversation3/clarification: answered; 6.2122s; field=2020_CBG_B23.B23025e4
+LIVE conversation3/metric: answered; 5.8779s; field=2020_CBG_B15.B15003e22
+.LIVE unsupported: refused; 3.228s; field=None
+.LIVE unsupported: clarification; 6.3314s; field=None
+.LIVE unsupported: refused; 0.281s; field=None
+.LIVE unsupported: unsupported; 6.1855s; field=2020_CBG_B19.B19013e1
+.LIVE unsupported: clarification; 3.584s; field=None
+.LIVE unsupported: refused; 3.0591s; field=None
+..
+=============================== warnings summary ===============================
+tests/phase2/test_live.py::test_six_end_to_end_questions[population-Using ACS release 2020, what is the total population of Autauga County, Alabama?-2020_CBG_B01-columns0-B01003e1-01001]
+  /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014/.venv/lib64/python3.11/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py:413: DeprecationWarning: X509.get_subject is deprecated. You should use cryptography's X.509 APIs instead.
+    "subject": ((("commonName", x509.get_subject().CN),),),  # type: ignore[dict-item]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 126.96s (0:02:06)

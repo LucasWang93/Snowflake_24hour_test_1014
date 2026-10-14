@@ -3,7 +3,7 @@
 Status: Phase 1 foundation verified within bounded scope; full homework is not ready
 for delivery. The official five-page PDF is now reconciled (AS-11); IDs and page references
 are in CHALLENGE_SPEC.md. Phase 2 core agent is implemented; targeted live acceptance passed.
-Deployment remains later.
+Phase 3 reliability is implemented and verified within its bounded scope. Deployment remains later.
 
 Checked items below are supported by inspected source/tests/artifacts or the fresh
 offline test run. Historical Phase 1 live evidence is labeled and preserved. Phase 2 adds bounded
@@ -135,3 +135,29 @@ reconciliation report. No deployment, sharing or email action is performed here.
   demo verification remain pending; core evaluation does not satisfy these.
 Development commits/pushes are now explicitly authorized by the user; deployment,
 reviewer-sharing changes and submission email are not part of this checkpoint.
+
+## Phase 3 reliability / deployment readiness
+- [x] Core process/thread ownership and overlap/reset guards preserve regression APIs.
+- [x] Authenticated per-owner state, fresh request-worker connections and shared
+  atomic single-warehouse admission avoid unsafe connection/state overlap.
+- [x] Shared rate/model-call reserve, bounded sessions/TTL, overload and safe public
+  response/logging interfaces implemented; offline tests distinguish mocks.
+- [x] Parent/worker deadlines, crash/timeout quarantine and operator recovery tested.
+- [x] First independent evaluation recorded honestly: 19/25, failed cases retained;
+  subsequent reused cases explicitly classified as regression.
+- [x] Final Phase 3 report, 25/25 regressions, real concurrency, Phase 2 16/16,
+  <60s measured normal turns, effective grant audit and source/preservation review.
+- [ ] Administrator-provisioned restricted identity/role and broad PUBLIC baseline review.
+- [ ] Exclusive application warehouse or separately designed concurrency/cleanup policy.
+- [ ] Local durable control storage and TLS/token provisioning integrated into hosting;
+  multi-host transactional control if deployment needs it.
+- [ ] Public UI and clean deployed/security/held-out verification; not implemented here.
+- [ ] Final README/Reflection, private reviewer access and authorized final email.
+No public UI/deployment or submission email in Phase 3. A core security boundary is
+not proof of least-privilege credentials or production-wide factual coverage.
+
+Final Phase 3 scope is complete, not the complete homework/public delivery. Offline
+140 passed / 25 live skips; final real job 2848330 passed both suites. First held-out
+19/25 and intermediate 15/16 Phase 2 failure remain recorded. Whole-app/deployed
+security, restricted identity, hosting, README/Reflection, reviewer access and final
+submission remain unchecked. Stop after Phase 3.

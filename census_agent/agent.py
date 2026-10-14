@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import threading
 import time
 from dataclasses import asdict
 from typing import Any, Callable
@@ -10,6 +11,7 @@ from typing import Any, Callable
 from census_agent.planning import (
     INTENT_SYSTEM,
     check_semantics,
+    constrain_intent,
     guard_question,
     merge_intent,
     select_field,
@@ -31,14 +33,43 @@ class CensusAgent:
     def __init__(
         self, catalog: Catalog, backend: Any, progress: Callable[[str], None] | None = None
     ):
+        self._request_lock = threading.Lock()
         self.catalog, self.backend = catalog, backend
         self.geography = Geography(catalog.data)
         self.progress = progress or (lambda _: None)
 
-    def ask(self, question: str, state: ConversationState | None = None) -> Response:
+    def ask(
+        self,
+        question: str,
+        state: ConversationState | None = None,
+        *,
+        deadline: Deadline | None = None,
+    ) -> Response:
         state = state if state is not None else ConversationState()
+        if not self._request_lock.acquire(blocking=False):
+            return Response(
+                "overloaded", "This agent is handling another request; retry shortly.", 0
+            )
+        if not state._lock.acquire(blocking=False):
+            self._request_lock.release()
+            return Response(
+                "overloaded", "This conversation has a request in progress; retry shortly.", 0
+            )
+        try:
+            return self._ask(question, state, deadline)
+        except ServiceIssue:
+            return Response(
+                "error", "Connection ownership prevents this request; use an isolated agent.", 0
+            )
+        finally:
+            state._lock.release()
+            self._request_lock.release()
+
+    def _ask(self, question: str, state: ConversationState, deadline: Deadline | None) -> Response:
         started = time.monotonic()
-        deadline = Deadline(started, 50.0)  # Reserve time for bounded warehouse cleanup.
+        deadline = deadline or Deadline(
+            started, 50.0
+        )  # Reserve time for bounded warehouse cleanup.
         response = Response("error", "Unable to complete this request.", 0.0)
         if hasattr(self.backend, "begin_request"):
             self.backend.begin_request()
@@ -54,6 +85,7 @@ class CensusAgent:
             self.progress(name)
 
         try:
+            deadline.check()
             guard_question(question, state)
             stage("request validation")
             delta = Intent.parse(
@@ -61,6 +93,8 @@ class CensusAgent:
                     INTENT_SYSTEM, {"question": question, "context": state.context()}, deadline
                 )
             )
+            deadline.check()
+            delta = constrain_intent(delta, state, question)
             merged = merge_intent(delta, state, question)
             state.pending = merged
             response.intent = asdict(merged)
@@ -111,7 +145,9 @@ class CensusAgent:
                     "plan": asdict(statement.plan),
                 }
                 response.sql.append(trace)
+                deadline.check()
                 raw = self.backend.execute_data(statement, deadline)
+                deadline.check()
                 trace.update(query_id=raw["query_id"], elapsed_seconds=raw.get("elapsed_seconds"))
                 rows = [dict(zip(raw["columns"], row)) for row in raw["rows"]]
                 if not rows or rows[0]["ROWS_MATCHED"] == 0:
@@ -143,6 +179,7 @@ class CensusAgent:
                     }
                 )
             stage("validated SQL execution")
+            deadline.check()
             response.answer = grounded_answer(mapping, response.results)
             response.status = "answered"
             state.resolved, state.pending, state.entry_id = resolved, None, mapping["id"]

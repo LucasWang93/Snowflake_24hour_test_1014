@@ -1,26 +1,31 @@
 # Progress
 
 ## Completed
-- Official five-page PDF read/reconciled: 30 canonical requirement IDs, original IDs preserved.
-- Phase 1 preserved: catalog, geography, aggregation, tests and stored evidence unchanged.
-- Phase 2 core modules/CLI implemented; Cortex structured semantics, canonical SQL,
-  grounded results, explicit multi-turn state and bounded failures.
-- Offline verification: 58 Phase 2 tests; full suite 116 passed / 25 live skips; Ruff pass.
+- Official PDF reconciled; verified Phase 1/2 foundation preserved.
+- Phase 3: isolated request workers, connection/thread/state guards, authenticated
+  owner sessions, shared SQLite admission/rate/model budgets and safe diagnostics/logs.
+- Explicit request deadlines, graceful overload/provider failure, quarantine and
+  operator recovery; semantic ambiguity/context regressions fixed.
+- Final offline: 140 passed / 25 live skips; Ruff pass. Final real job 2848330:
+  Phase 3 25/25 regressions + original Phase 2 16/16, real session isolation passed.
+- First independent result 19/25 and all failures preserved. Service latency
+  0.6816–16.6937s; final warehouse SUSPENDED. See PHASE3_REPORT.md.
 
 ## In progress
-- None within Phase 2. Implementation, evaluation and handoff are complete.
-  No Phase 3 work is in progress.
+- None within Phase 3; stop after this checkpoint. No public UI/deployment work started.
 
 ## Blocked
-- No core implementation blocker. Final submission still needs absolute receipt time
-  and email recipient; public deployment/reviewer access are outside Phase 2.
+- No Phase 3 implementation blocker. Public hosting still needs administrator-reviewed
+  restricted credentials/PUBLIC baseline and exclusive warehouse/control-storage policy,
+  TLS/token provisioning and a public adapter. Final email needs receipt time/recipient.
 
 ## Next three actions
-1. In a new session, read AGENTS.md and this file, then inspect Git state and PHASE2_REPORT.md.
-2. Wait for explicit next-phase authorization; select a minimal public UI/hosting design
-   and review restricted identity/session isolation before implementation.
-3. Later complete deployed/held-out evaluation, README/Reflection, reviewer access
-   and authorized submission. Do not rerun Phase 1 or start those actions now.
+1. New session: read AGENTS.md, this file, PHASE3_REPORT.md and DEPLOYMENT_PERMISSIONS.md;
+   inspect Git state and current architecture/decisions/evaluation before changes.
+2. Wait for next-phase authorization; choose public UI/hosting and arrange restricted
+   identity, TLS/auth, local/shared control and recovery ownership without breaking access.
+3. Later run fresh held-out/clean deployed evaluation, complete README/Reflection,
+   reviewer permissions and authorized submission. No automatic next phase or email.
 
 ## Historical harness / configuration evidence
 The following preparation and Phase 1 records retain the context at their original
@@ -162,3 +167,46 @@ evaluation -> hardening/report/docs. Preserve all Phase 1 files/evidence; no dep
 Final preflight: exit 2; its Ruff/offline checks pass (116 passed / 25 live skips).
 Incomplete status reflects outstanding full-homework delivery and checkpoint staging;
 not a Phase 2 test failure. GitHub checkpoint versions: v0.1.0-dev / v0.2.0-dev.
+
+## Phase 3 working plan — 2026-10-14
+Acceptance: existing regressions pass; distinct frozen factual/negative/conversation
+cases with independent SQL; concurrent owners cannot share state/connections; bounded
+wall-clock requests; shared rate/model-call budgets and authentication fail closed;
+no diagnostic secrets; graceful provider/overload errors; measured normal turns <60s.
+1. Harden core ownership/deadlines and add authenticated process-isolated service.
+2. Implement SQLite atomic session/admission/budget control (one active trial query),
+   public diagnostic filtering and safe logs; test concurrency/failure boundaries.
+3. Freeze independent cases before live evaluation; run bounded real tests and audit
+   visible permissions, preserve failures, then report/development checkpoint.
+No inventory scan, UI, deployment or final email. Preserve Phase 1/2 evidence.
+
+## Phase 3 completed / handoff — 2026-10-14
+Implemented `control.py` and `service.py`; hardened core/backend/types/planning and
+added `evaluation/phase3.py`, frozen cases and 24 new reliability tests. No new
+application dependencies, full inventory scan, grant/credential changes or public UI.
+54 original Phase 1/2/config/evidence files retain their recorded hashes.
+
+First frozen independent run 2848148: 19/25 (6/9 factual, 3/5 conversation turns,
+10/11 negative). Fixes preserve literal household counts/product ambiguity, verified
+tenure/poverty labels and original wording retrieval. Run 2848266: 25/25 regression.
+Phase 2 regression 2848270: 15/16 (omitted educational metric), corrected with explicit
+context rule/test. Final combined 2848330: all 25 Phase 3 + all 16 Phase 2 real tests
+pass, warehouse suspended. First and intermediate failures were never overwritten.
+
+Decisions: disposable processes with parent 55s deadline; one shared warehouse lease
+rather than unsafe concurrent suspend; owner-bound state/auth with local transactional
+budgets; safe public projection and whitelisted logs; quarantine uncertain server
+cleanup until verified operator recovery. Model emits semantics/IDs, never executable
+SQL or statistics. PUBLIC/ALL preserved because restricted grants cannot be safely
+provisioned from demonstrated rights; admin migration is a hosting blocker.
+
+Limits: first held-out accuracy was 19/25; later success is regression, not fresh
+blind accuracy. More held-out/deployed validation needed. SQLite is single-host with
+shared local file/limits; no multi-host claim. Throughput intentionally one active
+request; actual credit cost unmeasured. 296 unknown fields, unknown ACS interval,
+coverage/city/cross-year/ratio/complex-join limitations remain. No least-privilege,
+public-deployment or complete security certification claim.
+
+Development checkpoint: v0.3.0-dev; see DEVELOPMENT_VERSIONS.md and Git tag for exact
+commit. User's regular checkpoint/validated-change commit policy remains active.
+Stop here; continue a new session only within the next authorized scope.

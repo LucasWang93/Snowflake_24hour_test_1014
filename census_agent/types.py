@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 import time
 from dataclasses import asdict, dataclass, field
 from typing import Any
@@ -27,7 +28,12 @@ class Deadline:
     started: float = field(default_factory=time.monotonic)
     budget: float = 55.0
 
+    def check(self) -> None:
+        if time.monotonic() >= self.started + self.budget:
+            raise ServiceIssue("request timeout")
+
     def timeout(self, cap: int = 15) -> int:
+        self.check()
         remaining = self.budget - (time.monotonic() - self.started)
         if remaining < 1:
             raise ServiceIssue("request timeout")
@@ -110,7 +116,12 @@ class Intent:
             filters = {}  # Empty-array model output has exactly the same empty meaning.
         if not isinstance(filters, dict) or len(filters) > 5:
             raise AgentIssue("Too many or invalid statistical filters.")
-        allowed = {"sex", "age", "race", "education", "employment", "income_band"}
+        filters = dict(filters)
+        if "ownership" in filters:
+            if "tenure" in filters and filters["tenure"] != filters["ownership"]:
+                raise AgentIssue("Conflicting tenure filters.")
+            filters["tenure"] = filters.pop("ownership")
+        allowed = {"sex", "age", "race", "education", "employment", "income_band", "tenure"}
         if any(
             k not in allowed or not isinstance(v, str) or not 1 <= len(v) <= 100
             for k, v in filters.items()
@@ -134,10 +145,16 @@ class ConversationState:
     resolved: Intent | None = None
     pending: Intent | None = None
     entry_id: str | None = None
+    _lock: Any = field(default_factory=threading.Lock, repr=False, compare=False)
 
     def reset(self) -> None:
-        self.resolved = self.pending = None
-        self.entry_id = None
+        if not self._lock.acquire(blocking=False):
+            raise AgentIssue("Conversation has a request in progress.", "overloaded")
+        try:
+            self.resolved = self.pending = None
+            self.entry_id = None
+        finally:
+            self._lock.release()
 
     def context(self) -> dict[str, Any]:
         def serialize(intent: Intent | None) -> dict[str, Any] | None:
@@ -168,5 +185,17 @@ class Response:
     cleanup: dict[str, Any] | None = None
     error: dict[str, Any] | None = None
 
+    def public_dict(self) -> dict[str, Any]:
+        """Browser-safe surface: no raw errors, prompts, SQL or permission snapshots."""
+        return {
+            "status": self.status,
+            "answer": self.answer,
+            "latency_seconds": self.latency_seconds,
+            "metric": self.metric,
+            "results": self.results,
+            "warehouse_suspended": bool(self.cleanup and self.cleanup.get("confirmed_suspended")),
+        }
+
     def as_dict(self) -> dict[str, Any]:
+        """Trusted local diagnostics; never use this as a public endpoint response."""
         return asdict(self)

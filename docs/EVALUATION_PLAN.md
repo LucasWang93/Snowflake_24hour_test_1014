@@ -1,7 +1,7 @@
 # Evaluation plan
 
 Status: configuration/Phase 1 evidence preserved; Phase 2 core agent implemented
-and targeted acceptance passed. UI/deployment evaluation remains planned. CHALLENGE_SPEC.md is the canonical requirement
+accepted; Phase 3 independent/reliability evaluation completed. UI/deployment remains planned. CHALLENGE_SPEC.md is the canonical requirement
 register. Official PDF has been read and reconciled; AS-11 source audit is complete.
 Historical synchronization notes below describe the prior state. Phase 2 tests have run; public deployment tests remain a later phase.
 No remote discovery or Cortex tests were rerun during documentation synchronization.
@@ -82,7 +82,7 @@ canonical register; prior provisional-table notes are historical.
 | AS-3 | Bounded real Cortex intent/catalog-choice calls; answers deterministic plus routing inspection; validate chosen IDs/structured outputs; retain existing availability evidence | Phase 2 real planner/choice and mock failure tests implemented |
 | AS-4 | Reject write/DDL/multiple statements/system access/noncatalog IDs and prompt injection before SQL execution; clarify ambiguous county/year/universe; test timeout, empty result, unknown model, retry bounds and safe cleanup | Phase 2 canonical SQL rejection and mock recovery tests implemented |
 | AS-5 | Independent unauthenticated reviewer-browser access to public URL and real multi-turn use; UI/server credential separation and error display | Planned deployment smoke/security tests |
-| AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | Phase 2 targeted evaluation; held-out evaluation pending |
+| AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | First Phase 3 held-out 19/25; regression 25/25; broader/hosted evaluation pending |
 | AS-7 | Fresh checkout with documented dependencies and exact setup/run/test/example commands succeeds | Pending README/reproduction |
 | AS-8 | Reflection matches PDF format and accurately explains actual design, evidence, limits and tradeoffs | Pending artifact review |
 | AS-9 | Exact reviewer accounts have required effective repository access | Pending permissions verification; no access mutation authorized here |
@@ -211,3 +211,63 @@ Cortex/Snowflake error paths, actual role grants and per-stage/end-to-end timing
   credit-cost measurement or a production SLA. No UI/deployment evaluation ran.
 - 30 unique canonical IDs have corresponding evaluation methods; old 23-ID audit
   above is explicitly historical. Phase 1/configuration preservation hashes pass.
+
+## Phase 3 independent and operational evaluation
+Frozen `evaluation/phase3_cases.json` SHA256:
+`327c865f50a109bb0e12080ebbb3ee00c26064ab7b27b7a4f014dde7fdb11ac8`.
+Distinct from six Phase 2 golden questions: nine factual cases (households, vacant
+units, unemployment, rent, property value, poverty, population/MOE), two conversations
+with five turns, eleven negative cases; 2019/2020, CBG/county/state, ACS/decennial.
+Independent predeclared golden columns and developer-written SQL check numbers,
+physical metric/source/year/geography and answer text. All outcomes are saved before
+acceptance checks; source/model/data query IDs and cleanup remain inspectable.
+
+First untouched held-out-from-development run: job 2848148, 19 passed / 6 failed.
+Stand-alone factual 6/9, conversation turns 3/5, negative 10/11. Its 22 completed
+model/data connections had distinct CURRENT_SESSION IDs. One ambiguous population
+request silently chose decennial: its data was real but the product was unjustified.
+The other failures safely clarified/refused rather than return wrong numbers.
+Concurrent real-session admission/ownership checks passed; final warehouse suspended.
+
+After targeted fixes, the same set is a REGRESSION set, job 2848266; do not report
+its result as fresh held-out accuracy. Original JSON/questions/expected fields and
+first-run evidence remain unchanged. Existing Phase 2 real regressions run separately
+under job 2848270 into a new artifact, after the Phase 3 job to avoid shared-warehouse
+interference. Source/code manifests accompany every run; no full inventory rescans.
+
+Offline tests use explicitly mocked workers/providers for hard hangs/crashes,
+connector/Cortex failures, soft deadline state rollback, safe errors/logging, busy
+SQLite, authentication, cross-owner/reset, shared rate/call budgets, lost leases,
+quarantine/recovery, capacity/TTL, core overlaps and backend ownership. A true
+multi-process SQLite race must admit exactly one requester. Public output must omit
+raw diagnostic data and credentials; canonical SQL regressions remain intact.
+
+Latency is measured at AgentService ingress through admission/worker startup/catalog/
+connection/inference/SQL/cleanup/result transfer. Target normal turns <60s; default
+parent deadline 55s plus bounded termination waits. Report per-case and sample-only
+summary; no throughput, SLA, broad recall or Snowflake-credit measurement claim.
+
+Commands:
+```bash
+.venv/bin/python -m pytest -q tests/phase3 tests/phase2/test_core.py
+bash scripts/verify.sh
+# Credit-consuming opt-in; new output path only; use durable Slurm for batch runs.
+RUN_PHASE3_LIVE=1 .venv/bin/python -m evaluation.phase3 --output /tmp/phase3-new-results.json
+```
+Phase 3 outcomes belong in PHASE3_REPORT.md. Public UI, deployed authentication/TLS,
+restricted identity migration, clean hosted/held-out retesting and complete delivery
+remain separate pending checks under AS-4/AS-5/AS-6/AS-7/AS-9/AS-12/AS-17.
+
+## Final Phase 3 verification — 2026-10-14
+Job 2848330: COMPLETED/exit 0:0, 25/25 Phase 3 regression cases and 16/16 original
+Phase 2 real tests; real concurrent owners/session isolation pass. All final service
+turns 0.6816–16.6937s including full request lifecycle; Phase 2 direct-core turns
+0.2810–11.2684s measured separately. Final fixtures confirmed SUSPENDED.
+Full offline verification: 140 passed / 25 explicit live skips, Ruff pass, exit 0.
+
+Intermediate Phase 2 live job 2848270 had 15/16: a category-only education follow-up
+omitted metric; explicit educational-attainment intent/context handling and a
+captured regression fixed it. Its evidence remains. Initial frozen first-run 19/25
+is still the held-out result; later 25/25 runs are regressions. Final source hashes
+are bound to the combined run manifest. No genuine outage, p95/SLA/throughput/cost
+or complete deployed-security certification is inferred from these cases.

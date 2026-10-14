@@ -1,6 +1,6 @@
 # Decision log
 
-Status: Phase 1 decisions preserved; Phase 2 D-5/D-6/D-7 are now implemented.
+Status: Phase 1/2 decisions preserved; Phase 3 reliability decisions implemented.
 The official PDF is reconciled. Historical records below retain their original
 context; current implementation supersedes the earlier proposal status.
 
@@ -164,3 +164,66 @@ foundation in a separate Phase 1 commit, then the Phase 2 core/evidence/docs com
 Record versions and new-session continuation instructions; never force-push or
 change remotes. This authorization does not begin Phase 3 or authorize deployment,
 reviewer permission changes or submission email.
+
+## 2026-10-14 — D-8: process isolation and explicit deadlines
+Accepted/implemented. Compare a shared connection plus locks (inexpensive, but no
+session separation), per-session thread workers (simpler, but cannot reliably stop
+an uncooperative connector), and disposable request processes (chosen). Processes
+own state/catalog/connection/cursors; a parent wall-clock budget terminates a stuck
+worker and suppresses late results. Extra startup/audit overhead is measured in
+Phase 3, not assumed free. Core locks/ownership preserve safe direct CLI use.
+Snowflake documents shared-session state/query-cache hazards despite thread-safe
+connector APIs ([driver connections](https://docs.snowflake.com/en/developer-guide/driver-connections)).
+Bounded files after worker exit avoid partial-pipe read hangs. No worker pool,
+service, distributed framework or new dependency is introduced.
+
+## 2026-10-14 — D-9: shared admission, authentication and trial budgets
+Accepted/implemented. One shared SQLite lease serializes this trial warehouse,
+preventing another user's ALTER SUSPEND from interrupting a running query. Reject
+rather than queue overload. Alternatives: a concurrent warehouse coordinator adds
+cleanup/failure semantics; separate warehouses add infrastructure/credits. Neither
+is justified now. Atomic owner-bound state/rate/model-call budgets work across local
+processes, with bounded capacity/TTL and consistent configuration. Multi-host shared
+control remains blocked; do not substitute separate per-worker SQLite stores.
+
+Use server-held SHA256 digests of random bearer tokens and explicit principal/session
+ownership. This is an adapter-ready API, not a deployed HTTP auth system. Public
+responses filter diagnostics; operational logs whitelist fields. Two call units
+are reserved per admission conservatively, without claiming a monetary budget.
+
+## 2026-10-14 — D-10: quarantine and effective privileges
+Accepted/implemented. Killing a client is not evidence its server query ended.
+Timeout/crash/unconfirmed cleanup/stale lease therefore quarantines admission until
+an operator verifies no active server queries and a suspended warehouse. Recovery
+cannot clear a live lease and is not exposed by the public service. This sacrifices
+availability in uncertain failures to protect correctness and trial resources.
+
+Working PUBLIC/ALL is preserved and fresh visible user/primary/inherited role grants
+are recorded. Dedicated-role/secondary NONE options are implemented; an admin-reviewed
+read-only migration plan is documented. Available audit does not demonstrate grantable
+role-provisioning privileges; broad PUBLIC inheritance cannot be removed safely as
+an incidental task. No GRANT/revoke, new identity/warehouse or credential changes.
+A restricted identity and exclusively assigned warehouse remain deployment blockers.
+
+## 2026-10-14 — D-11: honest independent evaluation and semantic corrections
+Accepted/implemented. Freeze a new set from supplied statistical definitions before
+live agent evaluation; independent SQL is developer-authored and verifies values.
+First run is held out from Phase 2 development, not an external blind benchmark.
+Observed failures stay preserved. Reused cases after fixes are explicitly regression,
+never relabeled held-out improvements. No dataset or benchmark values are fabricated.
+
+First run: 19/25 pass; failures exposed household-count confusion, missing tenure,
+poverty label framing, and invented product selection for an ambiguous question.
+Corrections constrain literal intent/context, preserve exact definitions, retrieve
+original wording, and normalize verified filter framing/tenure. No physical table
+or column mapping is hardcoded into the agent. Keep canonical SQL and conservative
+non-additive aggregation; no broader arbitrary query capability is added.
+
+## 2026-10-14 — Final Phase 3 review / educational follow-up regression
+The original Phase 2 live suite under Phase 3 exposed an omitted metric alongside
+explicit education filters (15/16 pass). Recognize explicit educational-attainment
+scope as a topic change instead of retaining stale employment. A captured unit
+regression plus final full live run pass. This is a targeted context fix, not a new
+query framework. Final job 2848330: Phase 3 25/25 regression and Phase 2 16/16 pass.
+Initial 19/25 independent result and every intermediate failure remain preserved.
+Read-only role migration/hosting still require separate work and authorization.

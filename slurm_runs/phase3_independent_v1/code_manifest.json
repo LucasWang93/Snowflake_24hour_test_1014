@@ -1,0 +1,19 @@
+{
+  "git_head": "b038e3b81a64d8525df7360d1316a2be581f8059",
+  "evaluation_class": "first frozen held-out-from-Phase2 run",
+  "sha256": {
+    "census_agent/planning.py": "8b32e7e71fc6ea23f29c3ff9c91498e4fce2af3811c785065a81cf194f95cf19",
+    "census_agent/control.py": "541156520788c6a456be3469927c5ff67c602b0c2ac0199b635e866986502f49",
+    "census_agent/__init__.py": "4cc374793c3126ec1357b486746bd1ea1e0752aef6ecea1dd948aa6c90fc3c5f",
+    "census_agent/service.py": "4c8fed9c6848a4fe9772b2aa2a48240b4f900bb71cf42f5b26b125e237839798",
+    "census_agent/types.py": "768076f930f3aba6c3f476138a7e176867ed27942fba753a66350ed841670c79",
+    "census_agent/backend.py": "0b46331ef6cad7b9afc2c42996505d66519d0fd8d53dbe8c6d0d6bf3b7ed4426",
+    "census_agent/__main__.py": "1caa5107fa6fb735b24292535b5d52e3dc534f918ca5b68a435c2b5ab2a261f8",
+    "census_agent/sql.py": "3dfbf553ba11bef91780d4b4a10c6379f12406d999ed113b293c45c35b5d6e03",
+    "census_agent/agent.py": "d832e082d9ad7144a422f2b015b715be74d909cf40dba68cce0f13d39373fce9",
+    "evaluation/phase3_cases.json": "327c865f50a109bb0e12080ebbb3ee00c26064ab7b27b7a4f014dde7fdb11ac8",
+    "evaluation/phase3.py": "0352fa338218c3cde31a06b040c365c6bd145038352d5c8ffcc2ae7a83c60991",
+    "tests/phase3/test_reliability.py": "0620e15e32b10a1e1a7bbc125d8ddcd3ce964c92e9c951d3cbc2751a0a1f650e",
+    "data/semantic_catalog.json": "2321b4ee09d30c84ef9f3753ccd8037954fda664abb0824c185607de8102d1b0"
+  }
+}

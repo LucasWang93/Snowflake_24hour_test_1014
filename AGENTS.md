@@ -1,7 +1,7 @@
 # Repository execution policy
 
 This repository contains the preparation harness, verified Phase 1 Census catalog
-and Phase 2 core agent. The official PDF has arrived and is reconciled. Read
+and Phase 2 core agent with Phase 3 reliability hardening. The official PDF has arrived and is reconciled. Read
 docs/PROGRESS.md for the current checkpoint. Do not invent requirements, schema,
 evaluation data or successful results; do not automatically advance phases.
 

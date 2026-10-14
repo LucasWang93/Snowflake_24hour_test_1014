@@ -1,7 +1,7 @@
 # Challenge specification
 
-Status: official PDF reconciled; Phase 1 preserved; Phase 2 core agent authorized
-implemented and targeted acceptance passed. Public UI/deployment remain outside this phase.
+Status: official PDF reconciled; Phase 1/2 accepted and preserved; Phase 3
+reliability and independent evaluation completed within documented scope. No public UI/deployment in this phase.
 
 ## Objective
 Build a chatting agent that answers questions about United States Census population
@@ -156,3 +156,24 @@ Core pipeline/CLI complete within documented supported scope. Final live suite:
 reference SQL and adversarial/unsupported cases; all measured turns under 60s.
 Full offline suite 116 passed / 25 opt-in skips; Phase 1 original evidence preserved.
 See PHASE2_REPORT.md. UI/deployment and final submission remain pending; stop after Phase 2.
+
+## Phase 3 authorized scope and traceability
+The current user authorizes Phase 3 reliability/evaluation only. AS-2/AS-4 cover
+owner-bound sessions, safe concurrent ownership, deadlines, graceful provider/
+overload errors and filtered diagnostics. AS-6 covers frozen independent cases,
+reference SQL, failure analysis and explicit held-out-versus-regression separation.
+AS-12 measures the entire service request, including startup/connection/cleanup.
+SF-5/SF-6 retain suspension/credential exclusions. AS-5/AS-7/AS-8/AS-9/AS-10/AS-17
+remain full-delivery obligations, not authorization to deploy, share or email now.
+
+Phase 3 acceptance: existing offline/targeted Phase 2 real regressions pass; new
+cases have honest recorded outcomes; session/connection isolation and SQL/credential
+security tests pass; provider/overload faults degrade safely; measured normal turns
+<60s; remaining restricted-identity/hosting risks explicit. Stop after Phase 3.
+See PHASE3_REPORT.md for actual measured results; never replace first-run failures
+with later regression successes. No new full inventory scan or public UI.
+
+Phase 3 actual evidence: first frozen run 19/25; final reused-case regression 25/25,
+real session isolation pass, existing Phase 2 live 16/16, full offline 140 pass / 25
+live skips. PHASE3_REPORT.md distinguishes first held-out failures from regressions,
+records actual latency and identifies restricted-identity/hosting blockers.

@@ -22,3 +22,6 @@ dist/
 .DS_Store
 .idea/
 .vscode/
+
+# Local Phase 3 session/admission state; never submit runtime state.
+.runtime/

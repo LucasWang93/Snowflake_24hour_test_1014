@@ -1,0 +1,18 @@
+{
+  "preserved_files": 54,
+  "original_hashes_unchanged": true,
+  "final_tested_source_matches": true,
+  "frozen_case_hash_unchanged": true,
+  "canonical_requirement_ids": 30,
+  "credential_pattern_risks": 0,
+  "env_mode": "0o600",
+  "phase3_first_independent": {
+    "passed": 19,
+    "total": 25
+  },
+  "phase3_final_regression": {
+    "passed": 25,
+    "total": 25
+  },
+  "phase2_final_live_passed": 16
+}
