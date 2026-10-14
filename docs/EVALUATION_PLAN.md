@@ -347,3 +347,15 @@ post_restart_browser.json, before_restart.json/after_restart.json, network.json 
 final_runtime.json. Earlier Phase 1–3 evaluations are not rerun or relabeled.
 PUBLIC learning-role inheritance remains a P1 permission residual, distinct from a
 passed application SQL/credential boundary and default PUBLIC CORTEX_USER.
+
+## Phase 4 latency follow-up — actual before/after, not new held-out evaluation
+AS-12: exact Alabama decennial question through existing AgentService/lease: profiled
+15.0294s before, 13.6739s after; both 5,024,279 and identical SQL/params. Cortex varies,
+so do not attribute all difference causally or report aggregate percentiles. Separate
+2-CPU index load probe: 1.4277s ->0.7183s; all postings/ranked mappings match. Initial
+slower cache prototype and busy profiling attempt are retained.
+Public HTTPS real question 12.9913s, contextual follow-up 13.0160s, guarded refusal
+2.9941s pass, with visible private-marker/token exclusion. 11 new deterministic
+cache/invalidation/cleanup tests and 191 full offline passes /25 explicit live skips.
+Old Phase 1–4 real evidence remains unchanged. See PHASE4_LATENCY.md for commands,
+profiling conditions, initial fixture failure and remaining runtime/permission limits.

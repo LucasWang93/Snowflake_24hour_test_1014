@@ -76,3 +76,18 @@ inheritance remains a documented P1 permission residual, not a least-privilege c
 No grant/revoke/budget reset or paid infrastructure changes. README/Reflection, private
 reviewer access/handoff and submission remain pending; no Phase 5/email. Commit/tag
 and authorized push occur only after evidence/diff/secret checks.
+
+## v0.4.4-dev — measured request startup/cleanup improvements
+Build-derived fingerprinted complete search index and safe fallback; deduplicate only
+already-confirmed warehouse cleanup, invalidating on every new SQL/connection. 11 new
+tests; full 191 passed /25 live skips. Exact Alabama result/SQL unchanged; profiled
+15.0294s ->13.6739s, public browser 12.9913s, context follow-up 13.0160s, refusal 2.9941s.
+No model/warehouse change, statistical result caching, shared connector or new dependency.
+Image deployed to latency-20261014 under existing admission lease; SQLite/quotas/secrets
+preserved. Initial busy/profile fixture/cache-prototype outcomes retained. No instant
+answer/SLA/strict least-privilege claim; prior permission/delivery gaps still visible.
+
+Closeout records cleanup query classification (two permission SHOWs plus one cleanup
+SHOW), source-hash match and a separate later diagnostic warehouse STARTED observation;
+no mislabeled final SUSPENDED claim. Phase 4 report now contains the fixes/results/
+remaining-task handoff directly. No new phase or additional live test for doc sync.

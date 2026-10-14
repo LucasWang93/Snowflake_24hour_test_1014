@@ -1,0 +1,934 @@
+{
+  "control": {
+    "gate": [
+      0,
+      0
+    ],
+    "reserved_units": 64
+  },
+  "columns": [
+    "QUERY_ID",
+    "QUERY_TAG",
+    "QUERY_TYPE",
+    "EXECUTION_STATUS",
+    "TOTAL_ELAPSED_TIME",
+    "ERROR_CODE",
+    "START_TIME",
+    "STAGE"
+  ],
+  "rows": [
+    [
+      "01c7bc12-3204-bca1-0008-3d1a00035276",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SHOW",
+      "SUCCESS",
+      84,
+      null,
+      "2026-10-14 16:46:27.779000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324ee",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      119,
+      null,
+      "2026-10-14 16:46:27.628000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362e2",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SELECT",
+      "SUCCESS",
+      117,
+      null,
+      "2026-10-14 16:46:27.475000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362de",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SELECT",
+      "SUCCESS",
+      1413,
+      null,
+      "2026-10-14 16:46:25.898000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362da",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SELECT",
+      "SUCCESS",
+      3033,
+      null,
+      "2026-10-14 16:46:22.781000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc12-3204-bca1-0008-3d1a00035272",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SHOW",
+      "SUCCESS",
+      240,
+      null,
+      "2026-10-14 16:46:22.505000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bca1-0008-3d1a0003526a",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SHOW",
+      "SUCCESS",
+      222,
+      null,
+      "2026-10-14 16:46:22.230000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324ea",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "SELECT",
+      "SUCCESS",
+      43,
+      null,
+      "2026-10-14 16:46:22.156000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362d6",
+      "census_request_01a1277ec004447e81913d6c3194667d",
+      "USE",
+      "SUCCESS",
+      67,
+      null,
+      "2026-10-14 16:46:22.056000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324e6",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SHOW",
+      "SUCCESS",
+      101,
+      null,
+      "2026-10-14 16:46:14.688000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324e2",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      128,
+      null,
+      "2026-10-14 16:46:14.523000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362d2",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SELECT",
+      "SUCCESS",
+      148,
+      null,
+      "2026-10-14 16:46:14.339000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324de",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SELECT",
+      "SUCCESS",
+      1493,
+      null,
+      "2026-10-14 16:46:12.672000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc12-3204-bd12-0008-3d1a000362ce",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SELECT",
+      "SUCCESS",
+      3221,
+      null,
+      "2026-10-14 16:46:09.348000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc12-3204-bca1-0008-3d1a00035266",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SHOW",
+      "SUCCESS",
+      223,
+      null,
+      "2026-10-14 16:46:09.085000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324da",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SHOW",
+      "SUCCESS",
+      214,
+      null,
+      "2026-10-14 16:46:08.814000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc12-3204-bb79-0008-3d1a000324d6",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "SELECT",
+      "SUCCESS",
+      69,
+      null,
+      "2026-10-14 16:46:08.713000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc12-3204-bca1-0008-3d1a00035262",
+      "census_request_8d262e50ea5a4993a95eb59a55896c5c",
+      "USE",
+      "SUCCESS",
+      95,
+      null,
+      "2026-10-14 16:46:08.585000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bc10-3204-bca1-0008-3d1a0003525e",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SHOW",
+      "SUCCESS",
+      93,
+      null,
+      "2026-10-14 16:44:23.063000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc10-3204-bd12-0008-3d1a000362be",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      128,
+      null,
+      "2026-10-14 16:44:22.517000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc10-3204-bca1-0008-3d1a0003525a",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SELECT",
+      "SUCCESS",
+      304,
+      null,
+      "2026-10-14 16:44:22.173000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bc10-3204-bd12-0008-3d1a000362ba",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SELECT",
+      "SUCCESS",
+      1427,
+      null,
+      "2026-10-14 16:44:20.249000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc10-3204-bd12-0008-3d1a000362b6",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SELECT",
+      "SUCCESS",
+      2968,
+      null,
+      "2026-10-14 16:44:17.153000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc10-3204-bb79-0008-3d1a000324d2",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SHOW",
+      "SUCCESS",
+      259,
+      null,
+      "2026-10-14 16:44:16.853000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc10-3204-bca1-0008-3d1a00035252",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SHOW",
+      "SUCCESS",
+      209,
+      null,
+      "2026-10-14 16:44:16.569000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc10-3204-bd12-0008-3d1a000362b2",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "SELECT",
+      "SUCCESS",
+      63,
+      null,
+      "2026-10-14 16:44:16.470000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc10-3204-bb79-0008-3d1a000324ce",
+      "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+      "USE",
+      "SUCCESS",
+      77,
+      null,
+      "2026-10-14 16:44:16.361000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bc06-3204-bb79-0008-3d1a000324c2",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SHOW",
+      "SUCCESS",
+      129,
+      null,
+      "2026-10-14 16:34:35.888000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc06-3204-bca1-0008-3d1a0003522e",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      58,
+      90064,
+      "2026-10-14 16:34:35.782000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc06-3204-bb79-0008-3d1a000324be",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SHOW",
+      "SUCCESS",
+      102,
+      null,
+      "2026-10-14 16:34:35.643000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc06-3204-bb79-0008-3d1a000324ba",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      150,
+      null,
+      "2026-10-14 16:34:35.459000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc06-3204-bd12-0008-3d1a0003628e",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SELECT",
+      "SUCCESS",
+      125,
+      null,
+      "2026-10-14 16:34:35.285000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bc06-3204-bd12-0008-3d1a0003628a",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SELECT",
+      "SUCCESS",
+      1443,
+      null,
+      "2026-10-14 16:34:33.340000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc06-3204-bb79-0008-3d1a000324b6",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SELECT",
+      "SUCCESS",
+      3254,
+      null,
+      "2026-10-14 16:34:29.952000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc06-3204-bca1-0008-3d1a0003522a",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SHOW",
+      "SUCCESS",
+      197,
+      null,
+      "2026-10-14 16:34:29.707000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc06-3204-bd12-0008-3d1a00036286",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SHOW",
+      "SUCCESS",
+      215,
+      null,
+      "2026-10-14 16:34:29.409000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc06-3204-bca1-0008-3d1a00035226",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "SELECT",
+      "SUCCESS",
+      58,
+      null,
+      "2026-10-14 16:34:29.311000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc06-3204-bd12-0008-3d1a00036282",
+      "census_request_39bbbb8ece9a402ab36c508bc911b3a9",
+      "USE",
+      "SUCCESS",
+      80,
+      null,
+      "2026-10-14 16:34:29.189000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bc04-3204-bca1-0008-3d1a00035222",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SHOW",
+      "SUCCESS",
+      212,
+      null,
+      "2026-10-14 16:32:48.031000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc04-3204-bb79-0008-3d1a000324aa",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      61,
+      90064,
+      "2026-10-14 16:32:46.978000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc04-3204-bca1-0008-3d1a0003521e",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SHOW",
+      "SUCCESS",
+      251,
+      null,
+      "2026-10-14 16:32:46.687000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc04-3204-bb79-0008-3d1a000324a6",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      133,
+      null,
+      "2026-10-14 16:32:45.881000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc04-3204-bb79-0008-3d1a000324a2",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SELECT",
+      "SUCCESS",
+      1783,
+      null,
+      "2026-10-14 16:32:44.059000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc04-3204-bb79-0008-3d1a0003249e",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SHOW",
+      "SUCCESS",
+      293,
+      null,
+      "2026-10-14 16:32:43.732000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc04-3204-bd12-0008-3d1a00036276",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SHOW",
+      "SUCCESS",
+      193,
+      null,
+      "2026-10-14 16:32:43.471000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc04-3204-bca1-0008-3d1a0003521a",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "SELECT",
+      "SUCCESS",
+      48,
+      null,
+      "2026-10-14 16:32:43.386000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc04-3204-bd12-0008-3d1a00036272",
+      "census_request_98bba68e6b944ffca6ef1d99a2b402f6",
+      "USE",
+      "SUCCESS",
+      71,
+      null,
+      "2026-10-14 16:32:43.283000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bc03-3204-bca1-0008-3d1a00035212",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SHOW",
+      "SUCCESS",
+      78,
+      null,
+      "2026-10-14 16:31:06.976000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc03-3204-bb79-0008-3d1a0003249a",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      70,
+      90064,
+      "2026-10-14 16:31:06.864000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc03-3204-bb79-0008-3d1a00032496",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SHOW",
+      "SUCCESS",
+      115,
+      null,
+      "2026-10-14 16:31:06.712000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc03-3204-bca1-0008-3d1a0003520e",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      134,
+      null,
+      "2026-10-14 16:31:06.545000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bc03-3204-bd12-0008-3d1a00036266",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SELECT",
+      "SUCCESS",
+      280,
+      null,
+      "2026-10-14 16:31:06.220000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bc03-3204-bd12-0008-3d1a00036262",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SELECT",
+      "SUCCESS",
+      1509,
+      null,
+      "2026-10-14 16:31:04.453000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc03-3204-bca1-0008-3d1a0003520a",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SELECT",
+      "SUCCESS",
+      2933,
+      null,
+      "2026-10-14 16:31:01.394000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bc03-3204-bd70-0008-3d1a0003a136",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SHOW",
+      "SUCCESS",
+      233,
+      null,
+      "2026-10-14 16:31:01.113000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc03-3204-bb79-0008-3d1a00032492",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SHOW",
+      "SUCCESS",
+      229,
+      null,
+      "2026-10-14 16:31:00.817000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bc03-3204-bb79-0008-3d1a0003248e",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "SELECT",
+      "SUCCESS",
+      66,
+      null,
+      "2026-10-14 16:31:00.720000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bc03-3204-bd12-0008-3d1a0003625e",
+      "census_request_425703846c8e4527bfe7c8051feaf4a2",
+      "USE",
+      "SUCCESS",
+      81,
+      null,
+      "2026-10-14 16:31:00.604000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bbf0-3204-bb79-0008-3d1a0003246a",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SHOW",
+      "SUCCESS",
+      131,
+      null,
+      "2026-10-14 16:12:22.501000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbf0-3204-bca1-0008-3d1a000351d6",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      55,
+      90064,
+      "2026-10-14 16:12:22.405000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbf0-3204-bd70-0008-3d1a0003a102",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SHOW",
+      "SUCCESS",
+      83,
+      null,
+      "2026-10-14 16:12:22.288000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbf0-3204-bd12-0008-3d1a0003623e",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      121,
+      null,
+      "2026-10-14 16:12:22.134000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbf0-3204-bca1-0008-3d1a000351d2",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SELECT",
+      "SUCCESS",
+      134,
+      null,
+      "2026-10-14 16:12:21.964000-07:00",
+      "data_sum"
+    ],
+    [
+      "01c7bbf0-3204-bca1-0008-3d1a000351ce",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SELECT",
+      "SUCCESS",
+      1103,
+      null,
+      "2026-10-14 16:12:20.692000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bbf0-3204-bd12-0008-3d1a0003623a",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SELECT",
+      "SUCCESS",
+      2678,
+      null,
+      "2026-10-14 16:12:17.726000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bbf0-3204-bca1-0008-3d1a000351ca",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SHOW",
+      "SUCCESS",
+      245,
+      null,
+      "2026-10-14 16:12:17.447000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbf0-3204-bca1-0008-3d1a000351c6",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SHOW",
+      "SUCCESS",
+      214,
+      null,
+      "2026-10-14 16:12:17.173000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbf0-3204-bd12-0008-3d1a00036236",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "SELECT",
+      "SUCCESS",
+      51,
+      null,
+      "2026-10-14 16:12:17.090000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bbf0-3204-bd70-0008-3d1a0003a0fe",
+      "census_request_d2a21af1caee4449b91dbe6a16927c4c",
+      "USE",
+      "SUCCESS",
+      85,
+      null,
+      "2026-10-14 16:12:16.971000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351ba",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SHOW",
+      "SUCCESS",
+      92,
+      null,
+      "2026-10-14 16:10:18.937000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bd12-0008-3d1a0003622a",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      55,
+      90064,
+      "2026-10-14 16:10:18.847000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351b6",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SHOW",
+      "SUCCESS",
+      102,
+      null,
+      "2026-10-14 16:10:18.714000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bd70-0008-3d1a0003a0ee",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      140,
+      null,
+      "2026-10-14 16:10:18.543000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbee-3204-bd70-0008-3d1a0003a0ea",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SELECT",
+      "SUCCESS",
+      2847,
+      null,
+      "2026-10-14 16:10:15.654000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bbee-3204-bd12-0008-3d1a00036226",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SHOW",
+      "SUCCESS",
+      236,
+      null,
+      "2026-10-14 16:10:15.385000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351b2",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SHOW",
+      "SUCCESS",
+      261,
+      null,
+      "2026-10-14 16:10:15.070000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bb79-0008-3d1a00032462",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "SELECT",
+      "SUCCESS",
+      59,
+      null,
+      "2026-10-14 16:10:14.967000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bbee-3204-bd70-0008-3d1a0003a0e6",
+      "census_request_58525c05c7b24a1b8fe007419032220c",
+      "USE",
+      "SUCCESS",
+      84,
+      null,
+      "2026-10-14 16:10:14.846000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bbee-3204-bd70-0008-3d1a0003a0e2",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SHOW",
+      "SUCCESS",
+      92,
+      null,
+      "2026-10-14 16:10:05-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bd12-0008-3d1a00036222",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      64,
+      90064,
+      "2026-10-14 16:10:04.884000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351ae",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SHOW",
+      "SUCCESS",
+      86,
+      null,
+      "2026-10-14 16:10:04.765000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bb79-0008-3d1a0003245a",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SHOW",
+      "SUCCESS",
+      113,
+      null,
+      "2026-10-14 16:10:04.368000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bb79-0008-3d1a00032456",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "SUCCESS",
+      131,
+      null,
+      "2026-10-14 16:10:04.202000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbee-3204-bd12-0008-3d1a0003621e",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SELECT",
+      "SUCCESS",
+      3425,
+      null,
+      "2026-10-14 16:10:00.737000-07:00",
+      "cortex"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351aa",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SHOW",
+      "SUCCESS",
+      237,
+      null,
+      "2026-10-14 16:10:00.457000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bca1-0008-3d1a000351a6",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SHOW",
+      "SUCCESS",
+      229,
+      null,
+      "2026-10-14 16:10:00.150000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbee-3204-bb79-0008-3d1a00032452",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "SELECT",
+      "SUCCESS",
+      68,
+      null,
+      "2026-10-14 16:10:00.046000-07:00",
+      "SELECT"
+    ],
+    [
+      "01c7bbed-3204-bd70-0008-3d1a0003a0de",
+      "census_request_5383ff4fe1b74142aae7f151f442b53b",
+      "USE",
+      "SUCCESS",
+      91,
+      null,
+      "2026-10-14 16:09:59.916000-07:00",
+      "USE"
+    ],
+    [
+      "01c7bbed-3204-bd70-0008-3d1a0003a0da",
+      "census_request_f66892d33a444a78ae7f779c2cb7e7e4",
+      "SHOW",
+      "SUCCESS",
+      92,
+      null,
+      "2026-10-14 16:09:52.067000-07:00",
+      "SHOW"
+    ],
+    [
+      "01c7bbed-3204-bb79-0008-3d1a0003244e",
+      "census_request_f66892d33a444a78ae7f779c2cb7e7e4",
+      "ALTER_WAREHOUSE_SUSPEND",
+      "FAILED_WITH_ERROR",
+      91,
+      90064,
+      "2026-10-14 16:09:51.932000-07:00",
+      "ALTER_WAREHOUSE_SUSPEND"
+    ],
+    [
+      "01c7bbed-3204-bd12-0008-3d1a00036216",
+      "census_request_f66892d33a444a78ae7f779c2cb7e7e4",
+      "SHOW",
+      "SUCCESS",
+      90,
+      null,
+      "2026-10-14 16:09:51.795000-07:00",
+      "SHOW"
+    ]
+  ],
+  "query_id": "01c7bc13-3204-bca1-0008-3d1a0003527a",
+  "warehouse_state": "STARTED",
+  "warehouse_query_id": "01c7bc13-3204-bb79-0008-3d1a000324f6"
+}

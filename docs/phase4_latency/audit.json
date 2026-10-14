@@ -1,0 +1,13 @@
+{
+  "baseline_protected_files": 109,
+  "unchanged_prior_files": 106,
+  "intentional_implementation_changes": [
+    "census_agent/backend.py",
+    "census_agent/service.py",
+    "census_catalog/catalog.py"
+  ],
+  "original_catalog_and_old_tests_evidence_preserved": true,
+  "changed_file_secret_marker_check": "pass",
+  "development_env_ignored": true,
+  "development_env_tracked": false
+}

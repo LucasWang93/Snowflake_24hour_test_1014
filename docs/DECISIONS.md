@@ -308,3 +308,20 @@ joke requests span a minute. Use deterministic local guard refusals to generate 
 admissions quickly, preserving six/minute and all production budgets. Preserve both
 failed artifacts; final nine checks plus authenticated restart pass. No application
 behavior/limits changed to satisfy a test.
+
+## 2026-10-14 — D-19: precompute metadata indexing, retain isolated execution
+User reported Alabama decennial latency. Actual data SUM 0.280s vs two Cortex calls
+4.442s; startup also rebuilt BM25 and imported the connector. Build a derived JSONL
+index once in the image, with source/code/payload fingerprints and verified schema
+validation/fallback per worker. Preserve all postings/search results, fresh SQL,
+independent worker connections and no new dependencies. Reject canned answers, larger
+warehouse and model changes as unjustified by this profile. Final paired service gain
+is modest (15.03s ->13.67s), with model variance explicitly acknowledged.
+
+## 2026-10-14 — D-20: avoid only the redundant confirmed suspension
+Agent cleanup already confirms suspension before worker close; close previously
+repeated ALTER/SHOW and received already-suspended errors. Track connection-local
+confirmation, invalidate on every SQL attempt/new connection, and retry cleanup on
+close whenever it is not confirmed. Do not remove the actual final state check or
+weaken warehouse lease/quarantine. Unit failure-path checks and real query history
+verify the change; no shared connection or infrastructure introduced.

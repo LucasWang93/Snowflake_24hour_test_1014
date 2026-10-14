@@ -1,0 +1,30 @@
+.......F................................................................ [ 78%]
+....................                                                     [100%]
+=================================== FAILURES ===================================
+__________ test_close_does_not_suspend_twice_after_confirmed_cleanup ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x154230978890>
+
+    def test_close_does_not_suspend_twice_after_confirmed_cleanup(monkeypatch):
+        backend = SnowflakeBackend(None)
+        backend._connection = MagicMock()
+        backend._config = {"SNOWFLAKE_WAREHOUSE": "OFFLINE_WH"}
+
+        def run(sql, *args):
+            if sql.startswith("SHOW"):
+                return {
+                    "query_id": "offline",
+                    "columns": ["name", "state"],
+                    "rows": [["OFFLINE_WH", "SUSPENDED"]],
+                }
+            return {"query_id": "offline"}
+
+        monkeypatch.setattr(backend, "_run", run)
+>       assert backend.suspend()["confirmed_suspended"]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: 'NoneType' object is not subscriptable
+
+tests/phase4/test_latency.py:75: TypeError
+=========================== short test summary info ============================
+FAILED tests/phase4/test_latency.py::test_close_does_not_suspend_twice_after_confirmed_cleanup
+1 failed, 91 passed in 16.40s

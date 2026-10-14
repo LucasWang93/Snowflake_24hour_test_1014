@@ -5,9 +5,9 @@ Compose 5.6.0. HTTPS entry point **https://census-104-248-239-52.sslip.io** is d
 and externally verified with real authenticated Census answers and post-restart access.
 **Functional demo is live. Inherited PUBLIC permissions remain a documented follow-up.**
 
-Current production-auth release path `/opt/census/releases/prod-env-20261014`,
-symlink `/opt/census/current`; image/source is the v0.4.2-dev application build,
-activated with APP_ROLE and reviewed flags at the v0.4.3-dev deployment checkpoint.
+Current release path `/opt/census/releases/latency-20261014`, symlink `/opt/census/current`;
+image includes v0.4.4-dev metadata-index/cleanup improvements. Production identity and
+reviewed flags remain APP_ROLE/AGENT_PROD; v0.4.3 public acceptance is preserved.
 Operator commands run as root over existing SSH key; `census-deploy` can upload code
 but has no Docker group/secret-file access. Server-only paths:
 `/etc/census/compose.env`, `/etc/census/app.env` (mode 600),
@@ -228,3 +228,14 @@ session/state/event fingerprints before sending the new request; do not delete t
 DB, reset events or weaken limits. Local `.env` now points CODEX_APP to DEV_WH.
 Server credentials and APP_ROLE stay independent of that file. Tests reserve shared
 budget units; final_runtime.json records the observed remaining allowance, not an SLA.
+
+## Derived search index / performance release
+Docker build computes an immutable index from the authoritative catalog; no manual
+cache download or service installation. source/code/payload fingerprints are checked
+on load, then physical schema is still validated. Missing/stale cache rebuilds safely.
+Rebuild the image after catalog/search code changes; do not edit the derived artifact
+or bake credentials into it. Fresh SQL remains uncached by this application.
+For app replacement, use the shared admission lease for a short maintenance interval
+only after existing requests finish; preserve the SQLite volume/events and release the
+lease once replacement succeeds. Current exact source/image hashes and healthy state
+are in phase4_latency/deployment.json. No warehouse size/role/limit change.

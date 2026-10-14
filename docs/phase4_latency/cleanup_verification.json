@@ -1,0 +1,36 @@
+{
+  "query_tag": "census_request_fbb55bbf04aa408b8fe5630b0547e173",
+  "query_ids": [
+    "01c7bc10-3204-bca1-0008-3d1a0003525e",
+    "01c7bc10-3204-bd12-0008-3d1a000362be",
+    "01c7bc10-3204-bca1-0008-3d1a0003525a",
+    "01c7bc10-3204-bd12-0008-3d1a000362ba",
+    "01c7bc10-3204-bd12-0008-3d1a000362b6",
+    "01c7bc10-3204-bb79-0008-3d1a000324d2",
+    "01c7bc10-3204-bca1-0008-3d1a00035252",
+    "01c7bc10-3204-bd12-0008-3d1a000362b2",
+    "01c7bc10-3204-bb79-0008-3d1a000324ce"
+  ],
+  "stage_counts": {
+    "SHOW": 3,
+    "ALTER_WAREHOUSE_SUSPEND": 1,
+    "data_sum": 1,
+    "cortex": 2,
+    "SELECT": 1,
+    "USE": 1
+  },
+  "show_count_includes_two_permission_audits": true,
+  "cleanup_state_checks": 1,
+  "all_success": true,
+  "same_sql_and_parameters": true,
+  "warehouse_state": "STARTED",
+  "control": {
+    "gate": [
+      0,
+      0
+    ],
+    "reserved_units": 64
+  },
+  "deployed_source_hashes_match": true,
+  "deployed_health": "healthy"
+}

@@ -1,0 +1,8 @@
+{
+  "uncached_load_seconds": 1.4277,
+  "prepared_load_seconds": 0.7183,
+  "index_bytes": 9369360,
+  "all_postings_equal": true,
+  "five_ranked_searches_equal": true,
+  "query_result_cache": false
+}

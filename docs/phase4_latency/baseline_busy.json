@@ -1,0 +1,19 @@
+{
+  "wall_seconds": 0.0008,
+  "public": {
+    "request_id": "432fee4255094351b9e816f3a5cc9aa9",
+    "status": "overloaded",
+    "answer": "Data service is busy; retry shortly.",
+    "latency_seconds": 0.0007,
+    "metric": null,
+    "results": [],
+    "warehouse_suspended": false
+  },
+  "stages": null,
+  "model_calls": [],
+  "sql": null,
+  "cleanup": null,
+  "profile": null,
+  "connected": null,
+  "closed": null
+}

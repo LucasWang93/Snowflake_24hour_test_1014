@@ -45,7 +45,10 @@ def request_worker(path: str, question: str, state_data: dict, deadline: Deadlin
     """Spawned process owns all connection, cursor, model traces and mutable state."""
     backend = None
     try:
-        catalog = Catalog.load(ROOT / "data/semantic_catalog.json")
+        catalog = Catalog.load(
+            ROOT / "data/semantic_catalog.json",
+            index_path=ROOT / "data/semantic_search_index.jsonl",
+        )
         deadline.check()
         backend = SnowflakeBackend(catalog, **options)
         state = restore_state(state_data)

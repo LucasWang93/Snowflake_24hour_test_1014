@@ -1,6 +1,25 @@
 # Progress
 
-## Current checkpoint — Phase 4 public chat activated
+## Current checkpoint — Phase 4 latency fixes completed (v0.4.4-dev)
+
+- Same Alabama 2020 decennial result: 5,024,279, identical SQL and parameters. Paired
+  profiled service 15.0294s ->13.6739s; clean public browser 12.9913s; contextual follow-up
+  13.0160s; guarded refusal 2.9941s. Modest measured gain, not instant response/SLA.
+- Image-built fingerprinted complete BM25 index avoids repeated construction;
+  physical validation/fallback preserved. Confirmed cleanup is not repeated on close;
+  any new SQL/failure/connection invalidates that observation.
+- Final verification: 191 passed /25 live skips, Ruff passes; new module 11 passed.
+  Source hashes match deployed healthy release /opt/census/releases/latency-20261014.
+  APP_ROLE/AGENT_PROD/environment credentials and existing security/control limits stay.
+- Profiled request cleanup confirmed suspension. A later diagnostic snapshot observed
+  STARTED with no active lease/quarantine; preserve this separate fact, do not claim
+  the latest snapshot was SUSPENDED. No new investigation during documentation closeout.
+- Evidence/limitations: PHASE4_REPORT.md, PHASE4_LATENCY.md, phase4_latency/. First busy
+  attempt/cache prototype/fixture failure and earlier phase evidence remain preserved.
+- Read AGENTS.md and this file first in the next session. Scope completed; no next
+  phase started. Await the next specific task before final-delivery work.
+
+## Historical v0.4.3 checkpoint — Phase 4 public chat activated
 Authorized scope: Phase 4 only. User confirmed APP_ROLE and exclusive application
 warehouse; do not start Phase 5 or send submission email. New sessions read AGENTS.md,
 PROGRESS.md and current PHASE4_REPORT.md first, then inspect Git/current configuration.
@@ -31,7 +50,7 @@ external nine-case browser suite -> independent SQL -> restart/persistence/real 
   admissions). This is an observation, not a reset or guarantee for later users.
 
 ## In progress
-- Phase 4 functional work complete; v0.4.3-dev records this verified checkpoint.
+- Phase 4 functional work and latency follow-up complete; current checkpoint v0.4.4-dev.
 - No next phase started; remaining work awaits user direction/operator permission review.
 
 ## Blocked

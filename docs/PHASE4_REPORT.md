@@ -1,3 +1,69 @@
+# Phase 4 closeout — latency fixes and handoff (v0.4.4-dev)
+
+Public demo remains **https://census-104-248-239-52.sslip.io**. Current application
+release: `/opt/census/releases/latency-20261014`; deployed source hashes match the
+validated local changes. This closeout records the completed fixes; it does not start
+the next phase. Earlier acceptance results and failed attempts below remain preserved.
+
+## Repairs completed after public activation
+
+- **Repeated catalog indexing:** Docker now prepares a complete BM25 search index.
+  Each isolated worker validates catalog/code/payload fingerprints and physical schema;
+  missing, stale or corrupt indexes fall back to the original metadata build. All
+  postings and the five required ranked searches match. No statistical answer cache.
+- **Duplicate warehouse cleanup:** `close()` avoids a second suspension only when this
+  connection's preceding cleanup was confirmed. Any new SQL attempt, failed SQL or new
+  connection invalidates that confirmation. Actual history now shows one ALTER SUSPEND
+  and one cleanup state check; two additional SHOW statements audit permissions.
+- **Deployment/reliability preserved:** replacement used the existing admission lease;
+  SQLite sessions/budgets, private environment credentials, isolated workers, canonical
+  SQL, 55s deadline and authentication/rate controls were retained. No model, warehouse
+  size, Snowflake grant, shared-connection or dependency change.
+
+## Actual verification and measured improvement
+
+| Check | Recorded result |
+| --- | --- |
+| User's Alabama request: SQL vs Cortex | SUM 0.280s; two Cortex calls 2.933s +1.509s; SQL is not the dominant cost |
+| Same question, paired profiled AgentService runs | 15.0294s before ->13.6739s after; identical SQL/params and answer **5,024,279** |
+| Clean public HTTPS: exact Alabama 2020 decennial question | PASS, 12.9913s; correct result/source/year and statistical caveats |
+| Context follow-up “What about Alabama?” | PASS, 13.0160s; same decennial metric/year preserved |
+| Guarded credential/instruction attack | PASS, refused in 2.9941s; no observed public diagnostics/token leakage |
+| Image index-load probe, bounded to 2 CPUs | 1.4277s rebuilt ->0.7183s prepared; all postings/search results equal |
+| Offline regression | **191 passed /25 live skips**, Ruff formatting/lint pass; final index/cleanup module 11 passed |
+| Deployed source/cleanup evidence | Source hashes match, health healthy; profiled request has one successful ALTER and one confirmed cleanup state check |
+
+This is a **modest measured improvement**, not instant responses. The paired runs also
+had different Cortex times; no general percentage gain, average, p95 or SLA is claimed.
+Connector import, fresh connection setup and real Cortex inference still cost seconds.
+
+Evidence: `phase4_latency/{baseline_profile,after_profile,public_browser,
+image_index_benchmark,cleanup_verification,deployment}.json`, `verify_final.log`, and
+`final_index_tests.log`; detail in [PHASE4_LATENCY.md](PHASE4_LATENCY.md). The initial
+busy response, first cache prototype and corrected test-fixture failure are retained.
+Previous full public acceptance is not relabeled as a new full evaluation of this fix.
+
+Each sampled request's cleanup confirmed SUSPENDED. A **later diagnostic snapshot**
+in `history_after.json` observed warehouse STARTED with no active lease/quarantine;
+that separate observation must not be described as SUSPENDED or as proof of cleanup
+failure. The record does not establish which intervening operation resumed it.
+Existing auto-suspend policy remains; no additional live investigation is run merely
+for this documentation handoff.
+
+## Remaining work / next-phase handoff
+
+- Strict account-level least privilege remains open: PUBLIC inherits the learning
+  role's warehouse/schema privileges. Give APP_ROLE explicit OPERATE before an
+  administrator reviews/removes that inheritance; no unapproved privilege changes.
+- Full README/Reflection, exact GitHub reviewer access and final submission preparation
+  remain outstanding. Reviewer token handoff has occurred privately/on explicit user
+  request; no credentials are included in this report or Git. No email sent.
+- Continue by reading AGENTS.md and PROGRESS.md, then the official requirements and
+  this report. Preserve current secrets/control volume and earlier evidence. Do not
+  repeat discovery or automatically start Phase 5; await the next scoped task.
+
+---
+
 # Phase 4 public activation — accepted functional deployment
 
 **Public authenticated Census Chat is running at

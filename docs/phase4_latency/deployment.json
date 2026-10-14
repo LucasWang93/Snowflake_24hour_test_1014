@@ -1,0 +1,12 @@
+{
+  "release": "/opt/census/releases/latency-20261014",
+  "source_sha256": {
+    "census_agent/backend.py": "610039e251176078ddbe5a7b4783439a997277fda47d1861effc7fe81938bd8e",
+    "census_agent/service.py": "9513e9d3ece89719131013bb763f2fabd17022f7d3e428cdab285ce6d374521e",
+    "census_catalog/catalog.py": "830e378a711571121e40f9bf0d20bcbab31dc83ffa15a4d69a586ab59e4be86e",
+    "deploy/Dockerfile": "cb2165536b204d27611774dda323f5ee7a27d715cb57406b79917657a989ae5a"
+  },
+  "image": "sha256:636f3905385b1ece626ba16cf2a80863b39c3d8775c4317f8fbc7992a8b1918a",
+  "health": "healthy",
+  "secret_file_mode": "0o600"
+}

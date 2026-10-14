@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import re
@@ -29,7 +30,7 @@ def tokens(text: str) -> list[str]:
 
 
 class Catalog:
-    def __init__(self, data: dict[str, Any]):
+    def __init__(self, data: dict[str, Any], *, search_index: dict | None = None):
         self.data = data
         self.schemas = data["schemas"]
         self.entries = {e["id"]: e for e in data["entries"]}
@@ -46,6 +47,26 @@ class Catalog:
                 raise ValueError("Catalog entry does not match exact physical schema")
             if not entry["schema_verified"]:
                 raise ValueError("Catalog schema is unverified")
+        if search_index is not None:
+            documents, index = search_index["documents"], search_index["index"]
+            expected = {e["id"] for e in self.entries.values() if e["semantic_verified"]}
+            if not isinstance(documents, dict) or set(documents) != expected:
+                raise ValueError("Search index documents do not match the verified catalog")
+            if any(type(n) is not int or n <= 0 for n in documents.values()):
+                raise ValueError("Invalid search document length")
+            if not isinstance(index, dict) or any(
+                not isinstance(term, str)
+                or not isinstance(postings, dict)
+                or any(
+                    ident not in documents or type(n) is not int or not 0 < n <= documents[ident]
+                    for ident, n in postings.items()
+                )
+                for term, postings in index.items()
+            ):
+                raise ValueError("Invalid search postings")
+            self.documents, self.index = documents, index
+            self.average_length = sum(documents.values()) / max(len(documents), 1)
+            return
         self.documents = {}
         self.index: dict[str, dict[str, int]] = defaultdict(dict)
         for entry in self.entries.values():
@@ -66,8 +87,55 @@ class Catalog:
         self.average_length = sum(self.documents.values()) / max(len(self.documents), 1)
 
     @classmethod
-    def load(cls, path: Path = Path("data/semantic_catalog.json")) -> Catalog:
-        return cls(json.loads(path.read_text()))
+    def load(
+        cls, path: Path = Path("data/semantic_catalog.json"), *, index_path: Path | None = None
+    ) -> Catalog:
+        raw = path.read_bytes()
+        data = json.loads(raw)
+        if index_path is not None:
+            try:
+                if index_path.stat().st_size <= 2 * len(raw):
+                    header, payload = index_path.read_bytes().split(b"\n", 1)
+                    cache = json.loads(header)
+                    if (
+                        cache["version"] == 2
+                        and cache["catalog_sha256"] == hashlib.sha256(raw).hexdigest()
+                        and cache["implementation_sha256"]
+                        == hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+                        and cache["index_sha256"] == hashlib.sha256(payload).hexdigest()
+                    ):
+                        return cls(data, search_index=json.loads(payload))
+            except (OSError, ValueError, KeyError, TypeError):
+                pass  # Missing/stale/invalid optimization: rebuild from authoritative metadata.
+        return cls(data)
+
+    @classmethod
+    def prepare_index(cls, source: Path, destination: Path) -> None:
+        """Build a derived JSON search index; never cache query results or credentials."""
+        if source.resolve() == destination.resolve():
+            raise ValueError("Search index must not overwrite the authoritative catalog")
+        raw = source.read_bytes()
+        catalog = cls(json.loads(raw))
+        payload = json.dumps(
+            {"documents": catalog.documents, "index": catalog.index}, separators=(",", ":")
+        ).encode()
+        # JSONL manifest + payload: checksum original bytes, without reserializing
+        # hundreds of thousands of postings on each isolated request.
+        destination.write_bytes(
+            json.dumps(
+                {
+                    "version": 2,
+                    "catalog_sha256": hashlib.sha256(raw).hexdigest(),
+                    "implementation_sha256": hashlib.sha256(
+                        Path(__file__).read_bytes()
+                    ).hexdigest(),
+                    "index_sha256": hashlib.sha256(payload).hexdigest(),
+                },
+                separators=(",", ":"),
+            ).encode()
+            + b"\n"
+            + payload
+        )
 
     def mapping(self, entry_id: str) -> dict[str, Any]:
         entry = self.entries[entry_id]

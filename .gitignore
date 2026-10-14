@@ -31,3 +31,5 @@ dist/
 *.p8
 playwright-report/
 test-results/
+# Derived inside the image; authoritative semantic_catalog.json remains tracked.
+/data/semantic_search_index.*

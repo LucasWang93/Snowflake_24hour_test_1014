@@ -1,0 +1,429 @@
+{
+  "wall_seconds": 13.6739,
+  "public": {
+    "request_id": "fbb55bbf04aa408b8fe5630b0547e173",
+    "status": "answered",
+    "answer": "Alabama: 5,024,279. Metric: RACE \u2014 Total; universe: Total population. Year/release: 2020; statistical source: decennial_redistricting_pl94_171; field: P0010001 (census_count). Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+    "latency_seconds": 13.6738,
+    "metric": {
+      "id": "2020_REDISTRICTING_CBG_DATA.P0010001",
+      "table": "2020_REDISTRICTING_CBG_DATA",
+      "column": "P0010001",
+      "title": "RACE",
+      "universe": "Total population",
+      "field_path": [
+        "Total"
+      ],
+      "year": 2020,
+      "source_product": "decennial_redistricting_pl94_171",
+      "estimate_kind": "census_count",
+      "aggregation": {
+        "measure": "additive_count",
+        "unit": "persons",
+        "spatial_operation": "sum_disjoint_cbgs",
+        "temporal_operation": "unsupported",
+        "category_operation": "unsupported_without_disjointness_proof"
+      },
+      "survey_interval": null
+    },
+    "results": [
+      {
+        "geography": {
+          "type": "state",
+          "key": "01",
+          "year": 2020,
+          "label": "Alabama"
+        },
+        "value": 5024279.0,
+        "cbgs_matched": 3925,
+        "query_id": "01c7bc10-3204-bca1-0008-3d1a0003525a"
+      }
+    ],
+    "warehouse_suspended": true
+  },
+  "stages": {
+    "request validation": 0.0029,
+    "context resolution": 8.032,
+    "catalog grounding": 1.5494,
+    "validated SQL execution": 0.8054,
+    "grounded answer": 0.0001
+  },
+  "model_calls": [
+    {
+      "model": "llama3.3-70b",
+      "query_id": "01c7bc10-3204-bd12-0008-3d1a000362b6",
+      "elapsed_seconds": 3.0089
+    },
+    {
+      "model": "llama3.3-70b",
+      "query_id": "01c7bc10-3204-bd12-0008-3d1a000362ba",
+      "elapsed_seconds": 1.4625
+    }
+  ],
+  "sql": [
+    {
+      "sql": "SELECT SUM(\"P0010001\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"P0010001\" IS NULL OR \"P0010001\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_REDISTRICTING_CBG_DATA\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 2) = %s LIMIT 1",
+      "params": [
+        "01"
+      ],
+      "plan": {
+        "entry_id": "2020_REDISTRICTING_CBG_DATA.P0010001",
+        "scope": {
+          "type": "state",
+          "key": "01",
+          "year": 2020,
+          "label": "Alabama"
+        },
+        "operation": "sum"
+      },
+      "query_id": "01c7bc10-3204-bca1-0008-3d1a0003525a",
+      "elapsed_seconds": 0.3446
+    }
+  ],
+  "cleanup": {
+    "alter": {
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "query_id": "01c7bc10-3204-bd12-0008-3d1a000362be",
+      "elapsed_seconds": 0.1666
+    },
+    "state_checks": [
+      {
+        "query_id": "01c7bc10-3204-bca1-0008-3d1a0003525e",
+        "state": "SUSPENDED"
+      }
+    ],
+    "query_id": "01c7bc10-3204-bca1-0008-3d1a0003525e",
+    "confirmed_suspended": true
+  },
+  "profile": [
+    {
+      "file": "/app/census_agent/service.py",
+      "line": 44,
+      "function": "request_worker",
+      "calls": 1,
+      "own_seconds": 0.0017,
+      "cumulative_seconds": 12.3
+    },
+    {
+      "file": "/app/census_agent/agent.py",
+      "line": 41,
+      "function": "ask",
+      "calls": 1,
+      "own_seconds": 0.0001,
+      "cumulative_seconds": 11.0645
+    },
+    {
+      "file": "/app/census_agent/agent.py",
+      "line": 68,
+      "function": "_ask",
+      "calls": 1,
+      "own_seconds": 0.0009,
+      "cumulative_seconds": 11.0645
+    },
+    {
+      "file": "/app/census_agent/backend.py",
+      "line": 196,
+      "function": "complete",
+      "calls": 2,
+      "own_seconds": 0.0001,
+      "cumulative_seconds": 9.4927
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/network.py",
+      "line": 779,
+      "function": "_post_request",
+      "calls": 12,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.9203
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/network.py",
+      "line": 866,
+      "function": "fetch",
+      "calls": 12,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.9198
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/network.py",
+      "line": 937,
+      "function": "_request_exec_wrapper",
+      "calls": 12,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 7.9157
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/network.py",
+      "line": 1115,
+      "function": "_request_exec",
+      "calls": 12,
+      "own_seconds": 0.0007,
+      "cumulative_seconds": 7.9127
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/requests/sessions.py",
+      "line": 500,
+      "function": "request",
+      "calls": 12,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.9079
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/requests/sessions.py",
+      "line": 673,
+      "function": "send",
+      "calls": 12,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 7.8833
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/requests/adapters.py",
+      "line": 590,
+      "function": "send",
+      "calls": 12,
+      "own_seconds": 0.0005,
+      "cumulative_seconds": 7.8761
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py",
+      "line": 592,
+      "function": "urlopen",
+      "calls": 12,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 7.8669
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/connectionpool.py",
+      "line": 377,
+      "function": "_make_request",
+      "calls": 12,
+      "own_seconds": 0.0005,
+      "cumulative_seconds": 7.8616
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/connection.py",
+      "line": 549,
+      "function": "getresponse",
+      "calls": 12,
+      "own_seconds": 0.0007,
+      "cumulative_seconds": 7.6933
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/util/wait.py",
+      "line": 113,
+      "function": "wait_for_read",
+      "calls": 24,
+      "own_seconds": 0.0002,
+      "cumulative_seconds": 7.6919
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/util/wait.py",
+      "line": 57,
+      "function": "poll_wait_for_socket",
+      "calls": 24,
+      "own_seconds": 0.0003,
+      "cumulative_seconds": 7.6917
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/util/wait.py",
+      "line": 74,
+      "function": "do_poll",
+      "calls": 24,
+      "own_seconds": 0.0002,
+      "cumulative_seconds": 7.6912
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'poll' of 'select.poll' objects>",
+      "calls": 25,
+      "own_seconds": 7.6911,
+      "cumulative_seconds": 7.6911
+    },
+    {
+      "file": "/usr/local/lib/python3.11/http/client.py",
+      "line": 1399,
+      "function": "getresponse",
+      "calls": 12,
+      "own_seconds": 0.0002,
+      "cumulative_seconds": 7.689
+    },
+    {
+      "file": "/usr/local/lib/python3.11/http/client.py",
+      "line": 330,
+      "function": "begin",
+      "calls": 12,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.6882
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<method 'readline' of '_io.BufferedReader' objects>",
+      "calls": 276,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.6805
+    },
+    {
+      "file": "/usr/local/lib/python3.11/http/client.py",
+      "line": 297,
+      "function": "_read_status",
+      "calls": 12,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 7.6802
+    },
+    {
+      "file": "/usr/local/lib/python3.11/socket.py",
+      "line": 704,
+      "function": "readinto",
+      "calls": 17,
+      "own_seconds": 0.0002,
+      "cumulative_seconds": 7.6802
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py",
+      "line": 339,
+      "function": "recv_into",
+      "calls": 29,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 7.6799
+    },
+    {
+      "file": "/app/census_agent/backend.py",
+      "line": 177,
+      "function": "_run",
+      "calls": 9,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 6.2795
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/cursor.py",
+      "line": 896,
+      "function": "execute",
+      "calls": 9,
+      "own_seconds": 0.0012,
+      "cumulative_seconds": 6.2739
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/network.py",
+      "line": 480,
+      "function": "request",
+      "calls": 10,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 6.2508
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/cursor.py",
+      "line": 616,
+      "function": "_execute_helper",
+      "calls": 9,
+      "own_seconds": 0.0015,
+      "cumulative_seconds": 6.2265
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/connection.py",
+      "line": 2068,
+      "function": "cmd_query",
+      "calls": 9,
+      "own_seconds": 0.0004,
+      "cumulative_seconds": 6.2179
+    },
+    {
+      "file": "/app/census_agent/backend.py",
+      "line": 63,
+      "function": "connect",
+      "calls": 3,
+      "own_seconds": 0.0002,
+      "cumulative_seconds": 5.0201
+    },
+    {
+      "file": "<frozen importlib._bootstrap>",
+      "line": 1165,
+      "function": "_find_and_load",
+      "calls": 1568,
+      "own_seconds": 0.0152,
+      "cumulative_seconds": 2.4383
+    },
+    {
+      "file": "<frozen importlib._bootstrap>",
+      "line": 1120,
+      "function": "_find_and_load_unlocked",
+      "calls": 1092,
+      "own_seconds": 0.0115,
+      "cumulative_seconds": 2.4371
+    },
+    {
+      "file": "<frozen importlib._bootstrap>",
+      "line": 233,
+      "function": "_call_with_frames_removed",
+      "calls": 2521,
+      "own_seconds": 0.0034,
+      "cumulative_seconds": 2.4357
+    },
+    {
+      "file": "<frozen importlib._bootstrap>",
+      "line": 666,
+      "function": "_load_unlocked",
+      "calls": 1000,
+      "own_seconds": 0.0086,
+      "cumulative_seconds": 2.4296
+    },
+    {
+      "file": "<frozen importlib._bootstrap_external>",
+      "line": 934,
+      "function": "exec_module",
+      "calls": 911,
+      "own_seconds": 0.0061,
+      "cumulative_seconds": 2.4294
+    },
+    {
+      "file": "~",
+      "line": 0,
+      "function": "<built-in method builtins.exec>",
+      "calls": 1095,
+      "own_seconds": 0.0361,
+      "cumulative_seconds": 2.4282
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/__init__.py",
+      "line": 1,
+      "function": "<module>",
+      "calls": 1,
+      "own_seconds": 0.0001,
+      "cumulative_seconds": 2.4279
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/connection.py",
+      "line": 1,
+      "function": "<module>",
+      "calls": 1,
+      "own_seconds": 0.0006,
+      "cumulative_seconds": 2.3758
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/_ocsp_mode.py",
+      "line": 1,
+      "function": "<module>",
+      "calls": 1,
+      "own_seconds": 0.0,
+      "cumulative_seconds": 1.8091
+    },
+    {
+      "file": "/usr/local/lib/python3.11/site-packages/snowflake/connector/constants.py",
+      "line": 1,
+      "function": "<module>",
+      "calls": 1,
+      "own_seconds": 0.0003,
+      "cumulative_seconds": 1.8084
+    }
+  ],
+  "connected": true,
+  "closed": true
+}

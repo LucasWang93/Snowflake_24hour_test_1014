@@ -11,6 +11,7 @@ COPY census_catalog ./census_catalog
 COPY census_web ./census_web
 COPY scripts/snowflake_probe.py ./scripts/snowflake_probe.py
 COPY data/semantic_catalog.json ./data/semantic_catalog.json
+RUN python -c "from pathlib import Path; from census_catalog.catalog import Catalog; Catalog.prepare_index(Path('data/semantic_catalog.json'), Path('data/semantic_search_index.jsonl'))"
 COPY web_app.py ./
 COPY deploy/streamlit.toml ./.streamlit/config.toml
 USER 10001:10001

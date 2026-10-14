@@ -47,6 +47,7 @@ class SnowflakeBackend:
         self.catalog, self.model = catalog, model
         self._connection = None
         self._ready = False
+        self._cleanup_confirmed = False
         self._config = None
         self.audit: dict[str, Any] = {}
         self.model_calls: list[dict[str, Any]] = []
@@ -67,6 +68,7 @@ class SnowflakeBackend:
         if self._connection is not None and not self._connection.is_closed():
             self._connection.close()
         self._ready = False
+        self._cleanup_confirmed = False
         import snowflake.connector
 
         self._config = (
@@ -176,6 +178,8 @@ class SnowflakeBackend:
         self, sql: str, params: tuple[Any, ...] | None, timeout: int, max_rows: int
     ) -> dict[str, Any]:
         self._assert_owner()
+        # Any new SQL invalidates the preceding cleanup observation, including failures.
+        self._cleanup_confirmed = False
         started = time.monotonic()
         with self._connection.cursor() as cursor:
             cursor.execute(sql, params, timeout=timeout)
@@ -279,10 +283,12 @@ class SnowflakeBackend:
             output.update(
                 confirmed_suspended=False, error=self._failure("warehouse cleanup", exc).detail
             )
+        self._cleanup_confirmed = bool(output.get("confirmed_suspended"))
         return output
 
     def close(self) -> None:
         self._assert_owner()
         if self._connection is not None:
-            self.suspend()
+            if not self._cleanup_confirmed:
+                self.suspend()
             self._connection.close()

@@ -307,3 +307,16 @@ inherited OPERATE. An exclusive operational warehouse assignment is not privileg
 isolation. Administrator should grant APP_ROLE explicit OPERATE, then review PUBLIC
 inheritance without losing developer access. No grants/revokes are executed here.
 Default PUBLIC CORTEX_USER remains separately accepted. See PHASE4_REPORT.md.
+
+## Phase 4 performance follow-up — immutable derived metadata index
+Docker build generates data/semantic_search_index.jsonl (manifest + JSON payload).
+Manifest binds exact catalog bytes, implementation bytes and payload bytes. Workers
+retain schema/type/verification validation and load identical precomputed BM25
+postings; no statistical result or credential caching. Invalid/missing artifacts
+fall back to the original catalog constructor. Each spawned worker retains its own
+catalog/connection/state; no new process pool or shared database connection.
+
+Backend close skips only a duplicate suspension already confirmed on that connection.
+Any SQL attempt or new connection invalidates the flag; failure/quarantine rules stay
+unchanged. Current release latency-20261014 preserves the same SQLite volume and
+operational limits. See PHASE4_LATENCY.md for modest measured gain and remaining costs.
