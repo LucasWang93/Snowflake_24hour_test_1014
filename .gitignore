@@ -1,0 +1,24 @@
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+*service-account*.json
+# Python/tool artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+# Local editor/OS artifacts
+.DS_Store
+.idea/
+.vscode/
