@@ -239,3 +239,17 @@ Final Phase 4 preparation preflight: exit 2 (unchecked deployment/full-delivery 
 and precommit changes); its Ruff/tests pass, 169 passed / 25 skipped. No deployed
 acceptance or clean Docker reproduction is claimed. Current evidence is retained in
 docs/phase4_checks; resume Phase 4 only after host/admin prerequisites are available.
+
+## Phase 4 SPCS read-only feasibility — 2026-10-14
+- Read-only account/pool/family/grant inspection completed; 17 metadata statements,
+  including one denied session-only ACCOUNTADMIN activation. No resource/grant/billing
+  changes, image build, data scans or Cortex calls. Warehouses remain SUSPENDED.
+- Regional/account metadata available: 27 families and two suspended system pools.
+  Current CODEX_APP deployment is BLOCKED: no CREATE COMPUTE POOL privilege and
+  ACCOUNTADMIN activation denied (003013/42501). Current Trial/paid status UNVERIFIED;
+  documented SPCS Trial exclusion means upgrade is conditional on admin confirmation.
+- SPCS migration is feasible in principle, not selected/provisioned: managed OAuth
+  adapter, one persistent block volume/service instance, UID/SQLite checks and reviewer
+  Snowflake ingress access are needed. See SPCS_FEASIBILITY.md and captured query IDs.
+- App/config and all prior evidence unchanged. Wait for explicit approval before any
+  Snowflake resources; no Phase 5. Checkpoint tag: spcs-feasibility-20261014.

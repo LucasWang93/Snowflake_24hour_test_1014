@@ -26,3 +26,11 @@ Resume only the authorized scope; wait for the user's next-phase instruction aft
 Phase 3. No session can be opened automatically by this repository. Current authorized scope is
 Phase 4; public hosting is blocked. Resume from PHASE4_REPORT.md and DEPLOYMENT_RUNBOOK.md
 when host/admin inputs change; do not automatically start a later phase.
+
+## Phase 4 feasibility checkpoint — 2026-10-14
+`spcs-feasibility-20261014`: documentation-only SPCS/account/grant assessment, with
+17 actual metadata outcomes, 27 families and explicit blocked/unverified distinctions.
+Application remains v0.4.0-dev, unchanged. No resources/permissions/billing or Docker
+changes; no repeated full tests because implementation is unchanged. Prior tracked
+files were verified unchanged before appending these two checkpoint/handoff records;
+79 preservation hashes still match. Resource creation requires explicit new approval.
