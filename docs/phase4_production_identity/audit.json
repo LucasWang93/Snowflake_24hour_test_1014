@@ -1,0 +1,12 @@
+{
+  "previous_manifest_files": 89,
+  "unchanged_files": 86,
+  "intentional_source_test_changes": [
+    "census_agent/backend.py",
+    "census_web/runtime.py",
+    "tests/phase4/test_web.py"
+  ],
+  "deployed_source_hashes_match": true,
+  "changed_file_secret_marker_check": "pass; known credential prefix and private-key markers absent",
+  "development_env_tracked": false
+}

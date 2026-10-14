@@ -3,7 +3,9 @@
 **Public entry point: https://census-104-248-239-52.sslip.io**
 
 HTTPS and browser loading are verified. **Census login/data access is currently
-blocked pending Snowflake administrator provisioning/review.** The page reports safe
+blocked pending Snowflake application-role/PUBLIC-baseline review and warehouse
+exclusivity confirmation. AGENT_PROD production credentials are installed server-side;
+connectivity is verified, but the public permission gates remain closed.** The page reports safe
 configuration unavailability. This is not yet an accepted running Census demo.
 Reviewers should wait for operator confirmation before using the steps below.
 

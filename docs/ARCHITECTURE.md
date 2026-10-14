@@ -1,7 +1,8 @@
 # Architecture
 
 Status: Phase 1/2 preserved; Phase 3 reliability service implemented and verified within Phase 3 scope.
-Official PDF reconciled. Phase 4 Streamlit UI is implemented; public deployment is blocked, not verified.
+Official PDF reconciled. Phase 4 Streamlit HTTPS frontend is deployed and verified;
+authenticated Census activation remains blocked on role/review/warehouse prerequisites.
 Requirement IDs are defined in CHALLENGE_SPEC.md; historical/current evidence is in PHASE2_REPORT.md and PHASE3_REPORT.md.
 
 ## Overview
@@ -23,12 +24,13 @@ flowchart LR
     V --> E[Bounded Snowflake execution]
     E --> A[Deterministic result-grounded answer]
     A --> T
-    U[Streamlit UI: implemented, hosting blocked] --> B[AgentService / authenticated shared admission]
+    U[Streamlit HTTPS UI; data activation blocked] --> B[AgentService / authenticated shared admission]
     B --> Q
     A -.-> U
 ```
 
-Core paths are implemented in Phase 1/2 and hardened in Phase 3. The UI now calls AgentService; no public deployment has been verified.
+Core paths are implemented in Phase 1/2 and hardened in Phase 3. The UI calls AgentService. Public HTTPS infrastructure is verified; authenticated
+Census functionality is not yet externally verified.
 Cortex never supplies executable SQL or statistical answer numbers.
 
 ## Interfaces
@@ -46,7 +48,7 @@ Cortex never supplies executable SQL or statistical answer numbers.
 | Conversation state | `ConversationState`: resolved/pending intent and chosen field; follow-up merge, clarification, comparison, reset; caller owns state | Core memory state plus authenticated service SQLite persistence; AS-2 |
 | Runtime SQL validation | `compile_query` / `validate_query` regenerate a typed plan and compare exact SQL, params and row bounds; backend rechecks before connecting | Implemented; AS-4 |
 | Agent CLI / transport | `python -m census_agent`; `SnowflakeBackend` wraps existing config loader, Cortex COMPLETE, permission audit and suspend | Implemented local operator interface; Web adapter below |
-| UI / public hosting | Streamlit public-response adapter, Docker/Caddy single-instance configuration and external smoke runner; no public endpoint | UI implemented/offline tested; hosting blocked; AS-5/AS-17 |
+| UI / public hosting | Streamlit public-response adapter, Docker/Caddy single-instance configuration and external smoke runner; public HTTPS endpoint with closed configuration gates | UI/infrastructure verified; authenticated acceptance blocked; AS-5/AS-17 |
 
 ## Census statistical semantics
 Every catalog entry retains exact table/column/type, metadata source, title/topic,
@@ -280,3 +282,14 @@ checkpointed Compose hardening; exact image hashes are in phase4_recovery/host_s
 The frontend at https://census-104-248-239-52.sslip.io deliberately fails closed while
 admin flags remain false. Restricted identity/PUBLIC review and actual data/auth E2E
 are still blocked. Physical hosting is implemented; full application readiness is not.
+
+## Production authentication update — 2026-10-14
+The Web runtime injects a complete server-environment connection_config into each
+isolated worker. Explicit password mode is restricted to AGENT_PROD; CODEX_APP,
+missing credentials, mixed key/password configuration and PUBLIC/admin primary roles
+fail closed. No development .env fallback is reachable through this adapter. Existing
+local CLI configuration remains unchanged. Legacy key-pair mode is available via an
+optional Compose override; the default password deployment mounts no private key.
+The reviewer auth, session ownership, durable SQLite, worker/deadline/SQL boundaries
+are unchanged. Production identity connectivity is verified, but named-role/NONE and
+PUBLIC review/exclusive-warehouse prerequisites still block public Census activation.

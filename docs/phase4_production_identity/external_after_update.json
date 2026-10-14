@@ -1,0 +1,12 @@
+{
+  "url": "https://census-104-248-239-52.sslip.io",
+  "status": 200,
+  "tls_verification": "default system trust",
+  "http_elapsed_seconds": 0.059,
+  "browser_elapsed_seconds": 1.458,
+  "fresh_client": true,
+  "configuration_gate_visible": true,
+  "chat_available": false,
+  "private_markers_visible": false,
+  "authenticated_acceptance": "not run; administrator gates closed"
+}

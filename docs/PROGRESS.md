@@ -1,39 +1,56 @@
 # Progress
 
+## Current checkpoint — production identity environment switch
+- Authorized scope: complete Phase 4 with AGENT_PROD supplied via deployment secrets/
+  environment only. CODEX_APP remains local development only; do not start Phase 5.
+- Working plan: (1) inspect production grants; (2) implement/test explicit production
+  auth without .env fallback; (3) deploy while preserving security gates/control volume;
+  (4) record real connection results and remaining operator actions; checkpoint Git.
+- Acceptance: production connector receives AGENT_PROD credentials solely from server
+  environment; missing/mixed credentials and developer identity fail closed; existing
+  security controls and local configuration remain intact. No fabricated hosted answers.
+
 ## Completed
-- Official PDF reconciled; verified Phase 1/2 foundation preserved.
-- Phase 3: isolated request workers, connection/thread/state guards, authenticated
-  owner sessions, shared SQLite admission/rate/model budgets and safe diagnostics/logs.
-- Explicit request deadlines, graceful overload/provider failure, quarantine and
-  operator recovery; semantic ambiguity/context regressions fixed.
-- Final offline: 140 passed / 25 live skips; Ruff pass. Final real job 2848330:
-  Phase 3 25/25 regressions + original Phase 2 16/16, real session isolation passed.
-- First independent result 19/25 and all failures preserved. Service latency
-  0.6816–16.6937s; final warehouse SUSPENDED. See PHASE3_REPORT.md.
+- Prior Phase 1–3 and Phase 4 HTTPS infrastructure evidence preserved.
+- AGENT_PROD secret provisioned only in Droplet /etc/census/app.env (0600); no password
+  in repository or local development .env. Production auth reads os.environ explicitly.
+- Fresh production identity login, bounded SELECT and llama3.3-70b COMPLETE succeeded;
+  explicit suspension succeeded and SHOW confirmed SUSPENDED. Evidence/query IDs:
+  phase4_production_identity/connection_probe.json and permissions.json.
+- These operator probes used observed PUBLIC/ALL, not the approved public runtime role.
 
 ## In progress
-- Phase 4 DigitalOcean recovery: HTTPS frontend running on 104.248.239.52;
-  Snowflake administrator provisioning/review still blocks authenticated Census use.
-  No next-phase or submission-email work authorized.
+- Phase 4 public data activation awaits operator role/review/exclusivity inputs.
+  Production environment-auth code is deployed, with closed security gates.
+- Verified checkpoint v0.4.2-dev: 180 passed /25 live skips; targeted Phase 4 40 passed;
+  doctor exit 0, verify exit 0, preflight exit 2 (pending delivery items/working tree).
+- New app/proxy recreation completed healthy at /opt/census/releases/prod-env-20261014;
+  exact deployed source hashes match local changes. Control volume/0600 DB retained;
+  container has AGENT_PROD password mode, no /app/.env and no key-file setting.
+- External clean Chromium after update: HTTPS 200, safe unavailable page in 1.458s,
+  no chat input or observed private markers. This is page latency, not answer latency.
+- Evidence: docs/phase4_production_identity/{deployment,deployed_config,
+  external_after_update,audit}.json plus actual test logs. Prior manifest: 86/89
+  unchanged, three intentional source/test changes; old evaluation artifacts intact.
 
 ## Blocked
-- Administrator must execute/review deploy/digitalocean_admin.sql, audit PUBLIC's
-  learning-role/account privilege baseline and confirm exclusive existing warehouse.
-  CODEX_APP cannot activate ACCOUNTADMIN; no development credential fallback.
-- Actual public reviewer login, real data/Cortex/cleanup, follow-up/isolation/rate and
-  authenticated latency/post-restart validation wait on that operator action.
-- Public entry point https://census-104-248-239-52.sslip.io is currently a safe
-  configuration-unavailable page, not an accepted Census demo.
-- Final submission still needs README/Reflection completion, reviewer permissions
-  and receipt/recipient confirmation. No final email.
+- AGENT_PROD has 77 direct grants but no visible named account role. Runtime requires
+  reviewed nonadmin application role with secondary NONE; CENSUS_APP_READONLY lookup
+  returned 002003/02000. PUBLIC still inherits learning database CREATE SCHEMA and
+  warehouse OPERATE/MONITOR; a new username alone does not prove least privilege.
+- Operator must execute/review deploy/agent_prod_permissions.sql, review PUBLIC baseline
+  and confirm exclusive application use of SNOWFLAKE_LEARNING_WH. No grants altered.
+- CENSUS_PERMISSIONS_REVIEWED and CENSUS_EXCLUSIVE_WAREHOUSE remain 0. Public URL
+  https://census-104-248-239-52.sslip.io remains unavailable for Census chat pending review.
+- Authenticated public acceptance remains unrun. Final README/Reflection, repository
+  reviewer access and submission email remain outstanding; no Phase 5 or email work.
 
 ## Next three actions
-1. New session: read AGENTS.md, PROGRESS.md, PHASE4_REPORT.md, DEPLOYMENT_RUNBOOK.md
-   and phase4_recovery/ADMIN_ACTION.md. Inspect Git; preserve server secrets/volume.
-2. Obtain actual Snowflake administrator completion/review and exclusivity confirmation;
-   validate new key-pair identity/grants/SELECT/Cortex/cleanup in a maintenance window.
-3. Enable only reviewed flags, recreate app without deleting volumes, run existing
-   external smoke + authenticated post-restart check with fresh evidence. Stop Phase 4.
+1. New session: read AGENTS.md, PROGRESS.md and current PHASE4_REPORT.md; inspect Git.
+2. Operator supplies reviewed role (proposed CENSUS_APP_READONLY) and warehouse
+   exclusivity confirmation. Do not expose secrets or execute unapproved grant changes.
+3. Verify actual role/NONE SELECT/Cortex/suspend, enable only confirmed gates and run
+   external authenticated smoke suite plus restart checks. Preserve SQLite volume.
 
 ## Historical harness / configuration evidence
 The following preparation and Phase 1 records retain the context at their original

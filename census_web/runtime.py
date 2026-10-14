@@ -62,23 +62,42 @@ def build_service() -> AgentService:
         "SNOWFLAKE_WAREHOUSE",
         "SNOWFLAKE_DATABASE",
         "SNOWFLAKE_SCHEMA",
-        "SNOWFLAKE_PRIVATE_KEY_FILE",
     )
     config = {key: os.environ.get(key, "") for key in keys}
     if any(not value for value in config.values()):
         raise ConfigurationIssue("Missing required server-side Snowflake configuration names")
-    if config["SNOWFLAKE_USER"].upper() == "CODEX_APP" or os.environ.get("SNOWFLAKE_PASSWORD"):
-        raise ConfigurationIssue("Public adapter requires a dedicated key-pair identity")
-    key_path = Path(config["SNOWFLAKE_PRIVATE_KEY_FILE"])
-    if (
-        not key_path.is_absolute()
-        or key_path.is_symlink()
-        or not key_path.is_file()
-        or stat.S_IMODE(key_path.stat().st_mode) & 0o077
-    ):
-        raise ConfigurationIssue("Private key must be an absolute, owner-only regular file")
-    if os.environ.get("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"):
-        config["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"] = os.environ["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"]
+    if config["SNOWFLAKE_USER"].upper() == "CODEX_APP":
+        raise ConfigurationIssue("Development identity is forbidden in the public adapter")
+    mode = os.environ.get("SNOWFLAKE_AUTH_MODE", "keypair")
+    if mode == "password":
+        if config["SNOWFLAKE_USER"].upper() != "AGENT_PROD":
+            raise ConfigurationIssue("Password deployment requires SNOWFLAKE_USER=AGENT_PROD")
+        if os.environ.get("SNOWFLAKE_PRIVATE_KEY_FILE") or os.environ.get(
+            "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+        ):
+            raise ConfigurationIssue("Configure exactly one server-side authentication method")
+        password = os.environ.get("SNOWFLAKE_PASSWORD", "")
+        if not password:
+            raise ConfigurationIssue("Missing server-side SNOWFLAKE_PASSWORD")
+        config["SNOWFLAKE_PASSWORD"] = password
+    elif mode == "keypair":
+        if os.environ.get("SNOWFLAKE_PASSWORD"):
+            raise ConfigurationIssue("Configure exactly one server-side authentication method")
+        key_path = Path(os.environ.get("SNOWFLAKE_PRIVATE_KEY_FILE", ""))
+        if (
+            not key_path.is_absolute()
+            or key_path.is_symlink()
+            or not key_path.is_file()
+            or stat.S_IMODE(key_path.stat().st_mode) & 0o077
+        ):
+            raise ConfigurationIssue("Private key must be an absolute, owner-only regular file")
+        config["SNOWFLAKE_PRIVATE_KEY_FILE"] = str(key_path)
+        if os.environ.get("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"):
+            config["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"] = os.environ[
+                "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"
+            ]
+    else:
+        raise ConfigurationIssue("SNOWFLAKE_AUTH_MODE must be password or keypair")
     control_path = Path(os.environ.get("CENSUS_CONTROL_PATH", ""))
     if not control_path.is_absolute():
         raise ConfigurationIssue("CENSUS_CONTROL_PATH must be an absolute durable local path")

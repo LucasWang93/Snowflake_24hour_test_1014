@@ -168,7 +168,8 @@ submission remain unchecked. Stop after Phase 3.
 - [x] Shared existing auth/SQLite admission/process isolation and unchanged budgets;
   local isolation/rate/private-output tests pass with clearly labeled Census mocks.
 - [x] Public adapter refuses development identity, admin/PUBLIC role, password fallback
-  and missing HTTPS/storage/warehouse/permission confirmations; optional key-pair transport.
+  and missing HTTPS/storage/warehouse/permission confirmations; explicit AGENT_PROD
+  environment-password mode and optional key-pair transport.
 - [x] Deployment configuration/runbook, reviewer instructions, admin SQL proposal,
   no-secret-output token tool and clean-browser smoke runner included.
 - [ ] Administrator has reviewed PUBLIC/inherited grants and verified restricted
@@ -206,3 +207,15 @@ ready for final submission. No paid service created, grants changed or email sen
 Earlier no-host/no-URL notes are historical. Physical hosting is ready; functional
 Census deployment is still blocked. Existing 169 offline passes/25 skips and prior
 real tests do not replace the unrun deployed data/auth cases. No final email.
+
+## Current production identity checkpoint (supersedes key-pair provisioning requirement)
+- [x] AGENT_PROD password provisioned only in owner-only deployment environment;
+  production adapter rejects CODEX_APP and never loads development .env.
+- [x] Explicit authentication methods; missing/mixed credentials fail closed; optional
+  key-pair mount removed from the password deployment. Existing local config preserved.
+- [x] Real AGENT_PROD login, bounded SELECT, Cortex and suspension verified with query IDs.
+  These probes used PUBLIC/ALL and do not establish approved runtime permissions.
+- [ ] Administrator supplies reviewed named role to AGENT_PROD, reviews PUBLIC baseline
+  and confirms exclusive warehouse. Exact proposal: deploy/agent_prod_permissions.sql.
+- [ ] Live named-role/NONE SELECT/Cortex/cleanup and authenticated public ten-point suite.
+- [ ] Final public demo acceptance and submission prerequisites. No Phase 5/email.

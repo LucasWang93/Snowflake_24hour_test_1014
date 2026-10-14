@@ -162,7 +162,11 @@ def test_missing_configuration_is_a_safe_page(monkeypatch):
 
 @pytest.fixture
 def deployment_env(tmp_path, monkeypatch):
-    for name in ("SNOWFLAKE_PASSWORD", "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"):
+    for name in (
+        "SNOWFLAKE_PASSWORD",
+        "SNOWFLAKE_PRIVATE_KEY_PASSPHRASE",
+        "SNOWFLAKE_AUTH_MODE",
+    ):
         monkeypatch.delenv(name, raising=False)
     key = tmp_path / "mock.p8"
     key.write_text("not a real key; offline presence fixture")
@@ -259,3 +263,65 @@ def test_private_key_permissions_and_symlink_rejected(deployment_env, tmp_path, 
     monkeypatch.setenv("SNOWFLAKE_PRIVATE_KEY_FILE", str(link))
     with pytest.raises(runtime.ConfigurationIssue):
         runtime.build_service()
+
+
+@pytest.fixture
+def password_deployment_env(deployment_env, monkeypatch):
+    monkeypatch.delenv("SNOWFLAKE_PRIVATE_KEY_FILE")
+    monkeypatch.setenv("SNOWFLAKE_AUTH_MODE", "password")
+    monkeypatch.setenv("SNOWFLAKE_USER", "AGENT_PROD")
+    monkeypatch.setenv("SNOWFLAKE_PASSWORD", "offline-production-password-fixture")
+    return deployment_env
+
+
+def test_production_password_connector_uses_environment_only(password_deployment_env, monkeypatch):
+    from unittest.mock import MagicMock
+
+    import snowflake.connector
+
+    from census_agent.backend import SnowflakeBackend
+    from census_agent.types import Deadline
+
+    monkeypatch.setattr(
+        "census_agent.backend.load_config", lambda *args: pytest.fail("Development .env read")
+    )
+    mock = MagicMock()
+    monkeypatch.setattr(snowflake.connector, "connect", mock)
+    monkeypatch.setattr(SnowflakeBackend, "_run", lambda *args: {"columns": [], "rows": []})
+    service = runtime.build_service()
+    backend = SnowflakeBackend(None, **service.options)
+    backend.connect(Deadline())
+    kwargs = mock.call_args.kwargs
+    assert kwargs["user"] == "AGENT_PROD"
+    assert kwargs["password"] == "offline-production-password-fixture"
+    assert "private_key_file" not in kwargs and "authenticator" not in kwargs
+    assert service.options["secondary_roles"] == "NONE"
+    assert service.options["role"] == "CENSUS_APP_READONLY"
+    assert "SNOWFLAKE_PRIVATE_KEY_FILE" not in service.options["connection_config"]
+
+
+@pytest.mark.parametrize(
+    "name,value",
+    [
+        ("SNOWFLAKE_USER", "CODEX_APP"),
+        ("SNOWFLAKE_USER", "UNAPPROVED_USER"),
+        ("SNOWFLAKE_PASSWORD", ""),
+        ("SNOWFLAKE_ACCOUNT", ""),
+        ("SNOWFLAKE_AUTH_MODE", "auto"),
+        ("SNOWFLAKE_PRIVATE_KEY_FILE", "/server/unused.p8"),
+        ("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE", "offline-passphrase"),
+        ("CENSUS_SNOWFLAKE_ROLE", "PUBLIC"),
+        ("CENSUS_PERMISSIONS_REVIEWED", "0"),
+        ("CENSUS_EXCLUSIVE_WAREHOUSE", "0"),
+    ],
+)
+def test_password_deployment_fails_closed_without_fallback(
+    password_deployment_env, monkeypatch, name, value
+):
+    monkeypatch.setenv(name, value)
+    monkeypatch.setattr(
+        "census_agent.backend.load_config", lambda *args: pytest.fail("Development .env read")
+    )
+    with pytest.raises(runtime.ConfigurationIssue) as error:
+        runtime.build_service()
+    assert "offline-production-password-fixture" not in str(error.value)

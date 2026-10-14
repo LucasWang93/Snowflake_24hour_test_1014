@@ -5,8 +5,8 @@ Compose 5.6.0. HTTPS entry point **https://census-104-248-239-52.sslip.io** is d
 and externally verified. **It currently fails closed because Snowflake administrator
 provisioning/review is still pending; it is not a working Census demo.**
 
-Current release path `/opt/census/releases/08e5bfb`, symlink `/opt/census/current`;
-application source from 08e5bfb, Compose hardening from the v0.4.1-dev checkpoint.
+Current production-auth release path `/opt/census/releases/prod-env-20261014`,
+symlink `/opt/census/current`; see v0.4.2-dev checkpoint/evidence for activation status.
 Operator commands run as root over existing SSH key; `census-deploy` can upload code
 but has no Docker group/secret-file access. Server-only paths:
 `/etc/census/compose.env`, `/etc/census/app.env` (mode 600),
@@ -51,17 +51,19 @@ supports WebSockets. These are documented platform capabilities, not tested depl
 
 ## Administrator prerequisites
 
-1. Review `DEPLOYMENT_PERMISSIONS.md` and `deploy/admin_permissions.sql`. The SQL is
-   a proposal, not an executed migration. Approve an exclusively assigned warehouse,
-   restricted role and dedicated `TYPE=SERVICE` user. Review PUBLIC/inherited grants;
+1. Review `DEPLOYMENT_PERMISSIONS.md` and `deploy/agent_prod_permissions.sql`. The SQL
+   is a proposal, not an executed migration. AGENT_PROD now exists and authenticates;
+   approve the existing warehouse for exclusive use and provision a restricted role.
+   Review PUBLIC/inherited grants;
    a new role alone does not remove broad inherited account privileges. Do not alter
    working development grants incidentally.
-2. Provision a Snowflake RSA key pair on the deployment host using the organization's
-   secret-management process. Set its public key on the new user; mount the private
-   key owner-readable only, readable by container UID 10001. No development password
-   or `.env` is copied into the image. The connector's
-   [key-pair parameters](https://docs.snowflake.com/en/developer-guide/python-connector/python-connector-connect#using-key-pair-authentication-and-key-pair-rotation)
-   are supported; **live authentication with this new identity remains untested**.
+2. Current operator-approved production authentication uses AGENT_PROD password from
+   server secrets/environment. Set SNOWFLAKE_AUTH_MODE=password and SNOWFLAKE_USER=AGENT_PROD,
+   with SNOWFLAKE_PASSWORD stored only in the protected deployment environment file.
+   No development .env is transferred/read. Do not set private-key names in password mode.
+   Optional legacy key-pair mode is retained using SNOWFLAKE_AUTH_MODE=keypair and
+   `-f deploy/compose.keypair.yaml` after the base Compose file; it refuses passwords.
+   Its private key remains owner-only and must be readable by container UID 10001.
 3. Verify actual effective privileges, data SELECT, Cortex and warehouse suspension
    using the new identity and `secondary_roles=NONE`. Preserve query IDs in protected
    operator evidence. Canonical SQL and the administrator-review flag do not prove
@@ -86,15 +88,17 @@ SNOWFLAKE_USER
 SNOWFLAKE_WAREHOUSE
 SNOWFLAKE_DATABASE
 SNOWFLAKE_SCHEMA
-SNOWFLAKE_PRIVATE_KEY_PASSPHRASE  (only for encrypted keys)
+SNOWFLAKE_AUTH_MODE=password
+SNOWFLAKE_PASSWORD  (server secret; never put its value in documentation)
 ```
 
 The three confirmation flags must be `1` **only after** the named properties have
 been independently reviewed. HTTPS origin must match DNS/proxy hostname. Role must
-be a reviewed app role; PUBLIC/admin roles, CODEX_APP and password-based deployment
-are refused. Local .env is not a fallback. Compose fixes the key mount and durable
-control path. The key file is regular, nonsymlink and mode 400/600, owned by UID 10001;
-the containing host directory stays private. The env file also remains owner-only.
+be a reviewed app role; PUBLIC/admin roles and CODEX_APP are refused. Password mode
+requires AGENT_PROD and reads only os.environ; missing credentials fail closed. Local
+.env is never a fallback. Base Compose fixes the durable control path and has no key
+mount. Optional key-pair override validates a regular nonsymlink owner-only key.
+The server env file remains owner-only.
 Control directory is private, DB mode 600. Keep an untouched volume across restart
 and redeployment; do not delete/reinitialize it to evade quotas or quarantine.
 
@@ -123,7 +127,6 @@ on the Slurm node. Set only nonsecret path/domain shell variables:
 ```bash
 export CENSUS_DOMAIN=census.your-approved-domain.example
 export CENSUS_SERVER_ENV_FILE=/etc/census/app.env
-export CENSUS_PRIVATE_KEY_FILE=/etc/census/snowflake.p8
 docker compose -f deploy/compose.yaml config --quiet
 docker compose -f deploy/compose.yaml up -d --build
 docker compose -f deploy/compose.yaml ps

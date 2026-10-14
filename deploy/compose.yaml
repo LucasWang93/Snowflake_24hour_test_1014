@@ -11,15 +11,10 @@ services:
       - ${CENSUS_SERVER_ENV_FILE:?Set the absolute owner-only server env file path}
     environment:
       CENSUS_CONTROL_PATH: /var/lib/census/control.sqlite
-      SNOWFLAKE_PRIVATE_KEY_FILE: /run/secrets/snowflake.p8
       STREAMLIT_BROWSER_SERVER_ADDRESS: ${CENSUS_DOMAIN:?Set DNS hostname pointed at this host}
       STREAMLIT_BROWSER_SERVER_PORT: "443"
     volumes:
       - census_control:/var/lib/census
-      - type: bind
-        source: ${CENSUS_PRIVATE_KEY_FILE:?Set the absolute owner-only server key path}
-        target: /run/secrets/snowflake.p8
-        read_only: true
     expose:
       - "8501"
     pids_limit: 64

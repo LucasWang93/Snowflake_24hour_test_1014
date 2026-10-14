@@ -304,3 +304,21 @@ only. Public acceptance 1 passes; 8 and 10 have infrastructure-only evidence. Ca
 2–7/9 and authenticated scope of 8/10 remain BLOCKED/UNRUN pending administrator action.
 169 offline passes/25 live skips remain regression, not deployed factual results.
 No previous real evaluations/scans rerun. Preserve initial Phase 4 and SPCS evidence.
+
+## Production identity switch — targeted evidence (2026-10-14)
+Requirements AS-4/AS-5/AS-17: test environment-only AGENT_PROD connector kwargs with
+mock transport and forbid the development loader; reject missing password/account,
+CODEX_APP/unapproved password user, mixed methods, unknown mode, PUBLIC role and
+unconfirmed gates. Preserve key-pair and all Phase 1–4 regression coverage.
+Targeted Phase 4 result: 40 passed (11 new checks). These connector assertions are
+mocks, not hosted statistical answers. Full verification is recorded separately in
+phase4_production_identity/verify.log.
+
+Real production probes on Droplet: authenticated identity AGENT_PROD/PUBLIC/ALL;
+SELECT returned CBG 010010201001, B01003e1=674 (1.117s); llama3.3-70b returned Hello!
+(0.802s). ALTER SUSPEND succeeded and SHOW confirmed SUSPENDED. Complete query IDs and
+bounded commands are in connection_probe.json. This is one connectivity smoke check,
+not a new Census benchmark, answer-accuracy evaluation or named-role/NONE acceptance.
+permissions.json records all visible grant results and 002003/02000 for missing app
+role. Public authenticated suite remains blocked until operator prerequisites are met;
+no skipped or blocked deployment case becomes PASS because these probes succeeded.

@@ -1,0 +1,23 @@
+{
+  "identity": "AGENT_PROD",
+  "auth_mode": "password",
+  "password_present": true,
+  "private_key_setting_present": false,
+  "development_env_exists": false,
+  "role": "CENSUS_APP_READONLY",
+  "confirmation_flags": {
+    "CENSUS_PERMISSIONS_REVIEWED": "0",
+    "CENSUS_EXCLUSIVE_WAREHOUSE": "0",
+    "CENSUS_DURABLE_STORAGE": "1"
+  },
+  "control_mode": "0o600",
+  "control_tables": [
+    "policy",
+    "sessions",
+    "events",
+    "gate"
+  ],
+  "operator_storage_probe_preserved": true,
+  "runtime": "blocked",
+  "safe_reason": "Administrator confirmation required: CENSUS_PERMISSIONS_REVIEWED"
+}

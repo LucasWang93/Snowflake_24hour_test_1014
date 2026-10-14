@@ -43,3 +43,19 @@ Python source and previous evidence unchanged. 169 offline passed /25 live skips
 Source deployed from 08e5bfb plus this checkpoint's Compose hardening; running image
 hashes are recorded separately. Admin flags remain false; no real hosted data/auth
 acceptance or Phase 4 completion claimed. Snowflake grants/billing unchanged.
+
+## v0.4.2-dev — AGENT_PROD server-environment authentication
+Explicit production-password mode with no development .env fallback, CODEX_APP
+rejection and exclusive authentication-method selection; optional legacy key-pair
+Compose override. Existing named-role/NONE/review/exclusive-warehouse gates unchanged.
+180 offline passes /25 live skips; targeted Phase 4 40 passes. Actual AGENT_PROD
+PUBLIC/ALL login, one bounded SELECT, Cortex hello and suspension passed; named app
+role is not yet usable/reviewed. Evidence in phase4_production_identity. This is a
+validated configuration checkpoint, not complete public Census acceptance. No
+Snowflake grant or development credential changes. Tag created after successful commit.
+
+The update is running from /opt/census/releases/prod-env-20261014 (local/deployed
+source hashes match), with AGENT_PROD password mode and no image .env/private-key
+mount. App healthy, control volume preserved; fresh external HTTPS page observed
+safe unavailable state in 1.458s. Permission/exclusivity flags remain closed, public
+authenticated checks blocked. Doctor 0, verify 0, preflight 2 (pending items).

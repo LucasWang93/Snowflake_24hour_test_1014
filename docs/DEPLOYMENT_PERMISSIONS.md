@@ -58,7 +58,7 @@ application audit; the plan is a deployment blocker, not a completed role migrat
   the shared warehouse is serving users. An exclusively assigned application
   warehouse and an admin-provisioned restricted identity are deployment prerequisites.
 
-## Phase 4 public-adapter enforcement (implemented; identity still blocked)
+## Phase 4 initial public-adapter policy (historical key-pair configuration)
 The Web runtime requires a dedicated key-pair identity and reviewed named app role,
 secondary NONE, explicit PUBLIC/privilege review and exclusive-warehouse attestations.
 It rejects the development user/password path. Backend accepts optional trusted
@@ -71,3 +71,23 @@ Exact proposed administrator role/service-user/warehouse statements are supplied
 be approved under the trial-credit policy; an approved exclusive existing warehouse
 can be assigned instead. TYPE=SERVICE uses noninteractive key-pair authentication;
 private key material is server-only, never Git/chat. See DEPLOYMENT_RUNBOOK.md.
+
+## Current production identity — AGENT_PROD (2026-10-14)
+Operator authorized password authentication exclusively through deployment secrets/
+environment. Runtime accepts explicit SNOWFLAKE_AUTH_MODE=password with AGENT_PROD;
+CODEX_APP remains local-only. Key-pair mode remains supported separately. No development
+.env is read by the Web runtime or its injected backend; no password fallback exists.
+
+Actual Droplet login, bounded Census SELECT, llama3.3-70b COMPLETE and explicit suspend
+succeeded; SHOW confirmed SUSPENDED. Evidence in phase4_production_identity includes
+query IDs. This probe used PUBLIC/ALL: it is connectivity evidence, not production
+least-privilege acceptance. The user has 77 direct grants and no visible account-role
+membership. CENSUS_APP_READONLY lookup returned 002003/02000. PUBLIC has 110 grants,
+including inherited learning-role CREATE SCHEMA, OPERATE and MONITOR. No grants changed.
+
+The named-role/NONE policy, permission-review and exclusive-warehouse gates remain
+unchanged and closed. Exact proposal for this existing identity/warehouse is
+`deploy/agent_prod_permissions.sql`; it replaces the previous proposed new service
+user/key-pair provisioning path for this deployment. Administrator must review PUBLIC
+baseline separately and confirm warehouse exclusivity. No revokes/default changes or
+new paid warehouse are included. Do not claim a reviewed read-only deployment yet.

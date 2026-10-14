@@ -1,0 +1,12 @@
+# Optional legacy key-pair mode: add -f deploy/compose.keypair.yaml after compose.yaml.
+# The AGENT_PROD password deployment uses only compose.yaml and server-side app.env.
+services:
+  app:
+    environment:
+      SNOWFLAKE_AUTH_MODE: keypair
+      SNOWFLAKE_PRIVATE_KEY_FILE: /run/secrets/snowflake.p8
+    volumes:
+      - type: bind
+        source: ${CENSUS_PRIVATE_KEY_FILE:?Set the absolute owner-only server key path}
+        target: /run/secrets/snowflake.p8
+        read_only: true

@@ -272,3 +272,17 @@ Reboot patched host before launch; then test real SQLite continuity across app/p
 restart/recreation. A live healthy frontend is not data readiness: leave permission/
 warehouse attestations false until administrator review and new-identity tests. No
 development fallback, automatic PUBLIC revocation or new paid infrastructure.
+
+## 2026-10-14 — D-14: Explicit AGENT_PROD environment authentication
+Accepted/implemented per operator instruction: permit password deployment only for
+AGENT_PROD with SNOWFLAKE_AUTH_MODE=password. Read credentials solely from deployment
+os.environ and inject them into per-request backends. Missing values fail closed;
+no development .env read and CODEX_APP is forbidden. Preserve key-pair mode as an
+explicit alternative, rejecting mixed methods; move its mount to a Compose override.
+This supersedes the initial key-pair-only authentication choice, not the security gates.
+
+Rejected: enabling PUBLIC/ALL because the new account can query successfully. Audit
+shows direct grants and inherited CREATE SCHEMA; retain reviewed named role/NONE,
+permission/exclusive warehouse attestations and all Phase 3 controls. Operator probes
+verify connectivity but do not authorize grant changes or prove least privilege.
+Exact proposed role grants for the existing AGENT_PROD are in agent_prod_permissions.sql.

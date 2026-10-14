@@ -1,0 +1,84 @@
+{
+  "purpose": "Production identity connection probe only; PUBLIC/ALL is not approved public runtime",
+  "checks": [
+    {
+      "sql": "USE SECONDARY ROLES ALL",
+      "params": null,
+      "query_id": "01c7bbd5-3204-bb79-0008-3d1a000322ca",
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "elapsed_seconds": 0.116,
+      "status": "pass"
+    },
+    {
+      "sql": "SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_SECONDARY_ROLES()",
+      "params": null,
+      "query_id": "01c7bbd5-3204-bd12-0008-3d1a000360a2",
+      "rows": [
+        [
+          "AGENT_PROD",
+          "PUBLIC",
+          "{\"roles\":\"\",\"value\":\"ALL\"}"
+        ]
+      ],
+      "elapsed_seconds": 0.099,
+      "status": "pass"
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B01003e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+      "params": [
+        "01001"
+      ],
+      "query_id": "01c7bbd5-3204-bb79-0008-3d1a000322ce",
+      "rows": [
+        [
+          "010010201001",
+          674.0
+        ]
+      ],
+      "elapsed_seconds": 1.117,
+      "status": "pass"
+    },
+    {
+      "sql": "SELECT SNOWFLAKE.CORTEX.COMPLETE(%s, %s)",
+      "params": [
+        "llama3.3-70b",
+        "Say hello in one short sentence."
+      ],
+      "query_id": "01c7bbd5-3204-bd12-0008-3d1a000360a6",
+      "rows": [
+        [
+          "Hello!"
+        ]
+      ],
+      "elapsed_seconds": 0.802,
+      "status": "pass"
+    },
+    {
+      "sql": "ALTER WAREHOUSE SNOWFLAKE_LEARNING_WH SUSPEND",
+      "query_id": "01c7bbd5-3204-bd12-0008-3d1a000360aa",
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "status": "pass"
+    },
+    {
+      "sql": "SHOW WAREHOUSES LIKE 'SNOWFLAKE_LEARNING_WH'",
+      "query_id": "01c7bbd5-3204-bb79-0008-3d1a000322d2",
+      "rows": [
+        {
+          "name": "SNOWFLAKE_LEARNING_WH",
+          "state": "SUSPENDED",
+          "auto_suspend": 60,
+          "auto_resume": "true"
+        }
+      ],
+      "status": "pass"
+    }
+  ]
+}

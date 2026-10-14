@@ -1,3 +1,60 @@
+# Phase 4 production identity update — 2026-10-14
+
+Current scope: operator-provided AGENT_PROD uses deployment secrets/environment.
+No development .env is copied, read or used as production fallback. This update
+supersedes the earlier proposed new key-pair user; historical recovery evidence below
+remains valid at its original checkpoint. Public Census acceptance is still blocked.
+
+## Implemented and verified
+- Explicit SNOWFLAKE_AUTH_MODE=password accepts only AGENT_PROD; credentials come
+  from os.environ and are injected into isolated AgentService workers. CODEX_APP,
+  missing values, mixed authentication and PUBLIC/admin primary roles fail closed.
+- Key-pair mode remains available through deploy/compose.keypair.yaml; base password
+  deployment no longer mounts a private key. Existing server key is preserved unused.
+- Production credential stored only in /etc/census/app.env, mode 0600. No local .env
+  modification, credential in source/Git, user/role/grant changes or new resources.
+- Offline verification: **180 passed / 25 live skips**, Ruff formatting/lint passed;
+  Phase 4 targeted **40 passed** (11 new production-auth checks). Mock connector tests
+  explicitly fail if the development .env loader is invoked. Skips are not live passes.
+- Actual AGENT_PROD Droplet login succeeded. Bounded SELECT of existing verified schema
+  returned CBG 010010201001, B01003e1=674 (1.117s). llama3.3-70b COMPLETE returned
+  Hello! (0.802s). Explicit suspension succeeded and SHOW confirmed SUSPENDED.
+  Query IDs and raw nonsecret outcomes: phase4_production_identity/connection_probe.json.
+
+## Deployed configuration and external check
+New release `/opt/census/releases/prod-env-20261014` is active via `/opt/census/current`.
+App and proxy recreated successfully; app healthy. Runtime/Compose hashes match local
+source. Container reports AGENT_PROD/password, password present (value never output),
+no private-key setting and no /app/.env. Durable SQLite DB remains mode 0600 and the
+existing operator probe file remains on the same volume. No volume was removed.
+New external clean browser: trusted HTTPS HTTP 200, safe unavailable page in 1.458s;
+no chat input or observed private markers. Confirmation flags remain 0/0/1 for
+permissions/exclusivity/storage. Evidence: deployment.json, deployed_config.json and
+external_after_update.json. Prior preservation manifest: 86/89 unchanged; only backend
+comment, runtime and Web tests changed. Doctor exit 0; verify exit 0; preflight exit 2
+reflects pending delivery items/precommit changes, not failed tests. Detailed logs kept.
+
+## Remaining security prerequisite / operator action
+The real probe used AGENT_PROD with PUBLIC/ALL, not the hosted named-role/NONE
+configuration. Grant inspection found 77 direct user grants, 110 PUBLIC grants and
+no visible app-role membership; CENSUS_APP_READONLY lookup returned 002003/02000.
+PUBLIC inherits SNOWFLAKE_LEARNING_ROLE with CREATE SCHEMA and warehouse OPERATE/
+MONITOR. New username and working Cortex access do not prove least privilege.
+See phase4_production_identity/permissions.json; no full data inventory was repeated.
+
+Exact administrator proposal: **deploy/agent_prod_permissions.sql**. It grants a
+named read-only data/Cortex role with usage/operation of the existing warehouse to
+AGENT_PROD; it does not create a user/warehouse, change passwords or revoke development
+access. Administrator must separately review inherited PUBLIC grants and confirm
+exclusive application use of SNOWFLAKE_LEARNING_WH. Application gates remain 0 until
+those facts are confirmed; no silent PUBLIC/ALL fallback or removal of Phase 3 controls.
+
+Public URL remains https://census-104-248-239-52.sslip.io with a safe unavailable page.
+Authenticated public ten-point acceptance is still unrun, not passed. Real production
+connectivity timings above are not agent end-to-end answer latency. No Phase 5/email.
+
+---
+
 # Phase 4 recovery — DigitalOcean deployment
 
 **Current status: HTTPS infrastructure deployed; authenticated Census service BLOCKED

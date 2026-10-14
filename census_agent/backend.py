@@ -38,7 +38,7 @@ class SnowflakeBackend:
         if not re.fullmatch(r"[A-Za-z0-9_]{1,80}", query_tag):
             raise ValueError("Invalid trusted query tag")
         self.query_tag = query_tag
-        # Public deployment injects a dedicated key-pair configuration. The existing
+        # Public deployment injects server-side production credentials. The existing
         # operator CLI retains its explicitly authorized local .env loader.
         self._connection_config = dict(connection_config) if connection_config is not None else None
         self.role, self.secondary_roles = role, secondary_roles
