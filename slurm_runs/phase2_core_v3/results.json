@@ -1,0 +1,5019 @@
+{
+  "started_at_utc": "2026-10-14T17:58:55.567392+00:00",
+  "cases": [
+    {
+      "case": "population",
+      "question": "Using ACS release 2020, what is the total population of Autauga County, Alabama?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 55,639. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 11.477,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B01.B01003e1",
+          "table": "2020_CBG_B01",
+          "column": "B01003e1",
+          "title": "Total Population",
+          "universe": "Total population",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 55639.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016956"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B01003e1\" IS NULL OR \"B01003e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B01.B01003e1",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016956",
+            "elapsed_seconds": 0.1326
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016952",
+            "elapsed_seconds": 3.8191,
+            "usage": {
+              "completion_tokens": 75,
+              "prompt_tokens": 523,
+              "total_tokens": 598
+            },
+            "structured_output": {
+              "metric": "population",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a00017972",
+            "elapsed_seconds": 1.8887,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 267,
+              "total_tokens": 291
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B01.B01003e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0003,
+          "context resolution": 9.012,
+          "catalog grounding": 2.0421,
+          "validated SQL execution": 0.1819,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001695a",
+            "elapsed_seconds": 0.1318
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd12-0008-3d1a0001695e",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd12-0008-3d1a0001695e",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "median_age",
+      "question": "What is the median age for Census block group 010010201001 using ACS release 2020?",
+      "response": {
+        "status": "answered",
+        "answer": "CBG 010010201001, Autauga County, Alabama: 46.2. Metric: Median Age By Sex \u2014 Median age / Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01002e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. This is a published CBG statistic; it has not been summed or averaged across CBGs.",
+        "latency_seconds": 7.0536,
+        "intent": {
+          "metric": "median age",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "cbg",
+              "name": "010010201001",
+              "state": null
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B01.B01002e1",
+          "table": "2020_CBG_B01",
+          "column": "B01002e1",
+          "title": "Median Age By Sex",
+          "universe": "Total population",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "cbg",
+              "key": "010010201001",
+              "year": 2020,
+              "label": "CBG 010010201001, Autauga County, Alabama"
+            },
+            "value": 46.2,
+            "cbgs_matched": 1,
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a0001797e"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT \"B01002e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B01002e1\" IS NULL OR \"B01002e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+            "params": [
+              "010010201001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B01.B01002e1",
+              "scope": {
+                "type": "cbg",
+                "key": "010010201001",
+                "year": 2020,
+                "label": "CBG 010010201001, Autauga County, Alabama"
+              },
+              "operation": "value"
+            },
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a0001797e",
+            "elapsed_seconds": 0.1142
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a0001797a",
+            "elapsed_seconds": 3.4517,
+            "usage": {
+              "completion_tokens": 75,
+              "prompt_tokens": 525,
+              "total_tokens": 600
+            },
+            "structured_output": {
+              "metric": "median age",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "cbg",
+                  "name": "010010201001",
+                  "state": null
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016962",
+            "elapsed_seconds": 2.7029,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 1074,
+              "total_tokens": 1098
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B01.B01002e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.4519,
+          "catalog grounding": 2.7468,
+          "validated SQL execution": 0.1621,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a00017982",
+            "elapsed_seconds": 0.191
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd12-0008-3d1a00016966",
+              "state": "SUSPENDING"
+            },
+            {
+              "query_id": "01c7bab7-3204-bd57-0008-3d1a00017986",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd57-0008-3d1a00017986",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "median_income",
+      "question": "What is median household income for Census block group 010010201001 using ACS release 2020?",
+      "response": {
+        "status": "answered",
+        "answer": "CBG 010010201001, Autauga County, Alabama: 39,167. Metric: Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) \u2014 Median household income in the past 12 months (in 2020 inflation-adjusted dollars); universe: Households. Year/release: 2020; statistical source: acs_detailed; field: B19013e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. This is a published CBG statistic; it has not been summed or averaged across CBGs.",
+        "latency_seconds": 7.1689,
+        "intent": {
+          "metric": "household income",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "cbg",
+              "name": "010010201001",
+              "state": null
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B19.B19013e1",
+          "table": "2020_CBG_B19",
+          "column": "B19013e1",
+          "title": "Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "universe": "Households",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "cbg",
+              "key": "010010201001",
+              "year": 2020,
+              "label": "CBG 010010201001, Autauga County, Alabama"
+            },
+            "value": 39167.0,
+            "cbgs_matched": 1,
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001696e"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT \"B19013e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B19013e1\" IS NULL OR \"B19013e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+            "params": [
+              "010010201001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "scope": {
+                "type": "cbg",
+                "key": "010010201001",
+                "year": 2020,
+                "label": "CBG 010010201001, Autauga County, Alabama"
+              },
+              "operation": "value"
+            },
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001696e",
+            "elapsed_seconds": 0.1172
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a0001798a",
+            "elapsed_seconds": 4.301,
+            "usage": {
+              "completion_tokens": 76,
+              "prompt_tokens": 525,
+              "total_tokens": 601
+            },
+            "structured_output": {
+              "metric": "household income",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "cbg",
+                  "name": "010010201001",
+                  "state": null
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001696a",
+            "elapsed_seconds": 2.3177,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 783,
+              "total_tokens": 807
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 4.3012,
+          "catalog grounding": 2.3722,
+          "validated SQL execution": 0.1649,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b46",
+            "elapsed_seconds": 0.1861
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd12-0008-3d1a00016972",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd12-0008-3d1a00016972",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "education",
+      "question": "Using ACS release 2020, how many people aged 25 years and over have highest educational attainment of a bachelor's degree only in Autauga County, Alabama?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 6,320. Metric: Educational Attainment For The Population 25 Years And Over \u2014 Total / Bachelor's degree; universe: Population 25 years and over. Year/release: 2020; statistical source: acs_detailed; field: B15003e22 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 7.174,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "age",
+              "25 years and over"
+            ],
+            [
+              "education",
+              "Bachelor's degree"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B15.B15003e22",
+          "table": "2020_CBG_B15",
+          "column": "B15003e22",
+          "title": "Educational Attainment For The Population 25 Years And Over",
+          "universe": "Population 25 years and over",
+          "field_path": [
+            "Total",
+            "Bachelor's degree"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 6320.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a00017996"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B15003e22\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B15003e22\" IS NULL OR \"B15003e22\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B15\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B15.B15003e22",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a00017996",
+            "elapsed_seconds": 0.1341
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b4a",
+            "elapsed_seconds": 4.5232,
+            "usage": {
+              "completion_tokens": 91,
+              "prompt_tokens": 537,
+              "total_tokens": 628
+            },
+            "structured_output": {
+              "metric": "population",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {
+                "age": "25 years and over",
+                "education": "Bachelor's degree"
+              },
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a00017992",
+            "elapsed_seconds": 1.5462,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 316,
+              "total_tokens": 340
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B15.B15003e22",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 4.5235,
+          "catalog grounding": 1.6858,
+          "validated SQL execution": 0.1826,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016976",
+            "elapsed_seconds": 0.2118
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd57-0008-3d1a0001799a",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd57-0008-3d1a0001799a",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "employment",
+      "question": "Using ACS release 2020, how many civilians are employed in Autauga County, Alabama?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 24,580. Metric: Employment Status For The Population 16 Years And Over \u2014 Total / In labor force / Civilian labor force / Employed; universe: Population 16 years and over. Year/release: 2020; statistical source: acs_detailed; field: B23025e4 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 6.7837,
+        "intent": {
+          "metric": "employment",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "employment",
+              "employed"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B23.B23025e4",
+          "table": "2020_CBG_B23",
+          "column": "B23025e4",
+          "title": "Employment Status For The Population 16 Years And Over",
+          "universe": "Population 16 years and over",
+          "field_path": [
+            "Total",
+            "In labor force",
+            "Civilian labor force",
+            "Employed"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 24580.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001697e"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B23025e4\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B23025e4\" IS NULL OR \"B23025e4\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B23\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B23.B23025e4",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001697e",
+            "elapsed_seconds": 0.1297
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001697a",
+            "elapsed_seconds": 3.3126,
+            "usage": {
+              "completion_tokens": 80,
+              "prompt_tokens": 523,
+              "total_tokens": 603
+            },
+            "structured_output": {
+              "metric": "employment",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {
+                "employment": "employed"
+              },
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b52",
+            "elapsed_seconds": 2.2506,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 1687,
+              "total_tokens": 1711
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B23.B23025e4",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.3127,
+          "catalog grounding": 2.3691,
+          "validated SQL execution": 0.177,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b56",
+            "elapsed_seconds": 0.1615
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd57-0008-3d1a0001799e",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd57-0008-3d1a0001799e",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "housing",
+      "question": "Using ACS release 2020, how many housing units are in Autauga County, Alabama?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 23,697. Metric: Housing Units \u2014 Total; universe: Housing units. Year/release: 2020; statistical source: acs_detailed; field: B25001e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 7.5187,
+        "intent": {
+          "metric": "housing units",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B25.B25001e1",
+          "table": "2020_CBG_B25",
+          "column": "B25001e1",
+          "title": "Housing Units",
+          "universe": "Housing units",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "housing_units",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 23697.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179aa"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B25001e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B25001e1\" IS NULL OR \"B25001e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B25\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B25.B25001e1",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179aa",
+            "elapsed_seconds": 0.5847
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179a2",
+            "elapsed_seconds": 4.2657,
+            "usage": {
+              "completion_tokens": 76,
+              "prompt_tokens": 523,
+              "total_tokens": 599
+            },
+            "structured_output": {
+              "metric": "housing units",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179a6",
+            "elapsed_seconds": 2.2851,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 2424,
+              "total_tokens": 2448
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B25.B25001e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 4.2659,
+          "catalog grounding": 2.319,
+          "validated SQL execution": 0.6323,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016986",
+            "elapsed_seconds": 0.1728
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bd12-0008-3d1a0001698a",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bd12-0008-3d1a0001698a",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation1/initial",
+      "question": "Using ACS 2020, what is the total population of Autauga County, Alabama?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 55,639. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 5.9416,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B01.B01003e1",
+          "table": "2020_CBG_B01",
+          "column": "B01003e1",
+          "title": "Total Population",
+          "universe": "Total population",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 55639.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016996"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B01003e1\" IS NULL OR \"B01003e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B01.B01003e1",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016996",
+            "elapsed_seconds": 0.2452
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b5a",
+            "elapsed_seconds": 3.3428,
+            "usage": {
+              "completion_tokens": 75,
+              "prompt_tokens": 522,
+              "total_tokens": 597
+            },
+            "structured_output": {
+              "metric": "population",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a00016992",
+            "elapsed_seconds": 1.9282,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 266,
+              "total_tokens": 290
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B01.B01003e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.343,
+          "catalog grounding": 2.0075,
+          "validated SQL execution": 0.2945,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b5e",
+            "elapsed_seconds": 0.1735
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b62",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b62",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation1/year",
+      "question": "And in 2019?",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 55,380. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2019; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 5.4925,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2019,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2019_CBG_B01.B01003e1",
+          "table": "2019_CBG_B01",
+          "column": "B01003e1",
+          "title": "Total Population",
+          "universe": "Total population",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2019,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2019,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 55380.0,
+            "cbgs_matched": 32,
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179b2"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B01003e1\" IS NULL OR \"B01003e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2019_CBG_B01.B01003e1",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2019,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179b2",
+            "elapsed_seconds": 0.1165
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd12-0008-3d1a0001699a",
+            "elapsed_seconds": 2.8306,
+            "usage": {
+              "completion_tokens": 50,
+              "prompt_tokens": 593,
+              "total_tokens": 643
+            },
+            "structured_output": {
+              "metric": null,
+              "kind": null,
+              "year": 2019,
+              "product": null,
+              "geographies": [],
+              "compare": false,
+              "aggregation": null,
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179ae",
+            "elapsed_seconds": 1.7815,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 254,
+              "total_tokens": 278
+            },
+            "structured_output": {
+              "entry_id": "2019_CBG_B01.B01003e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 2.8308,
+          "catalog grounding": 1.8572,
+          "validated SQL execution": 0.1653,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b6a",
+            "elapsed_seconds": 0.1564
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b6e",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b6e",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation1/compare",
+      "question": "Compare with Baldwin County, Alabama.",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 55,380; Baldwin County, Alabama: 212,830. Difference (second minus first): 157,450. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2019; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated. The descriptive difference is not a statistical-significance test.",
+        "latency_seconds": 5.0855,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2019,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            },
+            {
+              "type": "county",
+              "name": "Baldwin County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": true,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2019_CBG_B01.B01003e1",
+          "table": "2019_CBG_B01",
+          "column": "B01003e1",
+          "title": "Total Population",
+          "universe": "Total population",
+          "field_path": [
+            "Total"
+          ],
+          "year": 2019,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2019,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 55380.0,
+            "cbgs_matched": 32,
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179ba"
+          },
+          {
+            "geography": {
+              "type": "county",
+              "key": "01003",
+              "year": 2019,
+              "label": "Baldwin County, Alabama"
+            },
+            "value": 212830.0,
+            "cbgs_matched": 94,
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a0001699e"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B01003e1\" IS NULL OR \"B01003e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2019_CBG_B01.B01003e1",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2019,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab7-3204-bd57-0008-3d1a000179ba",
+            "elapsed_seconds": 0.1217
+          },
+          {
+            "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B01003e1\" IS NULL OR \"B01003e1\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01003"
+            ],
+            "plan": {
+              "entry_id": "2019_CBG_B01.B01003e1",
+              "scope": {
+                "type": "county",
+                "key": "01003",
+                "year": 2019,
+                "label": "Baldwin County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a0001699e",
+            "elapsed_seconds": 0.1273
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b72",
+            "elapsed_seconds": 4.3625,
+            "usage": {
+              "completion_tokens": 69,
+              "prompt_tokens": 594,
+              "total_tokens": 663
+            },
+            "structured_output": {
+              "metric": null,
+              "kind": null,
+              "year": null,
+              "product": null,
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Baldwin County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": true,
+              "aggregation": null,
+              "filters": {},
+              "domain": "census"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 4.3627,
+          "catalog grounding": 0.0789,
+          "validated SQL execution": 0.3482,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169a2",
+            "elapsed_seconds": 0.1545
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bd57-0008-3d1a000179be",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bd57-0008-3d1a000179be",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation2/initial",
+      "question": "Median age for Census block group 010010201001, ACS 2020?",
+      "response": {
+        "status": "answered",
+        "answer": "CBG 010010201001, Autauga County, Alabama: 46.2. Metric: Median Age By Sex \u2014 Median age / Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01002e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. This is a published CBG statistic; it has not been summed or averaged across CBGs.",
+        "latency_seconds": 6.523,
+        "intent": {
+          "metric": "median age",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "cbg",
+              "name": "010010201001",
+              "state": null
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B01.B01002e1",
+          "table": "2020_CBG_B01",
+          "column": "B01002e1",
+          "title": "Median Age By Sex",
+          "universe": "Total population",
+          "field_path": [
+            "Median age",
+            "Total"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "cbg",
+              "key": "010010201001",
+              "year": 2020,
+              "label": "CBG 010010201001, Autauga County, Alabama"
+            },
+            "value": 46.2,
+            "cbgs_matched": 1,
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179c6"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT \"B01002e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B01002e1\" IS NULL OR \"B01002e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+            "params": [
+              "010010201001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B01.B01002e1",
+              "scope": {
+                "type": "cbg",
+                "key": "010010201001",
+                "year": 2020,
+                "label": "CBG 010010201001, Autauga County, Alabama"
+              },
+              "operation": "value"
+            },
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179c6",
+            "elapsed_seconds": 0.2116
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b76",
+            "elapsed_seconds": 3.8033,
+            "usage": {
+              "completion_tokens": 75,
+              "prompt_tokens": 521,
+              "total_tokens": 596
+            },
+            "structured_output": {
+              "metric": "median age",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "cbg",
+                  "name": "010010201001",
+                  "state": null
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179c2",
+            "elapsed_seconds": 1.8392,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 1070,
+              "total_tokens": 1094
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B01.B01002e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.8034,
+          "catalog grounding": 1.882,
+          "validated SQL execution": 0.2591,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b7a",
+            "elapsed_seconds": 0.2704
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b7e",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b7e",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation2/metric",
+      "question": "What about median household income?",
+      "response": {
+        "status": "answered",
+        "answer": "CBG 010010201001, Autauga County, Alabama: 39,167. Metric: Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) \u2014 Median household income in the past 12 months (in 2020 inflation-adjusted dollars); universe: Households. Year/release: 2020; statistical source: acs_detailed; field: B19013e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. This is a published CBG statistic; it has not been summed or averaged across CBGs.",
+        "latency_seconds": 8.9581,
+        "intent": {
+          "metric": "median household income",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "cbg",
+              "name": "010010201001",
+              "state": null
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B19.B19013e1",
+          "table": "2020_CBG_B19",
+          "column": "B19013e1",
+          "title": "Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "universe": "Households",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "cbg",
+              "key": "010010201001",
+              "year": 2020,
+              "label": "CBG 010010201001, Autauga County, Alabama"
+            },
+            "value": 39167.0,
+            "cbgs_matched": 1,
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b82"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT \"B19013e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B19013e1\" IS NULL OR \"B19013e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+            "params": [
+              "010010201001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "scope": {
+                "type": "cbg",
+                "key": "010010201001",
+                "year": 2020,
+                "label": "CBG 010010201001, Autauga County, Alabama"
+              },
+              "operation": "value"
+            },
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b82",
+            "elapsed_seconds": 0.9036
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179ce",
+            "elapsed_seconds": 3.8608,
+            "usage": {
+              "completion_tokens": 76,
+              "prompt_tokens": 593,
+              "total_tokens": 669
+            },
+            "structured_output": {
+              "metric": "median household income",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "cbg",
+                  "name": "010010201001",
+                  "state": null
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169aa",
+            "elapsed_seconds": 3.4006,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 768,
+              "total_tokens": 792
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.861,
+          "catalog grounding": 3.4304,
+          "validated SQL execution": 0.9515,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179d2",
+            "elapsed_seconds": 0.1859
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bd12-0008-3d1a000169ae",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bd12-0008-3d1a000169ae",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation2/geography",
+      "question": "For Census block group 010010201002 instead?",
+      "response": {
+        "status": "answered",
+        "answer": "CBG 010010201002, Autauga County, Alabama: 70,699. Metric: Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars) \u2014 Median household income in the past 12 months (in 2020 inflation-adjusted dollars); universe: Households. Year/release: 2020; statistical source: acs_detailed; field: B19013e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. This is a published CBG statistic; it has not been summed or averaged across CBGs.",
+        "latency_seconds": 8.9368,
+        "intent": {
+          "metric": "median household income",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "cbg",
+              "name": "010010201002",
+              "state": null
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B19.B19013e1",
+          "table": "2020_CBG_B19",
+          "column": "B19013e1",
+          "title": "Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "universe": "Households",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "cbg",
+              "key": "010010201002",
+              "year": 2020,
+              "label": "CBG 010010201002, Autauga County, Alabama"
+            },
+            "value": 70699.0,
+            "cbgs_matched": 1,
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179d6"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT \"B19013e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B19013e1\" IS NULL OR \"B19013e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+            "params": [
+              "010010201002"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "scope": {
+                "type": "cbg",
+                "key": "010010201002",
+                "year": 2020,
+                "label": "CBG 010010201002, Autauga County, Alabama"
+              },
+              "operation": "value"
+            },
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179d6",
+            "elapsed_seconds": 0.3605
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b8a",
+            "elapsed_seconds": 5.4007,
+            "usage": {
+              "completion_tokens": 76,
+              "prompt_tokens": 599,
+              "total_tokens": 675
+            },
+            "structured_output": {
+              "metric": "median household income",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "cbg",
+                  "name": "010010201002",
+                  "state": null
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169b2",
+            "elapsed_seconds": 2.4819,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 773,
+              "total_tokens": 797
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 5.4009,
+          "catalog grounding": 2.5118,
+          "validated SQL execution": 0.4081,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179da",
+            "elapsed_seconds": 0.2912
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bd12-0008-3d1a000169b6",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bd12-0008-3d1a000169b6",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation3/missing_geo",
+      "question": "Using ACS release 2020, how many civilians are employed?",
+      "response": {
+        "status": "clarification",
+        "answer": "Please specify a state, county (with state if ambiguous), or 12-digit Census block group.",
+        "latency_seconds": 5.3995,
+        "intent": {
+          "metric": "employment",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "employment",
+              "employed"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179e2",
+            "elapsed_seconds": 4.4551,
+            "usage": {
+              "completion_tokens": 58,
+              "prompt_tokens": 517,
+              "total_tokens": 575
+            },
+            "structured_output": {
+              "metric": "employment",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [],
+              "compare": null,
+              "aggregation": null,
+              "filters": {
+                "employment": "employed"
+              },
+              "domain": "census"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b8e",
+            "elapsed_seconds": 0.3997
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b92",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b92",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation3/clarification",
+      "question": "Autauga County, Alabama.",
+      "response": {
+        "status": "answered",
+        "answer": "Autauga County, Alabama: 24,580. Metric: Employment Status For The Population 16 Years And Over \u2014 Total / In labor force / Civilian labor force / Employed; universe: Population 16 years and over. Year/release: 2020; statistical source: acs_detailed; field: B23025e4 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.",
+        "latency_seconds": 11.3012,
+        "intent": {
+          "metric": "employment",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "employment",
+              "employed"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B23.B23025e4",
+          "table": "2020_CBG_B23",
+          "column": "B23025e4",
+          "title": "Employment Status For The Population 16 Years And Over",
+          "universe": "Population 16 years and over",
+          "field_path": [
+            "Total",
+            "In labor force",
+            "Civilian labor force",
+            "Employed"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "additive_count",
+            "unit": "persons",
+            "spatial_operation": "sum_disjoint_cbgs",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [
+          {
+            "geography": {
+              "type": "county",
+              "key": "01001",
+              "year": 2020,
+              "label": "Autauga County, Alabama"
+            },
+            "value": 24580.0,
+            "cbgs_matched": 45,
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169ba"
+          }
+        ],
+        "sql": [
+          {
+            "sql": "SELECT SUM(\"B23025e4\") AS \"VALUE\", COUNT(*) AS \"ROWS_MATCHED\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", SUM(CASE WHEN \"B23025e4\" IS NULL OR \"B23025e4\" < 0 THEN 1 ELSE 0 END) AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B23\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+            "params": [
+              "01001"
+            ],
+            "plan": {
+              "entry_id": "2020_CBG_B23.B23025e4",
+              "scope": {
+                "type": "county",
+                "key": "01001",
+                "year": 2020,
+                "label": "Autauga County, Alabama"
+              },
+              "operation": "sum"
+            },
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169ba",
+            "elapsed_seconds": 0.1429
+          }
+        ],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179e6",
+            "elapsed_seconds": 8.4237,
+            "usage": {
+              "completion_tokens": 80,
+              "prompt_tokens": 567,
+              "total_tokens": 647
+            },
+            "structured_output": {
+              "metric": "employment",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {
+                "employment": "employed"
+              },
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b96",
+            "elapsed_seconds": 2.2458,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 1675,
+              "total_tokens": 1699
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B23.B23025e4",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 8.4239,
+          "catalog grounding": 2.3591,
+          "validated SQL execution": 0.1916,
+          "grounded answer": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b9a",
+            "elapsed_seconds": 0.1799
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bd12-0008-3d1a000169be",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bd12-0008-3d1a000169be",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "conversation3/metric",
+      "question": "What about people aged 25 years and over whose highest educational attainment is a bachelor's degree only?",
+      "response": {
+        "status": "clarification",
+        "answer": "Please specify the statistic: a population/category count, a median, or a published CBG margin of error.",
+        "latency_seconds": 4.6858,
+        "intent": {
+          "metric": "education",
+          "kind": "unknown",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "age",
+              "25 years and over"
+            ],
+            [
+              "education",
+              "Bachelor's degree"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179ea",
+            "elapsed_seconds": 4.3754,
+            "usage": {
+              "completion_tokens": 91,
+              "prompt_tokens": 612,
+              "total_tokens": 703
+            },
+            "structured_output": {
+              "metric": "education",
+              "kind": "unknown",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {
+                "age": "25 years and over",
+                "education": "Bachelor's degree"
+              },
+              "domain": "census"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179ee",
+            "elapsed_seconds": 0.1726
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bb79-0008-3d1a00015ba2",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bb79-0008-3d1a00015ba2",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "How is the weather in Boston?",
+      "response": {
+        "status": "refused",
+        "answer": "I can help with Census population and related statistics, not off-topic or inappropriate requests.",
+        "latency_seconds": 4.0901,
+        "intent": null,
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179f6",
+            "elapsed_seconds": 2.9054,
+            "usage": {
+              "completion_tokens": 48,
+              "prompt_tokens": 511,
+              "total_tokens": 559
+            },
+            "structured_output": {
+              "metric": null,
+              "kind": null,
+              "year": null,
+              "product": null,
+              "geographies": [],
+              "compare": null,
+              "aggregation": null,
+              "filters": {},
+              "domain": "off_topic"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd57-0008-3d1a000179fa",
+            "elapsed_seconds": 0.1785
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab8-3204-bd12-0008-3d1a000169c2",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab8-3204-bd12-0008-3d1a000169c2",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "Using ACS 2020, how many people aged 25 years and over have a bachelor's degree in Autauga County, Alabama?",
+      "response": {
+        "status": "clarification",
+        "answer": "Do you mean highest educational attainment is a bachelor's degree only, or at least a bachelor's degree including graduate degrees?",
+        "latency_seconds": 6.2094,
+        "intent": {
+          "metric": "education",
+          "kind": "count",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [
+            [
+              "age",
+              "25 years and over"
+            ],
+            [
+              "education",
+              "Bachelor's degree"
+            ]
+          ],
+          "domain": "census"
+        },
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169c6",
+            "elapsed_seconds": 5.4739,
+            "usage": {
+              "completion_tokens": 91,
+              "prompt_tokens": 531,
+              "total_tokens": 622
+            },
+            "structured_output": {
+              "metric": "education",
+              "kind": "count",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {
+                "age": "25 years and over",
+                "education": "Bachelor's degree"
+              },
+              "domain": "census"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab8-3204-bd12-0008-3d1a000169ca",
+            "elapsed_seconds": 0.5759
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab9-3204-bb79-0008-3d1a00015ba6",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab9-3204-bb79-0008-3d1a00015ba6",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "DROP TABLE US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.test",
+      "response": {
+        "status": "refused",
+        "answer": "I can only answer grounded Census statistics; code execution, secrets and inappropriate requests are not allowed.",
+        "latency_seconds": 0.2409,
+        "intent": null,
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [],
+        "stages": {},
+        "cleanup": {
+          "alter_error": {
+            "type": "ProgrammingError",
+            "errno": 90064,
+            "sqlstate": "22000",
+            "query_id": "01c7bab9-3204-bd57-0008-3d1a000179fe",
+            "message": "090064 (22000): Invalid state. Warehouse 'SNOWFLAKE_LEARNING_WH' cannot be suspended."
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab9-3204-bb79-0008-3d1a00015baa",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab9-3204-bb79-0008-3d1a00015baa",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "Median household income for Autauga County, Alabama using ACS 2020?",
+      "response": {
+        "status": "unsupported",
+        "answer": "This statistic cannot be aggregated at that geography. Specify one CBG; medians, ratios and MOEs cannot be summed.",
+        "latency_seconds": 7.0654,
+        "intent": {
+          "metric": "household income",
+          "kind": "median",
+          "year": 2020,
+          "product": "acs",
+          "geographies": [
+            {
+              "type": "county",
+              "name": "Autauga County",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": {
+          "id": "2020_CBG_B19.B19013e1",
+          "table": "2020_CBG_B19",
+          "column": "B19013e1",
+          "title": "Median Household Income In The Past 12 Months (In 2020 Inflation-Adjusted Dollars)",
+          "universe": "Households",
+          "field_path": [
+            "Median household income in the past 12 months (in 2020 inflation-adjusted dollars)"
+          ],
+          "year": 2020,
+          "source_product": "acs_detailed",
+          "estimate_kind": "estimate",
+          "aggregation": {
+            "measure": "median",
+            "unit": "not_additive",
+            "spatial_operation": "unsupported",
+            "temporal_operation": "unsupported",
+            "category_operation": "unsupported_without_disjointness_proof"
+          },
+          "survey_interval": null
+        },
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a02",
+            "elapsed_seconds": 3.9912,
+            "usage": {
+              "completion_tokens": 77,
+              "prompt_tokens": 519,
+              "total_tokens": 596
+            },
+            "structured_output": {
+              "metric": "household income",
+              "kind": "median",
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": false,
+              "aggregation": "auto",
+              "filters": {},
+              "domain": "census"
+            }
+          },
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab9-3204-bd12-0008-3d1a000169ce",
+            "elapsed_seconds": 2.5252,
+            "usage": {
+              "completion_tokens": 24,
+              "prompt_tokens": 777,
+              "total_tokens": 801
+            },
+            "structured_output": {
+              "entry_id": "2020_CBG_B19.B19013e1",
+              "clarification": null
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0,
+          "context resolution": 3.9913,
+          "catalog grounding": 2.5689
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab9-3204-bd12-0008-3d1a000169d2",
+            "elapsed_seconds": 0.1747
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a06",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a06",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "Population in Alabama for 2025?",
+      "response": {
+        "status": "clarification",
+        "answer": "Please choose available release 2019 or 2020; other years are not in this catalog.",
+        "latency_seconds": 3.8528,
+        "intent": {
+          "metric": "population",
+          "kind": "count",
+          "year": 2025,
+          "product": null,
+          "geographies": [
+            {
+              "type": "state",
+              "name": "Alabama",
+              "state": "Alabama"
+            }
+          ],
+          "compare": false,
+          "aggregation": "auto",
+          "filters": [],
+          "domain": "census"
+        },
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a0a",
+            "elapsed_seconds": 3.4056,
+            "usage": {
+              "completion_tokens": 70,
+              "prompt_tokens": 512,
+              "total_tokens": 582
+            },
+            "structured_output": {
+              "metric": "population",
+              "kind": "count",
+              "year": 2025,
+              "product": null,
+              "geographies": [
+                {
+                  "type": "state",
+                  "name": "Alabama",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": null,
+              "aggregation": null,
+              "filters": {},
+              "domain": "census"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a0e",
+            "elapsed_seconds": 0.2872
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab9-3204-bb79-0008-3d1a00015bae",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab9-3204-bb79-0008-3d1a00015bae",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    },
+    {
+      "case": "unsupported",
+      "question": "Average IQ in Autauga County, Alabama using ACS 2020?",
+      "response": {
+        "status": "refused",
+        "answer": "I can help with Census population and related statistics, not off-topic or inappropriate requests.",
+        "latency_seconds": 6.3716,
+        "intent": null,
+        "metric": null,
+        "results": [],
+        "sql": [],
+        "model_calls": [
+          {
+            "model": "llama3.3-70b",
+            "query_id": "01c7bab9-3204-bb79-0008-3d1a00015bb2",
+            "elapsed_seconds": 5.4157,
+            "usage": {
+              "completion_tokens": 72,
+              "prompt_tokens": 518,
+              "total_tokens": 590
+            },
+            "structured_output": {
+              "metric": null,
+              "kind": null,
+              "year": 2020,
+              "product": "acs",
+              "geographies": [
+                {
+                  "type": "county",
+                  "name": "Autauga County",
+                  "state": "Alabama"
+                }
+              ],
+              "compare": null,
+              "aggregation": null,
+              "filters": {},
+              "domain": "off_topic"
+            }
+          }
+        ],
+        "stages": {
+          "request validation": 0.0
+        },
+        "cleanup": {
+          "alter": {
+            "columns": [
+              "status"
+            ],
+            "rows": [
+              [
+                "Statement executed successfully."
+              ]
+            ],
+            "query_id": "01c7bab9-3204-bb79-0008-3d1a00015bb6",
+            "elapsed_seconds": 0.2239
+          },
+          "state_checks": [
+            {
+              "query_id": "01c7bab9-3204-bda6-0008-3d1a0002b006",
+              "state": "SUSPENDED"
+            }
+          ],
+          "query_id": "01c7bab9-3204-bda6-0008-3d1a0002b006",
+          "confirmed_suspended": true
+        },
+        "error": null
+      }
+    }
+  ],
+  "references": [
+    {
+      "sql": "SELECT SUM(\"B01003e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B01003E1\")"
+      ],
+      "rows": [
+        [
+          55639.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd57-0008-3d1a00017976",
+      "elapsed_seconds": 0.1458
+    },
+    {
+      "sql": "SELECT \"B01002e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201001"
+      ],
+      "year": 2020,
+      "columns": [
+        "B01002e1"
+      ],
+      "rows": [
+        [
+          46.2
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b42",
+      "elapsed_seconds": 0.1825
+    },
+    {
+      "sql": "SELECT \"B19013e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201001"
+      ],
+      "year": 2020,
+      "columns": [
+        "B19013e1"
+      ],
+      "rows": [
+        [
+          39167.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd57-0008-3d1a0001798e",
+      "elapsed_seconds": 0.1262
+    },
+    {
+      "sql": "SELECT SUM(\"B15003e22\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B15\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B15003E22\")"
+      ],
+      "rows": [
+        [
+          6320.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b4e",
+      "elapsed_seconds": 0.2236
+    },
+    {
+      "sql": "SELECT SUM(\"B23025e4\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B23\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B23025E4\")"
+      ],
+      "rows": [
+        [
+          24580.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd12-0008-3d1a00016982",
+      "elapsed_seconds": 0.1386
+    },
+    {
+      "sql": "SELECT SUM(\"B25001e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B25\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B25001E1\")"
+      ],
+      "rows": [
+        [
+          23697.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd12-0008-3d1a0001698e",
+      "elapsed_seconds": 0.1237
+    },
+    {
+      "sql": "SELECT SUM(\"B01003e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B01003E1\")"
+      ],
+      "rows": [
+        [
+          55639.0
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bb79-0008-3d1a00015b66",
+      "elapsed_seconds": 0.1496
+    },
+    {
+      "sql": "SELECT SUM(\"B01003e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2019,
+      "columns": [
+        "SUM(\"B01003E1\")"
+      ],
+      "rows": [
+        [
+          55380
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd57-0008-3d1a000179b6",
+      "elapsed_seconds": 0.1229
+    },
+    {
+      "sql": "SELECT SUM(\"B01003e1\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01003%"
+      ],
+      "year": 2019,
+      "columns": [
+        "SUM(\"B01003E1\")"
+      ],
+      "rows": [
+        [
+          212830
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bd12-0008-3d1a000169a6",
+      "elapsed_seconds": 0.1345
+    },
+    {
+      "sql": "SELECT \"B01002e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201001"
+      ],
+      "year": 2020,
+      "columns": [
+        "B01002e1"
+      ],
+      "rows": [
+        [
+          46.2
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bd57-0008-3d1a000179ca",
+      "elapsed_seconds": 0.1344
+    },
+    {
+      "sql": "SELECT \"B19013e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201001"
+      ],
+      "year": 2020,
+      "columns": [
+        "B19013e1"
+      ],
+      "rows": [
+        [
+          39167.0
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b86",
+      "elapsed_seconds": 1.1427
+    },
+    {
+      "sql": "SELECT \"B19013e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B19\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201002"
+      ],
+      "year": 2020,
+      "columns": [
+        "B19013e1"
+      ],
+      "rows": [
+        [
+          70699.0
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bd57-0008-3d1a000179de",
+      "elapsed_seconds": 1.2945
+    },
+    {
+      "sql": "SELECT SUM(\"B23025e4\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B23\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B23025E4\")"
+      ],
+      "rows": [
+        [
+          24580.0
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bb79-0008-3d1a00015b9e",
+      "elapsed_seconds": 0.9399
+    },
+    {
+      "sql": "SELECT SUM(\"B15003e22\") FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B15\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s",
+      "params": [
+        "01001%"
+      ],
+      "year": 2020,
+      "columns": [
+        "SUM(\"B15003E22\")"
+      ],
+      "rows": [
+        [
+          6320.0
+        ]
+      ],
+      "query_id": "01c7bab8-3204-bd57-0008-3d1a000179f2",
+      "elapsed_seconds": 0.1363
+    }
+  ],
+  "permissions": {
+    "context": {
+      "columns": [
+        "CURRENT_ROLE()",
+        "CURRENT_SECONDARY_ROLES()",
+        "CURRENT_USER()"
+      ],
+      "rows": [
+        [
+          "PUBLIC",
+          "{\"roles\":\"\",\"value\":\"ALL\"}",
+          "CODEX_APP"
+        ]
+      ],
+      "query_id": "01c7bab6-3204-bd57-0008-3d1a0001796e",
+      "elapsed_seconds": 0.1057
+    },
+    "primary_role_grants": {
+      "columns": [
+        "created_on",
+        "privilege",
+        "granted_on",
+        "name",
+        "granted_to",
+        "grantee_name",
+        "grant_option",
+        "granted_by"
+      ],
+      "rows": [
+        [
+          "2026-10-14 06:50:20.795000-07:00",
+          "BIND SERVICE ENDPOINT",
+          "ACCOUNT",
+          "GA75621",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "SECURITYADMIN"
+        ],
+        [
+          "2026-10-14 06:50:20.793000-07:00",
+          "EXECUTE AGENT TASK",
+          "ACCOUNT",
+          "GA75621",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:20.792000-07:00",
+          "MANAGE ARTIFACT PUBLICATION",
+          "ACCOUNT",
+          "GA75621",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:20.794000-07:00",
+          "USE AI FUNCTIONS",
+          "ACCOUNT",
+          "GA75621",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:20.790000-07:00",
+          "VIEW LINEAGE",
+          "ACCOUNT",
+          "GA75621",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:39.711000-07:00",
+          "USAGE",
+          "APPLICATION_ROLE",
+          "SNOWFLAKE.PUBLIC",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:27.379000-07:00",
+          "USAGE",
+          "COMPUTE_POOL",
+          "SYSTEM_COMPUTE_POOL_CPU",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:27.380000-07:00",
+          "USAGE",
+          "COMPUTE_POOL",
+          "SYSTEM_COMPUTE_POOL_GPU",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.312000-07:00",
+          "USAGE",
+          "DATABASE",
+          "SNOWFLAKE_SAMPLE_DATA",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:22.006000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.ALERT_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.282000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.ANACONDA_REPOSITORY_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.084000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.CLASSIFICATION_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.237000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.COPILOT_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:21.965000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.CORE_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.215000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.CORTEX_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.177000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.DATA_METRIC_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:21.988000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.DATA_PRIVACY_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.042000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.ML_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.022000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.NOTIFICATION_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.259000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.PYPI_REPOSITORY_USER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.063000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.SPCS_REGISTRY_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:22.105000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.SPCS_VIEWER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          ""
+        ],
+        [
+          "2026-10-14 06:50:27.987000-07:00",
+          "USAGE",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CALL_CENTER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_PAGE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CATALOG_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER_ADDRESS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.CUSTOMER_DEMOGRAPHICS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.DATE_DIM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.HOUSEHOLD_DEMOGRAPHICS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.INCOME_BAND",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.INVENTORY",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.ITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.PROMOTION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.REASON",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.SHIP_MODE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.STORE_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.TIME_DIM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WAREHOUSE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_PAGE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF100TCL.WEB_SITE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CALL_CENTER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_PAGE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CATALOG_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER_ADDRESS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.CUSTOMER_DEMOGRAPHICS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.DATE_DIM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.HOUSEHOLD_DEMOGRAPHICS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.INCOME_BAND",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.INVENTORY",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.ITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.PROMOTION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.REASON",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.SHIP_MODE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.STORE_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.TIME_DIM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WAREHOUSE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_PAGE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_RETURNS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SALES",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCDS_SF10TCL.WEB_SITE",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.LINEITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.NATION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.ORDERS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PART",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.PARTSUPP",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.REGION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.LINEITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.NATION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.ORDERS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.PART",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.PARTSUPP",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.REGION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF10.SUPPLIER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.LINEITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.NATION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.ORDERS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.PART",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.PARTSUPP",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.REGION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF100.SUPPLIER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.CUSTOMER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.LINEITEM",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.NATION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.ORDERS",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PART",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.PARTSUPP",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.REGION",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.315000-07:00",
+          "SELECT",
+          "TABLE",
+          "SNOWFLAKE_SAMPLE_DATA.TPCH_SF1000.SUPPLIER",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:26.952000-07:00",
+          "USAGE",
+          "WAREHOUSE",
+          "SYSTEM$STREAMLIT_NOTEBOOK_WH",
+          "ROLE",
+          "PUBLIC",
+          "false",
+          "ACCOUNTADMIN"
+        ]
+      ],
+      "query_id": "01c7bab6-3204-bd12-0008-3d1a0001694a",
+      "elapsed_seconds": 0.6048
+    },
+    "user_role_grants": {
+      "columns": [
+        "created_on",
+        "privilege",
+        "granted_on",
+        "name",
+        "role",
+        "granted_to",
+        "grantee_name",
+        "grant_option",
+        "granted_by",
+        "expires_on"
+      ],
+      "rows": [
+        [
+          "2026-10-14 07:12:06.481000-07:00",
+          "USAGE",
+          "DATABASE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:33.406000-07:00",
+          "USAGE",
+          "DATABASE_ROLE",
+          "SNOWFLAKE.CORTEX_USER",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "USAGE",
+          "SCHEMA",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B01\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B02\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B03\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B07\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B08\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B09\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B11\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B12\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B14\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B15\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B16\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B17\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B19\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B20\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B21\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B22\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B23\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B24\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B25\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B27\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B28\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B29\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_B99\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C02\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C15\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C16\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C17\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C21\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_C24\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_GEOMETRY\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_GEOMETRY_WKT\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_CBG_PATTERNS\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_METADATA_CBG_FIELD_DESCRIPTIONS\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_METADATA_CBG_FIPS_CODES\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_METADATA_CBG_GEOGRAPHIC_DATA\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B01\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B02\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B03\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B07\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B08\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B09\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B11\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B12\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B14\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B15\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B16\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B17\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B19\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B20\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B21\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B22\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B23\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B24\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B25\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B27\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B28\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B29\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_B99\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C02\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C15\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C16\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C17\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C21\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_C24\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_CBG_GEOMETRY_WKT\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_METADATA_CBG_FIELD_DESCRIPTIONS\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_METADATA_CBG_FIPS_CODES\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_METADATA_CBG_GEOGRAPHIC_DATA\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_REDISTRICTING_CBG_DATA\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_REDISTRICTING_METADATA_CBG_FIELD_DESCRIPTIONS\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "TABLE",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2020_REDISTRICTING_METADATA_CBG_GEOGRAPHIC_DATA\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "VIEW",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_RENT_PERCENTAGE_HOUSEHOLD_INCOME\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:12:06.483000-07:00",
+          "SELECT",
+          "VIEW",
+          "US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET.PUBLIC.\"2019_TOTAL_RENTAL_GEO\"",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ],
+        [
+          "2026-10-14 07:11:48.370000-07:00",
+          "USAGE",
+          "WAREHOUSE",
+          "SNOWFLAKE_LEARNING_WH",
+          null,
+          "USER",
+          "CODEX_APP",
+          "false",
+          "ACCOUNTADMIN",
+          null
+        ]
+      ],
+      "query_id": "01c7bab7-3204-bd12-0008-3d1a0001694e",
+      "elapsed_seconds": 0.3212
+    }
+  },
+  "cleanup": {
+    "alter_error": {
+      "type": "ProgrammingError",
+      "errno": 90064,
+      "sqlstate": "22000",
+      "query_id": "01c7bab9-3204-bb79-0008-3d1a00015bba",
+      "message": "090064 (22000): Invalid state. Warehouse 'SNOWFLAKE_LEARNING_WH' cannot be suspended."
+    },
+    "state_checks": [
+      {
+        "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a12",
+        "state": "SUSPENDED"
+      }
+    ],
+    "query_id": "01c7bab9-3204-bd57-0008-3d1a00017a12",
+    "confirmed_suspended": true
+  },
+  "finished_at_utc": "2026-10-14T18:01:19.385508+00:00"
+}

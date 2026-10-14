@@ -1,0 +1,12 @@
+{
+  "requirements": 30,
+  "unique_and_matched": true,
+  "nonempty_traceability": true,
+  "original_files_preserved": 27,
+  "live_manifest_matches": true,
+  "live_tests_passed": 16,
+  "answer_number_text_check": true,
+  "credential_pattern_risks": 0,
+  "env_mode": "0o600",
+  "scope": "core only; no fresh checkout or deployment claim"
+}

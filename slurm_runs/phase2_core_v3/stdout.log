@@ -1,0 +1,69 @@
+LIVE population: answered; 11.477s; field=2020_CBG_B01.B01003e1
+.LIVE median_age: answered; 7.0536s; field=2020_CBG_B01.B01002e1
+.LIVE median_income: answered; 7.1689s; field=2020_CBG_B19.B19013e1
+.LIVE education: answered; 7.174s; field=2020_CBG_B15.B15003e22
+.LIVE employment: answered; 6.7837s; field=2020_CBG_B23.B23025e4
+.LIVE housing: answered; 7.5187s; field=2020_CBG_B25.B25001e1
+.LIVE conversation1/initial: answered; 5.9416s; field=2020_CBG_B01.B01003e1
+LIVE conversation1/year: answered; 5.4925s; field=2019_CBG_B01.B01003e1
+LIVE conversation1/compare: answered; 5.0855s; field=2019_CBG_B01.B01003e1
+.LIVE conversation2/initial: answered; 6.523s; field=2020_CBG_B01.B01002e1
+LIVE conversation2/metric: answered; 8.9581s; field=2020_CBG_B19.B19013e1
+LIVE conversation2/geography: answered; 8.9368s; field=2020_CBG_B19.B19013e1
+.LIVE conversation3/missing_geo: clarification; 5.3995s; field=None
+LIVE conversation3/clarification: answered; 11.3012s; field=2020_CBG_B23.B23025e4
+LIVE conversation3/metric: clarification; 4.6858s; field=None
+FLIVE unsupported: refused; 4.0901s; field=None
+.LIVE unsupported: clarification; 6.2094s; field=None
+.LIVE unsupported: refused; 0.2409s; field=None
+.LIVE unsupported: unsupported; 7.0654s; field=2020_CBG_B19.B19013e1
+.LIVE unsupported: clarification; 3.8528s; field=None
+.LIVE unsupported: refused; 6.3716s; field=None
+..
+=================================== FAILURES ===================================
+___________ test_multiturn_pending_clarification_then_metric_change ____________
+
+live = (<function live.<locals>.ask at 0x14567e7b4040>, <function live.<locals>.reference at 0x14567e7b40e0>, <census_agent.backend.SnowflakeBackend object at 0x14567e93f710>)
+
+    def test_multiturn_pending_clarification_then_metric_change(live):
+        ask, reference, _ = live
+        state = ConversationState()
+        a = ask(
+            "Using ACS release 2020, how many civilians are employed?",
+            state,
+            "conversation3/missing_geo",
+        )
+        assert a.status == "clarification" and not a.sql and not a.results
+        b = ask("Autauga County, Alabama.", state, "conversation3/clarification")
+        verify(b, "2020_CBG_B23", {"B23025e4"}, reference("2020_CBG_B23", "B23025e4", "01001"))
+        c = ask(
+            "What about people aged 25 years and over whose highest educational attainment is a bachelor's degree only?",
+            state,
+            "conversation3/metric",
+        )
+>       verify(c, "2020_CBG_B15", {"B15003e22"}, reference("2020_CBG_B15", "B15003e22", "01001"))
+
+tests/phase2/test_live.py:206: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+response = Response(status='clarification', answer='Please specify the statistic: a population/category count, a median, or a pub..., 'state': 'SUSPENDED'}], 'query_id': '01c7bab8-3204-bb79-0008-3d1a00015ba2', 'confirmed_suspended': True}, error=None)
+table = '2020_CBG_B15', columns = {'B15003e22'}, value = 6320.0
+
+    def verify(response, table, columns, value):
+>       assert response.status == "answered", response.as_dict()
+E       AssertionError: {'answer': 'Please specify the statistic: a population/category count, a median, or a published CBG margin of error.',...': False, 'domain': 'census', 'filters': (('age', '25 years and over'), ('education', "Bachelor's degree")), ...}, ...}
+E       assert 'clarification' == 'answered'
+E         
+E         - answered
+E         + clarification
+
+tests/phase2/test_live.py:82: AssertionError
+=============================== warnings summary ===============================
+tests/phase2/test_live.py::test_six_end_to_end_questions[population-Using ACS release 2020, what is the total population of Autauga County, Alabama?-2020_CBG_B01-columns0-B01003e1-01001]
+  /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014/.venv/lib64/python3.11/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py:413: DeprecationWarning: X509.get_subject is deprecated. You should use cryptography's X.509 APIs instead.
+    "subject": ((("commonName", x509.get_subject().CN),),),  # type: ignore[dict-item]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/phase2/test_live.py::test_multiturn_pending_clarification_then_metric_change
+1 failed, 15 passed, 1 warning in 144.38s (0:02:24)

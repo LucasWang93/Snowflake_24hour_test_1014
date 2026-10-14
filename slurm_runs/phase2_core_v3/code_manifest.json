@@ -1,0 +1,15 @@
+{
+  "git_head": "6497c8e41bc62eb91f13f77e177766373b532efa",
+  "sha256": {
+    "census_agent/__init__.py": "4cc374793c3126ec1357b486746bd1ea1e0752aef6ecea1dd948aa6c90fc3c5f",
+    "census_agent/__main__.py": "1caa5107fa6fb735b24292535b5d52e3dc534f918ca5b68a435c2b5ab2a261f8",
+    "census_agent/agent.py": "90a25813c2ae1faac0d2c7c546727693f3da71648dedd0e9bf25662d887875e4",
+    "census_agent/backend.py": "60a8cfdf906b6f749b44928035d71eb1af2e1ccef9181b1b1e826eabf3b34f76",
+    "census_agent/planning.py": "29c005814e80388b99295aee6172babc5f13d4618914d21e4a715509d7ebed01",
+    "census_agent/sql.py": "3dfbf553ba11bef91780d4b4a10c6379f12406d999ed113b293c45c35b5d6e03",
+    "census_agent/types.py": "bc397e97618da750c5d57b4200046c011c2eaff87f854e6379914f63fb91fd79",
+    "tests/phase2/test_core.py": "cca8252ba1c0147453da7371d1904574b5aadbdb40d36de29dd7f373a583925c",
+    "tests/phase2/test_live.py": "0f506282e7a359dd06726858b2c6469152d4dab282fd8dd87f709150e5f19382",
+    "data/semantic_catalog.json": "2321b4ee09d30c84ef9f3753ccd8037954fda664abb0824c185607de8102d1b0"
+  }
+}

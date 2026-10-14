@@ -1,36 +1,137 @@
 # Delivery checklist
 
-Status: PENDING — all challenge gates await actual evidence.
+Status: Phase 1 foundation verified within bounded scope; full homework is not ready
+for delivery. The official five-page PDF is now reconciled (AS-11); IDs and page references
+are in CHALLENGE_SPEC.md. Phase 2 core agent is implemented; targeted live acceptance passed.
+Deployment remains later.
+
+Checked items below are supported by inspected source/tests/artifacts or the fresh
+offline test run. Historical Phase 1 live evidence is labeled and preserved. Phase 2 adds bounded
+Cortex/data calls with separate artifacts. Planned items stay unchecked.
 
 ## Functional
-- [ ] Gate A: Requirements, rules including AI use, and traceability reviewed.
-- [ ] Gate B: Minimal end-to-end example runs with expected output.
-- [ ] Required APIs/interfaces and deliverables preserved.
+- [x] SF-1/SF-2/SF-3: historical connector context, 71 tables + 2 views, 73 exact counts,
+  three schemas and samples independently inspected in stored evidence.
+- [x] SF-4: historical availability of three Cortex models and one unknown-model
+  alternative inspected; this is not functional agent behavior.
+- [x] P1-1/P1-5: catalog covers 59 indicator tables and all 16,582 supplied definitions;
+  exact physical schema retained for 16,878 fields; 296 undefined fields quarantined.
+- [x] P1-2: five required search cases return relevant verified physical mappings;
+  retrieval/schema tests pass; earlier real returned-column queries inspected.
+- [x] P1-3: year-specific CBG/FIPS resolver implemented; ambiguity/leading-zero tests
+  pass; earlier real geography joins inspected for the sampled CBGs.
+- [x] P1-4: unsupported aggregation and mixed/duplicate/invalid data fail explicitly;
+  earlier real bounded sum agrees with SQL.
+- [x] AS-1/AS-3 (core implementation): functional question -> grounded plan -> validated SQL -> results ->
+  answer Agent using Cortex, with real end-to-end evidence.
+- [x] AS-2 (core implementation/tests): functional multi-turn conversation, corrections/reset and session isolation.
+- [x] Existing Phase 1 modules/APIs/artifacts preserved; SHA-256 comparisons recorded.
+- [x] Gate A source intake: official PDF requirements and AI rules read and reconciled.
+  Absolute deadline/recipient operational details still require confirmation before submission.
+- [x] Gate B (core slice): actual Cortex -> validated SQL -> grounded answer verified.
+  Public UI/deployed delivery remains pending.
 
 ## Reliability
-- [ ] Appropriate validation, meaningful errors, timeouts, bounded retries/resources.
-- [ ] Critical P0/P1 issues fixed; P2 limitations documented.
+- [x] Existing probe/config boundaries have deterministic tests; Phase 1 search,
+  geography and aggregation reject implemented invalid/unsupported cases.
+- [x] SF-5: historical live cleanup ended with SUSPENDED; query IDs/state inspected.
+  This does not claim continuous monitoring of current warehouse state.
+- [x] Phase 1 limitations and fallback/quarantine policies are documented.
+- [x] AS-4 (core boundary): canonical SQL validation, model/data failures, empty/invalid
+  results, finite timeouts/resources and zero automatic retries; mock and real cases.
+  Comprehensive hosted security/reliability review remains pending.
+- [x] Core recovery preserves successful state and avoids automatic retries; unit tests.
+- [ ] Whole-application P0/P1 hardening review completed; deferred P2 issues documented.
 
 ## Evaluation
-- [ ] Gate C: Deterministic functional, edge and regression tests pass.
-- [ ] Boundary integration tests run; mocks explicitly distinguished.
-- [ ] Gate D: Relevant baseline, metrics, failure analysis and evidence recorded.
+- [x] P1-6: fresh offline run: 58 passed, nine live tests explicitly skipped, exit 0.
+  The 58 include 44 Phase 1 offline cases and 14 existing connector helper cases.
+- [x] P1-6: saved real integration run independently inspected: nine passed tests,
+  ten bounded SQL queries; mocks/captured data distinguished from real results.
+- [x] Phase 1 report/search timings/provenance/failure categories retained; no invented
+  general accuracy or p95 claims.
+- [ ] AS-6: complete end-to-end evaluation covering representative/held-out questions,
+  statistical accuracy, ambiguity, multi-turn behavior and SQL security.
+- [ ] AS-6: approved reference baselines and measured latency/resource/cost results.
+- [ ] Gate C: whole-application functional and edge-case tests pass (Phase 1 portion does).
+- [ ] Gate D: complete agent evaluation and meaningful failure analysis finish.
 
 ## Security
-- [ ] Credentials excluded; staged filenames and diff reviewed for accidental secrets.
-- [ ] Input/data handling and permissions reviewed for actual threat model.
+- [x] SF-6: source/tests support owner-only config loading and redaction; earlier
+  ignore/mode checks recorded; sync also checked ignored/untracked/mode 600 without
+  reading values and found no documentation credential-assignment/key/token patterns.
+  This is not the final application/submission security audit.
+- [x] AS-4: canonical typed query recompilation and exact SQL/parameter/bound equality
+  enforced by backend before data execution; arbitrary model SQL is never executed.
+- [ ] AS-4/AS-5: prompt/tool/session isolation, server-only credentials and redacted logs
+  verified in the completed application and deployed UI.
+- [ ] Final staged files/diff and submission artifacts reviewed for accidental secrets.
+- [x] Core effective permission visibility and resource bounds inspected; PUBLIC/ALL
+  mode and direct-user access documented, without claiming least privilege.
+- [ ] Deployment threat model, restricted identity and hosted concurrency reviewed.
 
 ## Documentation
-- [ ] Specification, architecture, decisions, evaluation and progress reflect final state.
-- [ ] Assumptions, tradeoffs, known limitations and risks recorded.
+- [x] Five engineering documents now separate actual Phase 1 from planned components
+  and map reconciled official/user obligations to unique requirement IDs and verifications.
+- [x] Valid setup/Phase 1 decisions, evidence, assumptions, tradeoffs and risks preserved.
+- [x] AS-11: original PDF read; requirement/page reconciliation and missing IDs recorded
+  in PDF_RECONCILIATION.md. Absolute receipt time/recipient remain unresolved.
+- [ ] AS-7: README includes final objective, setup/configuration, run/example/test steps,
+  public URL, architecture and limitations; current README remains the initial placeholder.
+- [ ] AS-8: Reflection exists and matches official format/content with actual decisions
+  and measured evidence; no Reflection artifact has been verified.
 
 ## Reproducibility
-- [ ] Gate E: Fresh setup, dependency installation and example verified.
-- [ ] Exact commands, environment, data provenance and expected outputs documented.
-- [ ] Full verification and fresh reviewer pass complete.
+- [x] Phase 1 report describes offline catalog build/search and opt-in real test commands.
+- [x] Deterministic catalog rebuild/exact-schema and malformed-input tests pass.
+- [ ] AS-7/Gate E: clean checkout installation, example, tests and final application
+  reproduction verified by a reviewer; current environment is already configured.
+- [ ] Full verification, submission packaging and independent complete delivery review.
 
 ## Submission
-- [ ] Deadline, format, required files and packaging confirmed against supplied rules.
-- [ ] Uncommitted/untracked files reviewed and intentionally included/excluded.
-- [ ] Concise handoff: result, setup/run/test commands, evidence and limitations.
-- [ ] Final submission action explicitly authorized; no automatic push or deployment.
+- [ ] AS-5: publicly accessible deployed UI, confirmed from an independent reviewer
+  browser with successful real multi-turn usage and correct errors.
+- [ ] AS-9: exact GitHub reviewer identities/permissions confirmed against PDF and
+  effective access verified; no permission change was performed here.
+- [ ] AS-11: deadline/timezone, approved tools/models, output format, links/files,
+  submission recipient and required content verified from official instructions.
+- [ ] Review all uncommitted/untracked work and intentionally include the final files.
+- [ ] AS-10: final submission email checked against official instructions; send only
+  with explicit authorization and record delivery confirmation. No email has been sent.
+- [ ] Final handoff includes working URL, repository access, setup/run/test commands,
+  end-to-end evaluation, README, Reflection and known limitations.
+- [ ] Final deployment/push/sharing/email actions explicitly authorized; none is
+  authorized merely by this documentation checklist.
+
+## Phase 2 status
+Core local interface, Cortex semantics, canonical SQL validation, grounded answers,
+explicit state and failure handling are implemented. Six questions across five families, three conversations and SQL safety pass: 16
+real tests; 58 Phase 2 offline checks. PHASE2_REPORT.md records actual acceptance; the complete PDF delivery is still pending.
+No public deployment, commit/push, reviewer-sharing or email action is performed.
+Stop after Phase 2; do not automatically start Phase 3.
+
+## Post-PDF obligations
+- [x] AS-12 (measured Phase 2 cases): all 21 turns under 60s, individual timings retained.
+- [x] AS-13 (core tested boundary): dedicated off-topic/inappropriate intent validation and graceful refusals.
+- [x] AS-14: required Marketplace source access already verified; fallback not used.
+- [ ] AS-15: final private-repository packaging contains all implementation code.
+- [ ] AS-16: comprehensive schema context with remaining 296 undefined-field and
+  unsupported statistical/cross-table cases explicitly disclosed.
+- [ ] AS-17: clean deployed-demo checks; deferred outside Phase 2.
+- [x] AS-18 (CLI only): progress/fast-fail interaction verified in CLI; deployed UX later.
+Reviewer handles and reflection's four required content areas are recorded in the
+reconciliation report. No deployment, sharing or email action is performed here.
+
+## Phase 2 acceptance and checkpoint
+- [x] Five metric families, six real questions, three multi-turn scenarios and
+  independent reference SQL comparisons passed (final job 2847530, 16 tests).
+- [x] Answer numbers checked against actual SQL, provenance/query IDs retained;
+  all measured normal turns <60s; final warehouse confirmed SUSPENDED.
+- [x] Core SQL security, non-additive aggregation, ambiguity and service-error
+  regression tests pass; failed evaluations preserved with corrected causes.
+- [x] Five synchronized documents, PDF reconciliation, Phase 2 report and explicit
+  next-session/development-checkpoint policy recorded.
+- [ ] Final private-repository reviewer access, hosted threat model and clean public
+  demo verification remain pending; core evaluation does not satisfy these.
+Development commits/pushes are now explicitly authorized by the user; deployment,
+reviewer-sharing changes and submission email are not part of this checkpoint.

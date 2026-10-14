@@ -1,0 +1,29 @@
+LIVE population: answered; 14.4261s; field=2020_CBG_B01.B01003e1
+.LIVE median_age: answered; 5.7881s; field=2020_CBG_B01.B01002e1
+.LIVE median_income: answered; 6.7031s; field=2020_CBG_B19.B19013e1
+.LIVE education: answered; 6.6924s; field=2020_CBG_B15.B15003e22
+.LIVE employment: answered; 9.3186s; field=2020_CBG_B23.B23025e4
+.LIVE housing: answered; 6.501s; field=2020_CBG_B25.B25001e1
+.LIVE conversation1/initial: answered; 8.4386s; field=2020_CBG_B01.B01003e1
+LIVE conversation1/year: answered; 5.6646s; field=2019_CBG_B01.B01003e1
+LIVE conversation1/compare: answered; 4.6116s; field=2019_CBG_B01.B01003e1
+.LIVE conversation2/initial: answered; 9.8099s; field=2020_CBG_B01.B01002e1
+LIVE conversation2/metric: answered; 8.1293s; field=2020_CBG_B19.B19013e1
+LIVE conversation2/geography: answered; 6.0598s; field=2020_CBG_B19.B19013e1
+.LIVE conversation3/missing_geo: clarification; 3.2717s; field=None
+LIVE conversation3/clarification: answered; 8.804s; field=2020_CBG_B23.B23025e4
+LIVE conversation3/metric: answered; 6.5315s; field=2020_CBG_B15.B15003e22
+.LIVE unsupported: refused; 2.6314s; field=None
+.LIVE unsupported: clarification; 3.6832s; field=None
+.LIVE unsupported: refused; 0.2299s; field=None
+.LIVE unsupported: unsupported; 5.9349s; field=2020_CBG_B19.B19013e1
+.LIVE unsupported: clarification; 5.7947s; field=None
+.LIVE unsupported: refused; 3.3952s; field=None
+..
+=============================== warnings summary ===============================
+tests/phase2/test_live.py::test_six_end_to_end_questions[population-Using ACS release 2020, what is the total population of Autauga County, Alabama?-2020_CBG_B01-columns0-B01003e1-01001]
+  /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014/.venv/lib64/python3.11/site-packages/snowflake/connector/vendored/urllib3/contrib/pyopenssl.py:413: DeprecationWarning: X509.get_subject is deprecated. You should use cryptography's X.509 APIs instead.
+    "subject": ((("commonName", x509.get_subject().CN),),),  # type: ignore[dict-item]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+16 passed, 1 warning in 136.37s (0:02:16)

@@ -1,0 +1,135 @@
+{
+  "status": "error",
+  "answer": "The Snowflake data query service could not complete this request. Please retry later.",
+  "latency_seconds": 25.3802,
+  "intent": {
+    "metric": "median age",
+    "kind": "median",
+    "year": 2020,
+    "product": "acs",
+    "geographies": [
+      {
+        "type": "cbg",
+        "name": "010010201001",
+        "state": null
+      }
+    ],
+    "compare": false,
+    "aggregation": "auto",
+    "filters": [],
+    "domain": "census"
+  },
+  "metric": {
+    "id": "2020_CBG_B01.B01002e1",
+    "table": "2020_CBG_B01",
+    "column": "B01002e1",
+    "title": "Median Age By Sex",
+    "universe": "Total population",
+    "field_path": [
+      "Median age",
+      "Total"
+    ],
+    "year": 2020,
+    "source_product": "acs_detailed",
+    "estimate_kind": "estimate",
+    "aggregation": {
+      "measure": "median",
+      "unit": "not_additive",
+      "spatial_operation": "unsupported",
+      "temporal_operation": "unsupported",
+      "category_operation": "unsupported_without_disjointness_proof"
+    },
+    "survey_interval": null
+  },
+  "results": [],
+  "sql": [
+    {
+      "sql": "SELECT \"B01002e1\" AS \"VALUE\", 1 AS \"ROWS_MATCHED\", 1 AS \"UNIQUE_CBGS\", CASE WHEN \"B01002e1\" IS NULL OR \"B01002e1\" < 0 THEN 1 ELSE 0 END AS \"INVALID_VALUES\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" = %s LIMIT 2",
+      "params": [
+        "010010201001"
+      ],
+      "plan": {
+        "entry_id": "2020_CBG_B01.B01002e1",
+        "scope": {
+          "type": "cbg",
+          "key": "010010201001",
+          "year": 2020,
+          "label": "CBG 010010201001, Autauga County, Alabama"
+        },
+        "operation": "value"
+      }
+    }
+  ],
+  "model_calls": [
+    {
+      "model": "llama3.3-70b",
+      "query_id": "01c7ba9a-3204-bd12-0008-3d1a00016746",
+      "elapsed_seconds": 4.2308,
+      "usage": {
+        "completion_tokens": 75,
+        "prompt_tokens": 462,
+        "total_tokens": 537
+      },
+      "structured_output": {
+        "metric": "median age",
+        "kind": "median",
+        "year": 2020,
+        "product": "acs",
+        "geographies": [
+          {
+            "type": "cbg",
+            "name": "010010201001",
+            "state": null
+          }
+        ],
+        "compare": false,
+        "aggregation": "auto",
+        "filters": {},
+        "domain": "census"
+      }
+    },
+    {
+      "model": "llama3.3-70b",
+      "query_id": "01c7ba9a-3204-bd12-0008-3d1a0001674a",
+      "elapsed_seconds": 2.5761,
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 2624,
+        "total_tokens": 2648
+      },
+      "structured_output": {
+        "entry_id": "2020_CBG_B01.B01002e1",
+        "clarification": null
+      }
+    }
+  ],
+  "stages": {
+    "request validation": 0.0004,
+    "context resolution": 22.223,
+    "catalog grounding": 2.6222
+  },
+  "cleanup": {
+    "alter": {
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "query_id": "01c7ba9a-3204-bd57-0008-3d1a000177be",
+      "elapsed_seconds": 0.1645
+    },
+    "query_id": "01c7ba9a-3204-bd57-0008-3d1a000177c2",
+    "confirmed_suspended": true
+  },
+  "error": {
+    "stage": "Snowflake data query",
+    "type": "ProgrammingError",
+    "errno": 2003,
+    "sqlstate": "02000",
+    "query_id": "01c7ba9a-3204-bb79-0008-3d1a00015946",
+    "message": "002003 (02000): SQL compilation error:\nDatabase 'US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET' does not exist or not authorized. Your primary role PUBLIC must have USAGE or any other privilege granted on DATABASE US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET."
+  }
+}

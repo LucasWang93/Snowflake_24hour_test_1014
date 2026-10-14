@@ -1,0 +1,37 @@
+{
+  "status": "error",
+  "answer": "The Cortex interpretation service could not complete this request. Please retry later.",
+  "latency_seconds": 26.7344,
+  "intent": null,
+  "metric": null,
+  "results": [],
+  "sql": [],
+  "model_calls": [],
+  "stages": {
+    "request validation": 0.0004
+  },
+  "cleanup": {
+    "alter": {
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "query_id": "01c7ba9d-3204-bd12-0008-3d1a000167a6",
+      "elapsed_seconds": 0.1731
+    },
+    "query_id": "01c7ba9d-3204-bd12-0008-3d1a000167aa",
+    "confirmed_suspended": true
+  },
+  "error": {
+    "stage": "Cortex interpretation",
+    "type": "ProgrammingError",
+    "errno": 604,
+    "sqlstate": "57014",
+    "query_id": "01c7ba9d-3204-bd57-0008-3d1a0001780a",
+    "message": "000604 (57014): SQL execution was cancelled by the client due to a timeout. Error message received from the server: SQL execution canceled"
+  }
+}

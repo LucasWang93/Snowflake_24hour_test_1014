@@ -1,0 +1,31 @@
+{
+  "original_sha256": {
+    "census_catalog/build.py": "44df6f4ed2d70134fecc1209620f7e5e65d602500afd8745686b9f5b2618b139",
+    "census_catalog/catalog.py": "75c9fd6193137cdcd1a1e919efe19e4e52d90ab30d99133aeaeae7cad75fb9ad",
+    "census_catalog/__init__.py": "9ec0b0f51d522c90084106e9ec2f986f83901a57af2b2c5b546ad1cf5ab03c77",
+    "census_catalog/aggregation.py": "e17c492634a0ff91156d2891c5272dda2b1342b0ee1423c1f54e173da7fa08b4",
+    "census_catalog/__main__.py": "a81fc7fafb8f27a67330e22310ee1a5c19b308bccd2843e2d16cbda5e92a4d99",
+    "census_catalog/geography.py": "261ade3be62e90de617ab71d14462ff0041ebb8ebcd2a9de7fb283a4d62e7e73",
+    "data/semantic_catalog.json": "2321b4ee09d30c84ef9f3753ccd8037954fda664abb0824c185607de8102d1b0",
+    "docs/phase1_search_results.json": "5996588256912a24126e8d4ed332ccc4ac01320e7a8384c94211e4129ffdc4a1",
+    "docs/phase1_metadata.json": "a1db10ff56c64311806d0806d291cce9268937cb9b44f34fd713f349b27018b4",
+    "docs/phase1_integration_results.json": "9e8549a06268b6756943e7885a001a4e1868c2951e9711f92b1644e211e802ce",
+    "docs/phase1_preservation.json": "de69c547f0ea6b766757c4b34f95e4e0dd0aebe3a505819699648be3e5718677",
+    "docs/phase1_state_reference.json": "b8027013da358d5eebf804df08c52cabbf34137f53da041e1bdb7c439369b494",
+    "docs/PHASE1_REPORT.md": "06cc15c9404f01e6237a22679c153ff23706a9bde5f00bef7ef71e8944a79e9d",
+    "docs/snowflake_inventory.json": "19c25ca7ee8fb8dcd7febbe111840fffc18ab3494c5d2710c3716f6670d4dbec",
+    "docs/snowflake_metadata.json": "cff5f4e588af1abfee98a791c25b44318f3030837585448068c24afaed7d45e1",
+    "docs/snowflake_evidence.json": "d7eb3e96d97f379949fed40ecc0a7223da4b26a5993332915031444040ac2f8d",
+    "scripts/snowflake_probe.py": "9f837ef6459f8ef58e6aa0cd7c4487316f031f06c1c13a541d4b1258d770ed6c",
+    "scripts/collect_phase1_metadata.py": "d5c23c73cf9b6e2ba2f12316f721b42a08690e5b781405f48165a9d2fc8e8032",
+    "tests/conftest.py": "af17520e697b8b96a79b4858fd30ddcfe1bbce8c3b5fb4eaf054ac23485fb0e4",
+    "tests/test_phase1_live.py": "22bba55be5b6c986f9cea873b24afaf96a62fcb1ef45c6b02cfaefee750274b0",
+    "tests/test_semantic_catalog.py": "5d65dbc2a4f0fc3e2f65db1959999394913a25769e50b8db70b7e67b7f667796",
+    "tests/test_aggregation.py": "9f30e1a5b5dd5e9fe6119e617a6b59628d25514b43ec78ec87efaeea46514054",
+    "tests/test_geography.py": "60e5a84fb7a88c0fe4c3f6613be17c997c12a1a4a5bad4c283218ca3be53c5d7",
+    "tests/test_snowflake_probe.py": "76eaa12f9b624b5be7725bf713c7ec644e6baeadcbbfc9a8134d88dd8b95d059",
+    ".env.example": "5fbc0ad2746cc585a7312e88e608d4ea498182dccb24a20b8ba4605046d6bfe8",
+    "requirements-snowflake.txt": "388ab84730f530e2f7704579bc680cadd1589a280b78e97dbaa0e9c02b7cd08e",
+    "pyproject.toml": "32d22366641528ffa4ca5b04d594924a7244c67961f0c1ac9a7351ddd038dd21"
+  }
+}

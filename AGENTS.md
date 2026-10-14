@@ -1,7 +1,9 @@
 # Repository execution policy
 
-This repository is a preparation harness. The challenge has not arrived. Do not
-invent requirements, application code, evaluation data, or successful results.
+This repository contains the preparation harness, verified Phase 1 Census catalog
+and Phase 2 core agent. The official PDF has arrived and is reconciled. Read
+docs/PROGRESS.md for the current checkpoint. Do not invent requirements, schema,
+evaluation data or successful results; do not automatically advance phases.
 
 ## Intake and authorization
 - Read the actual task specification, AI-use rules, submission instructions,
@@ -14,8 +16,12 @@ invent requirements, application code, evaluation data, or successful results.
 - Never silently change scope, install services, or use paid APIs. Obtain explicit
   authorization before background processes, destructive operations, or external
   deployment. Do not push or change remotes without authorization.
-- Do not access, print, commit, or leak secrets. Do not read credential files or
-  .env values. Inspect only configuration names and presence when diagnosing setup.
+- Do not print, commit, or leak secrets. General inspection must not read
+  credential files or .env values; inspect only names and presence. The user has
+  explicitly authorized the Snowflake connection loader to read only the required
+  local .env connection values for the requested data and Cortex tests. This is
+  a narrow exception for authenticated connection code, not permission to display
+  credentials or inspect other secret files.
 
 ## Implementation
 - Prioritize a working end-to-end vertical slice. Make small, reviewable changes.
@@ -56,3 +62,18 @@ Review tracked diffs locally before staging; do not expose sensitive content.
 - D: Meaningful evaluation and failure analysis complete.
 - E: Clean reproduction and delivery review complete.
 All gates are pending until supported by evidence. Preparation is not Gate A-E.
+
+## Session continuation and development checkpoints
+- In a new Codex session, read AGENTS.md and docs/PROGRESS.md first, then the actual
+  specification, architecture, decisions, evaluation plan and current phase report.
+  Inspect Git state before modifying anything. Resume the recorded authorized scope;
+  a handoff does not authorize a new phase or deployment.
+- Keep completed work, actual verification, limitations, next-phase tasks and exact
+  reproduction commands in PROGRESS.md and the relevant report/decision log.
+- The user authorized routine GitHub development checkpoints after a completed phase
+  or substantial validated change. Review Git state/diffs and secret exclusions,
+  run appropriate checks, commit meaningful changes and push the current branch to
+  its existing origin. Do not force-push, rewrite history, change remotes or mix
+  unrelated changes. Record each checkpoint in docs/DEVELOPMENT_VERSIONS.md.
+- Never mark skipped tests as passed. Keep failed evaluation evidence and known
+  limitations visible in version records and handoff documentation.

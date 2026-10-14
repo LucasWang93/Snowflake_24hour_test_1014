@@ -1,0 +1,2 @@
+# Preserve raw pytest output, whose traceback separators contain trailing spaces.
+slurm_runs/**/stdout.log -whitespace
