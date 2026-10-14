@@ -25,3 +25,9 @@ dist/
 
 # Local Phase 3 session/admission state; never submit runtime state.
 .runtime/
+# Deployment secrets and browser artifacts are local only.
+.streamlit/secrets.toml
+.secrets/
+*.p8
+playwright-report/
+test-results/

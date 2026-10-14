@@ -1,0 +1,24 @@
+[server]
+headless = true
+fileWatcherType = "none"
+enableCORS = true
+enableXsrfProtection = true
+enableStaticServing = false
+maxUploadSize = 1
+maxMessageSize = 2
+disconnectedSessionTTL = 120
+
+[runner]
+fastReruns = false
+magicEnabled = false
+
+[client]
+showErrorDetails = "none"
+toolbarMode = "minimal"
+showSidebarNavigation = false
+
+[browser]
+gatherUsageStats = false
+
+[logger]
+level = "warning"

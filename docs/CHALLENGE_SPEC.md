@@ -98,7 +98,7 @@ instead of duplicating context/latency/degradation requirements.
 | AS-2 | PDF pp.2,5: preserve context across turns and accurate follow-ups | Explicit resolved/pending state, follow-up merge and comparison implemented | Three multi-turn scenarios; updates, pending clarification, resets, isolation | Complete (three real scenarios plus offline edges) |
 | AS-3 | User Phase 2 requirement, not PDF mandate: Cortex primary LLM, initially llama3.3-70b | Bounded llama3.3-70b structured intent/catalog choice implemented | Real Cortex query IDs and provider/error tests | Complete (actual bounded Cortex calls) |
 | AS-4 | PDF pp.2,5: graceful degradation, ambiguous/partial/conflicting/unanswerable inputs; user: safe SQL boundary | Canonical SQL validator, domain/semantic guards and safe errors implemented | Unknown/empty/error cases; unvalidated SQL cannot reach data executor | Complete (tested core boundary; deployment review pending) |
-| AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Not implemented in Phase 2 | Independent browser/public URL and full conversation smoke check | Pending (later phase) |
+| AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Phase 4 Streamlit/AgentService UI and single-instance deployment configuration | AppTest offline plus planned clean HTTPS browser/auth/conversation smoke | Partial: UI tested; public deployment blocked |
 | AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | Phase 1 evidence retained; Phase 2: 58 offline tests and 16 real tests passed | Five metric families, three conversations, ground-truth SQL, security and failure cases | Partial (Phase 2 evidence complete; broader/hosted evaluation pending) |
 | AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Initial README preserved; complete final README pending | Fresh engineer can understand choices, access demo and reproduce commands | Pending |
 | AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | No final reflection artifact | Four-topic checklist plus honest limitations and AI-tool usage review | Pending |
@@ -110,7 +110,7 @@ instead of duplicating context/latency/degradation requirements.
 | AS-14 | PDF p.2: free-trial Snowflake Marketplace US Open Census source; conditional disclosed SafeGraph fallback | Existing verified Marketplace database reused; no fallback | Existing source/context evidence and Phase 2 source query IDs; trial status user-provided | Complete (source access; no reconfiguration) |
 | AS-15 | PDF p.3: repository includes all solution implementation code | Phase 1/2 code and evidence included in development checkpoints; final application packaging pending | Review tracked/untracked implementation manifest before authorized commit/submission | Partial (core checkpoint packaged; final application pending) |
 | AS-16 | PDF p.4: comprehensive metadata/join mapping and sufficient schema context, no manually limited prompt subset | Full Phase 1 catalog reused; 296 undefined fields remain excluded | Family coverage plus dynamic catalog-choice tests; document unsupported/cross-table scope | Partial (documented semantic gaps) |
-| AS-17 | PDF p.4: verify final demo in clean deployed environment for missing config/connections/auth loops | No deployment in Phase 2 | Independent clean public-deployment end-to-end and error checks | Pending (later phase) |
+| AS-17 | PDF p.4: verify final demo in clean deployed environment for missing config/connections/auth loops | External browser smoke runner implemented; no deployed URL | Run actual HTTPS smoke and separate post-SSH availability check | Blocked: approved host and restricted identity missing |
 | AS-18 | PDF p.5: streaming or progress feedback for interactivity; correctness and fast-fail paths | CLI stage progress and bounded failures implemented | Progress callback/CLI and refusal-latency checks; deployed UX later | Partial (CLI progress complete; deployed UX pending) |
 
 ## Ordered implementation plan
@@ -177,3 +177,12 @@ Phase 3 actual evidence: first frozen run 19/25; final reused-case regression 25
 real session isolation pass, existing Phase 2 live 16/16, full offline 140 pass / 25
 live skips. PHASE3_REPORT.md distinguishes first held-out failures from regressions,
 records actual latency and identifies restricted-identity/hosting blockers.
+
+## Phase 4 authorization and actual status
+The user now authorizes Phase 4 only: public authenticated chat using AgentService,
+HTTPS, persistent single-host control and external verification. AS-5/AS-17 remain
+incomplete without a tested public URL. AS-2/AS-4/AS-12/AS-13 preserve core policies;
+AS-18 now has local Web progress feedback, with deployed UX pending. AS-7/AS-15 add
+runbook/reviewer access and deployment source; full final delivery remains outstanding.
+No statistical features, data rediscovery, grant changes, paid service provisioning
+or final submission email. See PHASE4_REPORT.md for actual local evidence and blockers.

@@ -12,20 +12,27 @@
   0.6816–16.6937s; final warehouse SUSPENDED. See PHASE3_REPORT.md.
 
 ## In progress
-- None within Phase 3; stop after this checkpoint. No public UI/deployment work started.
+- Phase 4 authorized: Streamlit UI and deployable single-instance adapter implemented;
+  public deployment blocked on approved host and restricted Snowflake identity.
+  No next-phase or submission-email work authorized.
 
 ## Blocked
-- No Phase 3 implementation blocker. Public hosting still needs administrator-reviewed
-  restricted credentials/PUBLIC baseline and exclusive warehouse/control-storage policy,
-  TLS/token provisioning and a public adapter. Final email needs receipt time/recipient.
+- Phase 4: no approved persistent host/domain or connected hosting account. Login node
+  is not a public service host; Docker/cloud CLIs absent. Sites cannot run this Python
+  multiprocessing/local-SQLite design. Render integration available but unconnected;
+  durable disk requires a paid service and explicit cost authorization.
+- Administrator must provision/review restricted key-pair identity, inherited PUBLIC
+  baseline and exclusive warehouse. Existing development credentials are not deployed.
+- No public URL, external browser results or SSH-disconnect availability claim.
+  Final submission additionally needs README/Reflection, reviewer permissions and receipt/recipient.
 
 ## Next three actions
-1. New session: read AGENTS.md, this file, PHASE3_REPORT.md and DEPLOYMENT_PERMISSIONS.md;
-   inspect Git state and current architecture/decisions/evaluation before changes.
-2. Wait for next-phase authorization; choose public UI/hosting and arrange restricted
-   identity, TLS/auth, local/shared control and recovery ownership without breaking access.
-3. Later run fresh held-out/clean deployed evaluation, complete README/Reflection,
-   reviewer permissions and authorized submission. No automatic next phase or email.
+1. New session: read AGENTS.md, PROGRESS.md, PHASE4_REPORT.md and DEPLOYMENT_RUNBOOK.md;
+   inspect Git state. Resume Phase 4 deployment only; preserve all evaluation artifacts.
+2. Supply an approved persistent host/domain and administrator-provisioned app identity.
+   Run the supplied single-instance deployment without weakening auth, control or SQL checks.
+3. Run fresh external-browser smoke tests and a separate post-SSH availability probe;
+   record actual URL/results, then stop Phase 4. No automatic final email or later phase.
 
 ## Historical harness / configuration evidence
 The following preparation and Phase 1 records retain the context at their original
@@ -210,3 +217,25 @@ public-deployment or complete security certification claim.
 Development checkpoint: v0.3.0-dev; see DEVELOPMENT_VERSIONS.md and Git tag for exact
 commit. User's regular checkpoint/validated-change commit policy remains active.
 Stop here; continue a new session only within the next authorized scope.
+
+## Phase 4 implementation checkpoint — 2026-10-14 (deployment blocked)
+- Implemented authenticated Streamlit UI, private per-browser history/reset/logout,
+  progress, public-only answers and allowlisted provenance over existing AgentService.
+- Added fail-closed dedicated key-pair deployment config; backend optional trusted
+  config preserves operator CLI defaults. No new Agent/statistical features.
+- Docker/Caddy single-instance/private-volume configuration, admin SQL proposal,
+  reviewer/token runbook and external HTTPS browser runner created. No paid resources,
+  grants, credentials or warehouse settings changed.
+- Actual offline: 29 new tests pass; full verify exit 0, 169 pass / 25 opt-in live skips,
+  Ruff pass. Loopback unconfigured HTTP health/page 200; test subprocess stopped.
+  No public browser/data/TLS/SSH-persistence claim and no new live Cortex/SQL calls.
+- Existing Phase 1–3 data/test/report/evaluation hashes retained; see preservation audit.
+- Blocking inputs: approved persistent host/domain and restricted Snowflake key-pair
+  identity with reviewed PUBLIC baseline/exclusive warehouse. No public URL.
+- Version v0.4.0-dev is a partial development checkpoint, not Phase 4 completion.
+  Resume only this deployment when inputs change; do not advance phases or send email.
+
+Final Phase 4 preparation preflight: exit 2 (unchecked deployment/full-delivery items
+and precommit changes); its Ruff/tests pass, 169 passed / 25 skipped. No deployed
+acceptance or clean Docker reproduction is claimed. Current evidence is retained in
+docs/phase4_checks; resume Phase 4 only after host/admin prerequisites are available.

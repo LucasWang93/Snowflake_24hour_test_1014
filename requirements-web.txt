@@ -1,0 +1,2 @@
+-r requirements-snowflake.txt
+streamlit==1.65.0

@@ -1,0 +1,28 @@
+{
+  "preserved_files": 79,
+  "original_artifact_hashes_unchanged": true,
+  "official_pdf_unchanged": true,
+  "canonical_requirement_ids": 30,
+  "credential_pattern_risks": 0,
+  "env_ignored_untracked": true,
+  "env_mode": "0o600",
+  "streamlit_version": "1.65.0",
+  "public_url": null,
+  "real_key_pair_authentication": "not_run",
+  "external_browser_e2e": "blocked",
+  "docker_build": "not_run_tools_absent",
+  "phase4_offline_passed": 29,
+  "full_offline_passed": 169,
+  "live_skipped": 25,
+  "new_live_sql_or_cortex_calls": 0,
+  "hosting_tools_present": {
+    "docker": false,
+    "podman": false,
+    "caddy": false,
+    "aws": false,
+    "flyctl": false,
+    "railway": false,
+    "render": false
+  },
+  "hosting_environment_names_present": []
+}

@@ -57,3 +57,17 @@ application audit; the plan is a deployment blocker, not a completed role migrat
 - CLI/reference probes bypass the service admission layer: do not run them while
   the shared warehouse is serving users. An exclusively assigned application
   warehouse and an admin-provisioned restricted identity are deployment prerequisites.
+
+## Phase 4 public-adapter enforcement (implemented; identity still blocked)
+The Web runtime requires a dedicated key-pair identity and reviewed named app role,
+secondary NONE, explicit PUBLIC/privilege review and exclusive-warehouse attestations.
+It rejects the development user/password path. Backend accepts optional trusted
+`connection_config` for connector SNOWFLAKE_JWT/private_key_file parameters without
+changing existing operator defaults. Live key-pair access and actual effective
+least privilege remain unverified; no grants or credentials were modified.
+
+Exact proposed administrator role/service-user/warehouse statements are supplied in
+`deploy/admin_permissions.sql`, not executed. Provisioning a new warehouse must first
+be approved under the trial-credit policy; an approved exclusive existing warehouse
+can be assigned instead. TYPE=SERVICE uses noninteractive key-pair authentication;
+private key material is server-only, never Git/chat. See DEPLOYMENT_RUNBOOK.md.

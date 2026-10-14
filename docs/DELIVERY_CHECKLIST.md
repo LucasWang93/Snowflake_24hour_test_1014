@@ -3,7 +3,7 @@
 Status: Phase 1 foundation verified within bounded scope; full homework is not ready
 for delivery. The official five-page PDF is now reconciled (AS-11); IDs and page references
 are in CHALLENGE_SPEC.md. Phase 2 core agent is implemented; targeted live acceptance passed.
-Phase 3 reliability is implemented and verified within its bounded scope. Deployment remains later.
+Phase 3 reliability is implemented and verified within its bounded scope. Phase 4 UI/configuration implemented; actual deployment blocked.
 
 Checked items below are supported by inspected source/tests/artifacts or the fresh
 offline test run. Historical Phase 1 live evidence is labeled and preserved. Phase 2 adds bounded
@@ -161,3 +161,24 @@ Final Phase 3 scope is complete, not the complete homework/public delivery. Offl
 19/25 and intermediate 15/16 Phase 2 failure remain recorded. Whole-app/deployed
 security, restricted identity, hosting, README/Reflection, reviewer access and final
 submission remain unchecked. Stop after Phase 3.
+
+## Phase 4 current status (not public-deployment acceptance)
+- [x] Streamlit interactive chat over AgentService; bounded per-browser history,
+  progress/status, reset/logout, safe errors and source/product/release provenance.
+- [x] Shared existing auth/SQLite admission/process isolation and unchanged budgets;
+  local isolation/rate/private-output tests pass with clearly labeled Census mocks.
+- [x] Public adapter refuses development identity, admin/PUBLIC role, password fallback
+  and missing HTTPS/storage/warehouse/permission confirmations; optional key-pair transport.
+- [x] Deployment configuration/runbook, reviewer instructions, admin SQL proposal,
+  no-secret-output token tool and clean-browser smoke runner included.
+- [ ] Administrator has reviewed PUBLIC/inherited grants and verified restricted
+  service key-pair SELECT/Cortex/suspend access on an exclusive app warehouse.
+- [ ] Approved durable host/domain and server-side secrets provisioned; Docker/Caddy
+  build/launch and private SQLite volume/restart behavior actually verified.
+- [ ] Public HTTPS URL page/auth/data/follow-up/unsupported/isolation/rate/privacy
+  and <60s browser checks pass from a clean external client.
+- [ ] Application still works after developer SSH disconnect and controlled restart.
+- [ ] Final demo URL and actual reviewer credentials privately delivered.
+- [ ] Full README/Reflection, final private reviewer permissions and authorized email.
+Local tests/configuration do not check AS-5/AS-17 as complete. Phase 4 is blocked, not
+ready for final submission. No paid service created, grants changed or email sent.

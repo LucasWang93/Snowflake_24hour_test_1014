@@ -1,0 +1,117 @@
+# Phase 4 — Web app and deployment checkpoint
+
+**Status: PARTIAL / PUBLIC DEPLOYMENT BLOCKED.** No working public URL is available.
+The Web adapter, secure single-instance deployment configuration and smoke runner
+are implemented and locally tested. They do not satisfy public-deployment acceptance.
+No Phase 5/final submission work started and no email sent.
+
+## Implementation
+
+| Component | Actual behavior |
+| --- | --- |
+| `web_app.py`, `census_web/app.py` | Streamlit chat, multi-turn visible history, loading/status, safe errors, reset/logout, allowlisted provenance and latency |
+| `census_web/runtime.py` | Shared AgentService facade; existing BearerAuthenticator/SQLiteControl/workers; private durable path, dedicated key-pair config and explicit admin attestations required |
+| `census_agent/backend.py` | Optional trusted `connection_config` and connector key-pair parameters; legacy local loader/password defaults preserved; no Agent/statistical behavior changed |
+| `deploy/Dockerfile`, `.dockerignore` | Nonroot UID 10001, explicit code/catalog allowlist, no .env/Git/evaluation diagnostics in image |
+| `deploy/compose.yaml`, `Caddyfile`, `streamlit.toml` | One app, one HTTPS proxy, one persistent local SQLite volume, mounted server key/env, restart policy, bounded process/resources, CORS/XSRF on and static serving/traceback details off |
+| `deploy/admin_permissions.sql` | Administrator proposal for restricted service role/user/warehouse and grant review; NOT EXECUTED |
+| `scripts/create_reviewer_token.py` | Operator-only random token/digest files, owner-only outside checkout, no token stdout/overwrite |
+| `scripts/deployment_smoke.py` | Optional Playwright clean-browser HTTPS runner; public-address check, two contexts, saved failures, no raw exception/token dumps |
+| `docs/DEPLOYMENT_RUNBOOK.md`, `REVIEWER_ACCESS.md` | Concrete host/admin/auth/run/test/recovery steps; missing URL explicitly disclosed |
+
+Only service facade/auth/control configuration is cached. Browser credentials/history
+are private Streamlit session state; owner-bound conversational intent remains in
+shared SQLite. No connector/cursor/ConversationState is shared. Existing single
+active warehouse lease, 55s parent deadline, rate/model budgets and quarantine remain.
+Questions max 2,000 characters; visible history max 40 messages. Plain-text answer
+rendering prevents untrusted link/image/HTML interpretation. UI never accesses
+ServiceResult.diagnostics or renders raw SQL/model/audit/error objects.
+
+## Actual verification
+
+| Command / check | Observed result | Scope |
+| --- | --- | --- |
+| `.venv/bin/python -m pip install 'streamlit==1.65.0'` | Exit 0; Streamlit and required transitive packages installed | Sole new app dependency; existing connector unchanged, no separate LLM/framework |
+| `.venv/bin/python -m pytest -q tests/phase4 --tb=short` | 29 passed, exit 0 | 22 UI/config tests + 7 provisioning/packaging/runner checks; explicitly mocked Census provider |
+| `bash scripts/verify.sh` | Exit 0; 169 passed / 25 skipped; Ruff formatting/lint and Bash syntax pass | Existing Phase 1–3 offline regressions plus new tests; nine Phase 1/16 Phase 2 opt-in live skips are NOT passes |
+| Temporary Streamlit subprocess + stdlib HTTP client | Loopback health/page HTTP 200; subprocess stopped in finally | Unconfigured local HTTP liveness only; no auth/data/browser/public HTTPS claim; `phase4_checks/loopback_http.json` |
+| `.venv/bin/python -m pip check` | Exit 0 | No broken installed requirements |
+| `.venv/bin/python scripts/deployment_smoke.py --help` | Exit 0 | CLI interface only; no public smoke run or Playwright/browser install |
+| `git diff --check` | Exit 0 | Whitespace review |
+| `bash scripts/preflight.sh` | Exit 2; embedded verification passes (169/25) | Unchecked full-delivery items and precommit working changes; not a test failure |
+| Preservation / credential exclusion audit | See `phase4_checks/audit.json` | Existing artifacts unchanged; .env ignored/untracked/mode 600; no credential-file contents read |
+
+Full verification output is retained in `docs/phase4_checks/verify.log`. ShellCheck
+is absent and explicitly skipped. Docker, Podman, cloud hosting CLIs, Caddy and an
+approved public-service host are absent here; no Docker build, Compose launch or
+TLS certificate has been tested. Do not infer a clean deployed installation from
+this already-configured Python environment.
+
+Initial local test defects were corrected: AppTest's relative path resolves against
+the test file (six initial failures/16 passes); its generic element `.type` differs
+from the password proto enum (one remaining failure/21 passes). Final 29 local tests
+pass. These were offline test harness defects, not real Census evaluation results.
+No Phase 1–3 live evaluations or discovery were repeated; no new Cortex/data calls.
+
+## Ten deployed acceptance checks
+
+| Check | Actual status |
+| --- | --- |
+| Public page loads | BLOCKED — no URL/approved host; local HTTP only |
+| Reviewer authentication | Offline adapter test passes; public untested |
+| Actual grounded Census answer | Historical core evidence preserved; new deployment untested |
+| Multi-turn follow-up | Offline adapter test passes; public untested |
+| Unsupported query | Offline adapter graceful message passes; public untested |
+| Independent user sessions | Offline real SQLite/process + mocked provider passes; public untested |
+| Rate limits / auth failures | Offline adapter tests pass; public untested |
+| Secrets / diagnostics excluded | Code/config/fixture tests and artifact review pass; public/network audit pending |
+| Normal request <60s | Existing Phase 3 0.6816–16.6937s retained as historical service evidence; new public latency UNMEASURED |
+| Survives developer SSH disconnect | UNTESTED — restart config is not observed availability |
+
+The future browser runner uses two independently SQL-verified historical values:
+2020 ACS Autauga County population 55,639; 2019 55,380. References and actual query
+IDs are preserved in `slurm_runs/phase3_final_v3/phase2_results.json`. This runner is
+a deployed regression smoke, not a new held-out accuracy evaluation. Refresh operator
+reference SQL if the source changes. Separate post-SSH/restart evidence is mandatory.
+
+## Specific blockers and viable alternative
+
+**Host blocker (P0 submission requirement):** current machine is a Yale Slurm login
+node, not an approved persistent public service host. No deployment credentials or
+hosting environment names are present. Sites hosting runs Workers and cannot preserve
+the retained Python multiprocessing/local SQLite model. Plugin discovery found Render
+and Railway integrations available but unconnected; no access/provisioning occurred.
+Render durable disks require paid service, so no resource was created without explicit
+cost authorization. Deployment investigation stopped after identifying these missing
+inputs; no repeated hosting attempts or indefinite waiting.
+
+**Identity blocker (P1 security):** current PUBLIC/ALL development identity and broader
+PUBLIC/inherited learning-role grants are unsuitable for unattended public deployment.
+No administrator-provisioned restricted identity, reviewed PUBLIC baseline, private
+key or exclusive application warehouse has been supplied. Runtime refuses development
+credentials. Existing grants/access/warehouse configuration remain unchanged. Exact
+proposed admin commands are in `deploy/admin_permissions.sql`; grant review and live
+key-pair SELECT/Cortex/suspend testing remain required. Flags are operator attestations,
+not automated proof of least privilege. Key-pair transport currently has mocked
+connector tests only.
+
+**Selected viable path:** supply an existing approved Linux Docker host, domain and
+server-side restricted Snowflake key, then run supplied single-instance Docker/Caddy
+configuration using durable local volume. It supports required process isolation,
+secrets and HTTPS without an additional hosting purchase if the host already exists.
+Alternative: connect an authorized Render account and explicitly approve a paid
+single-instance service with persistent disk; retain the same adapter/control design.
+No multi-host shortcut or ephemeral SQLite fallback.
+
+## Readiness and handoff
+
+Ready for the operator-host/configuration step, not final submission. Public URL,
+private reviewer credential delivery, new identity/privilege evidence, external browser
+E2E and post-SSH/restart availability remain outstanding. Full final README/Reflection,
+private GitHub reviewer permissions and final email are also unfinished.
+
+New session: read AGENTS.md, PROGRESS.md, this report and DEPLOYMENT_RUNBOOK.md;
+inspect Git. Resume Phase 4 deployment only after host/admin inputs change. Preserve
+existing real evidence; do not repeat scans/full evaluations or start a later phase.
+Development checkpoint `v0.4.0-dev` explicitly denotes this partial deployment-blocked
+state, not Phase 4 acceptance. See DEVELOPMENT_VERSIONS.md for the Git reference.

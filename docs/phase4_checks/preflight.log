@@ -1,0 +1,76 @@
+RUN: Bash syntax: scripts/doctor.sh
+PASS: Bash syntax: scripts/doctor.sh
+RUN: Bash syntax: scripts/preflight.sh
+PASS: Bash syntax: scripts/preflight.sh
+RUN: Bash syntax: scripts/verify.sh
+PASS: Bash syntax: scripts/verify.sh
+SKIP: optional ShellCheck unavailable (Bash syntax checked)
+RUN: Ruff formatting
+35 files already formatted
+PASS: Ruff formatting
+RUN: Ruff lint
+All checks passed!
+PASS: Ruff lint
+RUN: pytest
+============================= test session starts ==============================
+platform linux -- Python 3.11.13, pytest-8.4.2, pluggy-1.6.0
+rootdir: /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014
+configfile: pyproject.toml
+collected 194 items
+
+tests/phase2/test_core.py .............................................. [ 23%]
+............                                                             [ 29%]
+tests/phase2/test_live.py ssssssssssssssss                               [ 38%]
+tests/phase3/test_reliability.py ........................                [ 50%]
+tests/phase4/test_deployment.py .......                                  [ 54%]
+tests/phase4/test_web.py ......................                          [ 65%]
+tests/test_aggregation.py ..................                             [ 74%]
+tests/test_geography.py ...........                                      [ 80%]
+tests/test_phase1_live.py sssssssss                                      [ 85%]
+tests/test_semantic_catalog.py ...............                           [ 92%]
+tests/test_snowflake_probe.py ..............                             [100%]
+
+======================= 169 passed, 25 skipped in 31.16s =======================
+PASS: pytest
+Verification: PASS (optional checks may be explicitly skipped above)
+INCOMPLETE: docs/DELIVERY_CHECKLIST.md contains pending work/unchecked items
+File-risk inspection complete; content-level secret detection is not performed.
+Documentation checks inspect structure/placeholders; human semantic review remains required.
+Uncommitted/untracked files (review before submission):
+ M .gitignore
+ M AGENTS.md
+ M README.md
+ M census_agent/backend.py
+ M docs/ARCHITECTURE.md
+ M docs/CHALLENGE_SPEC.md
+ M docs/DECISIONS.md
+ M docs/DELIVERY_CHECKLIST.md
+ M docs/DEVELOPMENT_VERSIONS.md
+ M docs/EVALUATION_PLAN.md
+ M docs/PROGRESS.md
+?? .dockerignore
+?? census_web/__init__.py
+?? census_web/app.py
+?? census_web/runtime.py
+?? deploy/Caddyfile
+?? deploy/Dockerfile
+?? deploy/admin_permissions.sql
+?? deploy/compose.yaml
+?? deploy/streamlit.toml
+?? docs/DEPLOYMENT_RUNBOOK.md
+?? docs/PHASE4_REPORT.md
+?? docs/REVIEWER_ACCESS.md
+?? docs/phase4_checks/audit.json
+?? docs/phase4_checks/loopback_http.json
+?? docs/phase4_checks/preflight.log
+?? docs/phase4_checks/verify.log
+?? docs/phase4_preservation.json
+?? requirements-browser.txt
+?? requirements-web.txt
+?? scripts/create_reviewer_token.py
+?? scripts/deployment_smoke.py
+?? tests/phase4/test_deployment.py
+?? tests/phase4/test_web.py
+?? web_app.py
+INCOMPLETE: working tree changes require review/intentional inclusion
+Readiness: INCOMPLETE — preparation only; challenge gates unverified (exit 2)

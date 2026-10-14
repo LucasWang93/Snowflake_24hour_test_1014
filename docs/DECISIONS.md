@@ -227,3 +227,34 @@ regression plus final full live run pass. This is a targeted context fix, not a 
 query framework. Final job 2848330: Phase 3 25/25 regression and Phase 2 16/16 pass.
 Initial 19/25 independent result and every intermediate failure remain preserved.
 Read-only role migration/hosting still require separate work and authorization.
+
+## 2026-10-14 — D-12: Streamlit adapter over the verified service
+Accepted/implemented. Streamlit is the user's preferred lightweight UI and avoids
+introducing a separate HTTP/JS API stack. Share the immutable service facade and
+transactional control only; browser state/credentials/history stay isolated. Render
+plain text and allowlisted provenance; never diagnostics/SQL or model narrative.
+Spinner/status feedback, bounded history, disabled busy input and graceful errors
+cover the deployment surface without changing Agent/statistical capabilities.
+
+## 2026-10-14 — D-13: single durable host and restricted service identity
+Architecture accepted/configuration implemented; hosting and identity provisioning
+remain proposals blocked on external access/admin action. Existing Linux host plus
+Docker/Caddy preserves spawn, local SQLite, supervision and HTTPS with a small stack.
+Sites Workers are incompatible; ephemeral/free hosting loses persistent admission
+state. Render with disk is viable only after account connection and explicit paid
+authorization. No resources purchased or public endpoint claimed.
+
+Public runtime refuses development user, password credentials, PUBLIC/admin primary
+roles and missing operator confirmations. Dedicated TYPE=SERVICE key-pair auth
+extends the existing backend through optional trusted configuration; old CLI defaults
+are untouched. Service identity still inherits PUBLIC, so name checks/attestations
+cannot replace administrator effective-privilege review. No grant/revoke executed.
+
+## 2026-10-14 — D-14: evidence boundary for blocked deployment
+Accepted. Local AppTest uses explicitly mocked Census workers and real SQLite/process
+isolation; it proves adapter behavior, not external data/auth/HTTPS availability.
+External smoke runner requires a public HTTPS URL and fresh browser contexts and
+preserves failures. Record missing URL, live key-pair test and post-SSH persistence
+as blockers. Do not relabel existing Phase 3 live results as Phase 4 browser evidence.
+Deployment investigation stopped after identifying missing host/admin inputs; continue
+only when those change. Phase 4 is partial, not submission-ready.

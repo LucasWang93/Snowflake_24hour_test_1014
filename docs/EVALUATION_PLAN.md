@@ -1,7 +1,7 @@
 # Evaluation plan
 
 Status: configuration/Phase 1 evidence preserved; Phase 2 core agent implemented
-accepted; Phase 3 independent/reliability evaluation completed. UI/deployment remains planned. CHALLENGE_SPEC.md is the canonical requirement
+accepted; Phase 3 independent/reliability evaluation completed. Phase 4 UI/configuration is locally tested; public deployment remains blocked. CHALLENGE_SPEC.md is the canonical requirement
 register. Official PDF has been read and reconciled; AS-11 source audit is complete.
 Historical synchronization notes below describe the prior state. Phase 2 tests have run; public deployment tests remain a later phase.
 No remote discovery or Cortex tests were rerun during documentation synchronization.
@@ -81,7 +81,7 @@ canonical register; prior provisional-table notes are historical.
 | AS-2 | Scripted follow-ups change geography/year/metric explicitly; corrections/reset work; two sessions never share state | Phase 2 three-scenario tests implemented |
 | AS-3 | Bounded real Cortex intent/catalog-choice calls; answers deterministic plus routing inspection; validate chosen IDs/structured outputs; retain existing availability evidence | Phase 2 real planner/choice and mock failure tests implemented |
 | AS-4 | Reject write/DDL/multiple statements/system access/noncatalog IDs and prompt injection before SQL execution; clarify ambiguous county/year/universe; test timeout, empty result, unknown model, retry bounds and safe cleanup | Phase 2 canonical SQL rejection and mock recovery tests implemented |
-| AS-5 | Independent unauthenticated reviewer-browser access to public URL and real multi-turn use; UI/server credential separation and error display | Planned deployment smoke/security tests |
+| AS-5 | Public login page, invalid/valid reviewer auth, actual grounded multi-turn, UI/server credential separation | Local AppTest implemented/passing; external deployment blocked |
 | AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | First Phase 3 held-out 19/25; regression 25/25; broader/hosted evaluation pending |
 | AS-7 | Fresh checkout with documented dependencies and exact setup/run/test/example commands succeeds | Pending README/reproduction |
 | AS-8 | Reflection matches PDF format and accurately explains actual design, evidence, limits and tradeoffs | Pending artifact review |
@@ -93,8 +93,8 @@ canonical register; prior provisional-table notes are historical.
 | AS-14 | Existing Marketplace evidence and actual core data queries; fallback unused | Source access verified |
 | AS-15 | All implementation files included in final private-repo submission manifest | Core checkpoints packaged; final application pending |
 | AS-16 | Full catalog family/schema tests, dynamic candidates, exact filters, undefined fields quarantined | Partial: 296 unknown fields and unsupported calculations |
-| AS-17 | Clean public deployed-browser setup/auth/real conversation checks | Pending outside Phase 2 |
-| AS-18 | CLI progress callbacks and fast-fail output; later browser progress | CLI implemented; deployed UX pending |
+| AS-17 | `scripts/deployment_smoke.py` with two fresh browser contexts, HTTPS URL and private token files; separate post-SSH probe | Runner implemented; actual public checks unrun/blocked |
+| AS-18 | CLI callbacks and Streamlit status feedback, disabled busy input, graceful refusals | Local Web adapter implemented/tested; deployed UX pending |
 
 SQL security is enforced by canonical recompilation and exact equality, beyond
 quoting alone. Implemented negative cases include
@@ -271,3 +271,25 @@ captured regression fixed it. Its evidence remains. Initial frozen first-run 19/
 is still the held-out result; later 25/25 runs are regressions. Final source hashes
 are bound to the combined run manifest. No genuine outage, p95/SLA/throughput/cost
 or complete deployed-security certification is inferred from these cases.
+
+## Phase 4 verification scope
+
+New tests: `tests/phase4/test_web.py` (Streamlit AppTest + actual local control/worker
+processes with explicitly mocked Census provider), `test_deployment.py` (private
+credential provisioning, public-URL checks and configuration boundaries). Covers
+login/invalid tokens, multi-turn/reset/logout, independent owners, provenance/private
+output, unavailable configuration/provider and unchanged shared rate limits; rejected
+legacy credentials/roles/HTTP/unsafe key/control paths. These are offline tests.
+
+External acceptance plan: public page + reviewer auth; actual 2020 ACS Autauga
+population 55,639 then 2019 follow-up 55,380; unsupported year; new owner's empty
+context; real rate limit; visible diagnostics/token exclusion; all turns <60s. Those
+values are from existing independent reference SQL, not a new held-out benchmark.
+Use `scripts/deployment_smoke.py` with a NEW evidence path. Optional operator-only
+`requirements-browser.txt` is not in the app image. No deployed test has run.
+
+SSH-disconnect availability, real key-pair privileges/cleanup, Docker build, proxy/TLS
+and storage persistence need separate actual host evidence. Health HTTP 200 alone
+is liveness, not readiness. Ten Phase 4 external checks remain pending. No repeated
+Phase 1 discovery or Phase 2/3 full real evaluations; historical artifacts unchanged.
+See PHASE4_REPORT.md for measured local commands/results and any initial test defects.

@@ -1,7 +1,7 @@
 # Architecture
 
 Status: Phase 1/2 preserved; Phase 3 reliability service implemented and verified within Phase 3 scope.
-Official PDF reconciled; public UI/deployment remain planned outside Phase 3.
+Official PDF reconciled. Phase 4 Streamlit UI is implemented; public deployment is blocked, not verified.
 Requirement IDs are defined in CHALLENGE_SPEC.md; historical/current evidence is in PHASE2_REPORT.md and PHASE3_REPORT.md.
 
 ## Overview
@@ -23,11 +23,12 @@ flowchart LR
     V --> E[Bounded Snowflake execution]
     E --> A[Deterministic result-grounded answer]
     A --> T
-    U[Public UI and deployment: planned] -.-> Q
+    U[Streamlit UI: implemented, hosting blocked] --> B[AgentService / authenticated shared admission]
+    B --> Q
     A -.-> U
 ```
 
-Solid paths are implemented in Phase 1/2. Dashed UI/deployment paths are future work.
+Core paths are implemented in Phase 1/2 and hardened in Phase 3. The UI now calls AgentService; no public deployment has been verified.
 Cortex never supplies executable SQL or statistical answer numbers.
 
 ## Interfaces
@@ -44,8 +45,8 @@ Cortex never supplies executable SQL or statistical answer numbers.
 | Core agent | `CensusAgent.ask` resolves typed intent, grounded catalog choice, canonical queries and deterministic answers; `Response` retains SQL/query IDs/provenance | Implemented; AS-1/AS-3/AS-4 |
 | Conversation state | `ConversationState`: resolved/pending intent and chosen field; follow-up merge, clarification, comparison, reset; caller owns state | Core memory state plus authenticated service SQLite persistence; AS-2 |
 | Runtime SQL validation | `compile_query` / `validate_query` regenerate a typed plan and compare exact SQL, params and row bounds; backend rechecks before connecting | Implemented; AS-4 |
-| Agent CLI / transport | `python -m census_agent`; `SnowflakeBackend` wraps existing config loader, Cortex COMPLETE, permission audit and suspend | Implemented local interface; no web UI |
-| UI / public hosting | Framework/platform and deployment process not selected; no public endpoint | Planned; AS-5 |
+| Agent CLI / transport | `python -m census_agent`; `SnowflakeBackend` wraps existing config loader, Cortex COMPLETE, permission audit and suspend | Implemented local operator interface; Web adapter below |
+| UI / public hosting | Streamlit public-response adapter, Docker/Caddy single-instance configuration and external smoke runner; no public endpoint | UI implemented/offline tested; hosting blocked; AS-5/AS-17 |
 
 ## Census statistical semantics
 Every catalog entry retains exact table/column/type, metadata source, title/topic,
@@ -133,7 +134,7 @@ sanitized, conversation state is explicit, and model trace history resets per tu
 The low-level backend now enforces process/thread ownership and core agent/state
 locks reject overlapping use. Public deployment must call AgentService: isolated
 request workers own fresh connections, authenticated state and shared budgets.
-Public UI/TLS integration and multi-host control remain future work.
+Streamlit UI and TLS proxy configuration are implemented in Phase 4; actual public hosting and multi-host control remain unavailable.
 
 ## Design choices
 Use standard-library compact JSON and in-memory inverted-index/BM25 retrieval.
@@ -236,3 +237,35 @@ Retrieval uses original wording plus planned phrases. Verified tenure universes 
 exact poverty cell labels are supported without guessing physical IDs or relaxing
 bachelor-only/category/numeric boundary checks. First independent failures and
 subsequent regression outcomes remain separately recorded.
+
+## Phase 4 Web adapter and hosting boundary
+
+Implemented: `web_app.py` -> `census_web.app` -> shared immutable AgentService facade.
+Streamlit WebSocket session holds only its own token/session/history; SQLite owns
+structured context, admission and budgets. Login/new conversation/ask/reset all go
+through authenticated service methods. Service resources are cached, conversation
+objects and connector sessions are not. History is capped at 40 messages; questions
+are bounded to 2,000 characters. Busy input is disabled and fast reruns off.
+
+UI displays plain-text answers, status, latency and allowlisted catalog provenance
+(release/source/universe/field/aggregation). It never renders `diagnostics`, raw SQL,
+model prompts, errors or permission snapshots. Loading status provides progress.
+Tokens are user-entered password widgets, cleared on form submission, retained only
+in that server-side Streamlit session and cleared on logout. Digests live only in
+server config. Reload/reconnect can require login; no browser resume capability.
+
+`census_web.runtime` requires reviewed restricted role, dedicated key-pair user,
+secondary NONE, private key/control file, public HTTPS origin and explicit admin
+confirmations of durable storage/exclusive warehouse/permissions. These are
+configuration checks and operator attestations, not proof of actual grants or TLS.
+Backend's optional trusted `connection_config` supports connector key-pair parameters;
+legacy local password/.env path and core behavior remain compatible. New live key-pair
+access is unverified. No development credentials or grants were changed.
+
+Planned runtime topology is one nonroot Python container plus Caddy, public 80/443
+only, a local persistent control volume, server env/key mounts and restart policy.
+Docker/Compose/Caddy execution is pending because current host has no Docker or
+approved public-service capability. Sites Workers cannot execute the retained Python
+process/file model; Render paid disk is an explicit-cost alternative, not provisioned.
+See DEPLOYMENT_RUNBOOK.md and PHASE4_REPORT.md. External URL, browser E2E and post-SSH
+availability remain blocked. No multi-host or production-ready claim.

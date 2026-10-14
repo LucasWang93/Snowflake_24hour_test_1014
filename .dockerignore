@@ -1,0 +1,18 @@
+# Build context is an allowlist. In particular no credentials or runtime state.
+**
+!requirements-web.txt
+!requirements-snowflake.txt
+!web_app.py
+!census_agent/
+!census_agent/*.py
+!census_catalog/
+!census_catalog/*.py
+!census_web/
+!census_web/*.py
+!scripts/
+!scripts/snowflake_probe.py
+!data/
+!data/semantic_catalog.json
+!deploy/
+!deploy/Dockerfile
+!deploy/streamlit.toml

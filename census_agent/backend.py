@@ -5,8 +5,10 @@ from __future__ import annotations
 import json
 import os
 import re
+import stat
 import threading
 import time
+from pathlib import Path
 from typing import Any
 
 from census_agent.sql import ValidatedQuery, validate_query
@@ -24,6 +26,7 @@ class SnowflakeBackend:
         role: str = "PUBLIC",
         secondary_roles: str = "ALL",
         query_tag: str = "census_agent_bounded_request",
+        connection_config: dict[str, str] | None = None,
     ):
         if model not in {"llama3.3-70b", "llama3.1-70b", "mistral-7b"}:
             raise ValueError("Choose a previously verified Cortex model")
@@ -35,6 +38,9 @@ class SnowflakeBackend:
         if not re.fullmatch(r"[A-Za-z0-9_]{1,80}", query_tag):
             raise ValueError("Invalid trusted query tag")
         self.query_tag = query_tag
+        # Public deployment injects a dedicated key-pair configuration. The existing
+        # operator CLI retains its explicitly authorized local .env loader.
+        self._connection_config = dict(connection_config) if connection_config is not None else None
         self.role, self.secondary_roles = role, secondary_roles
         self._owner_thread = None
         self._owner_guard = threading.Lock()
@@ -63,13 +69,31 @@ class SnowflakeBackend:
         self._ready = False
         import snowflake.connector
 
-        self._config = load_config(ROOT / ".env")
+        self._config = (
+            dict(self._connection_config)
+            if self._connection_config is not None
+            else load_config(ROOT / ".env")
+        )
         c = self._config
         try:
+            if c.get("SNOWFLAKE_PRIVATE_KEY_FILE"):
+                key = Path(c["SNOWFLAKE_PRIVATE_KEY_FILE"])
+                if (
+                    not key.is_absolute()
+                    or key.is_symlink()
+                    or not key.is_file()
+                    or stat.S_IMODE(key.stat().st_mode) & 0o077
+                ):
+                    raise ValueError("Private key must be an owner-only regular file")
+                credentials = {"authenticator": "SNOWFLAKE_JWT", "private_key_file": str(key)}
+                if c.get("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"):
+                    credentials["private_key_file_pwd"] = c["SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"]
+            else:
+                credentials = {"password": c["SNOWFLAKE_PASSWORD"]}
             self._connection = snowflake.connector.connect(
                 account=c["SNOWFLAKE_ACCOUNT"],
                 user=c["SNOWFLAKE_USER"],
-                password=c["SNOWFLAKE_PASSWORD"],
+                **credentials,
                 warehouse=c["SNOWFLAKE_WAREHOUSE"],
                 database=c["SNOWFLAKE_DATABASE"],
                 schema=c["SNOWFLAKE_SCHEMA"],
@@ -143,7 +167,7 @@ class SnowflakeBackend:
         self.model_calls.clear()  # Each Response retains its diagnostics; no unbounded model history.
 
     def _failure(self, stage: str, exc: Exception) -> ServiceIssue:
-        password = self._config["SNOWFLAKE_PASSWORD"] if self._config else ""
+        password = self._config.get("SNOWFLAKE_PASSWORD", "") if self._config else ""
         detail = safe_error(exc, password)
         detail.pop("message", None)  # Connector exception text may contain arbitrary credentials.
         return ServiceIssue(stage, detail)
