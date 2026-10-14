@@ -1,0 +1,13 @@
+{
+  "started_at_utc": "2026-10-14T23:12:06.555969+00:00",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "fresh_client": true,
+  "ssh_restart_command_ended_before_browser": true,
+  "http_status": 200,
+  "authenticated": true,
+  "loading_progress_observed": true,
+  "question_seconds": 13.0037,
+  "answer": "smart_toy\ncheck\n\nRequest complete\n\nAutauga County, Alabama: 55,639. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2020 \u00b7 acs_detailed\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 12.46 seconds",
+  "expandable_provenance_visible": true,
+  "passed": true
+}

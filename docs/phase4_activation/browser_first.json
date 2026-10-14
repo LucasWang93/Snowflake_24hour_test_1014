@@ -1,0 +1,37 @@
+{
+  "started_at_utc": "2026-10-14T23:05:31.709465+00:00",
+  "checks": [
+    {
+      "id": "page_public_auth_required",
+      "passed": true,
+      "detail": {
+        "http_status": 200,
+        "clean_context": true
+      },
+      "seconds": 1.7229
+    },
+    {
+      "id": "invalid_authentication",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.1897
+    },
+    {
+      "id": "reviewer_authentication",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.4034
+    },
+    {
+      "id": "grounded_census_answer",
+      "passed": false,
+      "failure_type": "AssertionError",
+      "seconds": 5.148
+    }
+  ],
+  "availability_after_ssh_disconnect": "pending independent second probe; not inferred from browser success",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "passed": false,
+  "failure_type": "AssertionError",
+  "finished_at_utc": "2026-10-14T23:05:42.118920+00:00"
+}

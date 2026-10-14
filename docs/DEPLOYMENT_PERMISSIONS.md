@@ -91,3 +91,28 @@ unchanged and closed. Exact proposal for this existing identity/warehouse is
 user/key-pair provisioning path for this deployment. Administrator must review PUBLIC
 baseline separately and confirm warehouse exclusivity. No revokes/default changes or
 new paid warehouse are included. Do not claim a reviewed read-only deployment yet.
+
+## Current activation — APP_ROLE (supersedes prior provisioning blocker)
+Operator provisioned APP_ROLE and authorized activation/exclusive warehouse use.
+Real AGENT_PROD/APP_ROLE/secondary NONE SELECT/Cortex/suspension succeeded; production
+flags enabled and external authenticated acceptance plus restart passed. CODEX_APP
+local connection selects DEV_WH. Old CENSUS_APP_READONLY/new-key-pair scripts remain
+historical proposals; they were not executed as part of activation.
+
+Fresh permissions.json/role_probe.json in phase4_activation show PUBLIC STILL inherits
+SNOWFLAKE_LEARNING_ROLE with learning DB CREATE SCHEMA and production WH USAGE/OPERATE/
+MONITOR. Direct PUBLIC grants alone miss it; CODEX_APP's default DEV_WH does not prove
+production privilege isolation. APP_ROLE's own warehouse grant is USAGE, so successful
+suspension currently relies on PUBLIC inheritance. No strict least-privilege claim.
+
+P1 operator follow-up (not executed):
+```sql
+GRANT OPERATE ON WAREHOUSE SNOWFLAKE_LEARNING_WH TO ROLE APP_ROLE;
+SHOW GRANTS TO ROLE PUBLIC;
+SHOW GRANTS TO ROLE SNOWFLAKE_LEARNING_ROLE;
+```
+Then review/remediate PUBLIC inheritance with the administrator without revoking
+needed developer privileges. Retest cleanup with APP_ROLE/NONE before any inheritance
+removal. System PUBLIC CORTEX_USER is separate and need not be removed for this demo.
+All canonical SQL, server secrets, isolation/admission/deadline/quarantine controls are
+unchanged; functional public acceptance does not close the account-level residual.

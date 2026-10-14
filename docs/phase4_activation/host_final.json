@@ -1,0 +1,65 @@
+{
+  "release": "/opt/census/releases/prod-env-20261014",
+  "environment_file_mode": "0o600",
+  "containers": [
+    {
+      "name": "census-app-1",
+      "state": "running",
+      "image": "sha256:ed2a9f22b57930fc47497b83d45916ef13a1bb80e906f4c703316bb4e48f301e",
+      "restart": "unless-stopped",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "census_census_control",
+          "Source": "/var/lib/docker/volumes/census_census_control/_data",
+          "Destination": "/var/lib/census",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        }
+      ]
+    },
+    {
+      "name": "census-proxy-1",
+      "state": "running",
+      "image": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
+      "restart": "unless-stopped",
+      "mounts": [
+        {
+          "Type": "volume",
+          "Name": "census_caddy_config",
+          "Source": "/var/lib/docker/volumes/census_caddy_config/_data",
+          "Destination": "/config",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "volume",
+          "Name": "census_caddy_data",
+          "Source": "/var/lib/docker/volumes/census_caddy_data/_data",
+          "Destination": "/data",
+          "Driver": "local",
+          "Mode": "rw",
+          "RW": true,
+          "Propagation": ""
+        },
+        {
+          "Type": "bind",
+          "Source": "/opt/census/releases/prod-env-20261014/deploy/Caddyfile",
+          "Destination": "/etc/caddy/Caddyfile",
+          "Mode": "ro",
+          "RW": false,
+          "Propagation": "rprivate"
+        }
+      ]
+    }
+  ],
+  "log_marker_check": {
+    "SNOWFLAKE_PASSWORD": false,
+    "Traceback (most recent call last)": false,
+    "credential_prefix_seen": false
+  }
+}

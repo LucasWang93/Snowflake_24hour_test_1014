@@ -1,0 +1,40 @@
+{
+  "http_status": 308,
+  "http_location": "https://census-104-248-239-52.sslip.io/",
+  "https_status": 200,
+  "headers": {
+    "Strict-Transport-Security": "max-age=31536000",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "no-referrer",
+    "X-Frame-Options": "DENY"
+  },
+  "tls_version": "TLSv1.3",
+  "issuer": [
+    [
+      [
+        "countryName",
+        "US"
+      ]
+    ],
+    [
+      [
+        "organizationName",
+        "Let's Encrypt"
+      ]
+    ],
+    [
+      [
+        "commonName",
+        "YE2"
+      ]
+    ]
+  ],
+  "san": [
+    [
+      "DNS",
+      "census-104-248-239-52.sslip.io"
+    ]
+  ],
+  "expires": "Jan 12 21:28:23 2027 GMT",
+  "external_port_8501": "closed/unreachable as required"
+}

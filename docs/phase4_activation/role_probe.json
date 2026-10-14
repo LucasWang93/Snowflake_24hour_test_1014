@@ -1,0 +1,148 @@
+{
+  "checks": [
+    {
+      "sql": "USE SECONDARY ROLES NONE",
+      "params": null,
+      "query_id": "01c7bbe8-3204-bd12-0008-3d1a00036172",
+      "columns": [
+        "status"
+      ],
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "elapsed_seconds": 0.11,
+      "status": "pass"
+    },
+    {
+      "sql": "SHOW GRANTS TO ROLE SNOWFLAKE_LEARNING_ROLE",
+      "params": null,
+      "query_id": "01c7bbe8-3204-bd12-0008-3d1a00036176",
+      "columns": [
+        "created_on",
+        "privilege",
+        "granted_on",
+        "name",
+        "granted_to",
+        "grantee_name",
+        "grant_option",
+        "granted_by"
+      ],
+      "rows": [
+        [
+          "2026-10-14 06:50:27.992000-07:00",
+          "CREATE SCHEMA",
+          "DATABASE",
+          "SNOWFLAKE_LEARNING_DB",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:27.990000-07:00",
+          "USAGE",
+          "DATABASE",
+          "SNOWFLAKE_LEARNING_DB",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.007000-07:00",
+          "MONITOR",
+          "WAREHOUSE",
+          "SNOWFLAKE_LEARNING_WH",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.009000-07:00",
+          "OPERATE",
+          "WAREHOUSE",
+          "SNOWFLAKE_LEARNING_WH",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "false",
+          "ACCOUNTADMIN"
+        ],
+        [
+          "2026-10-14 06:50:28.006000-07:00",
+          "USAGE",
+          "WAREHOUSE",
+          "SNOWFLAKE_LEARNING_WH",
+          "ROLE",
+          "SNOWFLAKE_LEARNING_ROLE",
+          "false",
+          "ACCOUNTADMIN"
+        ]
+      ],
+      "elapsed_seconds": 0.169,
+      "status": "pass"
+    },
+    {
+      "sql": "SELECT \"CENSUS_BLOCK_GROUP\", \"B01003e1\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE SUBSTR(\"CENSUS_BLOCK_GROUP\", 1, 5) = %s LIMIT 1",
+      "params": [
+        "01001"
+      ],
+      "query_id": "01c7bbe8-3204-bd70-0008-3d1a0003a00a",
+      "columns": [
+        "CENSUS_BLOCK_GROUP",
+        "B01003e1"
+      ],
+      "rows": [
+        [
+          "010010201001",
+          674.0
+        ]
+      ],
+      "elapsed_seconds": 0.549,
+      "status": "pass"
+    },
+    {
+      "sql": "SELECT SNOWFLAKE.CORTEX.COMPLETE(%s, %s)",
+      "params": [
+        "llama3.3-70b",
+        "Say hello in one short sentence."
+      ],
+      "query_id": "01c7bbe8-3204-bca1-0008-3d1a000350fe",
+      "columns": [
+        "SNOWFLAKE.CORTEX.COMPLETE('LLAMA3.3-70B', 'SAY HELLO IN ONE SHORT SENTENCE.')"
+      ],
+      "rows": [
+        [
+          "Hello!"
+        ]
+      ],
+      "elapsed_seconds": 1.043,
+      "status": "pass"
+    },
+    {
+      "sql": "ALTER WAREHOUSE SNOWFLAKE_LEARNING_WH SUSPEND",
+      "query_id": "01c7bbe8-3204-bd70-0008-3d1a0003a00e",
+      "rows": [
+        [
+          "Statement executed successfully."
+        ]
+      ],
+      "status": "pass"
+    },
+    {
+      "sql": "SHOW WAREHOUSES LIKE 'SNOWFLAKE_LEARNING_WH'",
+      "query_id": "01c7bbe8-3204-bca1-0008-3d1a00035102",
+      "rows": [
+        {
+          "name": "SNOWFLAKE_LEARNING_WH",
+          "state": "SUSPENDED",
+          "auto_suspend": 60,
+          "auto_resume": "true"
+        }
+      ],
+      "status": "pass"
+    }
+  ]
+}

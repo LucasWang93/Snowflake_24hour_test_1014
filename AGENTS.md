@@ -1,8 +1,8 @@
 # Repository execution policy
 
 This repository contains the preparation harness, verified Phase 1 Census catalog
-and Phase 2 core agent with Phase 3 reliability hardening. Phase 4 Web adapter exists;
-public deployment is blocked (read PHASE4_REPORT.md). The official PDF has arrived and is reconciled. Read
+and Phase 2 core agent with Phase 3 reliability hardening. Phase 4 authenticated HTTPS Web app is deployed and externally verified;
+read PHASE4_REPORT.md for measured results and remaining permission/delivery risks. The official PDF has arrived and is reconciled. Read
 docs/PROGRESS.md for the current checkpoint. Do not invent requirements, schema,
 evaluation data or successful results; do not automatically advance phases.
 

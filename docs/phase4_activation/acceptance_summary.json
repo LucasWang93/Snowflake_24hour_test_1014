@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-10-14T23:18:52.205220+00:00",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "criteria": {
+    "1_public_page": true,
+    "2_reviewer_authentication": true,
+    "3_grounded_answer": true,
+    "4_multi_turn": true,
+    "5_unsupported": true,
+    "6_session_isolation": true,
+    "7_auth_and_rate_limits": true,
+    "8_observed_public_privacy": true,
+    "9_measured_normal_latency": true,
+    "10_ssh_exit_and_restart": true
+  },
+  "functional_acceptance_passed": true,
+  "strict_effective_least_privilege": false,
+  "permission_residual": "PUBLIC inherits SNOWFLAKE_LEARNING_ROLE warehouse/schema privileges; explicit APP_ROLE OPERATE and administrator remediation remain.",
+  "warehouse_state": "SUSPENDED",
+  "quarantined": false,
+  "initial_failures_preserved": [
+    "browser_first.json",
+    "browser_retry.json"
+  ],
+  "evidence": [
+    "browser_final.json",
+    "post_restart_browser.json",
+    "reference_sql.json",
+    "before_restart.json",
+    "after_restart.json",
+    "permissions.json",
+    "role_probe.json",
+    "network.json",
+    "final_runtime.json"
+  ]
+}

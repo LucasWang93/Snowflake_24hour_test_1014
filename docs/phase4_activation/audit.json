@@ -1,0 +1,11 @@
+{
+  "protected_file_count": 109,
+  "unchanged_since_commit": "dc24cc47f3d34dfa9bbc811d814f19e551703d95",
+  "source_tests_catalog_and_old_evidence_unchanged": true,
+  "requirement_ids_unique": 30,
+  "all_requirement_rows_have_verification": true,
+  "changed_text_secret_markers": "none",
+  "development_env_gitignored": true,
+  "browser_final_pass": true,
+  "post_restart_pass": true
+}

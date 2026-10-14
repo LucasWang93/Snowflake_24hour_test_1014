@@ -1,0 +1,18 @@
+{
+  "identity": "AGENT_PROD",
+  "role": "APP_ROLE",
+  "secondary_roles": "NONE",
+  "warehouse": "SNOWFLAKE_LEARNING_WH",
+  "auth_mode": "password",
+  "development_env_exists": false,
+  "control_path": "/var/lib/census/control.sqlite",
+  "control_file_mode": "0o600",
+  "quarantined": false,
+  "events": 1,
+  "reserved_calls": 2,
+  "flags": {
+    "CENSUS_PERMISSIONS_REVIEWED": "1",
+    "CENSUS_EXCLUSIVE_WAREHOUSE": "1",
+    "CENSUS_DURABLE_STORAGE": "1"
+  }
+}

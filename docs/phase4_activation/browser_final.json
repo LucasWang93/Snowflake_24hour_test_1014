@@ -1,0 +1,94 @@
+{
+  "started_at_utc": "2026-10-14T23:09:17.924556+00:00",
+  "checks": [
+    {
+      "id": "page_public_auth_required",
+      "passed": true,
+      "detail": {
+        "http_status": 200,
+        "clean_context": true
+      },
+      "seconds": 1.1028
+    },
+    {
+      "id": "invalid_authentication",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.1743
+    },
+    {
+      "id": "reviewer_authentication",
+      "passed": true,
+      "detail": null,
+      "seconds": 0.4125
+    },
+    {
+      "id": "grounded_census_answer",
+      "passed": true,
+      "detail": {
+        "question": "Using ACS release 2020, what is the total population of Autauga County, Alabama?",
+        "answer": "smart_toy\ncheck\n\nRequest complete\n\nAutauga County, Alabama: 55,639. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2020 \u00b7 acs_detailed\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 16.73 seconds",
+        "seconds": 17.0037
+      },
+      "seconds": 17.0037
+    },
+    {
+      "id": "multi_turn_follow_up",
+      "passed": true,
+      "detail": {
+        "question": "And in 2019?",
+        "answer": "smart_toy\ncheck\n\nRequest complete\n\nAutauga County, Alabama: 55,380. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2019; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2019 \u00b7 acs_detailed\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 13.15 seconds",
+        "seconds": 14.0131
+      },
+      "seconds": 14.0131
+    },
+    {
+      "id": "unsupported_question",
+      "passed": true,
+      "detail": {
+        "question": "What is the population of Autauga County, Alabama in 1850?",
+        "answer": "smart_toy\ncheck\n\nRequest complete\n\nPlease choose available release 2019 or 2020; other years are not in this catalog.\n\nStatus: clarification\n\nRequest completed in 12.20 seconds",
+        "seconds": 13.1027
+      },
+      "seconds": 13.1027
+    },
+    {
+      "id": "independent_owner_context",
+      "passed": true,
+      "detail": {
+        "question": "What about Autauga County?",
+        "answer": "smart_toy\ncheck\n\nRequest complete\n\nWhich Census metric would you like? Cities/places and individual records are not supported.\n\nStatus: clarification\n\nRequest completed in 11.65 seconds",
+        "seconds": 11.9878
+      },
+      "seconds": 13.2719
+    },
+    {
+      "id": "shared_rate_limits",
+      "passed": true,
+      "detail": {
+        "rate_limited": true,
+        "observed_statuses": [
+          "refused",
+          "refused",
+          "refused",
+          "refused",
+          "rate_limited"
+        ]
+      },
+      "seconds": 16.1702
+    },
+    {
+      "id": "public_surface_privacy",
+      "passed": true,
+      "detail": {
+        "visible_surface_only": true,
+        "note": "Does not prove absence of all secret values; inspect deployment secret handling separately."
+      },
+      "seconds": 0.0307
+    }
+  ],
+  "availability_after_ssh_disconnect": "pending independent second probe; not inferred from browser success",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "passed": true,
+  "finished_at_utc": "2026-10-14T23:10:36.266360+00:00"
+}

@@ -322,3 +322,28 @@ not a new Census benchmark, answer-accuracy evaluation or named-role/NONE accept
 permissions.json records all visible grant results and 002003/02000 for missing app
 role. Public authenticated suite remains blocked until operator prerequisites are met;
 no skipped or blocked deployment case becomes PASS because these probes succeeded.
+
+## Phase 4 activated deployment — actual final outcomes
+AS-5/AS-17: nine final clean-browser cases passed using distinct real reviewer tokens,
+public trusted HTTPS and actual Cortex/Snowflake: page, invalid auth, valid auth,
+ACS 2020 Autauga 55,639, 2019 follow-up 55,380, unavailable 1850 clarification,
+second owner's empty context, prompt-injection refusals/real rate limit, visible privacy.
+AS-12: final factual browser latency 17.0037s; follow-up 14.0131s. AS-18: loading status
+and expandable provenance observed on post-restart question (13.0037s).
+Independent APP_ROLE/NONE reference SQL under the shared warehouse lease confirms
+55,639/45 distinct CBGs and 55,380/32, invalid counts 0. SQL/query IDs saved separately.
+
+Tenth acceptance: controlled app/proxy restart, SSH command ended, exact before/after
+SQLite sessions/state/event hashes and 0600 mode match; new clean browser authenticates
+and receives a real answer. No automatic browser-session resume is claimed.
+Final server snapshot confirms SUSPENDED and unquarantined control. No benchmark
+p95, throughput, universal accuracy, cost amount or production SLA is fabricated.
+
+Two initial runner failures are retained: browser_first.json (default assertion 5s),
+browser_retry.json (model-backed rate probe too slow to hit six/minute). Fix test
+assertion timeout and use locally guarded refusals; no app logic/limits changed.
+Final evidence: phase4_activation/browser_final.json, reference_sql.json,
+post_restart_browser.json, before_restart.json/after_restart.json, network.json and
+final_runtime.json. Earlier Phase 1–3 evaluations are not rerun or relabeled.
+PUBLIC learning-role inheritance remains a P1 permission residual, distinct from a
+passed application SQL/credential boundary and default PUBLIC CORTEX_USER.

@@ -2,7 +2,8 @@
 
 Status: Phase 1/2 preserved; Phase 3 reliability service implemented and verified within Phase 3 scope.
 Official PDF reconciled. Phase 4 Streamlit HTTPS frontend is deployed and verified;
-authenticated Census activation remains blocked on role/review/warehouse prerequisites.
+authenticated Census acceptance is externally verified, with inherited-permission
+cleanup and final delivery work still outstanding.
 Requirement IDs are defined in CHALLENGE_SPEC.md; historical/current evidence is in PHASE2_REPORT.md and PHASE3_REPORT.md.
 
 ## Overview
@@ -24,13 +25,13 @@ flowchart LR
     V --> E[Bounded Snowflake execution]
     E --> A[Deterministic result-grounded answer]
     A --> T
-    U[Streamlit HTTPS UI; data activation blocked] --> B[AgentService / authenticated shared admission]
+    U[Authenticated public Streamlit HTTPS UI] --> B[AgentService / authenticated shared admission]
     B --> Q
     A -.-> U
 ```
 
-Core paths are implemented in Phase 1/2 and hardened in Phase 3. The UI calls AgentService. Public HTTPS infrastructure is verified; authenticated
-Census functionality is not yet externally verified.
+Core paths are implemented in Phase 1/2 and hardened in Phase 3. The UI calls AgentService. Public HTTPS authentication, Census answers, follow-up, isolation, rate control and
+post-restart data access are externally verified.
 Cortex never supplies executable SQL or statistical answer numbers.
 
 ## Interfaces
@@ -48,7 +49,7 @@ Cortex never supplies executable SQL or statistical answer numbers.
 | Conversation state | `ConversationState`: resolved/pending intent and chosen field; follow-up merge, clarification, comparison, reset; caller owns state | Core memory state plus authenticated service SQLite persistence; AS-2 |
 | Runtime SQL validation | `compile_query` / `validate_query` regenerate a typed plan and compare exact SQL, params and row bounds; backend rechecks before connecting | Implemented; AS-4 |
 | Agent CLI / transport | `python -m census_agent`; `SnowflakeBackend` wraps existing config loader, Cortex COMPLETE, permission audit and suspend | Implemented local operator interface; Web adapter below |
-| UI / public hosting | Streamlit public-response adapter, Docker/Caddy single-instance configuration and external smoke runner; public HTTPS endpoint with closed configuration gates | UI/infrastructure verified; authenticated acceptance blocked; AS-5/AS-17 |
+| UI / public hosting | Streamlit public-response adapter, Docker/Caddy single-instance configuration and external smoke runner; live public HTTPS endpoint with authenticated reviewer access | Externally verified; permission residual documented; AS-5/AS-17 |
 
 ## Census statistical semantics
 Every catalog entry retains exact table/column/type, metadata source, title/topic,
@@ -256,23 +257,20 @@ Tokens are user-entered password widgets, cleared on form submission, retained o
 in that server-side Streamlit session and cleared on logout. Digests live only in
 server config. Reload/reconnect can require login; no browser resume capability.
 
-`census_web.runtime` requires reviewed restricted role, dedicated key-pair user,
-secondary NONE, private key/control file, public HTTPS origin and explicit admin
-confirmations of durable storage/exclusive warehouse/permissions. These are
-configuration checks and operator attestations, not proof of actual grants or TLS.
-Backend's optional trusted `connection_config` supports connector key-pair parameters;
-legacy local password/.env path and core behavior remain compatible. New live key-pair
-access is unverified. No development credentials or grants were changed.
+`census_web.runtime` requires a reviewed nonadmin primary role, dedicated identity,
+secondary NONE, private durable control, public HTTPS origin and explicit confirmations
+of storage/exclusive warehouse/permission review. Explicit AGENT_PROD password mode
+reads server environment only; optional legacy key-pair mode validates a private key.
+These are configuration checks/attestations, not proof of effective least privilege.
+Backend receives complete connection_config; local CLI retains its separate .env loader.
 
-Planned runtime topology is one nonroot Python container plus Caddy, public 80/443
-only, a local persistent control volume, server env/key mounts and restart policy.
-Docker/Compose/Caddy execution is pending because current host has no Docker or
-approved public-service capability. Sites Workers cannot execute the retained Python
-process/file model; Render paid disk is an explicit-cost alternative, not provisioned.
-See DEPLOYMENT_RUNBOOK.md and PHASE4_REPORT.md. External URL, browser E2E and post-SSH
-availability remain blocked. No multi-host or production-ready claim.
+Actual topology: one nonroot Python container plus Caddy on the existing approved
+DigitalOcean host, public 80/443 only, persistent private local SQLite, server env and
+restart policies. Sites/ephemeral multi-host alternatives were rejected for the retained
+Python spawn/local-file model; no paid alternative provisioned. Real public browser and
+post-SSH/restart data checks pass; see current PHASE4_REPORT.md. No multi-host claim.
 
-## DigitalOcean recovery — current physical deployment
+## Historical checkpoint — initial DigitalOcean physical deployment
 The user selected the existing Droplet 104.248.239.52. One Docker app (UID 10001) and
 one Caddy proxy now run, with existing SQLite volume/process-isolation architecture.
 Trusted HTTPS and externally closed 8501 are measured, as are restart/volume continuity
@@ -283,7 +281,7 @@ The frontend at https://census-104-248-239-52.sslip.io deliberately fails closed
 admin flags remain false. Restricted identity/PUBLIC review and actual data/auth E2E
 are still blocked. Physical hosting is implemented; full application readiness is not.
 
-## Production authentication update — 2026-10-14
+## Historical checkpoint — v0.4.2 production authentication update
 The Web runtime injects a complete server-environment connection_config into each
 isolated worker. Explicit password mode is restricted to AGENT_PROD; CODEX_APP,
 missing credentials, mixed key/password configuration and PUBLIC/admin primary roles
@@ -293,3 +291,19 @@ optional Compose override; the default password deployment mounts no private key
 The reviewer auth, session ownership, durable SQLite, worker/deadline/SQL boundaries
 are unchanged. Production identity connectivity is verified, but named-role/NONE and
 PUBLIC review/exclusive-warehouse prerequisites still block public Census activation.
+
+## Phase 4 activation — APP_ROLE and existing deployment
+Server configuration now selects AGENT_PROD/APP_ROLE/secondary NONE; reviewed gates
+are enabled after operator authorization and real role/NONE checks. Local development
+CODEX_APP uses DEV_WH. All requests continue through AgentService, immutable facade,
+per-request spawn worker/connection and the SAME private SQLite admission database.
+No core architectural/statistical changes. Final external suite passes; exact sessions,
+states and quota events persist across controlled restart. Fresh login/new UI chat may
+be needed after reconnect; automatic browser conversation resumption is not claimed.
+
+Residual trust boundary: PUBLIC still inherits SNOWFLAKE_LEARNING_ROLE with production
+warehouse privileges and learning DB CREATE SCHEMA. APP_ROLE's cleanup depends on that
+inherited OPERATE. An exclusive operational warehouse assignment is not privilege
+isolation. Administrator should grant APP_ROLE explicit OPERATE, then review PUBLIC
+inheritance without losing developer access. No grants/revokes are executed here.
+Default PUBLIC CORTEX_USER remains separately accepted. See PHASE4_REPORT.md.

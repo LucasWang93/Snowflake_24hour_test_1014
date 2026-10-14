@@ -1,56 +1,58 @@
 # Progress
 
-## Current checkpoint — production identity environment switch
-- Authorized scope: complete Phase 4 with AGENT_PROD supplied via deployment secrets/
-  environment only. CODEX_APP remains local development only; do not start Phase 5.
-- Working plan: (1) inspect production grants; (2) implement/test explicit production
-  auth without .env fallback; (3) deploy while preserving security gates/control volume;
-  (4) record real connection results and remaining operator actions; checkpoint Git.
-- Acceptance: production connector receives AGENT_PROD credentials solely from server
-  environment; missing/mixed credentials and developer identity fail closed; existing
-  security controls and local configuration remain intact. No fabricated hosted answers.
+## Current checkpoint — Phase 4 public chat activated
+Authorized scope: Phase 4 only. User confirmed APP_ROLE and exclusive application
+warehouse; do not start Phase 5 or send submission email. New sessions read AGENTS.md,
+PROGRESS.md and current PHASE4_REPORT.md first, then inspect Git/current configuration.
+Working plan/acceptance completed: verified APP_ROLE/NONE -> enable server config ->
+external nine-case browser suite -> independent SQL -> restart/persistence/real answer.
 
 ## Completed
-- Prior Phase 1–3 and Phase 4 HTTPS infrastructure evidence preserved.
-- AGENT_PROD secret provisioned only in Droplet /etc/census/app.env (0600); no password
-  in repository or local development .env. Production auth reads os.environ explicitly.
-- Fresh production identity login, bounded SELECT and llama3.3-70b COMPLETE succeeded;
-  explicit suspension succeeded and SHOW confirmed SUSPENDED. Evidence/query IDs:
-  phase4_production_identity/connection_probe.json and permissions.json.
-- These operator probes used observed PUBLIC/ALL, not the approved public runtime role.
+- Public HTTPS Census Chat: https://census-104-248-239-52.sslip.io.
+- AGENT_PROD/APP_ROLE/secondary NONE, password solely from deployment environment;
+  no development .env fallback. Three reviewed gates now 1; existing controls preserved.
+- CODEX_APP local .env warehouse changed to DEV_WH; actual context-only connection
+  verified. Production remains SNOWFLAKE_LEARNING_WH; no local credential values shown.
+- Final nine clean external browser checks pass: auth/invalid token, factual population,
+  multi-turn, unsupported year, independent owner, prompt refusal/rate and visible privacy.
+- Actual ACS Autauga population: 2020 55,639 (17.0037s), 2019 follow-up 55,380 (14.0131s).
+  Independent LIKE-based SQL agrees; 45/32 distinct CBGs, no invalid counts.
+- Controlled app/proxy restart preserves exact session/state/event hashes, private
+  SQLite volume and 0600 permissions. SSH ended before fresh authenticated browser;
+  real 2020 answer succeeds in 13.0037s; loading/provenance observed.
+- First assertion-timeout failure and later rate-test failure preserved. Only browser
+  test runner adjusted; core Agent/catalog/AgentService/tests unchanged.
+- Evidence in docs/phase4_activation; 109 protected source/test/catalog/old-evidence
+  files match dc24cc4, 30 requirement IDs remain unique with verification methods.
+- Doctor exit 0; verify exit 0; final preflight exit 2: 180 passed /25 live skips,
+  Ruff passes; unchecked final-delivery items and precommit tree are incomplete, not
+  failures. Both app/proxy running, warehouse SUSPENDED, control not quarantined.
+- Final snapshot: 48/120 rolling reserved-call units consumed; 72 remaining (~36
+  admissions). This is an observation, not a reset or guarantee for later users.
 
 ## In progress
-- Phase 4 public data activation awaits operator role/review/exclusivity inputs.
-  Production environment-auth code is deployed, with closed security gates.
-- Verified checkpoint v0.4.2-dev: 180 passed /25 live skips; targeted Phase 4 40 passed;
-  doctor exit 0, verify exit 0, preflight exit 2 (pending delivery items/working tree).
-- New app/proxy recreation completed healthy at /opt/census/releases/prod-env-20261014;
-  exact deployed source hashes match local changes. Control volume/0600 DB retained;
-  container has AGENT_PROD password mode, no /app/.env and no key-file setting.
-- External clean Chromium after update: HTTPS 200, safe unavailable page in 1.458s,
-  no chat input or observed private markers. This is page latency, not answer latency.
-- Evidence: docs/phase4_production_identity/{deployment,deployed_config,
-  external_after_update,audit}.json plus actual test logs. Prior manifest: 86/89
-  unchanged, three intentional source/test changes; old evaluation artifacts intact.
+- Phase 4 functional work complete; v0.4.3-dev records this verified checkpoint.
+- No next phase started; remaining work awaits user direction/operator permission review.
 
 ## Blocked
-- AGENT_PROD has 77 direct grants but no visible named account role. Runtime requires
-  reviewed nonadmin application role with secondary NONE; CENSUS_APP_READONLY lookup
-  returned 002003/02000. PUBLIC still inherits learning database CREATE SCHEMA and
-  warehouse OPERATE/MONITOR; a new username alone does not prove least privilege.
-- Operator must execute/review deploy/agent_prod_permissions.sql, review PUBLIC baseline
-  and confirm exclusive application use of SNOWFLAKE_LEARNING_WH. No grants altered.
-- CENSUS_PERMISSIONS_REVIEWED and CENSUS_EXCLUSIVE_WAREHOUSE remain 0. Public URL
-  https://census-104-248-239-52.sslip.io remains unavailable for Census chat pending review.
-- Authenticated public acceptance remains unrun. Final README/Reflection, repository
-  reviewer access and submission email remain outstanding; no Phase 5 or email work.
+- Functional demo is available; strict account-level least privilege remains open.
+  PUBLIC still inherits SNOWFLAKE_LEARNING_ROLE (learning DB CREATE SCHEMA, production
+  warehouse USAGE/OPERATE/MONITOR). This contradicts the direct-grant audit; do not
+  describe CODEX_APP as permission-isolated from production. Operator exclusivity is
+  operational. APP_ROLE cleanup currently inherits OPERATE from PUBLIC.
+- P1: operator should grant warehouse OPERATE explicitly to APP_ROLE, review/remediate
+  PUBLIC inheritance while preserving development access, then verify role/NONE again.
+  No grant changes/revokes performed here; default PUBLIC CORTEX_USER can remain.
+- Final README/Reflection, repository reviewer access and private token handoff/email
+  remain pending. No final-submission readiness or Phase 5 completion claim.
 
 ## Next three actions
-1. New session: read AGENTS.md, PROGRESS.md and current PHASE4_REPORT.md; inspect Git.
-2. Operator supplies reviewed role (proposed CENSUS_APP_READONLY) and warehouse
-   exclusivity confirmation. Do not expose secrets or execute unapproved grant changes.
-3. Verify actual role/NONE SELECT/Cortex/suspend, enable only confirmed gates and run
-   external authenticated smoke suite plus restart checks. Preserve SQLite volume.
+1. Use private reviewer token to access the public URL; instructions in REVIEWER_ACCESS.
+   Preserve /etc/census/app.env, tokens and census_census_control volume on Droplet.
+2. Operator reviews remaining inherited warehouse/schema privileges; explicitly grant
+   APP_ROLE OPERATE before removing any inherited cleanup access. Do not reset budgets.
+3. Await user's next-phase instruction before final README/Reflection/access/submission
+   work. Current functional Phase 4 verification is complete; do not redo discovery.
 
 ## Historical harness / configuration evidence
 The following preparation and Phase 1 records retain the context at their original

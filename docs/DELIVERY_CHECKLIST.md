@@ -3,7 +3,8 @@
 Status: Phase 1 foundation verified within bounded scope; full homework is not ready
 for delivery. The official five-page PDF is now reconciled (AS-11); IDs and page references
 are in CHALLENGE_SPEC.md. Phase 2 core agent is implemented; targeted live acceptance passed.
-Phase 3 reliability is implemented and verified within its bounded scope. Phase 4 UI/configuration implemented; actual deployment blocked.
+Phase 3 reliability is implemented and verified within its bounded scope. Phase 4 public authenticated demo and external ten-point functional acceptance passed;
+strict inherited-permission cleanup and final delivery remain outstanding.
 
 Checked items below are supported by inspected source/tests/artifacts or the fresh
 offline test run. Historical Phase 1 live evidence is labeled and preserved. Phase 2 adds bounded
@@ -29,7 +30,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [x] Gate A source intake: official PDF requirements and AI rules read and reconciled.
   Absolute deadline/recipient operational details still require confirmation before submission.
 - [x] Gate B (core slice): actual Cortex -> validated SQL -> grounded answer verified.
-  Public UI/deployed delivery remains pending.
+  Public UI and real external multi-turn/restart acceptance now pass (Phase 4).
 
 ## Reliability
 - [x] Existing probe/config boundaries have deterministic tests; Phase 1 search,
@@ -50,7 +51,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
   ten bounded SQL queries; mocks/captured data distinguished from real results.
 - [x] Phase 1 report/search timings/provenance/failure categories retained; no invented
   general accuracy or p95 claims.
-- [ ] AS-6: complete end-to-end evaluation covering representative/held-out questions,
+- [x] AS-6 (bounded documented scope): end-to-end evaluation covering representative/held-out questions,
   statistical accuracy, ambiguity, multi-turn behavior and SQL security.
 - [ ] AS-6: approved reference baselines and measured latency/resource/cost results.
 - [ ] Gate C: whole-application functional and edge-case tests pass (Phase 1 portion does).
@@ -63,8 +64,9 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
   This is not the final application/submission security audit.
 - [x] AS-4: canonical typed query recompilation and exact SQL/parameter/bound equality
   enforced by backend before data execution; arbitrary model SQL is never executed.
-- [ ] AS-4/AS-5: prompt/tool/session isolation, server-only credentials and redacted logs
-  verified in the completed application and deployed UI.
+- [x] AS-4/AS-5 tested boundary: local SQL/security regressions plus live session isolation,
+  prompt refusal, server-only credentials and inspected public/log surfaces pass. This
+  does not establish account-level least privilege or a complete penetration test.
 - [ ] Final staged files/diff and submission artifacts reviewed for accidental secrets.
 - [x] Core effective permission visibility and resource bounds inspected; PUBLIC/ALL
   mode and direct-user access documented, without claiming least privilege.
@@ -89,8 +91,8 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [ ] Full verification, submission packaging and independent complete delivery review.
 
 ## Submission
-- [ ] AS-5: publicly accessible deployed UI, confirmed from an independent reviewer
-  browser with successful real multi-turn usage and correct errors.
+- [x] AS-5: publicly accessible deployed UI, confirmed from fresh external browser
+  contexts with actual authenticated data, multi-turn usage and safe unsupported errors.
 - [ ] AS-9: exact GitHub reviewer identities/permissions confirmed against PDF and
   effective access verified; no permission change was performed here.
 - [ ] AS-11: deadline/timezone, approved tools/models, output format, links/files,
@@ -103,14 +105,14 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [ ] Final deployment/push/sharing/email actions explicitly authorized; none is
   authorized merely by this documentation checklist.
 
-## Phase 2 status
+## Historical checkpoint — Phase 2 status
 Core local interface, Cortex semantics, canonical SQL validation, grounded answers,
 explicit state and failure handling are implemented. Six questions across five families, three conversations and SQL safety pass: 16
 real tests; 58 Phase 2 offline checks. PHASE2_REPORT.md records actual acceptance; the complete PDF delivery is still pending.
 No public deployment, commit/push, reviewer-sharing or email action is performed.
 Stop after Phase 2; do not automatically start Phase 3.
 
-## Post-PDF obligations
+## Historical checkpoint — Post-PDF obligations
 - [x] AS-12 (measured Phase 2 cases): all 21 turns under 60s, individual timings retained.
 - [x] AS-13 (core tested boundary): dedicated off-topic/inappropriate intent validation and graceful refusals.
 - [x] AS-14: required Marketplace source access already verified; fallback not used.
@@ -122,7 +124,7 @@ Stop after Phase 2; do not automatically start Phase 3.
 Reviewer handles and reflection's four required content areas are recorded in the
 reconciliation report. No deployment, sharing or email action is performed here.
 
-## Phase 2 acceptance and checkpoint
+## Historical checkpoint — Phase 2 acceptance and checkpoint
 - [x] Five metric families, six real questions, three multi-turn scenarios and
   independent reference SQL comparisons passed (final job 2847530, 16 tests).
 - [x] Answer numbers checked against actual SQL, provenance/query IDs retained;
@@ -162,7 +164,7 @@ Final Phase 3 scope is complete, not the complete homework/public delivery. Offl
 security, restricted identity, hosting, README/Reflection, reviewer access and final
 submission remain unchecked. Stop after Phase 3.
 
-## Phase 4 current status (not public-deployment acceptance)
+## Historical checkpoint — Phase 4 current status (not public-deployment acceptance)
 - [x] Streamlit interactive chat over AgentService; bounded per-browser history,
   progress/status, reset/logout, safe errors and source/product/release provenance.
 - [x] Shared existing auth/SQLite admission/process isolation and unchanged budgets;
@@ -184,7 +186,7 @@ submission remain unchecked. Stop after Phase 3.
 Local tests/configuration do not check AS-5/AS-17 as complete. Phase 4 is blocked, not
 ready for final submission. No paid service created, grants changed or email sent.
 
-## Phase 4 DigitalOcean recovery checkpoint — current
+## Historical checkpoint — Phase 4 DigitalOcean recovery checkpoint — current
 - [x] Existing Droplet initialized with security updates, patched kernel, Docker/Compose
   signed repository, boot enablement and successful controlled host reboot.
 - [x] Existing root SSH access preserved; nonroot deployment-user key access tested;
@@ -208,7 +210,7 @@ Earlier no-host/no-URL notes are historical. Physical hosting is ready; function
 Census deployment is still blocked. Existing 169 offline passes/25 skips and prior
 real tests do not replace the unrun deployed data/auth cases. No final email.
 
-## Current production identity checkpoint (supersedes key-pair provisioning requirement)
+## Historical checkpoint — Current production identity checkpoint (supersedes key-pair provisioning requirement)
 - [x] AGENT_PROD password provisioned only in owner-only deployment environment;
   production adapter rejects CODEX_APP and never loads development .env.
 - [x] Explicit authentication methods; missing/mixed credentials fail closed; optional
@@ -219,3 +221,20 @@ real tests do not replace the unrun deployed data/auth cases. No final email.
   and confirms exclusive warehouse. Exact proposal: deploy/agent_prod_permissions.sql.
 - [ ] Live named-role/NONE SELECT/Cortex/cleanup and authenticated public ten-point suite.
 - [ ] Final public demo acceptance and submission prerequisites. No Phase 5/email.
+
+## Current Phase 4 functional acceptance — 2026-10-14
+- [x] Live trusted HTTPS https://census-104-248-239-52.sslip.io and real reviewer login.
+- [x] AGENT_PROD/APP_ROLE/secondary NONE, environment-only production credentials;
+  local CODEX_APP uses DEV_WH. No development .env in the deployed app.
+- [x] External data/follow-up/unsupported/owner-isolation/auth/prompt-refusal/rate/privacy
+  checks pass; factual browser requests 13.0037–17.0037s in recorded final cases.
+- [x] Independent role/NONE SQL confirms population 55,639 /55,380; real cleanup verified.
+- [x] Controlled restart: exact sessions/states/quota events survive in 0600 SQLite;
+  SSH exits before fresh browser authenticates and obtains a real answer.
+- [x] Loading indicator and expandable provenance observed in deployed browser.
+- [x] Two initial test-runner failures preserved; fixes change no app limits/logic.
+- [ ] P1: account-level PUBLIC inheritance cleanup and APP_ROLE explicit OPERATE;
+  do not claim strict effective least privilege. No privileges changed by this work.
+- [ ] Final README/Reflection, reviewer GitHub permissions, private credential handoff
+  and submission email. Functional Phase 4 success is not final-submission readiness.
+No Phase 5 started. Evidence and limits: PHASE4_REPORT.md and phase4_activation/.

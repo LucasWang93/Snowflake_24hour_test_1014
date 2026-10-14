@@ -273,7 +273,7 @@ restart/recreation. A live healthy frontend is not data readiness: leave permiss
 warehouse attestations false until administrator review and new-identity tests. No
 development fallback, automatic PUBLIC revocation or new paid infrastructure.
 
-## 2026-10-14 — D-14: Explicit AGENT_PROD environment authentication
+## 2026-10-14 — D-16: Explicit AGENT_PROD environment authentication
 Accepted/implemented per operator instruction: permit password deployment only for
 AGENT_PROD with SNOWFLAKE_AUTH_MODE=password. Read credentials solely from deployment
 os.environ and inject them into per-request backends. Missing values fail closed;
@@ -286,3 +286,25 @@ shows direct grants and inherited CREATE SCHEMA; retain reviewed named role/NONE
 permission/exclusive warehouse attestations and all Phase 3 controls. Operator probes
 verify connectivity but do not authorize grant changes or prove least privilege.
 Exact proposed role grants for the existing AGENT_PROD are in agent_prod_permissions.sql.
+
+## 2026-10-14 — D-17: activate reviewed APP_ROLE demo; disclose inherited permissions
+Accepted/implemented deployment configuration after operator activation authorization
+and warehouse exclusivity confirmation. Real APP_ROLE/NONE SELECT/Cortex/suspension
+passed; enable reviewed server flags without changing canonical SQL, worker/session/
+auth/deadline/budget controls. CODEX_APP local configuration now uses DEV_WH.
+
+The fresh audit contradicts a direct-grant-only PUBLIC assessment: PUBLIC still
+inherits learning-role production warehouse rights and learning DB CREATE SCHEMA.
+Activate the authorized bounded demo with this residual explicitly disclosed; do not
+claim effective least privilege. App-role explicit OPERATE and administrator review
+of PUBLIC inheritance remain P1 follow-up, not automated revokes. PUBLIC CORTEX_USER
+need not be removed for this demo and is not the source of warehouse access.
+
+## 2026-10-14 — D-18: deployment tests must exercise real thresholds
+First browser failure exposed independent five-second Playwright assertion defaults;
+use 60-second assertion timeout and keep the measured request <60s requirement.
+Second run passed real answers/context but failed the rate probe because model-backed
+joke requests span a minute. Use deterministic local guard refusals to generate real
+admissions quickly, preserving six/minute and all production budgets. Preserve both
+failed artifacts; final nine checks plus authenticated restart pass. No application
+behavior/limits changed to satisfy a test.

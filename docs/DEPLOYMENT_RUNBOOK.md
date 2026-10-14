@@ -2,11 +2,12 @@
 
 Current host: DigitalOcean 104.248.239.52; Ubuntu 24.04, Docker 29.9.1,
 Compose 5.6.0. HTTPS entry point **https://census-104-248-239-52.sslip.io** is deployed
-and externally verified. **It currently fails closed because Snowflake administrator
-provisioning/review is still pending; it is not a working Census demo.**
+and externally verified with real authenticated Census answers and post-restart access.
+**Functional demo is live. Inherited PUBLIC permissions remain a documented follow-up.**
 
 Current production-auth release path `/opt/census/releases/prod-env-20261014`,
-symlink `/opt/census/current`; see v0.4.2-dev checkpoint/evidence for activation status.
+symlink `/opt/census/current`; image/source is the v0.4.2-dev application build,
+activated with APP_ROLE and reviewed flags at the v0.4.3-dev deployment checkpoint.
 Operator commands run as root over existing SSH key; `census-deploy` can upload code
 but has no Docker group/secret-file access. Server-only paths:
 `/etc/census/compose.env`, `/etc/census/app.env` (mode 600),
@@ -24,8 +25,8 @@ docker compose --env-file /etc/census/compose.env -p census -f deploy/compose.ya
 
 Do not use `down -v` or delete the control DB. Docker itself was observed active after
 host security reboot. Both containers have restart policies; app/proxy controlled
-restart and recreation preserved a real SQLite control probe. Authenticated data
-availability remains unverified until the administrator blocker is resolved.
+restart and recreation preserved a real SQLite control probe. Authenticated real data access now also passes after restart; see phase4_activation.
+Budget/session/event hashes were identical immediately before and after restart.
 
 ## Hosting choice
 
@@ -51,11 +52,12 @@ supports WebSockets. These are documented platform capabilities, not tested depl
 
 ## Administrator prerequisites
 
-1. Review `DEPLOYMENT_PERMISSIONS.md` and `deploy/agent_prod_permissions.sql`. The SQL
-   is a proposal, not an executed migration. AGENT_PROD now exists and authenticates;
-   approve the existing warehouse for exclusive use and provision a restricted role.
-   Review PUBLIC/inherited grants;
-   a new role alone does not remove broad inherited account privileges. Do not alter
+1. Current provisioned identity/role are AGENT_PROD/APP_ROLE. Operator confirmed
+   SNOWFLAKE_LEARNING_WH exclusivity; real role/NONE data/Cortex/suspend checks pass.
+   Older provisioning scripts are historical alternatives, not required launch actions.
+   Review DEPLOYMENT_PERMISSIONS.md: PUBLIC still inherits learning-role warehouse/
+   schema privileges. Grant APP_ROLE explicit OPERATE before reviewing/removing that
+   inheritance; a named role alone is not effective least privilege. Do not alter
    working development grants incidentally.
 2. Current operator-approved production authentication uses AGENT_PROD password from
    server secrets/environment. Set SNOWFLAKE_AUTH_MODE=password and SNOWFLAKE_USER=AGENT_PROD,
@@ -68,8 +70,8 @@ supports WebSockets. These are documented platform capabilities, not tested depl
    using the new identity and `secondary_roles=NONE`. Preserve query IDs in protected
    operator evidence. Canonical SQL and the administrator-review flag do not prove
    effective least privilege.
-4. Supply host/domain access and an operator for quarantine recovery. Current access
-   does not demonstrate rights to create roles/users or to provision public hosting.
+4. Retain an operator for quarantine recovery. No automatic recovery, budget reset or
+   new grant/role/user/resource creation is authorized by a normal application request.
 
 ## Server-side configuration
 
@@ -79,7 +81,7 @@ Create an owner-only server environment file outside this checkout, for example
 ```text
 CENSUS_HTTPS_ORIGIN
 CENSUS_REVIEWER_DIGESTS
-CENSUS_SNOWFLAKE_ROLE
+CENSUS_SNOWFLAKE_ROLE=APP_ROLE
 CENSUS_PERMISSIONS_REVIEWED
 CENSUS_EXCLUSIVE_WAREHOUSE
 CENSUS_DURABLE_STORAGE
@@ -137,7 +139,7 @@ expand secrets. Only Caddy publishes ports. Restrict host firewall to needed inb
 ports; deny external 8501. Ensure Docker itself starts on host boot. Both services use
 `restart: unless-stopped`; app has a 70s stop grace, process limits and private local
 volume. Infrastructure restart and SQLite-volume behavior have passed; authenticated
-Census availability is still pending. HTTPS/XSRF/
+Census availability is now externally verified after restart. HTTPS/XSRF/
 CORS stay enabled; static serving is disabled, traceback details hidden, telemetry off.
 
 The image copies only code, catalog, web requirements and Streamlit configuration;
@@ -173,8 +175,8 @@ Separately disconnect the developer SSH session, then open the HTTPS URL from th
 independent client and execute another authenticated question. Record timestamp,
 URL, response and latency. Verify DB/session budget continuity through controlled
 restart and inspect service supervision. Do not infer persistence from a successful
-local test or a Docker restart policy. All ten public acceptance checks remain pending
-until recorded against the actual URL; a smoke PASS alone does not mark SSH persistence.
+local test or a Docker restart policy. The actual ten checks are now recorded in phase4_activation; future deployments must
+repeat affected checks. A smoke PASS alone does not establish SSH persistence.
 
 ## Recovery and limits
 
@@ -187,26 +189,42 @@ admission. Stop traffic, independently verify no active server queries and suspe
 warehouse, then use existing trusted `recover_after_operator_check`; never expose it
 as a public endpoint or clear quarantine by deleting the DB. No automatic unsafe recovery.
 
-## DigitalOcean administrator blocker and unlock
+## DigitalOcean activation and permission follow-up
 
-The actual imported database type was verified read-only. Use
-`deploy/digitalocean_admin.sql` (matching `/etc/census/admin_provision.sql`) to provision
-the restricted role/service user with the server-generated public key and EXISTING
-warehouse. This has not been executed by Codex. The private key stays on Droplet.
-Review PUBLIC's inherited learning role and other account privileges; see
-`phase4_recovery/ADMIN_ACTION.md`. Do not claim effective read-only access or set the
-review flag merely because a role has READONLY in its name.
+Current role APP_ROLE/AGENT_PROD was provisioned by the operator. Real role/NONE
+SELECT/Cortex/suspend and public acceptance pass; server confirmation flags are 1.
+Do not execute older CENSUS_WEB_APP/CENSUS_APP_READONLY/key provisioning proposals as
+new launch steps. They remain historical alternatives; no grant changes were performed
+by this activation work. Never use development credentials as a deployment fallback.
 
-`CENSUS_PERMISSIONS_REVIEWED=0` and `CENSUS_EXCLUSIVE_WAREHOUSE=0` deliberately remain
-in server config until actual operator confirmations. After provisioning, use the
-existing backend/agent with the new identity in an agreed maintenance window for one
-bounded reference question (ACS 2020 Autauga population 55,639), verifying actual
-Cortex/data query IDs, role context and cleanup. Do not use development credentials.
-Then update only the two confirmation flags through protected server config and
-recreate the app, preserving the named volume. Run the external smoke suite using
-private reviewer token transport; do not paste tokens into shell arguments/chat/Git.
+PUBLIC still inherits the learning role's production warehouse/schema privileges;
+review actual evidence and the explicit OPERATE proposal in DEPLOYMENT_PERMISSIONS.md.
+Do not remove inherited OPERATE before APP_ROLE has its own cleanup privilege. The
+operator's exclusive-usage confirmation is operational, not account privilege isolation.
+Any approved grant changes require targeted role/NONE cleanup checks afterward.
 
 Current hostname uses sslip.io and a publicly trusted Let's Encrypt certificate.
 Caddy handles renewal using persistent caddy_data. For an owned domain, create an A
 record to 104.248.239.52, ensure any AAAA reaches this same service, update
 CENSUS_DOMAIN/CENSUS_HTTPS_ORIGIN together and reverify TLS/XSRF/WebSocket behavior.
+
+## Current acceptance / restart reproduction
+The final clean public browser suite passes in phase4_activation/browser_final.json;
+controlled restart plus fresh authenticated real answer passes in post_restart_browser.json.
+All reviewer token files remain private. Run the browser tool from a trusted client
+with the optional browser dependencies, using NEW evidence paths:
+
+```bash
+python scripts/deployment_smoke.py --url https://census-104-248-239-52.sslip.io \
+  --token-file /absolute/private/reviewer1.token \
+  --second-token-file /absolute/private/reviewer2.token --output /new/evidence.json
+# On the Droplet, only after in-flight requests finish:
+cd /opt/census/current
+docker compose --env-file /etc/census/compose.env -p census -f deploy/compose.yaml restart app proxy
+```
+
+Close SSH, use a fresh client, authenticate and query again. Check unchanged SQLite
+session/state/event fingerprints before sending the new request; do not delete the
+DB, reset events or weaken limits. Local `.env` now points CODEX_APP to DEV_WH.
+Server credentials and APP_ROLE stay independent of that file. Tests reserve shared
+budget units; final_runtime.json records the observed remaining allowance, not an SLA.

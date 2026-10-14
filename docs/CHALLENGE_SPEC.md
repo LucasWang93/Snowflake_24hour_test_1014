@@ -1,13 +1,14 @@
 # Challenge specification
 
-Status: official PDF reconciled; Phase 1/2 accepted and preserved; Phase 3
-reliability and independent evaluation completed within documented scope. No public UI/deployment in this phase.
+Status: official PDF reconciled; verified Phase 1–3 retained. Phase 4 authenticated
+HTTPS Web demo now externally verified, including actual data and restart. Strict
+account privilege isolation and final delivery work remain open; no Phase 5 started.
 
 ## Objective
 Build a chatting agent that answers questions about United States Census population
 using verified Snowflake data and Cortex. Phase 1 supplies its semantic foundation;
-Phase 2 now implements the local agent and multi-turn interaction. Public UI and
-deployment are not implemented.
+Phase 2 implements the core agent and multi-turn interaction. Phase 3 adds reliability
+controls; Phase 4 supplies the actual authenticated public Web deployment.
 
 ## Rules
 Official source: [Applied AI: Candidate Homework Assignment](<reference/Applied AI_ Candidate Homework Assignment .pdf>), five pages. Read in full before Phase 2.
@@ -18,10 +19,10 @@ US Open Census Marketplace dataset using a free trial; the cited SafeGraph fallb
 is allowed only if that source is inaccessible (p.2). Existing Marketplace access
 is verified, so no fallback or infrastructure reset is needed.
 
-User instructions authorize Phase 2 with Cortex initially llama3.3-70b, CLI, bounded
-real tests and permission inspection. They exclude public deployment, extensive UI,
-new orchestration frameworks, Phase 1 restart and automatic Phase 3 work. Keep
-credentials private; do not commit/push/share/send without appropriate authorization.
+Current authorization covers completed Phase 1–4 and the existing DigitalOcean demo,
+AGENT_PROD/APP_ROLE and external acceptance. No automatic Phase 5, final email,
+unapproved grants/revokes or new paid infrastructure. CODEX_APP is local-only using
+DEV_WH. Follow docs/PROGRESS.md for continuation; prior scope is retained in reports.
 
 ## Requirements
 The traceability table is the canonical requirement register. Existing SF-1 through
@@ -55,7 +56,10 @@ integration evidence, deterministic and opt-in real tests, `PHASE1_REPORT.md`, a
 Implemented in Phase 2: `census_agent/`, local CLI, explicit conversation state,
 canonical runtime SQL validation and grounded answers; targeted tests/evidence.
 
-Pending: public UI/deployment, broader held-out evaluation, full README, Reflection, reviewer access
+Implemented Phase 3/4: isolated authenticated service, independent evaluation with
+preserved first-run failures, Web UI and actual public acceptance evidence.
+
+Pending: strict effective permission cleanup, full README, Reflection, reviewer access
 verification and final submission email. Reflection must be Markdown and cover the four topics on p.3. The public-demo
 access instructions, private repository and named reviewers are mandatory.
 
@@ -67,8 +71,8 @@ recorded Phase 1 real tests passed; unchanged evidence is preserved. Source prod
 redistricting; ACS prefix year is provider release year, not proven survey interval.
 
 Accepted design: catalog-grounded single workflow with Cortex structured intent/ID
-choice and deterministic SQL/answers; explicit conversational state. UI framework
-and deployment remain undecided; advanced aggregation is explicitly unsupported.
+choice and deterministic SQL/answers; explicit conversational state. Streamlit/AgentService with single-host Docker/Caddy/SQLite is deployed; advanced
+aggregation remains explicitly unsupported.
 
 Open questions: receipt timestamp/email recipient not specified in PDF; undefined field meanings;
 exact ACS survey interval; national/territory scope, global key/coverage guarantees,
@@ -98,20 +102,20 @@ instead of duplicating context/latency/degradation requirements.
 | AS-2 | PDF pp.2,5: preserve context across turns and accurate follow-ups | Explicit resolved/pending state, follow-up merge and comparison implemented | Three multi-turn scenarios; updates, pending clarification, resets, isolation | Complete (three real scenarios plus offline edges) |
 | AS-3 | User Phase 2 requirement, not PDF mandate: Cortex primary LLM, initially llama3.3-70b | Bounded llama3.3-70b structured intent/catalog choice implemented | Real Cortex query IDs and provider/error tests | Complete (actual bounded Cortex calls) |
 | AS-4 | PDF pp.2,5: graceful degradation, ambiguous/partial/conflicting/unanswerable inputs; user: safe SQL boundary | Canonical SQL validator, domain/semantic guards and safe errors implemented | Unknown/empty/error cases; unvalidated SQL cannot reach data executor | Complete (tested core boundary; deployment review pending) |
-| AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Phase 4 Streamlit/AgentService UI and single-instance deployment configuration | AppTest offline plus planned clean HTTPS browser/auth/conversation smoke | Partial: UI tested; public deployment blocked |
-| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | Phase 1 evidence retained; Phase 2: 58 offline tests and 16 real tests passed | Five metric families, three conversations, ground-truth SQL, security and failure cases | Partial (Phase 2 evidence complete; broader/hosted evaluation pending) |
+| AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Streamlit/AgentService on existing DigitalOcean host with public trusted HTTPS | Fresh external browser auth/data/follow-up/isolation/rate/privacy; post-restart real answer | Complete (Phase 4 measured functional deployment; risks disclosed) |
+| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 180 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
 | AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Initial README preserved; complete final README pending | Fresh engineer can understand choices, access demo and reproduce commands | Pending |
 | AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | No final reflection artifact | Four-topic checklist plus honest limitations and AI-tool usage review | Pending |
 | AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | No privacy/access change in Phase 2 | Verify private visibility and effective access for exact listed handles | Pending |
 | AS-10 | PDF pp.1,3: email private repository link within 24 hours of receipt | No email sent; exact recipient/receipt timestamp still needed | Deadline check, repository/demo links, authorized send and receipt | Pending |
 | AS-11 | PDF p.1: read requirements before coding; current user: reconcile original PDF | Five-page PDF read; old 23 IDs reconciled; missing obligations added | Source/page audit and unique-ID/test-method comparison; reconciliation report | Complete (source reconciliation) |
-| AS-12 | PDF pp.2,5: responses within 60 seconds under normal conditions | Bounded request budget in Phase 2; no streaming UI yet | Measure every live answer turn including model/query/cleanup; report failures, not just averages | Complete (all measured Phase 2 turns <60s; not a production SLA) |
+| AS-12 | PDF pp.2,5: responses within 60 seconds under normal conditions | 55-second service deadline and actual browser progress; normal hosted turns measured | External factual 17.0037s, follow-up 14.0131s, restart factual 13.0037s; prior core evidence | Complete (measured cases <60s; no SLA claim) |
 | AS-13 | PDF pp.2,5: dedicated guardrails for off-topic/inappropriate requests and grounded scope | Explicit local/structured-domain and canonical SQL validation implemented | Adversarial/off-topic/inappropriate cases refuse before data SQL | Complete (tested core domain/content cases) |
 | AS-14 | PDF p.2: free-trial Snowflake Marketplace US Open Census source; conditional disclosed SafeGraph fallback | Existing verified Marketplace database reused; no fallback | Existing source/context evidence and Phase 2 source query IDs; trial status user-provided | Complete (source access; no reconfiguration) |
-| AS-15 | PDF p.3: repository includes all solution implementation code | Phase 1/2 code and evidence included in development checkpoints; final application packaging pending | Review tracked/untracked implementation manifest before authorized commit/submission | Partial (core checkpoint packaged; final application pending) |
+| AS-15 | PDF p.3: repository includes all solution implementation code | Phase 1–4 implementation, Docker configuration, tests and evidence in repository | Reviewed source allowlist/manifests, authorized GitHub checkpoint and unchanged core source | Complete (implementation included; final documentation tracked separately) |
 | AS-16 | PDF p.4: comprehensive metadata/join mapping and sufficient schema context, no manually limited prompt subset | Full Phase 1 catalog reused; 296 undefined fields remain excluded | Family coverage plus dynamic catalog-choice tests; document unsupported/cross-table scope | Partial (documented semantic gaps) |
-| AS-17 | PDF p.4: verify final demo in clean deployed environment for missing config/connections/auth loops | External browser smoke runner implemented; no deployed URL | Run actual HTTPS smoke and separate post-SSH availability check | Blocked: approved host and restricted identity missing |
-| AS-18 | PDF p.5: streaming or progress feedback for interactivity; correctness and fast-fail paths | CLI stage progress and bounded failures implemented | Progress callback/CLI and refusal-latency checks; deployed UX later | Partial (CLI progress complete; deployed UX pending) |
+| AS-17 | PDF p.4: verify final demo in clean deployed environment for missing config/connections/auth loops | Live HTTPS demo with production identity and persistent server control | phase4_activation/browser_final.json plus post_restart_browser.json and exact SQLite snapshots | Complete (actual clean external browser/restart verification) |
+| AS-18 | PDF p.5: streaming or progress feedback for interactivity; correctness and fast-fail paths | CLI stages and Web loading/status/provenance with fast local guard refusals | Post-restart browser observes loading progress and expandable provenance; live refusals | Complete (progress feedback; no token streaming claimed) |
 
 ## Ordered implementation plan
 Phase 2 is now explicitly authorized. Stop after its core/CLI/evaluation scope.
@@ -179,10 +183,16 @@ live skips. PHASE3_REPORT.md distinguishes first held-out failures from regressi
 records actual latency and identifies restricted-identity/hosting blockers.
 
 ## Phase 4 authorization and actual status
-The user now authorizes Phase 4 only: public authenticated chat using AgentService,
-HTTPS, persistent single-host control and external verification. AS-5/AS-17 remain
-incomplete without a tested public URL. AS-2/AS-4/AS-12/AS-13 preserve core policies;
-AS-18 now has local Web progress feedback, with deployed UX pending. AS-7/AS-15 add
-runbook/reviewer access and deployment source; full final delivery remains outstanding.
-No statistical features, data rediscovery, grant changes, paid service provisioning
-or final submission email. See PHASE4_REPORT.md for actual local evidence and blockers.
+Public authenticated chat is deployed and externally verified at
+https://census-104-248-239-52.sslip.io. AS-5/AS-17 functional acceptance now has actual
+browser/data/auth/restart evidence; AS-18 loading/provenance was observed. Core
+statistical/SQL/security controls are unchanged. Production AGENT_PROD uses APP_ROLE,
+secondary NONE, deployment environment credentials and the confirmed exclusive
+SNOWFLAKE_LEARNING_WH; developer CODEX_APP now uses DEV_WH.
+
+PUBLIC still inherits learning-role warehouse and schema privileges, contrary to the
+operator's direct-grant-only audit. Strict account isolation is outstanding; the
+functional demo does not prove it. Operator should give APP_ROLE explicit OPERATE
+before reviewing/remediating PUBLIC inheritance. No grants changed. Full README,
+Reflection, reviewer repository/access handoff and final email are still pending.
+No Phase 5 started; see PHASE4_REPORT.md and PROGRESS.md for current evidence/risks.

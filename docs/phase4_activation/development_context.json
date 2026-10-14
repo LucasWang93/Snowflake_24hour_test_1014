@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "sql": "SELECT CURRENT_USER(), CURRENT_WAREHOUSE(), CURRENT_ROLE()",
+  "query_id": "01c7bbed-3204-bd12-0008-3d1a0003621a",
+  "rows": [
+    [
+      "CODEX_APP",
+      "DEV_WH",
+      "PUBLIC"
+    ]
+  ],
+  "data_or_cortex_queries": 0
+}

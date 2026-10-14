@@ -23,9 +23,9 @@ Read `AGENTS.md` and `docs/PROGRESS.md` first, inspect Git state, then read the
 current specification, architecture, decisions, evaluation plan and phase report.
 Reuse the configured environment and Phase 1 artifacts. Do not rerun discovery.
 Resume only the authorized scope; wait for the user's next-phase instruction after
-Phase 3. No session can be opened automatically by this repository. Current authorized scope is
-Phase 4; public hosting is blocked. Resume from PHASE4_REPORT.md and DEPLOYMENT_RUNBOOK.md
-when host/admin inputs change; do not automatically start a later phase.
+the current phase. No session can be opened automatically by this repository. Phase 4
+functional public acceptance is complete; resume from PHASE4_REPORT.md/PROGRESS.md
+only within new user instructions. Do not automatically start Phase 5.
 
 ## Phase 4 feasibility checkpoint — 2026-10-14
 `spcs-feasibility-20261014`: documentation-only SPCS/account/grant assessment, with
@@ -59,3 +59,20 @@ source hashes match), with AGENT_PROD password mode and no image .env/private-ke
 mount. App healthy, control volume preserved; fresh external HTTPS page observed
 safe unavailable state in 1.458s. Permission/exclusivity flags remain closed, public
 authenticated checks blocked. Doctor 0, verify 0, preflight 2 (pending items).
+
+## v0.4.3-dev — Phase 4 live public chat acceptance
+Tag records server activation with AGENT_PROD/APP_ROLE/secondary NONE and all reviewed
+flags, developer warehouse DEV_WH, real public nine-case browser suite plus separate
+controlled-restart/SSH-exit authenticated data check. Independent reference SQL agrees
+with actual 55,639/55,380 answers. Browser factual times 17.0037s/14.0131s and 13.0037s
+after restart. Exact control sessions/states/events survive unchanged.
+
+No Agent/catalog/service or statistical changes; app image/source remains the prior
+production-auth build. Browser runner fixes its assertion timeout and uses local
+refusals to hit real rate limits; both original runner failures are preserved. Existing
+180 offline passes/25 live skips and Ruff retained; final checks recorded in new logs.
+Production auth config never reads development .env. Actual PUBLIC learning-role
+inheritance remains a documented P1 permission residual, not a least-privilege claim.
+No grant/revoke/budget reset or paid infrastructure changes. README/Reflection, private
+reviewer access/handoff and submission remain pending; no Phase 5/email. Commit/tag
+and authorized push occur only after evidence/diff/secret checks.

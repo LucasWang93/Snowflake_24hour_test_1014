@@ -1,0 +1,10 @@
+{
+  "sessions": 6,
+  "stateful_sessions": 5,
+  "sessions_sha256": "68295b12b3840c6f358c02adcf2b70160f05dde0147c97ce0022300fee504e83",
+  "events_sha256": "d03f0154f938614d1f54e10ca12b115d97302672165693bf5e115f364b2d3162",
+  "reserved_calls": 46,
+  "gate_active": false,
+  "quarantined": false,
+  "file_mode": "0o600"
+}

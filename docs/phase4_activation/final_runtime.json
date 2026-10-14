@@ -1,0 +1,20 @@
+{
+  "identity": "AGENT_PROD",
+  "role": "APP_ROLE",
+  "secondary_roles": "NONE",
+  "warehouse": "SNOWFLAKE_LEARNING_WH",
+  "warehouse_state": "SUSPENDED",
+  "warehouse_query_id": "01c7bbf0-3204-bd70-0008-3d1a0003a10a",
+  "control_file_mode": "0o600",
+  "lease_active": false,
+  "quarantined": false,
+  "reserved_events": 24,
+  "reserved_call_units": 48,
+  "daily_limit": 120,
+  "development_env_exists": false,
+  "flags": {
+    "CENSUS_PERMISSIONS_REVIEWED": "1",
+    "CENSUS_EXCLUSIVE_WAREHOUSE": "1",
+    "CENSUS_DURABLE_STORAGE": "1"
+  }
+}

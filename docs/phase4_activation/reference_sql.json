@@ -1,0 +1,54 @@
+{
+  "role": "APP_ROLE",
+  "secondary_roles": "NONE",
+  "warehouse_lease": "shared production admission acquired",
+  "checks": [
+    {
+      "year": 2020,
+      "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", COUNT_IF(\"B01003e1\" IS NULL OR \"B01003e1\" < 0) AS \"INVALID\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2020_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s LIMIT 1",
+      "params": [
+        "01001%"
+      ],
+      "query_id": "01c7bbef-3204-bd70-0008-3d1a0003a0f2",
+      "columns": [
+        "VALUE",
+        "ROWS",
+        "UNIQUE_CBGS",
+        "INVALID"
+      ],
+      "row": [
+        55639.0,
+        45,
+        45,
+        0
+      ],
+      "expected": 55639,
+      "passed": true
+    },
+    {
+      "year": 2019,
+      "sql": "SELECT SUM(\"B01003e1\") AS \"VALUE\", COUNT(*) AS \"ROWS\", COUNT(DISTINCT \"CENSUS_BLOCK_GROUP\") AS \"UNIQUE_CBGS\", COUNT_IF(\"B01003e1\" IS NULL OR \"B01003e1\" < 0) AS \"INVALID\" FROM \"US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET\".\"PUBLIC\".\"2019_CBG_B01\" WHERE \"CENSUS_BLOCK_GROUP\" LIKE %s LIMIT 1",
+      "params": [
+        "01001%"
+      ],
+      "query_id": "01c7bbef-3204-bd70-0008-3d1a0003a0f6",
+      "columns": [
+        "VALUE",
+        "ROWS",
+        "UNIQUE_CBGS",
+        "INVALID"
+      ],
+      "row": [
+        55380,
+        32,
+        32,
+        0
+      ],
+      "expected": 55380,
+      "passed": true
+    }
+  ],
+  "suspend_query_id": "01c7bbef-3204-bb79-0008-3d1a00032466",
+  "warehouse_state": "SUSPENDED",
+  "cleanup_confirmed": true
+}
