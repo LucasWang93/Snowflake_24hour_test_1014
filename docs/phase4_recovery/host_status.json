@@ -1,0 +1,99 @@
+{
+  "timestamp_utc": "2026-10-14T22:29:41.863084+00:00",
+  "kernel": "6.8.0-147-generic",
+  "docker": "29.9.1",
+  "compose": "5.6.0",
+  "docker_enabled": "enabled",
+  "docker_active": "active",
+  "ssh_active": "active",
+  "firewall": "Status: active\nLogging: on (low)\nDefault: deny (incoming), allow (outgoing), deny (routed)\nNew profiles: skip\n\nTo                         Action      From\n--                         ------      ----\n22/tcp                     ALLOW IN    Anywhere                  \n80/tcp                     ALLOW IN    Anywhere                  \n443/tcp                    ALLOW IN    Anywhere                  \n22/tcp (v6)                ALLOW IN    Anywhere (v6)             \n80/tcp (v6)                ALLOW IN    Anywhere (v6)             \n443/tcp (v6)               ALLOW IN    Anywhere (v6)",
+  "reboot_required": false,
+  "services": [
+    {
+      "name": "/census-app-1",
+      "user": "10001:10001",
+      "state": "running",
+      "image": "sha256:8b6aa6a10d81abb0607f632874c0296a867fcbf79cba535c94e8ce9a7615e45c",
+      "restart_policy": "unless-stopped",
+      "memory": 2147483648,
+      "nano_cpus": 2000000000,
+      "pids": 64,
+      "log_config": {
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        },
+        "Type": "local"
+      },
+      "ports": {},
+      "no_new_privileges": [
+        "no-new-privileges:true"
+      ]
+    },
+    {
+      "name": "/census-proxy-1",
+      "user": "",
+      "state": "running",
+      "image": "sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d",
+      "restart_policy": "unless-stopped",
+      "memory": 268435456,
+      "nano_cpus": 500000000,
+      "pids": 64,
+      "log_config": {
+        "Config": {
+          "max-file": "3",
+          "max-size": "10m"
+        },
+        "Type": "local"
+      },
+      "ports": {
+        "443/tcp": [
+          {
+            "HostIp": "",
+            "HostPort": "443"
+          }
+        ],
+        "80/tcp": [
+          {
+            "HostIp": "",
+            "HostPort": "80"
+          }
+        ]
+      },
+      "no_new_privileges": [
+        "no-new-privileges:true"
+      ]
+    }
+  ],
+  "secret_file_metadata": {
+    "/etc/census/app.env": {
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    "/etc/census/compose.env": {
+      "mode": "0o600",
+      "uid": 0,
+      "gid": 0
+    },
+    "/etc/census/snowflake.p8": {
+      "mode": "0o400",
+      "uid": 10001,
+      "gid": 10001
+    }
+  },
+  "development_env_transferred": false,
+  "ssh_authentication": {
+    "pubkeyauthentication": "yes",
+    "passwordauthentication": "no",
+    "kbdinteractiveauthentication": "no",
+    "permitrootlogin": "yes",
+    "root_password_status": "locked",
+    "deployment_user_password_status": "locked"
+  },
+  "ubuntu_phased_updates_not_forced": [
+    "apparmor",
+    "libapparmor1",
+    "open-vm-tools"
+  ]
+}

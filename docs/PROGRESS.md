@@ -12,27 +12,28 @@
   0.6816–16.6937s; final warehouse SUSPENDED. See PHASE3_REPORT.md.
 
 ## In progress
-- Phase 4 authorized: Streamlit UI and deployable single-instance adapter implemented;
-  public deployment blocked on approved host and restricted Snowflake identity.
+- Phase 4 DigitalOcean recovery: HTTPS frontend running on 104.248.239.52;
+  Snowflake administrator provisioning/review still blocks authenticated Census use.
   No next-phase or submission-email work authorized.
 
 ## Blocked
-- Phase 4: no approved persistent host/domain or connected hosting account. Login node
-  is not a public service host; Docker/cloud CLIs absent. Sites cannot run this Python
-  multiprocessing/local-SQLite design. Render integration available but unconnected;
-  durable disk requires a paid service and explicit cost authorization.
-- Administrator must provision/review restricted key-pair identity, inherited PUBLIC
-  baseline and exclusive warehouse. Existing development credentials are not deployed.
-- No public URL, external browser results or SSH-disconnect availability claim.
-  Final submission additionally needs README/Reflection, reviewer permissions and receipt/recipient.
+- Administrator must execute/review deploy/digitalocean_admin.sql, audit PUBLIC's
+  learning-role/account privilege baseline and confirm exclusive existing warehouse.
+  CODEX_APP cannot activate ACCOUNTADMIN; no development credential fallback.
+- Actual public reviewer login, real data/Cortex/cleanup, follow-up/isolation/rate and
+  authenticated latency/post-restart validation wait on that operator action.
+- Public entry point https://census-104-248-239-52.sslip.io is currently a safe
+  configuration-unavailable page, not an accepted Census demo.
+- Final submission still needs README/Reflection completion, reviewer permissions
+  and receipt/recipient confirmation. No final email.
 
 ## Next three actions
-1. New session: read AGENTS.md, PROGRESS.md, PHASE4_REPORT.md and DEPLOYMENT_RUNBOOK.md;
-   inspect Git state. Resume Phase 4 deployment only; preserve all evaluation artifacts.
-2. Supply an approved persistent host/domain and administrator-provisioned app identity.
-   Run the supplied single-instance deployment without weakening auth, control or SQL checks.
-3. Run fresh external-browser smoke tests and a separate post-SSH availability probe;
-   record actual URL/results, then stop Phase 4. No automatic final email or later phase.
+1. New session: read AGENTS.md, PROGRESS.md, PHASE4_REPORT.md, DEPLOYMENT_RUNBOOK.md
+   and phase4_recovery/ADMIN_ACTION.md. Inspect Git; preserve server secrets/volume.
+2. Obtain actual Snowflake administrator completion/review and exclusivity confirmation;
+   validate new key-pair identity/grants/SELECT/Cortex/cleanup in a maintenance window.
+3. Enable only reviewed flags, recreate app without deleting volumes, run existing
+   external smoke + authenticated post-restart check with fresh evidence. Stop Phase 4.
 
 ## Historical harness / configuration evidence
 The following preparation and Phase 1 records retain the context at their original
@@ -253,3 +254,27 @@ docs/phase4_checks; resume Phase 4 only after host/admin prerequisites are avail
   Snowflake ingress access are needed. See SPCS_FEASIBILITY.md and captured query IDs.
 - App/config and all prior evidence unchanged. Wait for explicit approval before any
   Snowflake resources; no Phase 5. Checkpoint tag: spcs-feasibility-20261014.
+
+## Phase 4 DigitalOcean recovery — 2026-10-14
+- Initialized approved existing Droplet; security/kernel updates, controlled reboot,
+  official Docker/Compose, key-based root/nonroot SSH and UFW 22/80/443 verified.
+- Actual application image built. App/proxy running, nonroot app, bounded resources/logs,
+  private server key/env and persistent SQLite. No development credentials/history copied.
+- HTTPS https://census-104-248-239-52.sslip.io externally verified with Let's Encrypt,
+  redirect/security headers, closed 8501 and clean-browser safe unavailable page.
+- SQLite probe survived app/proxy restart and container recreation; 700/600 permissions.
+  Page remains available after launch SSH exits. Authenticated use remains untested.
+- New service RSA private key stays on Droplet; exact public-key SQL supplied for admin;
+  two reviewer tokens remain server-only. No Snowflake grants/billing/resources changed.
+- Genuine blocker: administrator identity/PUBLIC review/exclusive-warehouse confirmation.
+  Both corresponding runtime flags remain 0; no unsafe fallback or invented E2E results.
+- Actual local regression 169 passed /25 skipped; external page loads 1.258/1.221s,
+  not data-answer latency. Evidence under docs/phase4_recovery.
+- Existing Agent/catalog/Web source and prior recorded evidence preserved (89 hashes).
+  Checkpoint v0.4.1-dev is infrastructure-ready, not Phase 4 acceptance or Phase 5.
+
+Recovery preflight exit 2: outstanding administrator/public functional/final-submission
+items and precommit changes. Its Ruff/tests pass (169/25); not a data-readiness pass.
+Ubuntu left three phased updates deferred; running patched kernel 6.8.0-147 and
+key-only SSH verified. Server no longer needs host or DNS provisioning; admin identity
+and privilege/exclusivity confirmation are the remaining functional blocker.

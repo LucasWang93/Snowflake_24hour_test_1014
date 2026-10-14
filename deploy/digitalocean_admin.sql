@@ -1,0 +1,27 @@
+-- OPERATOR ACTION REQUIRED. Not executed by Codex. Public key only; no secret values.
+-- Account ssybhom-kx56542. Reuses the EXISTING warehouse; no new paid infrastructure.
+-- Existing app code requires a dedicated nonadmin primary role and secondary NONE.
+USE ROLE ACCOUNTADMIN;
+SHOW GRANTS TO ROLE PUBLIC;
+SHOW GRANTS TO ROLE SNOWFLAKE_LEARNING_ROLE;
+
+CREATE ROLE IF NOT EXISTS CENSUS_APP_READONLY;
+GRANT IMPORTED PRIVILEGES ON DATABASE
+  US_OPEN_CENSUS_DATA_NEIGHBORHOOD_INSIGHTS_FREE_DATASET TO ROLE CENSUS_APP_READONLY;
+GRANT DATABASE ROLE SNOWFLAKE.CORTEX_USER TO ROLE CENSUS_APP_READONLY;
+GRANT USAGE, OPERATE ON WAREHOUSE SNOWFLAKE_LEARNING_WH TO ROLE CENSUS_APP_READONLY;
+
+CREATE USER CENSUS_WEB_APP TYPE = SERVICE
+  RSA_PUBLIC_KEY = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvru9aPa2Al6Pl/eUqGWVLqLo5FX1CadQfUlnN5qiFIqeRmmPPfkPJHp/LX9VVk4IuFMKWt9zHs3ZQZ9RsnroNbNPfg1BUQnlmp9iQo/vlqrJreYOxRYKI1dyaHlPsN92ycrdxtjzBCZZropwsB6v4NI4N2xKPpb5NAC88BzRmGcLDCJNIfxYNy4R8r1eNSjpjITHxE29cVd0pivQ1aLx9V1llbZpIvIUTeLK0xKHTkeIEtsJ8Clyspc6Pe8KRXr2RH+ecqTvKDYiM5s+Dojpp5JFCnzSmV8efn3uJkJkpORldd7AtQ0Op5wWOKwZJCdAeyS+owAgf+RyVPy3+kPckwIDAQAB'
+  DEFAULT_ROLE = CENSUS_APP_READONLY
+  DEFAULT_WAREHOUSE = SNOWFLAKE_LEARNING_WH
+  DEFAULT_SECONDARY_ROLES = ();
+GRANT ROLE CENSUS_APP_READONLY TO USER CENSUS_WEB_APP;
+
+SHOW GRANTS TO USER CENSUS_WEB_APP;
+SHOW GRANTS TO ROLE CENSUS_APP_READONLY;
+-- Confirm warehouse is exclusively used by AgentService while this app is hosted.
+-- Existing PUBLIC inherits SNOWFLAKE_LEARNING_ROLE (CREATE SCHEMA), plus other global
+-- privileges. This script does NOT revoke them or claim effective least privilege.
+-- Review docs/phase4_recovery/ADMIN_ACTION.md for baseline/migration before deployment.
+-- Do not send admin passwords/private keys to Codex or place them in this file.

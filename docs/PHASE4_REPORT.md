@@ -1,4 +1,104 @@
-# Phase 4 — Web app and deployment checkpoint
+# Phase 4 recovery — DigitalOcean deployment
+
+**Current status: HTTPS infrastructure deployed; authenticated Census service BLOCKED
+on Snowflake administrator provisioning/review. Phase 4 is not accepted as complete.**
+
+Public entry point: **https://census-104-248-239-52.sslip.io**. It currently displays
+an explicit safe configuration-unavailable page. It is not yet a working Census demo.
+All subsequent initial-checkpoint notes below are historical, not current host status.
+
+## Actual recovery work — 2026-10-14
+
+- Existing Droplet 104.248.239.52 initialized; Ubuntu security/user-space updates and
+  kernel upgraded to 6.8.0-147, then controlled host reboot completed. SSH still works.
+- Ubuntu deferred three phased updates (apparmor/libapparmor1/open-vm-tools);
+  those were not forced. Password/keyboard-interactive SSH authentication is disabled;
+  root and deploy-user password status locked; existing key access remains.
+- Docker Engine 29.9.1 and Compose plugin 5.6.0 installed from Docker's signed repository;
+  Docker enabled at boot and observed active after reboot. No new paid infrastructure.
+- Created locked-password `census-deploy` user, tested existing SSH key login, retained
+  root key access. Deploy user cannot read server secrets or access Docker socket.
+- UFW active, default inbound deny, only TCP 22/80/443 allowed (IPv4/IPv6). Port 8501
+  is not published; external connection test fails as intended.
+- Transferred a Git allowlist of application/catalog/deployment files only. No development
+  .env, SSH private keys, Slurm/history/diagnostic artifacts copied. Built the actual image
+  on Droplet; image pip check passed. Existing Agent/catalog/Web Python source unchanged.
+- Running `census-app-1` (healthy, UID 10001) and `census-proxy-1` (Caddy 2.10.2).
+  Compose retains one app/one proxy, local persistent volume, private mounted key/env,
+  restart policies, 55s service deadline and existing shared budgets/lease/quarantine.
+  App bounded to 2 GiB/2 CPUs/64 PIDs; proxy 256 MiB/0.5 CPU/64 PIDs and minimum bind
+  capability. Both use no-new-privileges and rotated local logs (10 MB × 3). Proxy uses
+  its image default root user with reduced capabilities; application runs nonroot.
+- Server-only Snowflake RSA key generated once, mode 400/UID 10001; private key never
+  left Droplet. Two random reviewer token/digest pairs generated under root-only
+  `/var/lib/census-operator/reviewers`; tokens never printed or committed.
+- Administrator SQL with the actual matching **public** key is in
+  `deploy/digitalocean_admin.sql` and `/etc/census/admin_provision.sql`. It reuses the
+  existing warehouse. No Snowflake users/roles/grants were created by Codex.
+- One local read-only SHOW DATABASES confirmed IMPORTED DATABASE; query ID is saved
+  in `phase4_recovery/database_kind.json`. No Census scans or Cortex calls repeated.
+- PUBLIC learning-role/schema-creation inheritance still requires admin review;
+  see `phase4_recovery/ADMIN_ACTION.md`. Primary-role naming alone does not establish
+  effective read-only credentials. No unapproved revokes or development fallback.
+
+## Actual public verification and failures
+
+| Phase 4 acceptance | Actual observed outcome |
+| --- | --- |
+| 1. Public page loads | PASS for deployed page: external Yale HTTP 200 and fresh Chromium context render Census Chat |
+| 2. Reviewer authentication | BLOCKED / NOT RUN: administrator gates closed; no login widget until configured |
+| 3. Real grounded Census question | NOT RUN: new service identity/grants not provisioned/confirmed |
+| 4. Multi-turn follow-up | NOT RUN against deployment |
+| 5. Unsupported questions | NOT RUN against deployment; prior offline/core evidence preserved |
+| 6. Independent authenticated sessions | NOT RUN against deployment; prior tests do not substitute |
+| 7. Live auth failures/rate limits | NOT RUN against deployment; unchanged guard implementations retain offline passes |
+| 8. Secrets/private diagnostics | No raw diagnostics/secrets visible on observed unconfigured page; image/source transfer/file modes verified; authenticated/network surface still pending |
+| 9. Normal answers <60s | UNMEASURED for hosted Census answers; page render 1.258s, after restart 1.221s only |
+| 10. SSH disconnect/restart survival | PASS for infrastructure/unconfigured page and actual SQLite control session across app/proxy restart + container recreation; authenticated Census request still pending |
+
+External TLS verified using the client's default trust store: TLSv1.3, Let's Encrypt
+issuer YE2, SAN matches hostname, valid until 2027-01-12. No self-signed certificate or
+TLS-verification bypass. HTTP returns 308 to HTTPS; security headers present. Caddy
+configuration validation passed with only a formatting warning. Temporary sslip.io
+DNS resolved to the exact Droplet IP; no domain purchase/DNS operator action needed.
+This depends on third-party DNS availability; a controlled domain is preferable for
+longer-lived hosting. For a supplied hostname, create A -> 104.248.239.52, remove any
+incorrect AAAA, and update origin/proxy hostname together before re-verification.
+
+Actual SQLiteControl was initialized by a trusted operator storage probe, no fake
+Census/auth response. A private probe session survived restart and forced container
+recreation with mode 700/600. Authentication/data state behavior is not inferred from
+that probe. Outbound TLS from the app container to Snowflake verified; no login/data
+operation was inferred from TLS connectivity. Both administrator gates remain `0`.
+
+Evidence: `phase4_recovery/host_status.json`, `storage_and_egress.json`,
+`external_initial.json`, `external_after_restart.json`, `public_blocked.png`,
+`database_kind.json` and `verify.log`. Browser used an isolated /tmp tool install;
+existing Yale project environment was not reinstalled/reconfigured. Actual Docker
+build/launch/OS logs remain on Droplet under /var/log/census-*.log, with no secrets.
+Full local verification: **169 passed / 25 live skips**, Ruff pass. Preflight exit 2
+reflects unchecked deployment/final-delivery items and precommit changes; its tests pass. This does not
+establish clean hosted factual correctness. Prior failed/live evidence remains intact.
+
+## Specific remaining operator action
+
+Have the authorized account administrator execute/review the public-key SQL and
+PUBLIC baseline, preserving development privileges. Confirm exclusive use of
+SNOWFLAKE_LEARNING_WH during hosting. No additional warehouse is required or created.
+See [ADMIN_ACTION.md](phase4_recovery/ADMIN_ACTION.md) for exact proposal and optional
+baseline migration; no administrator password/private key needs to leave their custody.
+
+After confirmation: validate new identity's actual SELECT, Cortex, effective grants
+and suspension, then enable the reviewed permissions/exclusive-warehouse flags and
+recreate app from the same private env. Run the existing public browser suite with
+fresh evidence plus an authenticated post-restart turn. Do not count readiness
+checks as passing before then. **Phase 5/final submission is not ready.** No email sent.
+
+Recovery checkpoint: `v0.4.1-dev`, specifically an administrator-gated deployment.
+
+---
+
+# Initial Phase 4 implementation checkpoint — historical record
 
 **Status: PARTIAL / PUBLIC DEPLOYMENT BLOCKED.** No working public URL is available.
 The Web adapter, secure single-instance deployment configuration and smoke runner

@@ -4,8 +4,9 @@ Test repo for Snowflake. Interesting Try.
 
 Census analytics chat using Snowflake Cortex and a metadata-grounded catalog. The
 core Agent and isolated authenticated service are verified in Phases 1–3. The
-Streamlit Web adapter is implemented; **public deployment is currently blocked**.
-There is no working public URL to evaluate yet. See [Phase 4 report](docs/PHASE4_REPORT.md).
+Streamlit Web adapter is running at **https://census-104-248-239-52.sslip.io**.
+**Census login/data access remains blocked pending Snowflake administrator provisioning.**
+The entry point currently displays safe configuration unavailability, not a working demo. See [Phase 4 report](docs/PHASE4_REPORT.md).
 
 Reviewer browser steps are in [REVIEWER_ACCESS.md](docs/REVIEWER_ACCESS.md); operator
 setup, restricted identity, HTTPS, local durable SQLite and private token delivery

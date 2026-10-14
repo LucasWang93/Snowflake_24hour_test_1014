@@ -1,0 +1,15 @@
+{
+  "prior_source_evidence_hashes_preserved": 89,
+  "application_statistical_code_changed": false,
+  "development_env_ignored": true,
+  "development_env_tracked": false,
+  "development_env_mode": "0o600",
+  "new_Snowflake_data_or_Cortex_calls": 0,
+  "read_only_Snowflake_database_metadata_commands": 1,
+  "Snowflake_privileges_changed": false,
+  "deployed_authentication_data_acceptance": "blocked_waiting_operator",
+  "offline_passed": 169,
+  "live_skipped": 25,
+  "preflight_exit": 2,
+  "admin_SQL_public_key_DER_SHA256": "345f95799cfd5fb03e910d091296b971b0bdeafb036a9b04e90819e0199c3608"
+}

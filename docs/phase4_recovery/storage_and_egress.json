@@ -1,0 +1,15 @@
+{
+  "sqlite_survived_restart_and_container_recreation": true,
+  "control_directory_mode": "0o700",
+  "control_file_mode": "0o600",
+  "uid": 10001,
+  "administrator_gates": {
+    "permissions_reviewed": "0",
+    "exclusive_warehouse": "0"
+  },
+  "snowflake_outbound_tls": {
+    "verified": true,
+    "protocol": "TLSv1.3",
+    "scope": "TLS connectivity only; no authentication/data/model call"
+  }
+}

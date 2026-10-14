@@ -1,0 +1,63 @@
+RUN: Bash syntax: scripts/doctor.sh
+PASS: Bash syntax: scripts/doctor.sh
+RUN: Bash syntax: scripts/preflight.sh
+PASS: Bash syntax: scripts/preflight.sh
+RUN: Bash syntax: scripts/verify.sh
+PASS: Bash syntax: scripts/verify.sh
+SKIP: optional ShellCheck unavailable (Bash syntax checked)
+RUN: Ruff formatting
+35 files already formatted
+PASS: Ruff formatting
+RUN: Ruff lint
+All checks passed!
+PASS: Ruff lint
+RUN: pytest
+============================= test session starts ==============================
+platform linux -- Python 3.11.13, pytest-8.4.2, pluggy-1.6.0
+rootdir: /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014
+configfile: pyproject.toml
+collected 194 items
+
+tests/phase2/test_core.py .............................................. [ 23%]
+............                                                             [ 29%]
+tests/phase2/test_live.py ssssssssssssssss                               [ 38%]
+tests/phase3/test_reliability.py ........................                [ 50%]
+tests/phase4/test_deployment.py .......                                  [ 54%]
+tests/phase4/test_web.py ......................                          [ 65%]
+tests/test_aggregation.py ..................                             [ 74%]
+tests/test_geography.py ...........                                      [ 80%]
+tests/test_phase1_live.py sssssssss                                      [ 85%]
+tests/test_semantic_catalog.py ...............                           [ 92%]
+tests/test_snowflake_probe.py ..............                             [100%]
+
+======================= 169 passed, 25 skipped in 31.49s =======================
+PASS: pytest
+Verification: PASS (optional checks may be explicitly skipped above)
+INCOMPLETE: docs/DELIVERY_CHECKLIST.md contains pending work/unchecked items
+File-risk inspection complete; content-level secret detection is not performed.
+Documentation checks inspect structure/placeholders; human semantic review remains required.
+Uncommitted/untracked files (review before submission):
+ M README.md
+ M deploy/compose.yaml
+ M docs/ARCHITECTURE.md
+ M docs/DECISIONS.md
+ M docs/DELIVERY_CHECKLIST.md
+ M docs/DEPLOYMENT_RUNBOOK.md
+ M docs/DEVELOPMENT_VERSIONS.md
+ M docs/EVALUATION_PLAN.md
+ M docs/PHASE4_REPORT.md
+ M docs/PROGRESS.md
+ M docs/REVIEWER_ACCESS.md
+?? deploy/digitalocean_admin.sql
+?? docs/phase4_recovery/ADMIN_ACTION.md
+?? docs/phase4_recovery/database_kind.json
+?? docs/phase4_recovery/external_after_restart.json
+?? docs/phase4_recovery/external_initial.json
+?? docs/phase4_recovery/host_status.json
+?? docs/phase4_recovery/preflight.log
+?? docs/phase4_recovery/preservation.json
+?? docs/phase4_recovery/public_blocked.png
+?? docs/phase4_recovery/storage_and_egress.json
+?? docs/phase4_recovery/verify.log
+INCOMPLETE: working tree changes require review/intentional inclusion
+Readiness: INCOMPLETE — preparation only; challenge gates unverified (exit 2)

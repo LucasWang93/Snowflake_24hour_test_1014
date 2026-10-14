@@ -258,3 +258,17 @@ preserves failures. Record missing URL, live key-pair test and post-SSH persiste
 as blockers. Do not relabel existing Phase 3 live results as Phase 4 browser evidence.
 Deployment investigation stopped after identifying missing host/admin inputs; continue
 only when those change. Phase 4 is partial, not submission-ready.
+
+## 2026-10-14 — D-15: approved Droplet and safe gated deployment
+Accepted/implemented infrastructure. Reuse the user-supplied DigitalOcean host with
+existing single-instance Compose/Caddy design. Verified free sslip.io DNS and public
+Let's Encrypt certificate avoid a domain purchase; controlled DNS is preferable for
+longer-term operation. Existing SSH key/root access preserved, nonroot uploader login
+tested; only application container runs as UID 10001. Proxy uses reduced capabilities.
+
+Keep new service private key/tokens only on server and ship an explicit source allowlist.
+Add bounded proxy resources and rotated Docker logs without changing Agent behavior.
+Reboot patched host before launch; then test real SQLite continuity across app/proxy
+restart/recreation. A live healthy frontend is not data readiness: leave permission/
+warehouse attestations false until administrator review and new-identity tests. No
+development fallback, automatic PUBLIC revocation or new paid infrastructure.

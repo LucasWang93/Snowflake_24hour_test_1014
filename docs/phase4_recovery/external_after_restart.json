@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "2026-10-14T22:31:40.115747+00:00",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "external_client": "Yale client; no SSH tunnel used. Deployment launch/restart SSH commands had exited.",
+  "after_controlled_restart_and_recreate": true,
+  "https_http_status": 200,
+  "clean_browser_page_load": true,
+  "closed_configuration_boundary": true,
+  "reviewer_authentication": "blocked_pending_Snowflake_admin",
+  "real_Census_question": "not_run",
+  "follow_up": "not_run",
+  "unsupported": "not_run",
+  "authenticated_session_isolation": "not_run",
+  "live_rate_limits": "not_run",
+  "normal_authenticated_latency_seconds": null,
+  "page_load_seconds": 1.221,
+  "ssh_disconnect_and_container_restart": "infra_page_pass; authenticated_data_request_pending",
+  "visible_private_diagnostics": false
+}

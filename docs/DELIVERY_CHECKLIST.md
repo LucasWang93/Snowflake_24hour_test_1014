@@ -182,3 +182,27 @@ submission remain unchecked. Stop after Phase 3.
 - [ ] Full README/Reflection, final private reviewer permissions and authorized email.
 Local tests/configuration do not check AS-5/AS-17 as complete. Phase 4 is blocked, not
 ready for final submission. No paid service created, grants changed or email sent.
+
+## Phase 4 DigitalOcean recovery checkpoint — current
+- [x] Existing Droplet initialized with security updates, patched kernel, Docker/Compose
+  signed repository, boot enablement and successful controlled host reboot.
+- [x] Existing root SSH access preserved; nonroot deployment-user key access tested;
+  deploy user cannot read server secrets or control Docker.
+- [x] UFW only SSH/HTTP/HTTPS; one nonroot app + one proxy, resource/log bounds,
+  private mounts and one persistent control volume; public 8501 blocked.
+- [x] Actual image build, dependency check, Compose validation/launch and Caddy validation.
+- [x] Public trusted HTTPS URL/redirect/headers and clean external browser page verified:
+  https://census-104-248-239-52.sslip.io (currently safe unconfigured page).
+- [x] Actual SQLite control-probe session survived controlled restart/recreation;
+  mode 700/600; public page available after launch SSH exits.
+- [x] Server-only Snowflake key and reviewer tokens generated without exposing values;
+  exact public-key administrator SQL and permission-review action provided.
+- [ ] Administrator provisions/reviews restricted key-pair identity and PUBLIC baseline,
+  confirms exclusive existing warehouse; current confirmation flags remain false.
+- [ ] Actual hosted-identity SELECT/Cortex/grant/suspension validation.
+- [ ] Real reviewer login, questions/follow-up/unsupported/isolation/rate/privacy/latency
+  and authenticated post-restart acceptance against deployed URL.
+- [ ] Phase 4 acceptance / readiness for Phase 5 or final submission.
+Earlier no-host/no-URL notes are historical. Physical hosting is ready; functional
+Census deployment is still blocked. Existing 169 offline passes/25 skips and prior
+real tests do not replace the unrun deployed data/auth cases. No final email.

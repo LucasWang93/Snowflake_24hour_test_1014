@@ -1,9 +1,13 @@
 # Reviewer access
 
-**Deployment pending. Public HTTPS URL: not available.** Do not treat localhost or
-the source repository as the running demo. Phase 4 external acceptance is incomplete.
+**Public entry point: https://census-104-248-239-52.sslip.io**
 
-Once the operator records the tested URL here, open it in a browser and enter the
+HTTPS and browser loading are verified. **Census login/data access is currently
+blocked pending Snowflake administrator provisioning/review.** The page reports safe
+configuration unavailability. This is not yet an accepted running Census demo.
+Reviewers should wait for operator confirmation before using the steps below.
+
+After the operator confirms the Snowflake blocker is cleared, open the URL and enter the
 reviewer access token delivered through the private handoff. Tokens are never stored
 in Git or embedded in a page/URL. No application installation is required for reviewers.
 
@@ -22,3 +26,9 @@ model-call-unit daily allowance. Requests aim to finish within 55s backend deadl
 no deployment SLA is claimed before measurement. Operator intervention may be needed
 after an uncertain timeout. Never send Snowflake passwords, private keys or other
 secrets in chat. Final submission email has not been sent.
+
+The operator holds individual tokens in the private Droplet handoff directory; they
+are not included here or in Git. Droplet: 104.248.239.52; existing SSH key authentication
+remains functional. Request a token via the approved private handoff once enabled.
+An owned DNS hostname can later replace the temporary sslip.io hostname. No final
+submission email or reviewer repository-access change has been performed.

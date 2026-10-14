@@ -269,3 +269,14 @@ approved public-service capability. Sites Workers cannot execute the retained Py
 process/file model; Render paid disk is an explicit-cost alternative, not provisioned.
 See DEPLOYMENT_RUNBOOK.md and PHASE4_REPORT.md. External URL, browser E2E and post-SSH
 availability remain blocked. No multi-host or production-ready claim.
+
+## DigitalOcean recovery — current physical deployment
+The user selected the existing Droplet 104.248.239.52. One Docker app (UID 10001) and
+one Caddy proxy now run, with existing SQLite volume/process-isolation architecture.
+Trusted HTTPS and externally closed 8501 are measured, as are restart/volume continuity
+for the control probe. Per-container memory/CPU/PID and log rotation bounds are set.
+No Agent/catalog/Web Python functionality changed. Service source is 08e5bfb with
+checkpointed Compose hardening; exact image hashes are in phase4_recovery/host_status.json.
+The frontend at https://census-104-248-239-52.sslip.io deliberately fails closed while
+admin flags remain false. Restricted identity/PUBLIC review and actual data/auth E2E
+are still blocked. Physical hosting is implemented; full application readiness is not.

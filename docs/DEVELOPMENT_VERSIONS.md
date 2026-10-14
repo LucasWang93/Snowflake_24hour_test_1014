@@ -34,3 +34,12 @@ Application remains v0.4.0-dev, unchanged. No resources/permissions/billing or D
 changes; no repeated full tests because implementation is unchanged. Prior tracked
 files were verified unchanged before appending these two checkpoint/handoff records;
 79 preservation hashes still match. Resource creation requires explicit new approval.
+
+## v0.4.1-dev — DigitalOcean HTTPS infrastructure recovery
+Tag v0.4.1-dev records the actual Droplet build/launch, trusted public HTTPS, clean
+external browser unavailable-page and SQLite restart/recreation evidence, plus bounded
+proxy/log configuration and exact public-key administrator SQL. Agent/catalog/Web
+Python source and previous evidence unchanged. 169 offline passed /25 live skips.
+Source deployed from 08e5bfb plus this checkpoint's Compose hardening; running image
+hashes are recorded separately. Admin flags remain false; no real hosted data/auth
+acceptance or Phase 4 completion claimed. Snowflake grants/billing unchanged.

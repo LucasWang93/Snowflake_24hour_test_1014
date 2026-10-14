@@ -1,0 +1,60 @@
+{
+  "started_at_utc": "2026-10-14T22:27:52.162363+00:00",
+  "url": "https://census-104-248-239-52.sslip.io",
+  "scope": "External Yale client; actual deployed TLS/HTTP and clean browser, application identity gates intentionally closed",
+  "tls": {
+    "verified": true,
+    "protocol": "TLSv1.3",
+    "issuer": [
+      [
+        [
+          "countryName",
+          "US"
+        ]
+      ],
+      [
+        [
+          "organizationName",
+          "Let's Encrypt"
+        ]
+      ],
+      [
+        [
+          "commonName",
+          "YE2"
+        ]
+      ]
+    ],
+    "notBefore": "Oct 14 21:28:24 2026 GMT",
+    "notAfter": "Jan 12 21:28:23 2027 GMT",
+    "subjectAltName": [
+      [
+        "DNS",
+        "census-104-248-239-52.sslip.io"
+      ]
+    ]
+  },
+  "http_redirect": {
+    "status": 308,
+    "location": "https://census-104-248-239-52.sslip.io/"
+  },
+  "https": {
+    "status": 200,
+    "headers": {
+      "Strict-Transport-Security": "max-age=31536000",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "no-referrer",
+      "X-Frame-Options": "DENY"
+    }
+  },
+  "port_8501_externally_open": false,
+  "browser": {
+    "http_status": 200,
+    "heading_visible": true,
+    "safe_configuration_failure": true,
+    "reviewer_login_visible": false,
+    "private_diagnostics_visible": false,
+    "seconds": 1.258
+  },
+  "finished_at_utc": "2026-10-14T22:27:58.625333+00:00"
+}

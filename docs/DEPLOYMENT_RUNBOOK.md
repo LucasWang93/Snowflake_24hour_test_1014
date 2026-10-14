@@ -1,8 +1,31 @@
 # Single-instance deployment runbook
 
-Status: application/configuration implemented; no approved host/domain or restricted
-Snowflake key-pair identity supplied. **No public URL exists or has been tested.**
-Phase 4 is blocked on those inputs, not accepted as a deployed application.
+Current host: DigitalOcean 104.248.239.52; Ubuntu 24.04, Docker 29.9.1,
+Compose 5.6.0. HTTPS entry point **https://census-104-248-239-52.sslip.io** is deployed
+and externally verified. **It currently fails closed because Snowflake administrator
+provisioning/review is still pending; it is not a working Census demo.**
+
+Current release path `/opt/census/releases/08e5bfb`, symlink `/opt/census/current`;
+application source from 08e5bfb, Compose hardening from the v0.4.1-dev checkpoint.
+Operator commands run as root over existing SSH key; `census-deploy` can upload code
+but has no Docker group/secret-file access. Server-only paths:
+`/etc/census/compose.env`, `/etc/census/app.env` (mode 600),
+`/etc/census/snowflake.p8` (mode 400 UID 10001),
+`/var/lib/census-operator/reviewers` (private reviewer handoff).
+Never display env/private-key/token file contents in logs or Git.
+
+```bash
+ssh -i ~/.ssh/id_ed25519_ace_mr root@104.248.239.52
+cd /opt/census/current
+docker compose --env-file /etc/census/compose.env -p census -f deploy/compose.yaml ps
+# After approved configuration changes, preserve volumes and use:
+docker compose --env-file /etc/census/compose.env -p census -f deploy/compose.yaml up -d
+```
+
+Do not use `down -v` or delete the control DB. Docker itself was observed active after
+host security reboot. Both containers have restart policies; app/proxy controlled
+restart and recreation preserved a real SQLite control probe. Authenticated data
+availability remains unverified until the administrator blocker is resolved.
 
 ## Hosting choice
 
@@ -86,15 +109,16 @@ files outside the checkout and prints paths only. Repeat with distinct principal
 names. Merge digest mappings into the server's `CENSUS_REVIEWER_DIGESTS` JSON value,
 max 32 principals. Distribute each token through an approved private handoff; do not
 print it in terminal logs or put it in URLs, source, README or submission Git history.
-No actual reviewer token was generated for hosting in this phase. Test tokens are
+Two actual reviewer token/digest pairs now exist only in the protected server handoff
+directory; no token values were printed or committed. Existing test tokens remain
 explicit offline fixtures. Revocation removes the digest and restarts the app;
 persist SQLite so budgets/quarantine survive. Use distinct tokens for independent
 reviewers; shared tokens intentionally share one principal's rate quota.
 
 ## Launch (only on the approved host)
 
-Install Docker/Compose there through the host operator; none is installed on the
-current Slurm node. Set only nonsecret path/domain shell variables:
+Docker/Compose are now installed and boot-enabled on the Droplet; none was installed
+on the Slurm node. Set only nonsecret path/domain shell variables:
 
 ```bash
 export CENSUS_DOMAIN=census.your-approved-domain.example
@@ -109,12 +133,14 @@ Do not print `docker compose config`, container inspect/env or secret files; the
 expand secrets. Only Caddy publishes ports. Restrict host firewall to needed inbound
 ports; deny external 8501. Ensure Docker itself starts on host boot. Both services use
 `restart: unless-stopped`; app has a 70s stop grace, process limits and private local
-volume. Actual restart/availability behavior is **pending verification**. HTTPS/XSRF/
+volume. Infrastructure restart and SQLite-volume behavior have passed; authenticated
+Census availability is still pending. HTTPS/XSRF/
 CORS stay enabled; static serving is disabled, traceback details hidden, telemetry off.
 
 The image copies only code, catalog, web requirements and Streamlit configuration;
 `.dockerignore` additionally excludes credentials, Git and all evaluation diagnostics.
-Docker build/Compose/Caddy validation have **not run** on this node (tools absent).
+Docker image build, Compose config/launch and Caddy validation have passed on
+Droplet. They were not run on the Slurm node.
 Streamlit health is liveness only; it does not establish configuration/data readiness.
 
 ## Reviewer access and smoke verification
@@ -157,3 +183,27 @@ warehouse while public traffic is active. A lost process/uncertain cleanup quara
 admission. Stop traffic, independently verify no active server queries and suspended
 warehouse, then use existing trusted `recover_after_operator_check`; never expose it
 as a public endpoint or clear quarantine by deleting the DB. No automatic unsafe recovery.
+
+## DigitalOcean administrator blocker and unlock
+
+The actual imported database type was verified read-only. Use
+`deploy/digitalocean_admin.sql` (matching `/etc/census/admin_provision.sql`) to provision
+the restricted role/service user with the server-generated public key and EXISTING
+warehouse. This has not been executed by Codex. The private key stays on Droplet.
+Review PUBLIC's inherited learning role and other account privileges; see
+`phase4_recovery/ADMIN_ACTION.md`. Do not claim effective read-only access or set the
+review flag merely because a role has READONLY in its name.
+
+`CENSUS_PERMISSIONS_REVIEWED=0` and `CENSUS_EXCLUSIVE_WAREHOUSE=0` deliberately remain
+in server config until actual operator confirmations. After provisioning, use the
+existing backend/agent with the new identity in an agreed maintenance window for one
+bounded reference question (ACS 2020 Autauga population 55,639), verifying actual
+Cortex/data query IDs, role context and cleanup. Do not use development credentials.
+Then update only the two confirmation flags through protected server config and
+recreate the app, preserving the named volume. Run the external smoke suite using
+private reviewer token transport; do not paste tokens into shell arguments/chat/Git.
+
+Current hostname uses sslip.io and a publicly trusted Let's Encrypt certificate.
+Caddy handles renewal using persistent caddy_data. For an owned domain, create an A
+record to 104.248.239.52, ensure any AAAA reaches this same service, update
+CENSUS_DOMAIN/CENSUS_HTTPS_ORIGIN together and reverify TLS/XSRF/WebSocket behavior.

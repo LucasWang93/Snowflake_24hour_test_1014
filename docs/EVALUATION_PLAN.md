@@ -293,3 +293,14 @@ and storage persistence need separate actual host evidence. Health HTTP 200 alon
 is liveness, not readiness. Ten Phase 4 external checks remain pending. No repeated
 Phase 1 discovery or Phase 2/3 full real evaluations; historical artifacts unchanged.
 See PHASE4_REPORT.md for measured local commands/results and any initial test defects.
+
+## Phase 4 DigitalOcean recovery — actual partial public evidence
+New artifacts in phase4_recovery: real Docker/host status and file modes; external
+client TLSv1.3/Let's Encrypt SAN/expiry/HTTP 308/200/security headers/closed 8501; clean
+Chromium page loads 1.258s and 1.221s after controlled restart/recreation; no private
+diagnostics on the observed unavailable page. Actual SQLite session persisted with
+private permissions, not a mocked data answer. Outbound Snowflake TLS is connectivity
+only. Public acceptance 1 passes; 8 and 10 have infrastructure-only evidence. Cases
+2–7/9 and authenticated scope of 8/10 remain BLOCKED/UNRUN pending administrator action.
+169 offline passes/25 live skips remain regression, not deployed factual results.
+No previous real evaluations/scans rerun. Preserve initial Phase 4 and SPCS evidence.

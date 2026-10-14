@@ -29,6 +29,11 @@ services:
       - no-new-privileges:true
     cap_drop:
       - ALL
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
   proxy:
     image: caddy:2.10.2-alpine
     restart: unless-stopped
@@ -44,6 +49,20 @@ services:
     depends_on:
       app:
         condition: service_healthy
+    mem_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    logging:
+      driver: local
+      options:
+        max-size: "10m"
+        max-file: "3"
 volumes:
   census_control:
   caddy_data:
