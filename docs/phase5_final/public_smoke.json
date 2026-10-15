@@ -1,0 +1,33 @@
+{
+  "url": "https://census-104-248-239-52.sslip.io",
+  "checks": [
+    {
+      "case": "https_clean_client",
+      "passed": true,
+      "status": 200,
+      "seconds": 1.1494
+    },
+    {
+      "case": "reviewer_authentication",
+      "passed": true
+    },
+    {
+      "case": "grounded_question",
+      "question": "Using ACS release 2020, what is the total population of Autauga County, Alabama?",
+      "answer": "smart_toy\ncheck\n\nRequest complete\n\nAutauga County, Alabama: 55,639. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2020; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2020 \u00b7 acs_detailed\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 26.44 seconds",
+      "expected": "55,639",
+      "seconds": 27.0405,
+      "passed": true
+    },
+    {
+      "case": "contextual_followup",
+      "question": "And in 2019?",
+      "answer": "smart_toy\ncheck\n\nRequest complete\n\nAutauga County, Alabama: 55,380. Metric: Total Population \u2014 Total; universe: Total population. Year/release: 2019; statistical source: acs_detailed; field: B01003e1 (estimate). ACS prefix year is a provider release label; the survey interval is unverified. These are estimates, not decennial counts. Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2019 \u00b7 acs_detailed\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 12.15 seconds",
+      "expected": "55,380",
+      "seconds": 12.9892,
+      "passed": true
+    }
+  ],
+  "scope": "Two-turn deployed regression smoke; not held-out accuracy.",
+  "passed": true
+}

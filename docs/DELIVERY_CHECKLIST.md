@@ -1,5 +1,73 @@
 # Delivery checklist
 
+Current: Phase 5 final preparation; **not ready to submit**. Live demo and technical
+package are verified; private repository/reviewer access and submission metadata
+remain blockers. Earlier snapshots below are historical, not current assertions.
+
+## Functional
+- [x] AS-1/AS-2/AS-3: supported grounded Cortex agent, explicit context and multi-turn;
+  Phase 2 real16-test evidence and fresh public two-turn regression preserved.
+- [x] AS-5/AS-17/AS-18: public authenticated HTTPS UI, loading/provenance, actual
+  deployment and restart acceptance in PHASE4_REPORT.md; final external smoke passes.
+- [x] SF/P1: existing data/catalog/geography/statistical foundation and evidence preserved.
+- [ ] AS-16: universal semantic coverage is not claimed;296 undefined fields quarantined,
+  unsupported geography/aggregations and cross-table questions explicitly disclosed.
+
+## Reliability
+- [x] Bounded workers/connections, owner-isolated state, canonical SQL and safe failure
+  responses; regression and real Phase 3/4 evidence retained.
+- [x] AS-12: final browser27.0405s/12.9892s, both under60s; no SLA/p95 claim.
+- [x] Final packaging does not change/restart the deployed service or SQLite state.
+- [ ] Administrator confirms actual Snowflake trial-credit headroom/monitor assignment.
+
+## Evaluation
+- [x] AS-6: final191 offline passes /25 opt-in live skips, Ruff and dependency checks pass.
+- [x] First independent19/25 and later25/25 regression clearly distinguished; failures retained.
+- [x] Ground-truth SQL, mocked outage tests and real integration evidence labeled.
+- [x] Final HTTPS/login and one real question/contextual follow-up verified externally.
+- [ ] Sustained load, broad new held-out accuracy, p95/cost and third-party security audit.
+
+## Security
+- [x] No high-confidence secret findings in reachable Git history and eligible worktree;
+  current reviewer tokens checked by exact match; .env ignored. Scan scope documented.
+- [x] Public adapter uses production secrets/AGENT_PROD/APP_ROLE/NONE without dev fallback;
+  private diagnostics excluded. No new grants, secret rotation or safety-limit changes.
+- [ ] P1 residual: administrator reviews PUBLIC learning-role inheritance and grants
+  APP_ROLE explicit OPERATE before safely removing inherited cleanup access.
+- [ ] Change public GitHub repository to Private and verify effective reviewer access.
+
+## Documentation
+- [x] AS-7: final README includes live access, architecture, source, setup, tests and limits.
+- [x] AS-8: root REFLECTION.md covers all four PDF topics, AI use and actual evidence.
+- [x] AS-11: original PDF reconciliation and30 unique IDs with verification methods checked.
+- [x] Architecture/decisions/evaluation/progress and Phase5 report synchronized.
+
+## Reproducibility
+- [x] Existing actual Docker build/install/launch and restart evidence retained; deployment
+  remains v0.4.4-dev. No fresh local install is claimed from the existing environment.
+- [x] Offline search example, doctor, verify, pip check and preflight actually executed.
+- [x] All implementation code/config and evidence included; no secret/runtime state packaged.
+- [ ] Gate E complete delivery: private access, receipt/deadline/recipient and private
+  demo credential handoff still need confirmation. Preflight exit2 is incomplete.
+
+## Submission
+- [ ] AS-9: repository private (GitHub API currently private=false).
+- [ ] AS-9: all11 exact PDF reviewers have effective private access; each unverified
+  invitation/access state listed in PHASE5_REPORT.md. Pending invitation is not access.
+- [ ] AS-10: actual assignment receipt/timezone, deadline=receipt+24h and recipient confirmed.
+- [x] Token-free email draft prepared in SUBMISSION_EMAIL_DRAFT.md; no send/schedule.
+- [ ] Existing demo token included through private channel with actual submission;
+  never include Snowflake credentials. Retrieval steps in REVIEWER_ACCESS.md.
+- [ ] Final email explicitly authorized and sent; intentionally not part of this phase.
+
+Gate status: A source/rules understood, absolute timing incomplete; B supported slice
+verified; C tested functional/edge cases pass; D bounded evaluation/failures documented;
+E full delivery blocked. Passing tests do not establish complete assignment coverage.
+
+---
+
+# Historical delivery checklist snapshots
+
 Status: Phase 1 foundation verified within bounded scope; full homework is not ready
 for delivery. The official five-page PDF is now reconciled (AS-11); IDs and page references
 are in CHALLENGE_SPEC.md. Phase 2 core agent is implemented; targeted live acceptance passed.
@@ -10,7 +78,7 @@ Checked items below are supported by inspected source/tests/artifacts or the fre
 offline test run. Historical Phase 1 live evidence is labeled and preserved. Phase 2 adds bounded
 Cortex/data calls with separate artifacts. Planned items stay unchecked.
 
-## Functional
+### Functional
 - [x] SF-1/SF-2/SF-3: historical connector context, 71 tables + 2 views, 73 exact counts,
   three schemas and samples independently inspected in stored evidence.
 - [x] SF-4: historical availability of three Cortex models and one unknown-model
@@ -32,7 +100,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [x] Gate B (core slice): actual Cortex -> validated SQL -> grounded answer verified.
   Public UI and real external multi-turn/restart acceptance now pass (Phase 4).
 
-## Reliability
+### Reliability
 - [x] Existing probe/config boundaries have deterministic tests; Phase 1 search,
   geography and aggregation reject implemented invalid/unsupported cases.
 - [x] SF-5: historical live cleanup ended with SUSPENDED; query IDs/state inspected.
@@ -44,7 +112,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [x] Core recovery preserves successful state and avoids automatic retries; unit tests.
 - [ ] Whole-application P0/P1 hardening review completed; deferred P2 issues documented.
 
-## Evaluation
+### Evaluation
 - [x] P1-6: fresh offline run: 58 passed, nine live tests explicitly skipped, exit 0.
   The 58 include 44 Phase 1 offline cases and 14 existing connector helper cases.
 - [x] P1-6: saved real integration run independently inspected: nine passed tests,
@@ -57,7 +125,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [ ] Gate C: whole-application functional and edge-case tests pass (Phase 1 portion does).
 - [ ] Gate D: complete agent evaluation and meaningful failure analysis finish.
 
-## Security
+### Security
 - [x] SF-6: source/tests support owner-only config loading and redaction; earlier
   ignore/mode checks recorded; sync also checked ignored/untracked/mode 600 without
   reading values and found no documentation credential-assignment/key/token patterns.
@@ -72,7 +140,7 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
   mode and direct-user access documented, without claiming least privilege.
 - [ ] Deployment threat model, restricted identity and hosted concurrency reviewed.
 
-## Documentation
+### Documentation
 - [x] Five engineering documents now separate actual Phase 1 from planned components
   and map reconciled official/user obligations to unique requirement IDs and verifications.
 - [x] Valid setup/Phase 1 decisions, evidence, assumptions, tradeoffs and risks preserved.
@@ -83,14 +151,14 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [ ] AS-8: Reflection exists and matches official format/content with actual decisions
   and measured evidence; no Reflection artifact has been verified.
 
-## Reproducibility
+### Reproducibility
 - [x] Phase 1 report describes offline catalog build/search and opt-in real test commands.
 - [x] Deterministic catalog rebuild/exact-schema and malformed-input tests pass.
 - [ ] AS-7/Gate E: clean checkout installation, example, tests and final application
   reproduction verified by a reviewer; current environment is already configured.
 - [ ] Full verification, submission packaging and independent complete delivery review.
 
-## Submission
+### Submission
 - [x] AS-5: publicly accessible deployed UI, confirmed from fresh external browser
   contexts with actual authenticated data, multi-turn usage and safe unsupported errors.
 - [ ] AS-9: exact GitHub reviewer identities/permissions confirmed against PDF and
@@ -105,14 +173,14 @@ Cortex/data calls with separate artifacts. Planned items stay unchecked.
 - [ ] Final deployment/push/sharing/email actions explicitly authorized; none is
   authorized merely by this documentation checklist.
 
-## Historical checkpoint — Phase 2 status
+### Historical checkpoint — Phase 2 status
 Core local interface, Cortex semantics, canonical SQL validation, grounded answers,
 explicit state and failure handling are implemented. Six questions across five families, three conversations and SQL safety pass: 16
 real tests; 58 Phase 2 offline checks. PHASE2_REPORT.md records actual acceptance; the complete PDF delivery is still pending.
 No public deployment, commit/push, reviewer-sharing or email action is performed.
 Stop after Phase 2; do not automatically start Phase 3.
 
-## Historical checkpoint — Post-PDF obligations
+### Historical checkpoint — Post-PDF obligations
 - [x] AS-12 (measured Phase 2 cases): all 21 turns under 60s, individual timings retained.
 - [x] AS-13 (core tested boundary): dedicated off-topic/inappropriate intent validation and graceful refusals.
 - [x] AS-14: required Marketplace source access already verified; fallback not used.
@@ -124,7 +192,7 @@ Stop after Phase 2; do not automatically start Phase 3.
 Reviewer handles and reflection's four required content areas are recorded in the
 reconciliation report. No deployment, sharing or email action is performed here.
 
-## Historical checkpoint — Phase 2 acceptance and checkpoint
+### Historical checkpoint — Phase 2 acceptance and checkpoint
 - [x] Five metric families, six real questions, three multi-turn scenarios and
   independent reference SQL comparisons passed (final job 2847530, 16 tests).
 - [x] Answer numbers checked against actual SQL, provenance/query IDs retained;
@@ -138,7 +206,7 @@ reconciliation report. No deployment, sharing or email action is performed here.
 Development commits/pushes are now explicitly authorized by the user; deployment,
 reviewer-sharing changes and submission email are not part of this checkpoint.
 
-## Phase 3 reliability / deployment readiness
+### Phase 3 reliability / deployment readiness
 - [x] Core process/thread ownership and overlap/reset guards preserve regression APIs.
 - [x] Authenticated per-owner state, fresh request-worker connections and shared
   atomic single-warehouse admission avoid unsafe connection/state overlap.
@@ -164,7 +232,7 @@ Final Phase 3 scope is complete, not the complete homework/public delivery. Offl
 security, restricted identity, hosting, README/Reflection, reviewer access and final
 submission remain unchecked. Stop after Phase 3.
 
-## Historical checkpoint — Phase 4 current status (not public-deployment acceptance)
+### Historical checkpoint — Phase 4 current status (not public-deployment acceptance)
 - [x] Streamlit interactive chat over AgentService; bounded per-browser history,
   progress/status, reset/logout, safe errors and source/product/release provenance.
 - [x] Shared existing auth/SQLite admission/process isolation and unchanged budgets;
@@ -186,7 +254,7 @@ submission remain unchecked. Stop after Phase 3.
 Local tests/configuration do not check AS-5/AS-17 as complete. Phase 4 is blocked, not
 ready for final submission. No paid service created, grants changed or email sent.
 
-## Historical checkpoint — Phase 4 DigitalOcean recovery checkpoint — current
+### Historical checkpoint — Phase 4 DigitalOcean recovery checkpoint — current
 - [x] Existing Droplet initialized with security updates, patched kernel, Docker/Compose
   signed repository, boot enablement and successful controlled host reboot.
 - [x] Existing root SSH access preserved; nonroot deployment-user key access tested;
@@ -210,7 +278,7 @@ Earlier no-host/no-URL notes are historical. Physical hosting is ready; function
 Census deployment is still blocked. Existing 169 offline passes/25 skips and prior
 real tests do not replace the unrun deployed data/auth cases. No final email.
 
-## Historical checkpoint — Current production identity checkpoint (supersedes key-pair provisioning requirement)
+### Historical checkpoint — Current production identity checkpoint (supersedes key-pair provisioning requirement)
 - [x] AGENT_PROD password provisioned only in owner-only deployment environment;
   production adapter rejects CODEX_APP and never loads development .env.
 - [x] Explicit authentication methods; missing/mixed credentials fail closed; optional
@@ -222,7 +290,7 @@ real tests do not replace the unrun deployed data/auth cases. No final email.
 - [ ] Live named-role/NONE SELECT/Cortex/cleanup and authenticated public ten-point suite.
 - [ ] Final public demo acceptance and submission prerequisites. No Phase 5/email.
 
-## Current Phase 4 functional acceptance — 2026-10-14
+### Current Phase 4 functional acceptance — 2026-10-14
 - [x] Live trusted HTTPS https://census-104-248-239-52.sslip.io and real reviewer login.
 - [x] AGENT_PROD/APP_ROLE/secondary NONE, environment-only production credentials;
   local CODEX_APP uses DEV_WH. No development .env in the deployed app.

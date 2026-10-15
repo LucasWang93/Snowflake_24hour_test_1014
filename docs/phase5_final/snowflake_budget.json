@@ -1,0 +1,8 @@
+{
+  "context": "AGENT_PROD / APP_ROLE / SECONDARY NONE, bounded metadata-only connector inspection",
+  "commands": ["USE SECONDARY ROLES NONE", "SHOW RESOURCE MONITORS LIKE 'HOMEWORK_GUARD'", "SHOW WAREHOUSES LIKE 'SNOWFLAKE_LEARNING_WH'"],
+  "resource_monitor": {"rows": []},
+  "warehouse": {"name": "SNOWFLAKE_LEARNING_WH", "state": "SUSPENDED", "type": "STANDARD", "size": "X-Small", "auto_suspend": "60", "resource_monitor": "null"},
+  "credit_headroom": "UNVERIFIED: no monitor visible to application role and warehouse reports resource_monitor null. Administrator must confirm remaining trial credits and monitor assignment. Application call units do not establish monetary headroom.",
+  "changes": "No object/grant/monitor changes; no scan or Cortex inference in this inspection. Warehouse state is an observation, not continuous monitoring."
+}

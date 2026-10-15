@@ -1,0 +1,14 @@
+{
+  "observed_at_utc": "2026-10-15T00:04:55.017351+00:00",
+  "doctor_exit": 0,
+  "verify_exit": 0,
+  "offline_passed": 191,
+  "live_skipped": 25,
+  "pip_check_exit": 0,
+  "preflight_exit": 2,
+  "preflight_reason": "Incomplete delivery checklist and precommit worktree; no test/lint failures.",
+  "application_changes": false,
+  "service_restart": false,
+  "email_sent": false,
+  "new_resources_or_grants": false
+}

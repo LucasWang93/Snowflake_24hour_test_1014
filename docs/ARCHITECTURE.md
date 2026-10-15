@@ -320,3 +320,11 @@ Backend close skips only a duplicate suspension already confirmed on that connec
 Any SQL attempt or new connection invalidates the flag; failure/quarantine rules stay
 unchanged. Current release latency-20261014 preserves the same SQLite volume and
 operational limits. See PHASE4_LATENCY.md for modest measured gain and remaining costs.
+
+## Phase 5 packaging boundary
+No application architecture changed. README/Reflection and final submission audit
+now describe the actual deployed system. Fresh external two-turn regression passed;
+original Phase 1–4 evidence is retained. Repository privacy/reviewer access, absolute
+submission metadata, credit visibility and the inherited-permission residual remain
+open in PHASE5_REPORT.md. Documentation packaging does not restart production or
+change its persistent control database/secrets.

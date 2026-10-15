@@ -1,10 +1,12 @@
 # Evaluation plan
 
-Status: configuration/Phase 1 evidence preserved; Phase 2 core agent implemented
-accepted; Phase 3 independent/reliability evaluation completed. Phase 4 UI/configuration is locally tested; public deployment remains blocked. CHALLENGE_SPEC.md is the canonical requirement
-register. Official PDF has been read and reconciled; AS-11 source audit is complete.
-Historical synchronization notes below describe the prior state. Phase 2 tests have run; public deployment tests remain a later phase.
-No remote discovery or Cortex tests were rerun during documentation synchronization.
+Status: Phases 1–4 evidence is preserved; the authenticated public demo is live.
+Phase 5 final checks: 191 offline passes /25 opt-in skips, dependency/lint checks,
+public HTTPS login and two actual grounded conversational turns. Original independent
+19/25 and subsequent 25/25 regression remain distinct. GitHub privacy/access and
+absolute submission metadata remain unresolved; see PHASE5_REPORT.md.
+Earlier phase sections retain their historical results, including deployment blocks
+that were subsequently resolved. No new data discovery or full Cortex evaluation.
 
 ## Dimensions
 Current checks cover catalog coverage/provenance, exact schema, lexical retrieval,
@@ -81,20 +83,20 @@ canonical register; prior provisional-table notes are historical.
 | AS-2 | Scripted follow-ups change geography/year/metric explicitly; corrections/reset work; two sessions never share state | Phase 2 three-scenario tests implemented |
 | AS-3 | Bounded real Cortex intent/catalog-choice calls; answers deterministic plus routing inspection; validate chosen IDs/structured outputs; retain existing availability evidence | Phase 2 real planner/choice and mock failure tests implemented |
 | AS-4 | Reject write/DDL/multiple statements/system access/noncatalog IDs and prompt injection before SQL execution; clarify ambiguous county/year/universe; test timeout, empty result, unknown model, retry bounds and safe cleanup | Phase 2 canonical SQL rejection and mock recovery tests implemented |
-| AS-5 | Public login page, invalid/valid reviewer auth, actual grounded multi-turn, UI/server credential separation | Local AppTest implemented/passing; external deployment blocked |
-| AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | First Phase 3 held-out 19/25; regression 25/25; broader/hosted evaluation pending |
-| AS-7 | Fresh checkout with documented dependencies and exact setup/run/test/example commands succeeds | Pending README/reproduction |
-| AS-8 | Reflection matches PDF format and accurately explains actual design, evidence, limits and tradeoffs | Pending artifact review |
-| AS-9 | Exact reviewer accounts have required effective repository access | Pending permissions verification; no access mutation authorized here |
+| AS-5 | Public login page, invalid/valid reviewer auth, actual grounded multi-turn, UI/server credential separation | Phase 4 external acceptance passed; final Phase 5 HTTPS/login/two-turn smoke passed |
+| AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | First Phase 3 independent 19/25; regression 25/25; Phase 4 hosted acceptance; broader fresh held-out work remains |
+| AS-7 | Fresh checkout with documented dependencies and exact setup/run/test/example commands succeeds | Final README reviewed; existing real Docker build and current offline example/checks; no new clean local install claim |
+| AS-8 | Reflection matches PDF format and accurately explains actual design, evidence, limits and tradeoffs | Root REFLECTION.md four-topic/evidence review complete |
+| AS-9 | Exact reviewer accounts have required effective repository access | BLOCKED: API private=false; all 11 effective-access states unverified |
 | AS-10 | PDF-confirmed recipient/deadline/content/links; authorized send and receipt | Pending submission check; no email sent |
 | AS-11 | Five-page PDF reconciliation, 30 unique IDs with page/source and nonempty verification | Complete; absolute receipt/recipient remain open |
 | AS-12 | Each real turn measured including model, query and cleanup; assert <60s | Phase 2 live assertions; no production SLA |
 | AS-13 | Local rejection plus structured domain classification; unsafe/off-topic cases produce no data SQL | Phase 2 unit/live cases |
 | AS-14 | Existing Marketplace evidence and actual core data queries; fallback unused | Source access verified |
-| AS-15 | All implementation files included in final private-repo submission manifest | Core checkpoints packaged; final application pending |
+| AS-15 | All implementation files included in final private-repo submission manifest | All implemented source/config included in checkpoints; final docs prepared |
 | AS-16 | Full catalog family/schema tests, dynamic candidates, exact filters, undefined fields quarantined | Partial: 296 unknown fields and unsupported calculations |
-| AS-17 | `scripts/deployment_smoke.py` with two fresh browser contexts, HTTPS URL and private token files; separate post-SSH probe | Runner implemented; actual public checks unrun/blocked |
-| AS-18 | CLI callbacks and Streamlit status feedback, disabled busy input, graceful refusals | Local Web adapter implemented/tested; deployed UX pending |
+| AS-17 | `scripts/deployment_smoke.py` with two fresh browser contexts, HTTPS URL and private token files; separate post-SSH probe | Phase 4 actual external acceptance/restart passed; final Phase 5 two-turn smoke passed |
+| AS-18 | CLI callbacks and Streamlit status feedback, disabled busy input, graceful refusals | Actual deployed loading/provenance observed in Phase 4; public follow-up reconfirmed |
 
 SQL security is enforced by canonical recompilation and exact equality, beyond
 quoting alone. Implemented negative cases include
@@ -359,3 +361,24 @@ Public HTTPS real question 12.9913s, contextual follow-up 13.0160s, guarded refu
 cache/invalidation/cleanup tests and 191 full offline passes /25 explicit live skips.
 Old Phase 1–4 real evidence remains unchanged. See PHASE4_LATENCY.md for commands,
 profiling conditions, initial fixture failure and remaining runtime/permission limits.
+
+## Phase 5 final preparation — 2026-10-14 America/New_York
+- AS-7/AS-8: completed README and four-topic Reflection, checked against PDF and source.
+- AS-1/AS-2/AS-5/AS-12/AS-17: fresh external clean Chromium HTTPS 200/login;
+  ACS 2020 Autauga 55,639 in 27.0405s; contextual 2019 answer 55,380 in 12.9892s.
+  These are browser timings; visible service timings were 26.44s/12.15s. This is a
+  deployment regression using earlier independently verified SQL values, not a new
+  held-out evaluation. Two admitted turns reserved four unchanged budget units.
+- AS-6: full offline 191 passed /25 explicit live skips, Ruff passes; pip check passes.
+  ShellCheck remains unavailable. Logs: phase5_final/verify.log and dependencies.log.
+- AS-4/SF-6: content scan covers all reachable Git blobs and eligible working files,
+  current reviewer token exact matches, high-confidence key/token/password patterns;
+  no findings. Scope/limitations recorded in phase5_final/secret_audit.json.
+- AS-9: GitHub API returns private=false. All 11 reviewer permissions unverified
+  because no API authentication is configured; this requirement has NOT passed.
+- AS-10: PDF only defines receipt +24h. No matching assignment email was located in
+  the narrowly searched connected mailbox; receipt/recipient must be confirmed by user.
+- Capacity: after smoke 68/120 reserved units consumed, 52 left =26 two-unit admissions;
+  11 reviewers x two turns require44 units if no intervening use. This is not a
+  credit/cost guarantee. SHOW monitor returned no visible rows; warehouse monitor
+  reported null. Administrator credit/monitor confirmation remains required.

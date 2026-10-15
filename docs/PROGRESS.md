@@ -1,6 +1,62 @@
 # Progress
 
-## Current checkpoint — Phase 4 latency fixes completed (v0.4.4-dev)
+## Current checkpoint — Phase 5 submission preparation (v0.5.0-prep)
+Authorized scope: final audit/documentation/verification and routine reviewed commit/push.
+No new Agent features, redeployment or email sending. Public demo remains
+https://census-104-248-239-52.sslip.io; deployed application stays v0.4.4-dev.
+
+## Completed
+- Final README and root four-topic REFLECTION.md with actual architectural decisions,
+  Codex/human roles, independent19/25 vs regression25/25, deployment/latency and limits.
+- PDF30-ID traceability reviewed, documentation synchronized, token-free email draft.
+- Doctor0; verify0:191 passed /25 opt-in live skips, Ruff and Bash syntax pass; pip check0.
+  Offline population search returns three mappings. Evidence in phase5_final/.
+- External HTTPS200/login and two actual turns: ACS2020 Autauga55,639 in27.0405s;
+  “And in2019?”55,380 in12.9892s. Prior independent SQL references agree.
+- Read-only budget after smoke:68/120 reserved units,52 left (~26 admissions), idle and
+  unquarantined. No reset/service restart; secret temporary copy removed after smoke.
+- High-confidence secret scan of reachable history and eligible files: no findings;
+  exact current reviewer tokens checked without printing. Scope/limitations recorded.
+- Final preflight2: outstanding delivery items/working tree, not a complete PASS.
+
+## In progress
+- Final submission package prepared; reviewed checkpoint commit/push recorded through
+  Git and DEVELOPMENT_VERSIONS.md. Production source/config/state left unchanged.
+- Waiting for external delivery facts; no feature/deployment work is in progress.
+
+## Blocked
+- **AS-9: GitHub API confirms repository PUBLIC (private=false).** No GitHub API auth
+  available locally; all11 reviewer invitation/effective access states unverified.
+  Operator must make repo Private and add exact PDF handles; see PHASE5_REPORT.md.
+- **AS-10:** original receipt timestamp/timezone and final recipient unknown; PDF gives
+  receipt+24h only. Narrow relevant connected-mailbox searches found no assignment.
+  User asked for confirmation. Email draft remains unsent; signature needs confirmation.
+- Snowflake credit headroom unverified: APP_ROLE sees no HOMEWORK_GUARD monitor;
+  warehouse reports monitor null. Admin must confirm trial balance/monitor coverage.
+  App52-unit allowance is not a monetary-credit guarantee.
+- Existing P1 PUBLIC learning-role inheritance remains. No automatic grant/revoke;
+  explicit APP_ROLE OPERATE then safe administrator inheritance review remains advised.
+
+## Next three actions
+1. Operator makes GitHub repo private and verifies11 reviewers (names/actions in report).
+2. Confirm receipt/timezone/recipient, Snowflake credit headroom and private reviewer
+   access-note inclusion. Do not commit credentials or reset any quota.
+3. Recheck these changed facts, review SUBMISSION_EMAIL_DRAFT.md, request explicit
+   authorization before sending. Stop after preparation; do not start another phase.
+
+## Verification evidence
+See PHASE5_REPORT.md and phase5_final/{verify.log,dependencies.log,doctor.log,
+public_smoke.json,runtime_budget.json,snowflake_budget.json,github_probe.json,
+secret_audit.json,traceability.json,preflight.log}. Historical evaluation failures
+remain under slurm_runs/ and phase4_*; none was overwritten or relabeled held-out.
+
+New session: read AGENTS.md and this current checkpoint first, then PHASE5_REPORT.md,
+CHALLENGE_SPEC.md and Git state. Resume only remaining delivery facts; do not repeat
+Census discovery/full evaluations, redeploy the demo or send email without authorization.
+
+---
+
+## Historical checkpoint — Phase 4 latency fixes completed (v0.4.4-dev)
 
 - Same Alabama 2020 decennial result: 5,024,279, identical SQL and parameters. Paired
   profiled service 15.0294s ->13.6739s; clean public browser 12.9913s; contextual follow-up

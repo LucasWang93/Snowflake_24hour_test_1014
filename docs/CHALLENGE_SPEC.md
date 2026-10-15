@@ -2,7 +2,9 @@
 
 Status: official PDF reconciled; verified Phase 1–3 retained. Phase 4 authenticated
 HTTPS Web demo now externally verified, including actual data and restart. Strict
-account privilege isolation and final delivery work remain open; no Phase 5 started.
+account privilege isolation remains open. Phase 5 submission preparation is authorized;
+README/Reflection and final smoke are verified. GitHub privacy/access and submission
+metadata remain blockers (PHASE5_REPORT.md). No email sent.
 
 ## Objective
 Build a chatting agent that answers questions about United States Census population
@@ -19,8 +21,8 @@ US Open Census Marketplace dataset using a free trial; the cited SafeGraph fallb
 is allowed only if that source is inaccessible (p.2). Existing Marketplace access
 is verified, so no fallback or infrastructure reset is needed.
 
-Current authorization covers completed Phase 1–4 and the existing DigitalOcean demo,
-AGENT_PROD/APP_ROLE and external acceptance. No automatic Phase 5, final email,
+Current authorization covers completed Phase 1–4, Phase 5 final documentation/audit,
+existing DigitalOcean demo and routine reviewed Git checkpoints. No final email,
 unapproved grants/revokes or new paid infrastructure. CODEX_APP is local-only using
 DEV_WH. Follow docs/PROGRESS.md for continuation; prior scope is retained in reports.
 
@@ -59,8 +61,11 @@ canonical runtime SQL validation and grounded answers; targeted tests/evidence.
 Implemented Phase 3/4: isolated authenticated service, independent evaluation with
 preserved first-run failures, Web UI and actual public acceptance evidence.
 
-Pending: strict effective permission cleanup, full README, Reflection, reviewer access
-verification and final submission email. Reflection must be Markdown and cover the four topics on p.3. The public-demo
+Implemented in Phase 5: complete README and four-topic REFLECTION.md, final offline
+checks and a minimal authenticated external two-turn smoke.
+
+Pending: strict effective permission cleanup, repository privacy/reviewer access
+verification, credit headroom confirmation and final submission email. Reflection must be Markdown and cover the four topics on p.3. The public-demo
 access instructions, private repository and named reviewers are mandatory.
 
 ## Ambiguity
@@ -101,12 +106,12 @@ instead of duplicating context/latency/degradation requirements.
 | AS-1 | PDF pp.1–2, Core Functionality: interactive natural-language Census-grounded agent | Phase 1 grounding exists; `census_agent` core pipeline implemented | Real question/SQL/reference-result/answer tests; ambiguity/refusal cases | Complete (Phase 2 supported core scope) |
 | AS-2 | PDF pp.2,5: preserve context across turns and accurate follow-ups | Explicit resolved/pending state, follow-up merge and comparison implemented | Three multi-turn scenarios; updates, pending clarification, resets, isolation | Complete (three real scenarios plus offline edges) |
 | AS-3 | User Phase 2 requirement, not PDF mandate: Cortex primary LLM, initially llama3.3-70b | Bounded llama3.3-70b structured intent/catalog choice implemented | Real Cortex query IDs and provider/error tests | Complete (actual bounded Cortex calls) |
-| AS-4 | PDF pp.2,5: graceful degradation, ambiguous/partial/conflicting/unanswerable inputs; user: safe SQL boundary | Canonical SQL validator, domain/semantic guards and safe errors implemented | Unknown/empty/error cases; unvalidated SQL cannot reach data executor | Complete (tested core boundary; deployment review pending) |
+| AS-4 | PDF pp.2,5: graceful degradation, ambiguous/partial/conflicting/unanswerable inputs; user: safe SQL boundary | Canonical SQL validator, domain/semantic guards and safe errors implemented | Unknown/empty/error cases; unvalidated SQL cannot reach data executor | Complete (tested core/hosted boundary; inherited permissions remain a risk) |
 | AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Streamlit/AgentService on existing DigitalOcean host with public trusted HTTPS | Fresh external browser auth/data/follow-up/isolation/rate/privacy; post-restart real answer | Complete (Phase 4 measured functional deployment; risks disclosed) |
-| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 180 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
-| AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Initial README preserved; complete final README pending | Fresh engineer can understand choices, access demo and reproduce commands | Pending |
-| AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | No final reflection artifact | Four-topic checklist plus honest limitations and AI-tool usage review | Pending |
-| AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | No privacy/access change in Phase 2 | Verify private visibility and effective access for exact listed handles | Pending |
+| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 191 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
+| AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Final README: demo/access, architecture, setup, evaluation and limitations | Source review, offline search, dependency checks and external two-turn smoke; prior real Docker build | Complete (document and commands verified; no fresh local dependency-install claim) |
+| AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | Root REFLECTION.md covers all four topics with actual phase evidence and AI use | Compare headings/content to PDF p.3, preserve 19/25 first evaluation vs 25/25 regression | Complete (document reviewed) |
+| AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | GitHub unauthenticated API returned private=false; no API credentials available | Change visibility then authenticated effective-access check for all 11 exact PDF handles | BLOCKED (public repository; all 11 access states unverified) |
 | AS-10 | PDF pp.1,3: email private repository link within 24 hours of receipt | No email sent; exact recipient/receipt timestamp still needed | Deadline check, repository/demo links, authorized send and receipt | Pending |
 | AS-11 | PDF p.1: read requirements before coding; current user: reconcile original PDF | Five-page PDF read; old 23 IDs reconciled; missing obligations added | Source/page audit and unique-ID/test-method comparison; reconciliation report | Complete (source reconciliation) |
 | AS-12 | PDF pp.2,5: responses within 60 seconds under normal conditions | 55-second service deadline and actual browser progress; normal hosted turns measured | External factual 17.0037s, follow-up 14.0131s, restart factual 13.0037s; prior core evidence | Complete (measured cases <60s; no SLA claim) |
@@ -118,7 +123,9 @@ instead of duplicating context/latency/degradation requirements.
 | AS-18 | PDF p.5: streaming or progress feedback for interactivity; correctness and fast-fail paths | CLI stages and Web loading/status/provenance with fast local guard refusals | Post-restart browser observes loading progress and expandable provenance; live refusals | Complete (progress feedback; no token streaming claimed) |
 
 ## Ordered implementation plan
-Phase 2 is now explicitly authorized. Stop after its core/CLI/evaluation scope.
+Current scope: Phase 5 final submission preparation, without sending email.
+The ordered Phase 2–4 implementation plan below is historical and completed within
+its recorded scope; current final actions are in PHASE5_REPORT.md and PROGRESS.md.
 1. PDF reconciliation complete (AS-11); decide supported question/geo/statistic
    boundaries and preserve the Phase 1 gaps. Do not repeat verified infrastructure setup.
 2. Implement a smallest grounded question -> schema -> validated SQL -> result -> answer

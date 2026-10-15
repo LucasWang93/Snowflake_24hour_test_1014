@@ -325,3 +325,13 @@ confirmation, invalidate on every SQL attempt/new connection, and retry cleanup 
 close whenever it is not confirmed. Do not remove the actual final state check or
 weaken warehouse lease/quarantine. Unit failure-path checks and real query history
 verify the change; no shared connection or infrastructure introduced.
+
+## 2026-10-14 — Final preparation without production changes (accepted)
+Complete root README/Reflection and a token-free email draft. Reuse recorded SQL
+references for only two real external turns; preserve original independent failures
+and label reused cases regression. Do not redeploy for documentation packaging.
+GitHub API positively reports public visibility; private repository/reviewer access
+cannot be claimed without administrator confirmation. Credit-call allowances are not
+proof of monetary headroom: no visible resource monitor and null warehouse monitor
+assignment require admin inspection. Receipt/deadline/recipient remain factual inputs,
+not details to infer. Reject marking final delivery complete merely because tests pass.

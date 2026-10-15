@@ -1,0 +1,24 @@
+Doctor: read-only inspection (no environment files sourced)
+GNU bash, version 4.4.20(1)-release (x86_64-redhat-linux-gnu)
+Python 3.11.13
+git version 2.43.7
+MISSING optional tool: shellcheck
+pytest: 8.4.2
+ruff: 0.14.0
+Environment SNOWFLAKE_ACCOUNT: MISSING in process environment
+Environment SNOWFLAKE_USER: MISSING in process environment
+Environment SNOWFLAKE_PASSWORD: MISSING in process environment
+Environment SNOWFLAKE_WAREHOUSE: MISSING in process environment
+Environment SNOWFLAKE_DATABASE: MISSING in process environment
+Environment SNOWFLAKE_SCHEMA: MISSING in process environment
+Environment SNOWFLAKE_CORTEX_MODEL: MISSING in process environment
+Local .env: present (not read)
+Configuration in local files is not loaded or validated.
+Repository status (filenames only):
+ M README.md
+?? REFLECTION.md
+?? docs/phase5_final/dependencies.log
+?? docs/phase5_final/doctor.log
+?? docs/phase5_final/github_probe.json
+?? docs/phase5_final/public_smoke.json
+?? docs/phase5_final/verify.log

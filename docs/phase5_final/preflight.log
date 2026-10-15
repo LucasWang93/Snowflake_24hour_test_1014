@@ -1,0 +1,62 @@
+RUN: Bash syntax: scripts/doctor.sh
+PASS: Bash syntax: scripts/doctor.sh
+RUN: Bash syntax: scripts/preflight.sh
+PASS: Bash syntax: scripts/preflight.sh
+RUN: Bash syntax: scripts/verify.sh
+PASS: Bash syntax: scripts/verify.sh
+SKIP: optional ShellCheck unavailable (Bash syntax checked)
+RUN: Ruff formatting
+36 files already formatted
+PASS: Ruff formatting
+RUN: Ruff lint
+All checks passed!
+PASS: Ruff lint
+RUN: pytest
+============================= test session starts ==============================
+platform linux -- Python 3.11.13, pytest-8.4.2, pluggy-1.6.0
+rootdir: /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014
+configfile: pyproject.toml
+collected 216 items
+
+tests/phase2/test_core.py .............................................. [ 21%]
+............                                                             [ 26%]
+tests/phase2/test_live.py ssssssssssssssss                               [ 34%]
+tests/phase3/test_reliability.py ........................                [ 45%]
+tests/phase4/test_deployment.py .......                                  [ 48%]
+tests/phase4/test_latency.py ...........                                 [ 53%]
+tests/phase4/test_web.py .................................               [ 68%]
+tests/test_aggregation.py ..................                             [ 77%]
+tests/test_geography.py ...........                                      [ 82%]
+tests/test_phase1_live.py sssssssss                                      [ 86%]
+tests/test_semantic_catalog.py ...............                           [ 93%]
+tests/test_snowflake_probe.py ..............                             [100%]
+
+======================= 191 passed, 25 skipped in 24.43s =======================
+PASS: pytest
+Verification: PASS (optional checks may be explicitly skipped above)
+INCOMPLETE: docs/DELIVERY_CHECKLIST.md contains pending work/unchecked items
+File-risk inspection complete; content-level secret detection is not performed.
+Documentation checks inspect structure/placeholders; human semantic review remains required.
+Uncommitted/untracked files (review before submission):
+ M README.md
+ M docs/ARCHITECTURE.md
+ M docs/CHALLENGE_SPEC.md
+ M docs/DECISIONS.md
+ M docs/DELIVERY_CHECKLIST.md
+ M docs/DEVELOPMENT_VERSIONS.md
+ M docs/EVALUATION_PLAN.md
+ M docs/PROGRESS.md
+?? REFLECTION.md
+?? docs/PHASE5_REPORT.md
+?? docs/SUBMISSION_EMAIL_DRAFT.md
+?? docs/phase5_final/dependencies.log
+?? docs/phase5_final/doctor.log
+?? docs/phase5_final/github_probe.json
+?? docs/phase5_final/preflight.log
+?? docs/phase5_final/public_smoke.json
+?? docs/phase5_final/runtime_budget.json
+?? docs/phase5_final/secret_audit.json
+?? docs/phase5_final/snowflake_budget.json
+?? docs/phase5_final/verify.log
+INCOMPLETE: working tree changes require review/intentional inclusion
+Readiness: INCOMPLETE — preparation only; challenge gates unverified (exit 2)

@@ -1,0 +1,26 @@
+{
+  "pdf_pages": 5,
+  "pdf_sha256": "33415d2070e803ad0f8823b0c80c27e4ff216649071fcc05c04547ae86bf2f5e",
+  "requirement_count": 30,
+  "unique_ids": true,
+  "each_has_verification": true,
+  "evaluation_map_covers_all_ids": true,
+  "exact_pdf_reviewers": [
+    "sfc-gh-setli",
+    "sfc-gh-vb",
+    "Sfc-gh-wenli",
+    "sfc-gh-cnivera",
+    "Sfc-gh-twhite",
+    "Sfc-gh-mtreadwell",
+    "Sfc-gh-mvytlingam",
+    "Sfc-gh-cgaboury",
+    "Sfc-gh-sabbas",
+    "Sfc-gh-jsummer",
+    "sfc-gh-htian"
+  ],
+  "all_11_status_rows_present": true,
+  "four_reflection_topics": true,
+  "local_markdown_links_checked": true,
+  "protected_implementation_unchanged_from": "ff429f0",
+  "semantic_review": "Mandatory source, NL chat, public UI, context, <60s, guardrails, graceful ambiguity/failure, tests, README, Reflection, private repository/reviewers and 24h email mapped. AS-9 blocked; AS-10 pending actual timing/recipient and authorized send; AS-16 partial metadata gaps disclosed. Structural checks are not proof of requirement completion."
+}

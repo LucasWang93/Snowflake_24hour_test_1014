@@ -91,3 +91,17 @@ Closeout records cleanup query classification (two permission SHOWs plus one cle
 SHOW), source-hash match and a separate later diagnostic warehouse STARTED observation;
 no mislabeled final SUSPENDED claim. Phase 4 report now contains the fixes/results/
 remaining-task handoff directly. No new phase or additional live test for doc sync.
+
+## v0.5.0-prep — final submission preparation, not sent
+Docs-only final package: complete README/Reflection, PDF traceability and final audit,
+reviewer status, email draft and operational handoff. Production remains v0.4.4-dev;
+no source/security/configuration/SQLite-state change or service restart. Final191 offline
+passes /25 explicit live skips, Ruff/pip checks pass. Public HTTPS/login plus real
+55,639 ->55,380 contextual smoke passed (27.0405s/12.9892s). Budget68/120 used;
+no reset. Secret/history check has no high-confidence findings.
+
+Ready NO: GitHub API private=false, all11 effective reviewer grants unverified,
+receipt/timezone/recipient not confirmed, monetary headroom not visible to app role.
+PUBLIC inherited permission residual retained. Preflight2 is incomplete, not success.
+Tag/commit identifies this reviewed preparation state; routine push is authorized.
+No email sent. Resolve external delivery facts before claiming final submission.

@@ -1,0 +1,15 @@
+{
+  "observed_at_utc": "2026-10-15T00:01:39.531709+00:00",
+  "reserved_units_24h": 68,
+  "configured_limit": 120,
+  "remaining_units": 52,
+  "admissions_remaining_at_two_units_each": 26,
+  "reviewer_capacity_reference": "11 reviewers x two admitted turns x two units = 44 units; sequential, not simultaneous; no guarantee against later use.",
+  "gate_active_quarantined": [
+    [
+      0,
+      0
+    ]
+  ],
+  "mutations": "None: read-only SQLite connection; no budget reset."
+}
