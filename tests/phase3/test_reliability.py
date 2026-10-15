@@ -133,15 +133,20 @@ def test_two_services_share_rate_limits_and_model_budget(tmp_path):
     )
     session_a, session_b = a.create_session("A"), b.create_session("B")
     a.begin("A", session_a, "request-a")
+    a.record_model_submission("request-a")
+    a.record_model_submission("request-a")
     a.finish("request-a", {}, healthy=True)
     with pytest.raises(ControlIssue) as rate:
         b.begin("A", session_a, "request-a2")
     assert rate.value.status == "rate_limited"
     b.begin("B", session_b, "request-b")
+    b.record_model_submission("request-b")
+    b.record_model_submission("request-b")
     b.finish("request-b", {}, healthy=True)
     session_c = a.create_session("C")
+    a.begin("C", session_c, "request-c")
     with pytest.raises(ControlIssue) as budget:
-        a.begin("C", session_c, "request-c")
+        a.record_model_submission("request-c")
     assert budget.value.status == "budget_exhausted"
 
 

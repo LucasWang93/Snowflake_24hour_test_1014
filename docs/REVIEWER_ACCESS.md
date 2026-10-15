@@ -17,8 +17,9 @@ Tokens are never embedded in Git, page source or URL parameters.
 
 Counts may aggregate over distinct CBGs; medians/ratios/MOEs require a supported scope.
 Unknown questions clarify/refuse. Only one query runs at a time; a busy response means
-retry shortly. Defaults are six requests per reviewer/minute and a shared 120 reserved
-model-call-unit daily allowance. Requests aim to finish within 55s backend deadline;
+retry shortly. Production allows 12 requests per principal/minute, 60 globally/minute and 1200 Cortex
+submission attempts per rolling 24h; session capacity 256 and TTL 2h. Local refusals
+consume no model calls. Attempts sent to Cortex count even when the provider fails. Requests aim to finish within 55s backend deadline;
 measured factual browser samples ranged from about 13 to 27.1s across Phase 4/5,
 without claiming a deployment SLA. Operator intervention may be needed
 after an uncertain timeout. Never send Snowflake passwords, private keys or other

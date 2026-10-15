@@ -47,9 +47,13 @@ Phase 3 made `AgentService` the authenticated public boundary. Each request gets
 spawned worker and fresh connector session; owner-bound conversation state and atomic
 admission live in one durable SQLite database. A 55-second parent deadline, bounded
 model/database work, no automatic retries, and warehouse cleanup/quarantine make
-failure behavior explicit. Reserving model-call units before admission is conservative
-and may charge the internal allowance for a refusal, but prevents failed requests
-from bypassing the budget. It is not a dollar-denominated Snowflake spending limit.
+failure behavior explicit. Initially, reserving two model-call units per admitted
+request also charged local refusals and unused calls. Real demo usage exhausted the
+120-unit allowance despite operator-reported modest Snowflake credit use. A post-freeze repair changed
+to durable per-Cortex-submission metering and an operator-approved1200-call rolling24h
+limit, retaining old reservations as audit evidence. Submitted failures/uncertain send
+outcomes still count, while local refusals and pre-submit failures do not. This is
+not a dollar-denominated Snowflake spending limit.
 
 Phase 4 retained these boundaries in a nonroot Streamlit container behind Caddy HTTPS
 on the existing DigitalOcean host. The public adapter exposes a small response
@@ -138,7 +142,7 @@ when a follow-up omitted the metric. The reused set then passed **25/25 as regre
 it is not 100% held-out accuracy. An intermediate Phase 2 follow-up failure is also
 preserved. These failures were more informative than the final green count.
 
-Final offline verification records **191 passed and 25 opt-in live skips**. Skips are
+Post-repair offline verification records **203 passed and 25 opt-in live skips**. Skips are
 not passes. Provider outage tests use fault injection; they do not claim real Snowflake
 outage testing. Public acceptance tested actual authentication, grounded answers,
 context, unsupported input, isolation, rate controls, privacy and restart persistence.

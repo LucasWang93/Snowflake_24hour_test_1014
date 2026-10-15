@@ -346,3 +346,13 @@ Current documentation supersedes dated blocked checkpoints without overwriting t
 Operator-reported private visibility/invitations are not authenticated API evidence;
 keep status UNVERIFIED rather than preserve the stale assertion that repo is public.
 No deployment, secret, permission, warehouse or admission-state changes.
+
+## 2026-10-15 — D-22: meter Cortex submissions instead of request reservations
+Observed120 reserved units from60 admissions with unexpired timestamps; rolling24h
+logic was functioning, but zero/one-call failures/refusals were overcharged. Replace
+admission reservations with an atomic durable ledger at the Cortex execute boundary.
+Count submitted failures, not local/pre-submit failures; disclose commit/send crash
+ambiguity and never refund uncertain remote work. Old rows remain historical, no
+invented backfill. User approved1200/day,12/60 rates,256 sessions and2h TTL; other
+warehouse/SQL/deadline controls unchanged. Private backup/policy-only migration and
+public real answer verified. No unlimited usage or exact monetary-cost claim.

@@ -10,14 +10,14 @@ import sqlite3
 import tempfile
 import time
 import uuid
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Callable
 
 from census_agent.agent import CensusAgent
 from census_agent.backend import SnowflakeBackend
-from census_agent.control import Authenticator, ControlIssue, SQLiteControl
-from census_agent.types import ConversationState, Deadline, Intent, Response
+from census_agent.control import Authenticator, ControlIssue, Limits, SQLiteControl
+from census_agent.types import AgentIssue, ConversationState, Deadline, Intent, Response
 from census_catalog.catalog import Catalog
 from scripts.snowflake_probe import ROOT
 
@@ -50,6 +50,20 @@ def request_worker(path: str, question: str, state_data: dict, deadline: Deadlin
             index_path=ROOT / "data/semantic_search_index.jsonl",
         )
         deadline.check()
+        options = dict(options)
+        budget_context = options.pop("model_budget", None)
+        if budget_context is not None:
+            control = SQLiteControl(
+                Path(budget_context["path"]), Limits(**budget_context["limits"])
+            )
+
+            def before_model_call():
+                try:
+                    control.record_model_submission(budget_context["request"])
+                except ControlIssue as exc:
+                    raise AgentIssue(str(exc), exc.status) from exc
+
+            options["before_model_call"] = before_model_call
         backend = SnowflakeBackend(catalog, **options)
         state = restore_state(state_data)
         response = CensusAgent(catalog, backend).ask(question, state, deadline=deadline)
@@ -132,7 +146,15 @@ class AgentService:
                     question,
                     state,
                     work_deadline,
-                    {**self.options, "query_tag": "census_request_" + request},
+                    {
+                        **self.options,
+                        "query_tag": "census_request_" + request,
+                        "model_budget": {
+                            "path": str(self.control.path),
+                            "limits": asdict(self.control.limits),
+                            "request": request,
+                        },
+                    },
                 ),
             )
             proc.start()

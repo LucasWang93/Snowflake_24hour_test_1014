@@ -1,5 +1,8 @@
 # Delivery checklist
 
+Post-freeze update: reviewer budget metering/capacity repair deployed and verified;
+see BUDGET_FIX_REPORT.md. Earlier freeze/phase snapshots remain historical.
+
 Current: Phase 5 final preparation; **not ready to submit**. Live demo and technical
 package are verified; private repository/reviewer access is operator-reported but independently unverified;
 submission metadata remains unresolved. See FINAL_SUBMISSION_AUDIT.md. Earlier snapshots below are historical, not current assertions.
@@ -21,7 +24,7 @@ submission metadata remains unresolved. See FINAL_SUBMISSION_AUDIT.md. Earlier s
 - [ ] Administrator confirms actual Snowflake trial-credit headroom/monitor assignment.
 
 ## Evaluation
-- [x] AS-6: final191 offline passes /25 opt-in live skips, Ruff and dependency checks pass.
+- [x] AS-6: final203 offline passes /25 opt-in live skips, Ruff and dependency checks pass.
 - [x] First independent19/25 and later25/25 regression clearly distinguished; failures retained.
 - [x] Ground-truth SQL, mocked outage tests and real integration evidence labeled.
 - [x] Final HTTPS/login and one real question/contextual follow-up verified externally.

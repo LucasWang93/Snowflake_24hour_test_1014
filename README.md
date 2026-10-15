@@ -58,7 +58,7 @@ state/county resolution uses release-specific FIPS metadata. See
   before connecting. There is no arbitrary SQL endpoint.
 - Public requests pass through bearer authentication, owner-bound sessions, atomic
   SQLite admission and a fresh spawn-based process/connection. One active request,
-  rate limits, conservative model-call reservations and a 55-second request deadline
+  rate limits, durable Cortex-submission accounting and a 55-second request deadline
   bound resource use. Uncertain cleanup quarantines admission for operator review.
 - The UI renders an explicit public-response allowlist, not private SQL, prompts,
   grant audits or raw exceptions. Deployment credentials come only from server secrets.
@@ -119,12 +119,16 @@ Do not copy secrets or runtime SQLite state into a checkout or image.
   rate controls and persistence across restart. A later measured Alabama browser
   request took 12.9913s; paired profiled service runs improved 15.0294s to 13.6739s.
   Cortex timing also varied: these samples establish neither p95 nor an SLA.
-- Final offline checks: **191 passed, 25 opt-in live tests skipped**. Historical
+- Final offline checks: **203 passed, 25 opt-in live tests skipped**. Historical
   HTTPS/two-turn evidence: [Phase 5 report](docs/PHASE5_REPORT.md).
   Final packaging, health and audit: [submission audit](docs/FINAL_SUBMISSION_AUDIT.md).
 
 See [evaluation plan and preserved failures](docs/EVALUATION_PLAN.md),
 [reflection](REFLECTION.md), and [requirement traceability](docs/CHALLENGE_SPEC.md).
+
+Current reviewer limits: 1200 Cortex submission attempts per rolling 24h, 12 requests
+per principal/minute, 60 global/minute, 256 sessions with 2h TTL. Local refusals do not
+consume model units; submitted provider failures do. See [budget repair](docs/BUDGET_FIX_REPORT.md).
 
 ## Known limitations
 

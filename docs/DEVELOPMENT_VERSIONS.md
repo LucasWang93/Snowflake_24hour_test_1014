@@ -120,3 +120,11 @@ confirmation remain missing; credit headroom and inherited permission risk discl
 Final preflight2 retained without weakening checks. Tag identifies final cleanup
 commit; exact commit is returned by git rev-parse v0.5.1-freeze^{commit} and final handoff.
 Routine reviewed push authorized. No email sent and production remains v0.4.4-dev.
+
+## v0.5.2-budget — post-freeze reviewer reliability repair
+User-approved actual-submission ledger,1200 rolling24h calls,12/60 request rates,
+256 sessions/2h TTL. Preserve legacy events, private DB backup and policy-only
+migration. Single warehouse lease/deadline/SQL/stats/auth unchanged. Full203 offline
+passes /25 live skips; public Alabama5,024,279 in31.0242s, exactly2 model debits.
+No credit-limit or unlimited-availability claim. Production budget-20261015; no
+credential/grant change or final email. See BUDGET_FIX_REPORT.md for actual evidence.

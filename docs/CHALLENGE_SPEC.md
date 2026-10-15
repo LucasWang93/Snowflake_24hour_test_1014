@@ -108,7 +108,7 @@ instead of duplicating context/latency/degradation requirements.
 | AS-3 | User Phase 2 requirement, not PDF mandate: Cortex primary LLM, initially llama3.3-70b | Bounded llama3.3-70b structured intent/catalog choice implemented | Real Cortex query IDs and provider/error tests | Complete (actual bounded Cortex calls) |
 | AS-4 | PDF pp.2,5: graceful degradation, ambiguous/partial/conflicting/unanswerable inputs; user: safe SQL boundary | Canonical SQL validator, domain/semantic guards and safe errors implemented | Unknown/empty/error cases; unvalidated SQL cannot reach data executor | Complete (tested core/hosted boundary; inherited permissions remain a risk) |
 | AS-5 | PDF pp.2,4: public web interface; no local setup for evaluation; authentication allowed | Streamlit/AgentService on existing DigitalOcean host with public trusted HTTPS | Fresh external browser auth/data/follow-up/isolation/rate/privacy; post-restart real answer | Complete (Phase 4 measured functional deployment; risks disclosed) |
-| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 191 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
+| AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 203 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
 | AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Final README: demo/access, architecture, setup, evaluation and limitations | Source review, offline search, dependency checks and external two-turn smoke; prior real Docker build | Complete (document and commands verified; no fresh local dependency-install claim) |
 | AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | Root REFLECTION.md covers all four topics with actual phase evidence and AI use | Compare headings/content to PDF p.3, preserve 19/25 first evaluation vs 25/25 regression | Complete (document reviewed) |
 | AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | Operator reports repository private and all 11 invited; current unauthenticated API 404; SSH main accessible | Authenticated visibility and invitation/collaborator lists compared to exact PDF handles; do not infer privacy from 404 | UNVERIFIED (operator action reported; independent API access unavailable) |
@@ -211,3 +211,10 @@ private GitHub visibility and all 11 invitations; current API404 is not verifica
 Receipt/timezone/recipient remain unknown. See FINAL_SUBMISSION_AUDIT.md for current
 PASS/PARTIAL/BLOCKED/UNVERIFIED statuses; earlier chronological checkpoints retain the
 status at the time and are not current claims. No email sent.
+
+## Authorized post-freeze reliability repair
+Budget metering/capacity repaired after public admission exhaustion. Actual connector
+Cortex-submission ledger replaces two-unit request reservations, with user-approved
+1200/day and increased reviewer rate/session settings.203 offline passes and real
+public answer verified; AS-4/AS-6/AS-12 evidence in BUDGET_FIX_REPORT.md. Original
+statistical scope and outstanding submission facts are unchanged.

@@ -5,8 +5,8 @@ Compose 5.6.0. HTTPS entry point **https://census-104-248-239-52.sslip.io** is d
 and externally verified with real authenticated Census answers and post-restart access.
 **Functional demo is live. Inherited PUBLIC permissions remain a documented follow-up.**
 
-Current release path `/opt/census/releases/latency-20261014`, symlink `/opt/census/current`;
-image includes v0.4.4-dev metadata-index/cleanup improvements. Production identity and
+Current release path `/opt/census/releases/budget-20261015`, symlink `/opt/census/current`;
+image includes metadata-index/cleanup improvements and the post-freeze budget repair. Production identity and
 reviewed flags remain APP_ROLE/AGENT_PROD; v0.4.3 public acceptance is preserved.
 Operator commands run as root over existing SSH key; `census-deploy` can upload code
 but has no Docker group/secret-file access. Server-only paths:
@@ -239,3 +239,15 @@ For app replacement, use the shared admission lease for a short maintenance inte
 only after existing requests finish; preserve the SQLite volume/events and release the
 lease once replacement succeeds. Current exact source/image hashes and healthy state
 are in phase4_latency/deployment.json. No warehouse size/role/limit change.
+
+## Current reviewer budget and policy changes
+Compose supplies CENSUS_MODEL_CALLS_PER_DAY=1200, CENSUS_REQUESTS_PER_MINUTE=12,
+CENSUS_GLOBAL_REQUESTS_PER_MINUTE=60, CENSUS_MAX_SESSIONS=256 and
+CENSUS_SESSION_TTL_SECONDS=7200. Runtime validates ranges. Persistent policy must
+match all workers; do not change environment alone and expect an automatic reset.
+For a future approved policy update, stop only the idle app, take a private SQLite
+backup, update only reviewed policy fields, then recreate the app with matching
+configuration. Preserve sessions/events/gate and the model_submissions ledger.
+Current rolling24h usage comes from model_submissions.at, not legacy events.calls.
+No manual daily reset: each call explicitly filters the last86400 seconds. See
+BUDGET_FIX_REPORT.md for migration, submission uncertainty and actual test evidence.

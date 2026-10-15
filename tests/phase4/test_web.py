@@ -325,3 +325,30 @@ def test_password_deployment_fails_closed_without_fallback(
     with pytest.raises(runtime.ConfigurationIssue) as error:
         runtime.build_service()
     assert "offline-production-password-fixture" not in str(error.value)
+
+
+def test_review_limits_are_configurable(deployment_env, monkeypatch):
+    settings = {
+        "CENSUS_MODEL_CALLS_PER_DAY": "1200",
+        "CENSUS_REQUESTS_PER_MINUTE": "12",
+        "CENSUS_GLOBAL_REQUESTS_PER_MINUTE": "60",
+        "CENSUS_MAX_SESSIONS": "256",
+        "CENSUS_SESSION_TTL_SECONDS": "7200",
+    }
+    for name, value in settings.items():
+        monkeypatch.setenv(name, value)
+    limits = runtime.build_service().control.limits
+    assert (limits.model_calls_per_day, limits.principal_requests_per_minute) == (1200, 12)
+    assert (limits.global_requests_per_minute, limits.max_sessions, limits.session_ttl) == (
+        60,
+        256,
+        7200,
+    )
+    assert limits.deadline_seconds == 55
+
+
+@pytest.mark.parametrize("value", ["0", "2001", "nonsense"])
+def test_invalid_review_budget_fails_closed(deployment_env, monkeypatch, value):
+    monkeypatch.setenv("CENSUS_MODEL_CALLS_PER_DAY", value)
+    with pytest.raises(runtime.ConfigurationIssue, match="CENSUS_MODEL_CALLS_PER_DAY"):
+        runtime.build_service()

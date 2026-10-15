@@ -1,0 +1,5 @@
+{
+  "checked_local_links": 23,
+  "broken": [],
+  "scope": "Inline Markdown links outside fenced blocks; external URLs, anchors and operational example paths are not filesystem links."
+}

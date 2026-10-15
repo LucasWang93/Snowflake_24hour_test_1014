@@ -200,9 +200,12 @@ service processes. This deliberately serializes the trial warehouse: a per-reque
 ALTER SUSPEND must not interrupt another service worker. Overload is immediate,
 with no unbounded queue. All workers must share the same local owner-only control
 file and limits (mismatched configurations fail). Session TTL/capacity, per-principal
-and global sliding-window rates, and a shared 24h model-call reserve are implemented.
-Each admitted request reserves two call units conservatively without refund. This
-bounds application inference calls, not measured credits/dollars. There are no new
+and global sliding-window rates, and a shared24h Cortex submission budget are implemented.
+The original two-unit admission reservation was replaced after observed demo exhaustion.
+Workers debit a separate SQLite ledger at the Cortex execute boundary; local refusals
+and pre-submit failures count0; submitted failures count1. Legacy reservations remain
+historical. Current production uses1200 calls/24h,12/60 request rates,256 sessions/2h TTL.
+This bounds submission attempts, not measured credits/dollars. There are no new
 dependencies/services. SQLite rollback journaling is used; deployment requires local
 storage with correct locking. Multi-host/pod stores are explicitly unsupported today.
 
@@ -335,3 +338,10 @@ original Phase 1–4 evidence is retained. Repository privacy/reviewer access is
 Submission metadata, credit visibility and inherited-permission residual remain open
 in FINAL_SUBMISSION_AUDIT.md. Documentation packaging does not restart production or
 change its persistent control database/secrets.
+
+## Post-freeze budget repair — current deployment
+Current release is budget-20261015; user authorized deployment after app-level budget
+exhaustion. Runtime/Compose expose bounded policy overrides; old session/events and
+private operator backup preserved. Detailed accounting/rolling reset tests, migration,
+real public answer and limits are in BUDGET_FIX_REPORT.md. Deadline, warehouse lease,
+SQL validation and statistical scope remain unchanged.

@@ -1,0 +1,16 @@
+{
+  "model_submissions_24h": 2,
+  "legacy_reserved_units": 120,
+  "gate": [
+    [
+      0,
+      0
+    ]
+  ],
+  "deployed_hashes": {
+    "census_agent/backend.py": "91a59c3798fb3e0d578c8fba8d91671a21d2e2669248e73d93e34da78da761b7",
+    "census_agent/control.py": "2cd98215223cc83646831bc2b46cb0b91a3110920bc15cc2ffd9de12ef545e29",
+    "census_agent/service.py": "35134f85e2e02468a080ece3068ebde302b0db415b3b876efd9205227b08ca1d",
+    "census_web/runtime.py": "f13e91725c72c88fb1a16a9c780c1a2953c1f25d9a52d07bf2ced9b0f7d8f5a8"
+  }
+}

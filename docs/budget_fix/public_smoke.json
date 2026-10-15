@@ -1,0 +1,25 @@
+{
+  "url": "https://census-104-248-239-52.sslip.io",
+  "checks": [
+    {
+      "case": "https_clean_client",
+      "passed": true,
+      "status": 200,
+      "seconds": 3.5502
+    },
+    {
+      "case": "reviewer_authentication",
+      "passed": true
+    },
+    {
+      "case": "grounded_question",
+      "question": "Using 2020 decennial redistricting data, how many people live in Alabama?",
+      "answer": "smart_toy\ncheck\n\nRequest complete\n\nAlabama: 5,024,279. Metric: RACE \u2014 Total; universe: Total population. Year/release: 2020; statistical source: decennial_redistricting_pl94_171; field: P0010001 (census_count). Total covers the matching CBGs present in this source; full geographic coverage is not independently established. No aggregate MOE was calculated.\n\nStatus: answered\n\nUS Open Census \u00b7 Release 2020 \u00b7 decennial_redistricting_pl94_171\n\nkeyboard_arrow_right\n\nData provenance\n\nRequest completed in 30.63 seconds",
+      "expected": "5,024,279",
+      "seconds": 31.0242,
+      "passed": true
+    }
+  ],
+  "scope": "One real deployed question after budget fix; prior SQL reference 5,024,279; not new held-out evaluation.",
+  "passed": true
+}

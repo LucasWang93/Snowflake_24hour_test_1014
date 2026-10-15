@@ -9,7 +9,7 @@ import stat
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from census_agent.control import BearerAuthenticator, SQLiteControl
+from census_agent.control import BearerAuthenticator, Limits, SQLiteControl
 from census_agent.service import AgentService
 
 
@@ -104,9 +104,24 @@ def build_service() -> AgentService:
     control_path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
     if control_path.parent.is_symlink() or stat.S_IMODE(control_path.parent.stat().st_mode) & 0o077:
         raise ConfigurationIssue("Control directory must be private and regular")
+    limits = {}
+    for name, field, default, maximum in (
+        ("CENSUS_MODEL_CALLS_PER_DAY", "model_calls_per_day", 120, 2000),
+        ("CENSUS_REQUESTS_PER_MINUTE", "principal_requests_per_minute", 6, 60),
+        ("CENSUS_GLOBAL_REQUESTS_PER_MINUTE", "global_requests_per_minute", 20, 120),
+        ("CENSUS_MAX_SESSIONS", "max_sessions", 128, 1024),
+        ("CENSUS_SESSION_TTL_SECONDS", "session_ttl", 1800, 86400),
+    ):
+        try:
+            value = int(os.environ.get(name, str(default)))
+            if not 1 <= value <= maximum:
+                raise ValueError
+        except ValueError:
+            raise ConfigurationIssue(f"{name} must be an integer from 1 to {maximum}") from None
+        limits[field] = value
     return AgentService(
         auth,
-        SQLiteControl(control_path),
+        SQLiteControl(control_path, Limits(**limits)),
         backend_options={
             "role": role,
             "secondary_roles": "NONE",

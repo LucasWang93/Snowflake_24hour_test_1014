@@ -1,6 +1,47 @@
 # Progress
 
-## Current checkpoint — final submission freeze (v0.5.1-freeze)
+## Current checkpoint — post-freeze budget repair (v0.5.2-budget)
+User authorized diagnosis, metering repair, production rollout and real public QA;
+requested1200 actual model submissions plus more reviewer request/session capacity.
+
+## Completed
+- Root cause: original120/rolling24h budget reserved2 per admission, including local
+  failures/refusals.60 requests exhausted it; timestamps had not expired. No midnight
+  reset bug: rolling window was working. Old event rows retained, not fabricated calls.
+- New model_submissions ledger debits at actual Cortex execute boundary, not admission.
+  Local/pre-submit failures count0; submitted/uncertain remote attempts remain charged.
+  Per-call cutoff automatically expires after86400s; wrong leases and >2 calls reject.
+- Production1200/day,12 requests/principal/min,60 global/min,256 sessions,2h TTL.
+  All configurable/validated.55s deadline, single warehouse lease, SQL rules unchanged.
+- Private DB backup before policy-only migration; all original sessions/events/gate
+  preserved. Release budget-20261015 active; no token/credential/grant changes.
+-203 offline passed /25 live skips, Ruff/Bash pass. Public real Alabama2020 answer
+  5,024,279 in31.0242s, ledger exactly2 submissions; local refusal checked separately.
+
+## In progress
+- Final evidence/documentation and reviewed GitHub development checkpoint.
+
+## Blocked
+- No model-budget availability blocker after repair. Finite1200-call cap can still
+  legitimately exhaust; it is not a Snowflake credit balance or unlimited allowance.
+- Original submission metadata, independent GitHub invitation audit and inherited
+  PUBLIC privilege residual remain outside this fix. No submission email sent.
+
+## Next three actions
+1. Use existing reviewer token at public demo; no new credentials or budget reset needed.
+2. Monitor actual ledger timestamps and credit balance; only change policy through
+   approved idle-app/backup/matching-config workflow. Do not clear leases/quarantine.
+3. Read BUDGET_FIX_REPORT.md and this checkpoint first in a new session; preserve
+   prior evidence and complete remaining submission facts only when authorized.
+
+## Verification evidence
+BUDGET_FIX_REPORT.md and budget_fix/ contain tests/build/migration/runtime/public
+results. Previous FINAL_SUBMISSION_AUDIT.md is a dated freeze snapshot, not the new
+production release. No full Census inventory or Cortex evaluation repeated.
+
+---
+
+## Historical checkpoint — final submission freeze (v0.5.1-freeze)
 Scope: conservative local cleanup, documentation reconciliation and offline audit.
 Production remains v0.4.4-dev at https://census-104-248-239-52.sslip.io; no deployment,
 server restart, credential/grant/warehouse/control-state change or live Cortex calls.

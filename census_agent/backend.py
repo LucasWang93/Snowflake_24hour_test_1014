@@ -9,10 +9,10 @@ import stat
 import threading
 import time
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from census_agent.sql import ValidatedQuery, validate_query
-from census_agent.types import Deadline, ServiceIssue
+from census_agent.types import AgentIssue, Deadline, ServiceIssue
 from census_catalog.catalog import Catalog
 from scripts.snowflake_probe import ROOT, load_config, quote_identifier, safe_error
 
@@ -27,6 +27,7 @@ class SnowflakeBackend:
         secondary_roles: str = "ALL",
         query_tag: str = "census_agent_bounded_request",
         connection_config: dict[str, str] | None = None,
+        before_model_call: Callable[[], None] | None = None,
     ):
         if model not in {"llama3.3-70b", "llama3.1-70b", "mistral-7b"}:
             raise ValueError("Choose a previously verified Cortex model")
@@ -38,6 +39,7 @@ class SnowflakeBackend:
         if not re.fullmatch(r"[A-Za-z0-9_]{1,80}", query_tag):
             raise ValueError("Invalid trusted query tag")
         self.query_tag = query_tag
+        self.before_model_call = before_model_call
         # Public deployment injects server-side production credentials. The existing
         # operator CLI retains its explicitly authorized local .env loader.
         self._connection_config = dict(connection_config) if connection_config is not None else None
@@ -182,6 +184,9 @@ class SnowflakeBackend:
         self._cleanup_confirmed = False
         started = time.monotonic()
         with self._connection.cursor() as cursor:
+            if sql == "SELECT SNOWFLAKE.CORTEX.COMPLETE(%s, PARSE_JSON(%s), PARSE_JSON(%s))":
+                if self.before_model_call is not None:
+                    self.before_model_call()
             cursor.execute(sql, params, timeout=timeout)
             rows = cursor.fetchmany(max_rows + 1)
             if len(rows) > max_rows:
@@ -228,6 +233,8 @@ class SnowflakeBackend:
                 }
             )
             return parsed
+        except AgentIssue:
+            raise
         except Exception as exc:
             raise self._failure("Cortex interpretation", exc) from exc
 

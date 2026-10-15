@@ -1,3 +1,8 @@
+> Historical freeze snapshot (`v0.5.1-freeze`). User subsequently authorized the
+> deployed budget reliability repair; current production details and verification
+> are in [BUDGET_FIX_REPORT.md](BUDGET_FIX_REPORT.md) and PROGRESS.md. The no-deployment
+> statements below describe that earlier cleanup, not the later authorized repair.
+
 # Final submission audit and freeze
 
 Audit date: 2026-10-14 America/New_York (2026-10-15 UTC).

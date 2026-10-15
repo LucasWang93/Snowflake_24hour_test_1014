@@ -1,0 +1,21 @@
+{
+  "limits": {
+    "principal_requests_per_minute": 12,
+    "global_requests_per_minute": 60,
+    "model_calls_per_day": 1200,
+    "max_sessions": 256,
+    "session_ttl": 7200,
+    "deadline_seconds": 55
+  },
+  "measured_model_submissions_24h": 0,
+  "legacy_events": [
+    60,
+    120
+  ],
+  "gate": [
+    [
+      0,
+      0
+    ]
+  ]
+}

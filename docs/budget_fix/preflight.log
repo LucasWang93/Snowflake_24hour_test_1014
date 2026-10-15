@@ -1,0 +1,74 @@
+RUN: Bash syntax: scripts/doctor.sh
+PASS: Bash syntax: scripts/doctor.sh
+RUN: Bash syntax: scripts/preflight.sh
+PASS: Bash syntax: scripts/preflight.sh
+RUN: Bash syntax: scripts/verify.sh
+PASS: Bash syntax: scripts/verify.sh
+SKIP: optional ShellCheck unavailable (Bash syntax checked)
+RUN: Ruff formatting
+37 files already formatted
+PASS: Ruff formatting
+RUN: Ruff lint
+All checks passed!
+PASS: Ruff lint
+RUN: pytest
+============================= test session starts ==============================
+platform linux -- Python 3.11.13, pytest-8.4.2, pluggy-1.6.0
+rootdir: /gpfs/radev/pi/q_chen/sw2572/gitcodes/Snowflake_24hour_test_1014
+configfile: pyproject.toml
+collected 228 items
+
+tests/phase2/test_core.py .............................................. [ 20%]
+............                                                             [ 25%]
+tests/phase2/test_live.py ssssssssssssssss                               [ 32%]
+tests/phase3/test_model_budget.py ........                               [ 35%]
+tests/phase3/test_reliability.py ........................                [ 46%]
+tests/phase4/test_deployment.py .......                                  [ 49%]
+tests/phase4/test_latency.py ...........                                 [ 54%]
+tests/phase4/test_web.py .....................................           [ 70%]
+tests/test_aggregation.py ..................                             [ 78%]
+tests/test_geography.py ...........                                      [ 83%]
+tests/test_phase1_live.py sssssssss                                      [ 87%]
+tests/test_semantic_catalog.py ...............                           [ 93%]
+tests/test_snowflake_probe.py ..............                             [100%]
+
+======================= 203 passed, 25 skipped in 21.84s =======================
+PASS: pytest
+Verification: PASS (optional checks may be explicitly skipped above)
+INCOMPLETE: docs/DELIVERY_CHECKLIST.md contains pending work/unchecked items
+File-risk inspection complete; content-level secret detection is not performed.
+Documentation checks inspect structure/placeholders; human semantic review remains required.
+Uncommitted/untracked files (review before submission):
+ M README.md
+ M REFLECTION.md
+ M census_agent/backend.py
+ M census_agent/control.py
+ M census_agent/service.py
+ M census_web/runtime.py
+ M deploy/compose.yaml
+ M docs/ARCHITECTURE.md
+ M docs/DECISIONS.md
+ M docs/DEPLOYMENT_RUNBOOK.md
+ M docs/DEVELOPMENT_VERSIONS.md
+ M docs/EVALUATION_PLAN.md
+ M docs/PROGRESS.md
+ M docs/REVIEWER_ACCESS.md
+ M tests/phase3/test_reliability.py
+ M tests/phase4/test_web.py
+?? docs/BUDGET_FIX_REPORT.md
+?? docs/budget_fix/build.log
+?? docs/budget_fix/dependencies.log
+?? docs/budget_fix/meter_tests.log
+?? docs/budget_fix/preflight.log
+?? docs/budget_fix/public_refusal.json
+?? docs/budget_fix/public_smoke.json
+?? docs/budget_fix/rollout.log
+?? docs/budget_fix/runtime_after.json
+?? docs/budget_fix/runtime_after_refusal.json
+?? docs/budget_fix/runtime_before.json
+?? docs/budget_fix/targeted.log
+?? docs/budget_fix/verify.log
+?? docs/budget_fix/verify_final.log
+?? tests/phase3/test_model_budget.py
+INCOMPLETE: working tree changes require review/intentional inclusion
+Readiness: INCOMPLETE — preparation only; challenge gates unverified (exit 2)

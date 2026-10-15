@@ -1,0 +1,8 @@
+{
+  "reachable_history_blobs": 343,
+  "eligible_working_files": 264,
+  "history_findings": [],
+  "working_findings": [],
+  "sensitive_filename_risks": [],
+  "scope": "Reachable Git blobs plus tracked/nonignored files; known password markers, PEM/OpenSSH private-key bodies, GitHub/AWS token formats, high-entropy 43-character token candidates. No ignored credential contents read. Heuristic, not a universal secret detector. No production token fetched or logged."
+}

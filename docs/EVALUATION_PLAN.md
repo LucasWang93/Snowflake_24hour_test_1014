@@ -393,3 +393,13 @@ question/follow-up and first-independent19/25 vs reused25/25 regression evidence
 Results/commands: FINAL_SUBMISSION_AUDIT.md and final_submission_checks/. GitHub SSH
 can verify default branch/pushed revision; it cannot verify privacy/invitations.
 Operator confirmation and unauthenticated404 remain separate evidence types.
+
+## Post-freeze budget repair evaluation
+New deterministic real-SQLite/mocked-connector tests cover zero-call and legacy
+reservations, actual Cortex execute boundary, failed submissions, failed cursor
+creation, cross-instance persistence, exact rolling24h expiry, lease and two-call
+bounds, concurrent budget debits, worker hook/status, production overrides/invalid
+config. Full203 passed /25 live skips. Public real Alabama answer5,024,279 in31.0242s
+corresponds to exactly2 durable ledger submissions. Local-refusal evidence separately
+checks no added model usage. These are targeted regressions, not held-out accuracy.
+See BUDGET_FIX_REPORT.md and budget_fix/.

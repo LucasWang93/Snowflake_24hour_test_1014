@@ -83,7 +83,8 @@ class SQLiteControl:
 
     All deployment workers must use this SAME local file. Multi-host deployments
     require an implementation of the same control contract on a transactional store.
-    Admission reserves two Cortex-call units, conservatively without refunds.
+    Request events enforce rate limits. A separate durable ledger meters Cortex
+    submissions at the connector boundary; admission itself consumes no model units.
     """
 
     def __init__(self, path: Path, limits: Limits = Limits()):
@@ -114,6 +115,12 @@ class SQLiteControl:
                 "CREATE TABLE IF NOT EXISTS gate (id INTEGER PRIMARY KEY CHECK(id=1), lease TEXT, session TEXT, expires REAL, quarantined INTEGER NOT NULL)"
             )
             db.execute("INSERT OR IGNORE INTO gate VALUES (1, NULL, NULL, NULL, 0)")
+            # Legacy events.calls are reservations, not measured API calls. Preserve
+            # them for audit/rate limiting; never reinterpret them as actual usage.
+            db.execute(
+                "CREATE TABLE IF NOT EXISTS model_submissions (request TEXT NOT NULL, at REAL NOT NULL)"
+            )
+            db.execute("CREATE INDEX IF NOT EXISTS model_submissions_at ON model_submissions(at)")
 
     @contextmanager
     def _transaction(self) -> Iterator[sqlite3.Connection]:
@@ -171,7 +178,6 @@ class SQLiteControl:
             global_count = db.execute(
                 "SELECT COUNT(*) FROM events WHERE at> ?", (now - 60,)
             ).fetchone()[0]
-            used = db.execute("SELECT COALESCE(SUM(calls), 0) FROM events").fetchone()[0]
             if (
                 count >= self.limits.principal_requests_per_minute
                 or global_count >= self.limits.global_requests_per_minute
@@ -179,16 +185,45 @@ class SQLiteControl:
                 raise ControlIssue(
                     "rate_limited", "Request rate limit reached; retry after one minute."
                 )
-            if used + 2 > self.limits.model_calls_per_day:
-                raise ControlIssue(
-                    "budget_exhausted", "Shared model-call budget exhausted; retry later."
-                )
-            db.execute("INSERT INTO events VALUES (?, ?, 2)", (owner, now))
+            db.execute("INSERT INTO events VALUES (?, ?, 0)", (owner, now))
             db.execute(
                 "UPDATE gate SET lease=?, session=?, expires=? WHERE id=1",
                 (request, session, now + 90),
             )
             return json.loads(row[1])
+
+    def record_model_submission(self, request: str) -> None:
+        """Debit immediately before Cortex cursor.execute, never on admission.
+
+        Submitted failures still count; local validation/login/cursor failures do not.
+        A crash/network ambiguity at the commit/send boundary cannot be proved unsent;
+        keep that debit rather than refund uncertain remote work. No retries/refunds.
+        """
+        now = time.time()
+        with self._transaction() as db:
+            lease, expires, quarantined = db.execute(
+                "SELECT lease, expires, quarantined FROM gate WHERE id=1"
+            ).fetchone()
+            if lease != request or quarantined or expires is None or expires <= now:
+                raise ControlIssue("unavailable", "Model request lease is unavailable.")
+            db.execute("DELETE FROM model_submissions WHERE at<=?", (now - 86400,))
+            used, first = db.execute(
+                "SELECT COUNT(*), MIN(at) FROM model_submissions WHERE at>?", (now - 86400,)
+            ).fetchone()
+            if used >= self.limits.model_calls_per_day:
+                minutes = max(1, int((first + 86400 - now + 59) // 60))
+                raise ControlIssue(
+                    "budget_exhausted",
+                    f"Shared Cortex budget exhausted; rolling 24-hour allowance renews in about {minutes} minutes.",
+                )
+            if (
+                db.execute(
+                    "SELECT COUNT(*) FROM model_submissions WHERE request=?", (request,)
+                ).fetchone()[0]
+                >= 2
+            ):
+                raise ControlIssue("unavailable", "Model call bound reached for this request.")
+            db.execute("INSERT INTO model_submissions VALUES (?, ?)", (request, now))
 
     def finish(self, request: str, state: dict | None, *, healthy: bool) -> None:
         with self._transaction() as db:
