@@ -1,7 +1,7 @@
- Container census-app-1 Stopping 
- Container census-app-1 Stopped 
+ Container census-app-1 Stopping
+ Container census-app-1 Stopped
 {"old_policy": {"deadline_seconds": 55, "global_requests_per_minute": 20, "max_sessions": 128, "model_calls_per_day": 120, "principal_requests_per_minute": 6, "session_ttl": 1800}, "new_policy": {"deadline_seconds": 55, "global_requests_per_minute": 60, "max_sessions": 256, "model_calls_per_day": 1200, "principal_requests_per_minute": 12, "session_ttl": 7200}, "before": {"sessions_count": 1, "sessions_sha256": "cb39fb7333a7013d83ca4a9336ca2521da5b3e907a85a7af9283a3933bdd1f03", "event_rows": 60, "legacy_reserved_units": 120, "gate": [[0, 0]]}, "after": {"sessions_count": 1, "sessions_sha256": "cb39fb7333a7013d83ca4a9336ca2521da5b3e907a85a7af9283a3933bdd1f03", "event_rows": 60, "legacy_reserved_units": 120, "gate": [[0, 0]]}, "sessions_events_gate_preserved": true, "legacy_reservations": "Retained unchanged; new model_submissions ledger starts at migration and does not fabricate historical actual-call totals.", "backup_path": "/var/lib/census-operator/budget-fix-20261015/before.sqlite", "migrated_at": 1792096020.4945362}
- Container census-app-1 Recreate 
- Container census-app-1 Recreated 
- Container census-app-1 Starting 
- Container census-app-1 Started 
+ Container census-app-1 Recreate
+ Container census-app-1 Recreated
+ Container census-app-1 Starting
+ Container census-app-1 Started

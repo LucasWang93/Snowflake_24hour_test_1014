@@ -19,7 +19,8 @@ requested1200 actual model submissions plus more reviewer request/session capaci
   5,024,279 in31.0242s, ledger exactly2 submissions; local refusal checked separately.
 
 ## In progress
-- Final evidence/documentation and reviewed GitHub development checkpoint.
+- Repair, production rollout and verification complete. Integrating the newer remote
+  checkpoint before the final authorized push; no additional live test needed.
 
 ## Blocked
 - No model-budget availability blocker after repair. Finite1200-call cap can still

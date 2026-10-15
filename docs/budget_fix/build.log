@@ -1,4 +1,4 @@
- Image census-app Building 
+ Image census-app Building
 #1 [internal] load local bake definitions
 #1 reading from stdin 517B done
 #1 DONE 0.0s
@@ -70,4 +70,4 @@
 
 #19 resolving provenance for metadata file
 #19 DONE 0.0s
- Image census-app Built 
+ Image census-app Built
