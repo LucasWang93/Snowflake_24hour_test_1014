@@ -16,3 +16,7 @@ Create stable requirement IDs and a requirement-to-test matrix: source, acceptan
 criterion, planned test/evaluation, observed evidence, status. Create an ordered
 vertical-slice plan with acceptance criteria, prioritizing a runnable end-to-end path.
 Update docs/PROGRESS.md and record Gate A evidence only when rules are understood.
+
+For multi-workflow projects, apply [business-first-delivery](../business-first-delivery/SKILL.md)
+to derive representative complete user tasks before committing to architecture. Map
+operation/data feasibility and core coverage gaps, not just deliverable filenames.

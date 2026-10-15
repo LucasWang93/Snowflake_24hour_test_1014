@@ -464,3 +464,12 @@ items and precommit changes. Its Ruff/tests pass (169/25); not a data-readiness 
 Ubuntu left three phased updates deferred; running patched kernel 6.8.0-147 and
 key-only SSH verified. Server no longer needs host or DNS provisioning; admin identity
 and privilege/exclusivity confirmation are the remaining functional blocker.
+
+## Reusable skill captured — v0.5.3-skills
+User requested retaining these lessons for future projects. business-first-delivery
+now exists as a versioned .agents skill and matching personal ~/.codex/skills copy.
+Six existing skills plus AGENTS link to business coverage/feasibility/false-refusal
+and end-to-end readiness gates. No app/deployment or new live call. Structural
+validation, copy/reference checks and full203 offline passes /25 live skips verified.
+See SKILL_CAPTURE.md. Existing uncommitted diagnostic/proposal work remains separate;
+no redesign implementation is authorized by creating this skill.

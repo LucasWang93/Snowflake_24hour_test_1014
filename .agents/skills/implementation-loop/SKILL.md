@@ -14,3 +14,7 @@ Run targeted checks, inspect the diff for accidental scope changes, fix defects 
 update traceability and docs/PROGRESS.md with commands and actual outcomes.
 Justify broad refactors. Do not call mocks real integrations or skips passes.
 Before delivery run the full verification pass; only mark Gates B/C with evidence.
+
+After a substantial slice, update user-task coverage, not just test counts. Follow
+[business-first-delivery](../business-first-delivery/SKILL.md) for compositional
+acceptance and flag when phase-local success still leaves core workflows unmet.

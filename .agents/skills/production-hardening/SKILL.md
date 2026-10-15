@@ -15,3 +15,8 @@ P1 before optional P2 work; document deferred risks in docs/PROGRESS.md and arch
 Use targeted regression or boundary tests for fixes. Keep retries bounded and avoid
 retrying unsafe operations without an idempotency strategy. Add no infrastructure
 without need, and obtain authorization for services, paid APIs or external deployment.
+
+Verify ordinary user workflows still work under guardrails and shared limits; assess
+false refusals and accounting/expiry behavior, not just blocked attacks. Retain
+essential safety while using [business-first-delivery](../business-first-delivery/SKILL.md)
+to prevent hardening from silently replacing the product's functional acceptance.

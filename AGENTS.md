@@ -41,8 +41,12 @@ evaluation data or successful results; do not automatically advance phases.
 
 ## Local workflow
 Use the relevant skill under .agents/skills/, reading its SKILL.md before use:
-challenge-intake, solution-architecture, implementation-loop,
+business-first-delivery, challenge-intake, solution-architecture, implementation-loop,
 evaluation-engineering, production-hardening, delivery-review.
+For multi-workflow project work, use business-first-delivery to keep actual user-task
+coverage as the acceptance criterion; phase completion and unit-test counts cannot
+substitute for missing mandatory end-to-end functionality. Respect scoped stop/freeze
+instructions and report incomplete coverage without expanding authorization.
 Skills do not expand authorization. An independent delivery review means a fresh
 reviewer perspective; it does not require another agent.
 

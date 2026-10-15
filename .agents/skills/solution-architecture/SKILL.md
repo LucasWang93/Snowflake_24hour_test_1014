@@ -14,3 +14,8 @@ tradeoffs, and a fallback plan in docs/ARCHITECTURE.md. Use Mermaid only if help
 Record the decision, timestamp, rationale and rejected alternatives in docs/DECISIONS.md.
 Avoid speculative abstractions or infrastructure. Identify the smallest end-to-end
 slice and how Gate B will be demonstrated without silently changing scope.
+
+Check the proposed operation/result contracts against the core business workflows
+using [business-first-delivery](../business-first-delivery/SKILL.md). A table/field
+match or easy single-value demo does not prove ranking, rates, comparison or full
+conversation coverage; surface any required source/definition gap before commitment.

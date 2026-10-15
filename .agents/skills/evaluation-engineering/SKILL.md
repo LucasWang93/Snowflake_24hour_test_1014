@@ -16,3 +16,8 @@ docs/EVALUATION_PLAN.md. Label estimates, mocks, unrun external tests and limita
 Never fabricate benchmark scores. Categorize failures, connect them to cases and
 requirements, recommend fixes and rerun affected checks. Gate D requires meaningful
 observed evidence and failure analysis, not merely an evaluation plan.
+
+Use [business-first-delivery](../business-first-delivery/SKILL.md) to separate business
+cases from assertion counts. Evaluate complete unfamiliar workflows and normal-query
+false refusals; a supported required query that is refused is a coverage failure.
+Reused passing cases remain regression even when every test is green.

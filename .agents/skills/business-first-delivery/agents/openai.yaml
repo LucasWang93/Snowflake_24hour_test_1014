@@ -1,0 +1,4 @@
+interface:
+  display_name: "Business-first Project Delivery"
+  short_description: "Gate project delivery on real user workflows"
+  default_prompt: "Use $business-first-delivery to plan and verify this project against representative user workflows before declaring it complete."

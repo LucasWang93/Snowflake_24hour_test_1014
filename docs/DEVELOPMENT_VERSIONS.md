@@ -128,3 +128,13 @@ migration. Single warehouse lease/deadline/SQL/stats/auth unchanged. Full203 off
 passes /25 live skips; public Alabama5,024,279 in31.0242s, exactly2 model debits.
 No credit-limit or unlimited-availability claim. Production budget-20261015; no
 credential/grant change or final email. See BUDGET_FIX_REPORT.md for actual evidence.
+
+## v0.5.3-skills — reusable business-first acceptance workflow
+User requested capturing the take-home lessons for future projects. Add the global/
+repository business-first-delivery skill, acceptance worksheet and optional Census
+retrospective; link six existing skills and AGENTS policy to real user-task coverage.
+No fixed technology/test-count prescription, scope expansion or relaxed safety.
+Seven repository skills plus personal copy validated; four package files match;
+eight relative references resolve; full203 offline passes /25 live skips, Ruff/Bash
+pass. No application/deployment/model-call change. Prior uncommitted redesign and
+refusal-diagnostic artifacts remain separate. See SKILL_CAPTURE.md.

@@ -16,3 +16,8 @@ Update docs/DELIVERY_CHECKLIST.md only with actual evidence and record Gate E st
 Produce a concise handoff with implementation outcome, setup/run/test commands,
 observed evaluation, assumptions and remaining risks. Do not push, publish or submit
 without authorization. A fresh reviewer pass does not require spawning another agent.
+
+Apply [business-first-delivery](../business-first-delivery/SKILL.md) to independently
+walk the core user-task matrix on the delivery surface. Lead with workflow coverage
+and failures; unit/lint totals, safe refusals and completed phases do not establish
+readiness when a mandatory business path remains unimplemented or unverified.
