@@ -16,7 +16,7 @@ answers from returned numbers. It reuses captured metadata without rediscovery.
 flowchart LR
     M[Captured schema/dictionaries and FIPS] --> C[Phase 1 JSON catalog]
     C --> R[Offline dynamic retrieval]
-    Q[User query / CLI] --> I[Cortex structured intent]
+    Q[Core Agent request] --> I[Cortex structured intent]
     T[Explicit per-conversation state] --> I
     I --> G[Geography and statistical checks]
     G --> R
@@ -119,15 +119,18 @@ are separate backend code paths, not user-selectable operations.
 Queries check duplicate CBGs and null/negative/suppressed values; bad results do not
 produce statistics or partial comparisons. Results are at most two point rows or
 one aggregate row per geography. Data timeout is at most 15s, model 20s, queue 3s;
-shared 50s request budget reserves cleanup. Network/login timeouts are finite.
+the core soft budget reserves cleanup within the service 55s parent deadline.
+Network/login timeouts are finite.
 Connector/network behavior is bounded but not a hard real-time service guarantee.
 Each turn attempts suspend and verifies warehouse state; failed cleanup is visible.
 
-The application uses primary role PUBLIC with secondary mode ALL. A live NONE
-trial could not access the dataset; ALL restored the existing user-granted access.
+Historical Phase 2 development used primary role PUBLIC with secondary mode ALL.
+A development NONE trial could not access the dataset; ALL restored that user access.
+Current production instead uses AGENT_PROD / APP_ROLE / secondary NONE.
 Visible role/user grants and successful data operations are recorded. There are no
-GRANT changes and no claim of complete account audit or least privilege. The current
-user has broader privileges than the canonical application data surface.
+GRANT changes and no claim of complete account audit or least privilege. The development
+user had broader privileges than the canonical application data surface; production
+PUBLIC inheritance remains a separately disclosed residual.
 
 Local credentials are ignored, owner-only and read only by the authorized existing
 loader. No credentials enter Cortex prompts. Local request guards plus Cortex
@@ -137,7 +140,8 @@ sanitized, conversation state is explicit, and model trace history resets per tu
 The low-level backend now enforces process/thread ownership and core agent/state
 locks reject overlapping use. Public deployment must call AgentService: isolated
 request workers own fresh connections, authenticated state and shared budgets.
-Streamlit UI and TLS proxy configuration are implemented in Phase 4; actual public hosting and multi-host control remain unavailable.
+Streamlit and Caddy are deployed on the approved single host. Multi-host control
+is unsupported; actual public hosting and restart evidence is in PHASE4_REPORT.md.
 
 ## Design choices
 Use standard-library compact JSON and in-memory inverted-index/BM25 retrieval.
@@ -160,11 +164,12 @@ confidence and are not statistical correctness guarantees.
 JSON + lexical scoring was chosen over SQLite FTS5 (unneeded binary/index artifact
 at current scale) and embeddings/vector infrastructure (extra cost, dependencies
 and nondeterminism). Recorded load/index cost is 3.617s; five single local searches
-were 2.746–58.391ms, not a service latency SLA. A future index change requires a
-measured need. Full decision rationale and accepted/proposed distinction are in
+were 2.746–58.391ms, not a service latency SLA. Phase 4 measured a startup need and
+added a fingerprinted image-built index with physical validation and normal-build
+fallback; it does not cache statistical answers. Decision rationale/status are in
 DECISIONS.md. Evidence and planned tests are in EVALUATION_PLAN.md.
 
-## Phase 3 deployment boundary (implemented, no UI)
+## Historical Phase 3 boundary (retained inside current Web deployment)
 
 ```mermaid
 flowchart LR
@@ -223,14 +228,16 @@ IDs for evaluation. Logs contain only request UUID, status, elapsed seconds and 
 health, never user question, token, session ID or connector exception text. Server
 adapters must return `ServiceResult.public`, not its operator diagnostics or
 `Response.as_dict`. Bearer tokens must be cryptographically random, supplied through
-server-held digests and transported over TLS; no real demo tokens were created or
-committed in this phase. Authentication/revocation/TLS hosting remain deployment work.
+server-held digests and transported over TLS. Phase 3 had no hosted token provisioning;
+Phase 4 subsequently provisioned private tokens and trusted TLS. No tokens are in Git.
 
-Primary role and secondary mode are trusted constructor options for a future
-restricted identity. Working PUBLIC/ALL access is preserved. Fresh visible grants
+Primary role and secondary mode are trusted constructor options. At the Phase 3
+checkpoint, development PUBLIC/ALL access was preserved; current production uses
+AGENT_PROD/APP_ROLE/NONE. Fresh visible grants
 include up to four inherited roles and CURRENT_SESSION identity; lack of grant
-visibility is not proof of absence. Dedicated read-only identity/role migration and
-review of broad PUBLIC baseline need administrator action; see DEPLOYMENT_PERMISSIONS.md.
+visibility is not proof of absence. The dedicated identity/role migration is complete;
+residual review of broader PUBLIC
+inheritance still needs administrator action; see DEPLOYMENT_PERMISSIONS.md.
 No grants, warehouse provisioning or credential configuration changed here.
 
 Semantic hardening preserves canonical SQL. Literal household counts cannot become
@@ -324,7 +331,7 @@ operational limits. See PHASE4_LATENCY.md for modest measured gain and remaining
 ## Phase 5 packaging boundary
 No application architecture changed. README/Reflection and final submission audit
 now describe the actual deployed system. Fresh external two-turn regression passed;
-original Phase 1–4 evidence is retained. Repository privacy/reviewer access, absolute
-submission metadata, credit visibility and the inherited-permission residual remain
-open in PHASE5_REPORT.md. Documentation packaging does not restart production or
+original Phase 1–4 evidence is retained. Repository privacy/reviewer access is operator-reported but independently unverified.
+Submission metadata, credit visibility and inherited-permission residual remain open
+in FINAL_SUBMISSION_AUDIT.md. Documentation packaging does not restart production or
 change its persistent control database/secrets.

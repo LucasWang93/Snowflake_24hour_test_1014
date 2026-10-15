@@ -41,9 +41,10 @@ in REVIEWER_ACCESS.md. Existing token files remain on the host; no rotation perf
 
 1. Confirm the candidate signature, actual recipient and receipt timestamp/timezone
    against the original email. Deadline = receipt +24 hours; never infer from Git/PDF dates.
-2. Change repository visibility to **Private** (currently verified public).
-3. Grant the exact 11 PDF reviewer accounts access; distinguish pending invitations
-   from accepted access. See PHASE5_REPORT.md.
+2. Operator reports repository now **Private** and all 11 accounts invited. Obtain
+   authenticated visibility/invitation confirmation; current API404 is inconclusive.
+3. Compare invitee/collaborator names against all 11 exact PDF handles; valid pending
+   invitations and accepted access are distinct. See FINAL_SUBMISSION_AUDIT.md.
 4. Confirm remaining Snowflake trial credits/monitor coverage with the account admin.
 5. Include the private demo access note, and verify the submitted commit has pushed.
 6. Obtain explicit user authorization to send. No email has been sent or scheduled.

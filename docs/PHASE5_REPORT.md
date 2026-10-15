@@ -1,3 +1,8 @@
+> Historical Phase 5 preparation snapshot at `98fe2ff`. The operator subsequently
+> reports private GitHub visibility and all 11 invitations. Current independently
+> verified vs unverified status is in [FINAL_SUBMISSION_AUDIT.md](FINAL_SUBMISSION_AUDIT.md).
+> Earlier API200/private=false below records the prior observation, not current visibility.
+
 # Phase 5 — final submission preparation
 
 Prepared 2026-10-14 America/New_York (budget snapshot 2026-10-15 00:01:39 UTC).

@@ -105,3 +105,18 @@ receipt/timezone/recipient not confirmed, monetary headroom not visible to app r
 PUBLIC inherited permission residual retained. Preflight2 is incomplete, not success.
 Tag/commit identifies this reviewed preparation state; routine push is authorized.
 No email sent. Resolve external delivery facts before claiming final submission.
+
+## v0.5.1-freeze — conservative cleanup and final audit
+No tracked evidence/source/test/config deletion or archival move; remove only local
+ignored caches, add token/SQLite ignore rules. All original artifacts, failed runs,
+SQL references and skills preserved. Current docs distinguish operator-reported
+Private/all11 invitations from independent UNVERIFIED API status, and historical
+PUBLIC/ALL/blocking checkpoints from deployed APP_ROLE/NONE functionality.
+Full191 offline passes /25 live skips, Ruff/pip pass; imports/CLI, links, context,
+Git history secret checks and clean tracked-tree verification recorded. Fresh HTTPS
+page and health200; no model/data call or remote operation/deploy/restart.
+Ready NO: actual receipt/deadline/recipient and authenticated invitation/visibility
+confirmation remain missing; credit headroom and inherited permission risk disclosed.
+Final preflight2 retained without weakening checks. Tag identifies final cleanup
+commit; exact commit is returned by git rev-parse v0.5.1-freeze^{commit} and final handoff.
+Routine reviewed push authorized. No email sent and production remains v0.4.4-dev.

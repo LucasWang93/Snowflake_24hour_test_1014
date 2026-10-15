@@ -335,3 +335,14 @@ cannot be claimed without administrator confirmation. Credit-call allowances are
 proof of monetary headroom: no visible resource monitor and null warehouse monitor
 assignment require admin inspection. Receipt/deadline/recipient remain factual inputs,
 not details to infer. Reject marking final delivery complete merely because tests pass.
+
+## 2026-10-14 — D-21: conservative submission freeze (accepted)
+Retain all tracked source, configurations, skills, tests, metadata, reference SQL and
+historical failures: the entire tracked tree is about38 MB and these assets support
+reproducibility or the reflection. No archival move/deletion just to reduce file count.
+Remove only ignored local Python/pytest/Ruff caches and ignore reviewer token downloads
+and SQLite files. Never ignore all logs: existing logs are evaluation evidence.
+Current documentation supersedes dated blocked checkpoints without overwriting them.
+Operator-reported private visibility/invitations are not authenticated API evidence;
+keep status UNVERIFIED rather than preserve the stale assertion that repo is public.
+No deployment, secret, permission, warehouse or admission-state changes.

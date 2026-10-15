@@ -1,0 +1,36 @@
+{
+  "imports_passed": [
+    "census_catalog.catalog",
+    "census_catalog.geography",
+    "census_catalog.aggregation",
+    "census_agent.agent",
+    "census_agent.backend",
+    "census_agent.service",
+    "census_web.runtime",
+    "census_web.app"
+  ],
+  "cli_help": [
+    {
+      "command": ".venv/bin/python -m census_catalog --help",
+      "exit_code": 0,
+      "help_present": true
+    },
+    {
+      "command": ".venv/bin/python -m census_agent --help",
+      "exit_code": 0,
+      "help_present": true
+    },
+    {
+      "command": ".venv/bin/python scripts/deployment_smoke.py --help",
+      "exit_code": 0,
+      "help_present": true
+    },
+    {
+      "command": ".venv/bin/python scripts/create_reviewer_token.py --help",
+      "exit_code": 0,
+      "help_present": true
+    }
+  ],
+  "offline_search_mappings": 3,
+  "remote_queries_or_cortex_calls": 0
+}

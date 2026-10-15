@@ -1,0 +1,63 @@
+{
+  "removed_cache_directories": [
+    {
+      "path": ".ruff_cache",
+      "files": 12,
+      "bytes": 2081
+    },
+    {
+      "path": ".pytest_cache",
+      "files": 5,
+      "bytes": 24880
+    },
+    {
+      "path": "tests/__pycache__",
+      "files": 6,
+      "bytes": 87244
+    },
+    {
+      "path": "tests/phase4/__pycache__",
+      "files": 4,
+      "bytes": 110589
+    },
+    {
+      "path": "tests/phase3/__pycache__",
+      "files": 2,
+      "bytes": 100941
+    },
+    {
+      "path": "tests/phase2/__pycache__",
+      "files": 3,
+      "bytes": 143985
+    },
+    {
+      "path": "census_agent/__pycache__",
+      "files": 9,
+      "bytes": 116860
+    },
+    {
+      "path": "census_catalog/__pycache__",
+      "files": 6,
+      "bytes": 53723
+    },
+    {
+      "path": "census_web/__pycache__",
+      "files": 3,
+      "bytes": 18927
+    },
+    {
+      "path": "evaluation/__pycache__",
+      "files": 1,
+      "bytes": 15211
+    },
+    {
+      "path": "scripts/__pycache__",
+      "files": 3,
+      "bytes": 42492
+    }
+  ],
+  "tracked_files_removed": [],
+  "tracked_files_moved": [],
+  "total_disposable_bytes_removed": 716933,
+  "env_venv_and_remote_untouched": true
+}

@@ -1,6 +1,56 @@
 # Progress
 
-## Current checkpoint — Phase 5 submission preparation (v0.5.0-prep)
+## Current checkpoint — final submission freeze (v0.5.1-freeze)
+Scope: conservative local cleanup, documentation reconciliation and offline audit.
+Production remains v0.4.4-dev at https://census-104-248-239-52.sslip.io; no deployment,
+server restart, credential/grant/warehouse/control-state change or live Cortex calls.
+
+## Completed
+- Baseline 230 tracked files (~38 MB) classified; preserve all source/skills/scripts,
+  catalog/raw metadata, test assets and referenced historical failures/SQL evidence.
+- No tracked deletions/moves. Remove only local disposable caches; add token/SQLite
+  ignore rules. Exact inventory/cleanup results in final_submission_checks/.
+- README/Reflection and technical docs reviewed against original five-page PDF.
+  Correct stale current public-repository/hosting assertions; preserve dated evidence.
+- Full offline 191 passed /25 opt-in skips, Ruff/Bash and pip check pass. Manifest/import/
+  CLI/search/link/Docker-context checks recorded. Clean tracked export uses existing
+  dependencies, not a claimed fresh installation. No secret findings within scan scope.
+- Fresh trusted HTTPS page 200 and health 200/ok. Historical actual question/follow-up
+  and first independent 19/25 vs reused 25/25 regression retained; no costly live retest.
+- FINAL_SUBMISSION_AUDIT.md and token-free email draft prepared. Routine reviewed
+  commit/push/tag follow checks; production release remains unchanged.
+
+## In progress
+- Final packaging checkpoint recorded by v0.5.1-freeze and DEVELOPMENT_VERSIONS.md.
+  Resolve final commit with git rev-parse; final handoff verifies origin/main matches.
+- No application implementation or deployment work in progress.
+
+## Blocked
+- Receipt timestamp/timezone/recipient remain unknown: PDF only says receipt+24h;
+  user confirmation requested. Email unsent and requires explicit send authorization.
+- Operator now reports GitHub Private and all 11 reviewers invited. Independently
+  UNVERIFIED: no authenticated GitHub API available; unauthenticated404 proves neither.
+  The old private=false result in phase5_final/ is historical, not current fact.
+- Snowflake monetary headroom remains unverified; prior 52 call units were a dated
+  snapshot. Existing inherited PUBLIC learning-role privilege residual is unchanged.
+
+## Next three actions
+1. Operator provides receipt/timezone/recipient and authenticated visibility/invitation
+   evidence against the exact 11-account list in FINAL_SUBMISSION_AUDIT.md.
+2. Confirm trial-credit capacity and attach existing reviewer token privately; never
+   commit it, reset budgets or change production merely for submission packaging.
+3. Review SUBMISSION_EMAIL_DRAFT.md and authorize a send only when ready. Stop here;
+   do not implement new phases or send email automatically.
+
+## Verification evidence
+Current report: FINAL_SUBMISSION_AUDIT.md; logs/JSON: final_submission_checks/.
+Preflight2 remains PARTIAL due outstanding delivery/historical unchecked items and
+precommit worktree; tests pass. Skips/unverified operations are never marked PASS.
+New session: read AGENTS.md, this checkpoint, final audit and Git state first.
+
+---
+
+## Historical checkpoint — Phase 5 submission preparation (v0.5.0-prep)
 Authorized scope: final audit/documentation/verification and routine reviewed commit/push.
 No new Agent features, redeployment or email sending. Public demo remains
 https://census-104-248-239-52.sslip.io; deployed application stays v0.4.4-dev.

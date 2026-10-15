@@ -1,0 +1,34 @@
+{
+  "parsed_python_files": 36,
+  "manifest_versions": {
+    "playwright": {
+      "declared": "1.56.0",
+      "installed": null,
+      "status": "OPTIONAL_NOT_INSTALLED"
+    },
+    "snowflake-connector-python": {
+      "declared": "4.8.0",
+      "installed": "4.8.0",
+      "status": "PASS"
+    },
+    "streamlit": {
+      "declared": "1.65.0",
+      "installed": "1.65.0",
+      "status": "PASS"
+    },
+    "pytest": {
+      "declared": "8.4.2",
+      "installed": "8.4.2",
+      "status": "PASS"
+    },
+    "ruff": {
+      "declared": "0.14.0",
+      "installed": "0.14.0",
+      "status": "PASS"
+    }
+  },
+  "valid_included_manifests": [
+    "requirements-snowflake.txt"
+  ],
+  "no_dependency_installation": true
+}

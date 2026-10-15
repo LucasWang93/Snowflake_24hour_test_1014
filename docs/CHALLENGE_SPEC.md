@@ -3,8 +3,8 @@
 Status: official PDF reconciled; verified Phase 1–3 retained. Phase 4 authenticated
 HTTPS Web demo now externally verified, including actual data and restart. Strict
 account privilege isolation remains open. Phase 5 submission preparation is authorized;
-README/Reflection and final smoke are verified. GitHub privacy/access and submission
-metadata remain blockers (PHASE5_REPORT.md). No email sent.
+README/Reflection and final smoke are verified. GitHub privacy/access is operator-reported and independently unverified; submission
+metadata remains unresolved (FINAL_SUBMISSION_AUDIT.md). No email sent.
 
 ## Objective
 Build a chatting agent that answers questions about United States Census population
@@ -111,7 +111,7 @@ instead of duplicating context/latency/degradation requirements.
 | AS-6 | PDF p.2: meaningful tests, explain strategy/tradeoffs; pp.3–4 evaluation dimensions | 191 offline tests; preserved Phase 1–3 real evaluations and Phase 4 external smoke | Independent SQL/reference results, held-out failures, regression and deployment evidence | Complete (documented bounded evaluation; not universal accuracy) |
 | AS-7 | PDF pp.1–2: README explains architecture/demo and documents interpretations | Final README: demo/access, architecture, setup, evaluation and limitations | Source review, offline search, dependency checks and external two-turn smoke; prior real Docker build | Complete (document and commands verified; no fresh local dependency-install claim) |
 | AS-8 | PDF pp.1,3–4: Markdown reflection covering process/architecture, more-time changes, unaddressed failures and testing/future tests; discuss AI use | Root REFLECTION.md covers all four topics with actual phase evidence and AI use | Compare headings/content to PDF p.3, preserve 19/25 first evaluation vs 25/25 regression | Complete (document reviewed) |
-| AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | GitHub unauthenticated API returned private=false; no API credentials available | Change visibility then authenticated effective-access check for all 11 exact PDF handles | BLOCKED (public repository; all 11 access states unverified) |
+| AS-9 | PDF p.3: private GitHub repository shared with the 11 named reviewers | Operator reports repository private and all 11 invited; current unauthenticated API 404; SSH main accessible | Authenticated visibility and invitation/collaborator lists compared to exact PDF handles; do not infer privacy from 404 | UNVERIFIED (operator action reported; independent API access unavailable) |
 | AS-10 | PDF pp.1,3: email private repository link within 24 hours of receipt | No email sent; exact recipient/receipt timestamp still needed | Deadline check, repository/demo links, authorized send and receipt | Pending |
 | AS-11 | PDF p.1: read requirements before coding; current user: reconcile original PDF | Five-page PDF read; old 23 IDs reconciled; missing obligations added | Source/page audit and unique-ID/test-method comparison; reconciliation report | Complete (source reconciliation) |
 | AS-12 | PDF pp.2,5: responses within 60 seconds under normal conditions | 55-second service deadline and actual browser progress; normal hosted turns measured | External factual 17.0037s, follow-up 14.0131s, restart factual 13.0037s; prior core evidence | Complete (measured cases <60s; no SLA claim) |
@@ -203,3 +203,11 @@ functional demo does not prove it. Operator should give APP_ROLE explicit OPERAT
 before reviewing/remediating PUBLIC inheritance. No grants changed. Full README,
 Reflection, reviewer repository/access handoff and final email are still pending.
 No Phase 5 started; see PHASE4_REPORT.md and PROGRESS.md for current evidence/risks.
+
+## Final submission freeze — current audit
+Final packaging does not modify application/deployment/state. Existing 30 IDs, all
+catalog/SQL/evaluation artifacts and first-run failures are preserved. Operator reports
+private GitHub visibility and all 11 invitations; current API404 is not verification.
+Receipt/timezone/recipient remain unknown. See FINAL_SUBMISSION_AUDIT.md for current
+PASS/PARTIAL/BLOCKED/UNVERIFIED statuses; earlier chronological checkpoints retain the
+status at the time and are not current claims. No email sent.

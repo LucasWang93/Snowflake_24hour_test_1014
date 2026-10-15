@@ -19,15 +19,19 @@ Counts may aggregate over distinct CBGs; medians/ratios/MOEs require a supported
 Unknown questions clarify/refuse. Only one query runs at a time; a busy response means
 retry shortly. Defaults are six requests per reviewer/minute and a shared 120 reserved
 model-call-unit daily allowance. Requests aim to finish within 55s backend deadline;
-measured factual browser requests were 13–17.1s, without claiming a deployment SLA. Operator intervention may be needed
+measured factual browser samples ranged from about 13 to 27.1s across Phase 4/5,
+without claiming a deployment SLA. Operator intervention may be needed
 after an uncertain timeout. Never send Snowflake passwords, private keys or other
 secrets in chat. Final submission email has not been sent.
 
 The operator holds individual tokens in the private Droplet handoff directory; they
 are not included here or in Git. Droplet: 104.248.239.52; existing SSH key authentication
 remains functional. Request a token via the approved private handoff.
-An owned DNS hostname can later replace the temporary sslip.io hostname. No final
-submission email or reviewer repository-access change has been performed.
+An owned DNS hostname can later replace the temporary sslip.io hostname. The operator
+reports the GitHub repository is now private and all 11 accounts have been invited;
+authenticated API verification remains unavailable. GitHub invitations and demo login
+are separate. Final email must include the existing token privately, not just this
+instruction link. No email has been sent. See FINAL_SUBMISSION_AUDIT.md.
 
 For the authorized operator only, download an existing token to a private LOCAL file;
 this prints no token value and does not copy Snowflake credentials or private keys:

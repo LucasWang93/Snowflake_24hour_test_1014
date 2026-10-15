@@ -1,0 +1,73 @@
+{
+  "tracked_deletions_planned": [],
+  "moves_planned": [],
+  "local_cache_removal_candidates": [
+    {
+      "path": ".ruff_cache",
+      "files": 12,
+      "bytes": 2081,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": ".pytest_cache",
+      "files": 5,
+      "bytes": 24880,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "tests/__pycache__",
+      "files": 6,
+      "bytes": 87244,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "tests/phase4/__pycache__",
+      "files": 4,
+      "bytes": 110589,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "tests/phase3/__pycache__",
+      "files": 2,
+      "bytes": 100941,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "tests/phase2/__pycache__",
+      "files": 3,
+      "bytes": 143985,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "census_agent/__pycache__",
+      "files": 9,
+      "bytes": 116860,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "census_catalog/__pycache__",
+      "files": 6,
+      "bytes": 53723,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "census_web/__pycache__",
+      "files": 3,
+      "bytes": 18927,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "evaluation/__pycache__",
+      "files": 1,
+      "bytes": 15211,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    },
+    {
+      "path": "scripts/__pycache__",
+      "files": 3,
+      "bytes": 42492,
+      "reason": "Disposable local Python/pytest/Ruff cache; no source or unique evaluation evidence."
+    }
+  ],
+  "preserved": "All application/config/test/skills/scripts/catalog/metadata/SQL references/evaluation failures/logs/PDF/history; local .env and .venv untouched. Tracked artifacts are referenced or useful evidence; 38 MB is manageable."
+}

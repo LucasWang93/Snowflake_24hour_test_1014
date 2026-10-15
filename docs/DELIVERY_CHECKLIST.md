@@ -1,8 +1,8 @@
 # Delivery checklist
 
 Current: Phase 5 final preparation; **not ready to submit**. Live demo and technical
-package are verified; private repository/reviewer access and submission metadata
-remain blockers. Earlier snapshots below are historical, not current assertions.
+package are verified; private repository/reviewer access is operator-reported but independently unverified;
+submission metadata remains unresolved. See FINAL_SUBMISSION_AUDIT.md. Earlier snapshots below are historical, not current assertions.
 
 ## Functional
 - [x] AS-1/AS-2/AS-3: supported grounded Cortex agent, explicit context and multi-turn;
@@ -29,12 +29,14 @@ remain blockers. Earlier snapshots below are historical, not current assertions.
 
 ## Security
 - [x] No high-confidence secret findings in reachable Git history and eligible worktree;
-  current reviewer tokens checked by exact match; .env ignored. Scan scope documented.
+  prior exact token check retained; fresh format/entropy/key scan clean; .env ignored.
+  Scope in final_submission_checks/security.json; no ignored secrets read.
 - [x] Public adapter uses production secrets/AGENT_PROD/APP_ROLE/NONE without dev fallback;
   private diagnostics excluded. No new grants, secret rotation or safety-limit changes.
 - [ ] P1 residual: administrator reviews PUBLIC learning-role inheritance and grants
   APP_ROLE explicit OPERATE before safely removing inherited cleanup access.
-- [ ] Change public GitHub repository to Private and verify effective reviewer access.
+- [ ] Independently verify private GitHub visibility and all 11 valid invitations/access;
+  operator reports both actions completed, but no authenticated API audit is available.
 
 ## Documentation
 - [x] AS-7: final README includes live access, architecture, source, setup, tests and limits.
@@ -51,9 +53,10 @@ remain blockers. Earlier snapshots below are historical, not current assertions.
   demo credential handoff still need confirmation. Preflight exit2 is incomplete.
 
 ## Submission
-- [ ] AS-9: repository private (GitHub API currently private=false).
-- [ ] AS-9: all11 exact PDF reviewers have effective private access; each unverified
-  invitation/access state listed in PHASE5_REPORT.md. Pending invitation is not access.
+- [ ] AS-9: private visibility independently verified (operator reports Private; current
+  unauthenticated API404 cannot establish it).
+- [ ] AS-9: all 11 exact PDF accounts have valid invitations or accepted access; operator
+  reports all invited. Each independent state is UNVERIFIED in FINAL_SUBMISSION_AUDIT.md.
 - [ ] AS-10: actual assignment receipt/timezone, deadline=receipt+24h and recipient confirmed.
 - [x] Token-free email draft prepared in SUBMISSION_EMAIL_DRAFT.md; no send/schedule.
 - [ ] Existing demo token included through private channel with actual submission;

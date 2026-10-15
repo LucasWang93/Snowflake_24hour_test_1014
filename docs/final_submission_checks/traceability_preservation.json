@@ -1,0 +1,41 @@
+{
+  "pdf_pages": 5,
+  "pdf_sha256": "33415d2070e803ad0f8823b0c80c27e4ff216649071fcc05c04547ae86bf2f5e",
+  "unique_requirements": 30,
+  "every_row_has_verification": true,
+  "exact_pdf_handles": [
+    "sfc-gh-setli",
+    "sfc-gh-vb",
+    "Sfc-gh-wenli",
+    "sfc-gh-cnivera",
+    "Sfc-gh-twhite",
+    "Sfc-gh-mtreadwell",
+    "Sfc-gh-mvytlingam",
+    "Sfc-gh-cgaboury",
+    "Sfc-gh-sabbas",
+    "Sfc-gh-jsummer",
+    "sfc-gh-htian"
+  ],
+  "all_11_report_rows_match_pdf": true,
+  "four_reflection_topics": true,
+  "protected_files_unchanged": 204,
+  "protected_baseline": "98fe2ff",
+  "ignore_patterns_verified": [
+    ".env",
+    ".env.production",
+    "reviewer.token",
+    "control.sqlite",
+    "control.sqlite-wal",
+    "control.sqlite-shm",
+    "local.sqlite3",
+    "local.sqlite3-wal",
+    "private.pem",
+    "private.key",
+    ".streamlit/secrets.toml",
+    ".runtime/control.sqlite",
+    ".venv/sentinel",
+    "data/semantic_search_index.jsonl"
+  ],
+  "env_example_submittable": true,
+  "scope": "Structural traceability and artifact preservation, not a claim all delivery requirements complete."
+}

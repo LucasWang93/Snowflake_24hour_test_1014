@@ -33,3 +33,11 @@ playwright-report/
 test-results/
 # Derived inside the image; authoritative semantic_catalog.json remains tracked.
 /data/semantic_search_index.*
+# Operator downloads and private admission state must never enter a submission.
+*.token
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal

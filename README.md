@@ -6,7 +6,7 @@ Open the HTTPS URL, enter the reviewer token supplied privately with the submiss
 and start chatting. No installation or Snowflake account is required. Tokens belong
 only in the password-style login field, never in a URL or Git. See
 [reviewer instructions](docs/REVIEWER_ACCESS.md). Repository access and demo login
-are separate; final delivery blockers are tracked in [the final audit](docs/PHASE5_REPORT.md).
+are separate; final delivery blockers are tracked in [the final audit](docs/FINAL_SUBMISSION_AUDIT.md).
 
 Try:
 
@@ -119,8 +119,9 @@ Do not copy secrets or runtime SQLite state into a checkout or image.
   rate controls and persistence across restart. A later measured Alabama browser
   request took 12.9913s; paired profiled service runs improved 15.0294s to 13.6739s.
   Cortex timing also varied: these samples establish neither p95 nor an SLA.
-- Final offline checks: **191 passed, 25 opt-in live tests skipped**. Final HTTPS,
-  two-turn smoke, dependency and delivery evidence: [Phase 5 report](docs/PHASE5_REPORT.md).
+- Final offline checks: **191 passed, 25 opt-in live tests skipped**. Historical
+  HTTPS/two-turn evidence: [Phase 5 report](docs/PHASE5_REPORT.md).
+  Final packaging, health and audit: [submission audit](docs/FINAL_SUBMISSION_AUDIT.md).
 
 See [evaluation plan and preserved failures](docs/EVALUATION_PLAN.md),
 [reflection](REFLECTION.md), and [requirement traceability](docs/CHALLENGE_SPEC.md).

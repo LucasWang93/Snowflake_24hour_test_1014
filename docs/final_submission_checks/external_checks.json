@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-10-15T00:23:28.567156+00:00",
+  "github_unauthenticated": {
+    "http_status": 404,
+    "visibility": "UNVERIFIED",
+    "note": "Unauthenticated 404 is not proof of private visibility or reviewer access."
+  },
+  "demo_health": {
+    "http_status": 200,
+    "seconds": 0.0783,
+    "final_url": "https://census-104-248-239-52.sslip.io/_stcore/health",
+    "health_ok": true
+  },
+  "demo_page": {
+    "http_status": 200,
+    "seconds": 0.0817,
+    "final_url": "https://census-104-248-239-52.sslip.io",
+    "html_present": true
+  },
+  "operator_report": "User states repository private and all 11 accounts invited. No authenticated API credentials available to independently verify."
+}

@@ -3,8 +3,8 @@
 Status: Phases 1–4 evidence is preserved; the authenticated public demo is live.
 Phase 5 final checks: 191 offline passes /25 opt-in skips, dependency/lint checks,
 public HTTPS login and two actual grounded conversational turns. Original independent
-19/25 and subsequent 25/25 regression remain distinct. GitHub privacy/access and
-absolute submission metadata remain unresolved; see PHASE5_REPORT.md.
+19/25 and subsequent 25/25 regression remain distinct. GitHub privacy/access is now operator-reported but not independently verified;
+absolute submission metadata remains unresolved; see FINAL_SUBMISSION_AUDIT.md.
 Earlier phase sections retain their historical results, including deployment blocks
 that were subsequently resolved. No new data discovery or full Cortex evaluation.
 
@@ -87,7 +87,7 @@ canonical register; prior provisional-table notes are historical.
 | AS-6 | Representative held-out end-to-end cases, reference-query comparisons, failure taxonomy, measured latency and resource/cost summary | First Phase 3 independent 19/25; regression 25/25; Phase 4 hosted acceptance; broader fresh held-out work remains |
 | AS-7 | Fresh checkout with documented dependencies and exact setup/run/test/example commands succeeds | Final README reviewed; existing real Docker build and current offline example/checks; no new clean local install claim |
 | AS-8 | Reflection matches PDF format and accurately explains actual design, evidence, limits and tradeoffs | Root REFLECTION.md four-topic/evidence review complete |
-| AS-9 | Exact reviewer accounts have required effective repository access | BLOCKED: API private=false; all 11 effective-access states unverified |
+| AS-9 | Exact reviewer accounts have required effective repository access | UNVERIFIED: operator reports private + all 11 invitations; current API404 cannot independently confirm |
 | AS-10 | PDF-confirmed recipient/deadline/content/links; authorized send and receipt | Pending submission check; no email sent |
 | AS-11 | Five-page PDF reconciliation, 30 unique IDs with page/source and nonempty verification | Complete; absolute receipt/recipient remain open |
 | AS-12 | Each real turn measured including model, query and cleanup; assert <60s | Phase 2 live assertions; no production SLA |
@@ -362,7 +362,7 @@ cache/invalidation/cleanup tests and 191 full offline passes /25 explicit live s
 Old Phase 1–4 real evidence remains unchanged. See PHASE4_LATENCY.md for commands,
 profiling conditions, initial fixture failure and remaining runtime/permission limits.
 
-## Phase 5 final preparation — 2026-10-14 America/New_York
+## Historical Phase 5 preparation snapshot — 2026-10-14 America/New_York
 - AS-7/AS-8: completed README and four-topic Reflection, checked against PDF and source.
 - AS-1/AS-2/AS-5/AS-12/AS-17: fresh external clean Chromium HTTPS 200/login;
   ACS 2020 Autauga 55,639 in 27.0405s; contextual 2019 answer 55,380 in 12.9892s.
@@ -382,3 +382,14 @@ profiling conditions, initial fixture failure and remaining runtime/permission l
   11 reviewers x two turns require44 units if no intervening use. This is not a
   credit/cost guarantee. SHOW monitor returned no visible rows; warehouse monitor
   reported null. Administrator credit/monitor confirmation remains required.
+
+## Final repository freeze verification
+Repeat full offline regression and Ruff checks without new dependencies or live
+model calls; validate manifests/imports/CLI, local Markdown links, complete reachable
+Git history and tracked/nonignored files for high-confidence secret patterns. Audit
+Docker allowlist/COPY sources statically; do not claim a new image build. HTTPS page
+and health endpoint are the only fresh public checks. Preserve the earlier real
+question/follow-up and first-independent19/25 vs reused25/25 regression evidence.
+Results/commands: FINAL_SUBMISSION_AUDIT.md and final_submission_checks/. GitHub SSH
+can verify default branch/pushed revision; it cannot verify privacy/invitations.
+Operator confirmation and unauthenticated404 remain separate evidence types.

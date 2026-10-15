@@ -1,0 +1,43 @@
+{
+  "status": "PASS_STATIC",
+  "allowed_context_files": [
+    "census_agent/__init__.py",
+    "census_agent/__main__.py",
+    "census_agent/agent.py",
+    "census_agent/backend.py",
+    "census_agent/control.py",
+    "census_agent/planning.py",
+    "census_agent/service.py",
+    "census_agent/sql.py",
+    "census_agent/types.py",
+    "census_catalog/__init__.py",
+    "census_catalog/__main__.py",
+    "census_catalog/aggregation.py",
+    "census_catalog/build.py",
+    "census_catalog/catalog.py",
+    "census_catalog/geography.py",
+    "census_web/__init__.py",
+    "census_web/app.py",
+    "census_web/runtime.py",
+    "data/semantic_catalog.json",
+    "deploy/Dockerfile",
+    "deploy/streamlit.toml",
+    "requirements-snowflake.txt",
+    "requirements-web.txt",
+    "scripts/snowflake_probe.py",
+    "web_app.py"
+  ],
+  "copy_sources_validated": [
+    "requirements-web.txt",
+    "requirements-snowflake.txt",
+    "census_agent",
+    "census_catalog",
+    "census_web",
+    "scripts/snowflake_probe.py",
+    "data/semantic_catalog.json",
+    "web_app.py",
+    "deploy/streamlit.toml"
+  ],
+  "unsafe_files": [],
+  "note": "Existing restrictive allowlist plus explicit COPY reviewed; no Docker image rebuild. Historical successful builds remain separate evidence."
+}

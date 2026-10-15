@@ -1,0 +1,7 @@
+{
+  "source_commit": "98fe2ff43f8986b18f9b3004267a297aea36e1bd",
+  "archive_export_without_env_or_untracked_files": true,
+  "dependency_environment": "Existing .venv selected explicitly with PYTHON_BIN; no fresh dependency-install claim. No new dependencies installed.",
+  "verify_exit": 0,
+  "temporary_tree_removed_on_exit": true
+}
