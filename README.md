@@ -134,10 +134,3 @@ nationwide coverage guarantees and non-additive spatial aggregation are not supp
 ACS labels are provider release years; exact survey intervals are unverified. Changes
 between releases are not statistical-significance claims. Missing/suppressed or
 invalid data fail safely. Schema drift requires a reviewed catalog refresh.
-
-Single-host SQLite and one active warehouse lease favor safety over throughput.
-Busy/rate/budget/quarantine responses may require waiting or operator recovery.
-Login/history may reset after a browser reload or service restart. A shared finite
-reviewer budget, temporary sslip.io DNS, Snowflake availability, password-based service
-authentication and inherited privileges remain operational risks. More-time priorities
-are in [REFLECTION.md](REFLECTION.md); no final email has been sent.
